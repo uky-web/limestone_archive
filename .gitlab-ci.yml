@@ -5,6 +5,8 @@ before_script:
   - sed -i 's/git@gitlab.com:newcity/..\/../g' .gitmodules
   - git submodule sync --recursive
   - git submodule update --init --recursive
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$GITHUB_PATTERNLAB_PRIVATE_KEY")
 
 stages:
   - build
