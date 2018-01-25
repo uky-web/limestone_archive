@@ -1,0 +1,103 @@
+
+{% set temp_name = fake('name') %}
+
+{% set temp_num_titles = random(2) + 1 %}
+
+{% set titles = {} %}
+{% for j in 1 .. temp_num_titles %}
+
+	{% set temp_title = {} %}
+
+	{% set temp_title = temp_title|merge({'title_name': fake('bs')|capitalize}) %}
+	{% set temp_title = temp_title|merge({'title_department': random(['Department of ','School of ']) ~ fake('bs')|capitalize}) %}
+
+	{% set titles = titles|merge({(j): temp_title}) %}
+
+{% endfor %}
+
+
+
+{% include 'organisms-main-header' %}
+
+{% include 'organisms-page-header' with {
+	tagline: true
+} %}
+
+{% embed 'molecules-page-section' %}
+
+	{% block page_section_content %}
+
+		{% include 'molecules-breadcrumbs' %}
+
+		{% include 'molecules-person' with {
+				name: temp_name,
+				linked: false,
+				titles: titles,
+				hide_email: true
+			} %}
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+
+
+	{% endblock %}
+
+	{% block page_section_sidebar %}
+
+		{% embed 'organisms-callout' with {
+			headline: 'Contact ' ~ temp_name,
+			callout_style_modifier: 'light'
+		} %}
+
+			{% block callout_content %}
+				<dl>
+					<dt>Phone</dt>
+					<dd>
+						(123) 456-7890
+					</dd>
+
+					<dt>Email</dt>
+					<dd>
+						<a href="#">{{ temp_name }}@uky.edu</a>
+					</dd>
+
+					<dt>Address</dt>
+					<dd>
+						123 Fake Street, Lexington, KY 40506
+					</dd>
+				</dl>
+			{% endblock %}
+
+		{% endembed %}
+
+		{% embed 'organisms-callout' with {
+			headline: 'Education',
+			callout_style_modifier: 'light'
+		} %}
+
+			{% block callout_content %}
+
+				<dl>
+					<dt>BS, Field, 2007</dt>
+					<dd>College University</dd>
+
+					<dt>MS, Another Field, 2009</dt>
+					<dd>College University</dd>
+				</dl>
+			{% endblock %}
+
+		{% endembed %}
+
+	{% endblock %}
+
+{% endembed %}
+
+
+
+{% include 'organisms-footer' %}

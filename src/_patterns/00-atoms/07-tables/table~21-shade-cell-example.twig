@@ -1,0 +1,40 @@
+{% set columns = 5 %}
+{% set rows = 1 %}
+{% set numberColumn = random(columns - 1) + 1 %}
+<table class="basic-table {{ table_style_modifier|default('content-table') }}">
+{# 	<thead class="basic-table__head">
+		<tr>
+			{% for i in 0 .. columns %}
+		<th {% if i == numberColumn %}class="align-right"{% endif %}>{{ fake('words',{ nbWords: 1 + random(2), asText: true })|titleize }}</th>
+			{% endfor %}
+		</tr>
+	</thead> #}
+	<tbody class="basic-table__body">
+		<tr>
+			<th>
+				{{ fake('sentence')}}
+			</th>
+			<td class="shade-cell">
+				Use .shade-cell to shade a specific cell.
+			</td>
+			{% for i in 0 .. (columns - 2) %}
+				<td>{{ random(20000) }}</td>
+			{% endfor %}
+		</tr>
+		{% for i in 0 .. rows %}
+			<tr>
+				{% for i in 0 .. columns %}
+					{% if loop.first %}
+					<th>{{ fake('words',{ nbWords: 1 + random(2), asText: true })|titleize }}</th>
+					{% else %}
+						{% if i == numberColumn %}
+							<td class="align-right">{{ random(20000) }}</td>
+						{% else %}
+							<td {% if i == numberColumn %}class="align-right"{% endif %}>{{ fake('sentence')}}</td>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

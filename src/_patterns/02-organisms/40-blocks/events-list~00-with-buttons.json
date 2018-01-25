@@ -1,0 +1,15 @@
+{
+	"buttons" : [ 
+		{
+			"button_text": "Button"
+		},
+		{
+			"button_text": "Another Button",
+			"button_style": "accent"
+		},
+		{
+			"button_text": "So Many Buttons",
+			"button_style": "tertiary"
+		}
+	]
+}

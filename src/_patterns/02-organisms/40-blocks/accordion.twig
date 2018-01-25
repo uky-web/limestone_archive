@@ -1,0 +1,36 @@
+
+<div class="accordion">
+
+	{% for j in 0..5 %}
+	<div class="accordion-group">
+		<a href="#" class="accordion-header">
+			<h2>
+				<div class="action-icons">
+					<span class="icon-plus">{% include 'atoms-icon' with { icon: 'plus', icon_alt: 'Toggle Pane' }%}</span>
+					<span class="icon-minus">{% include 'atoms-icon' with { icon: 'minus', icon_alt: 'Toggle Pane' }%}</span>
+				</div>
+				Accordion Header
+			</h2>
+			<div class="descriptive-icon">
+				{% include 'atoms-icon' with { icon: icon|default('users') }%}
+			</div>
+		</a>
+		<div class="accordion-content">
+			<ul>
+				<li>
+					<a href="#">{{ fake('bs')|capitalize }}</a>
+					<ul>
+						{% for i in 0..2 %}
+							<li><a href="#">{{ fake('bs')|capitalize }}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li><a href="#">{{ fake('bs')|capitalize }}</a></li>
+				<li><a href="#">{{ fake('bs')|capitalize }}</a></li>
+				<li><a href="#">{{ fake('bs')|capitalize }}</a></li>
+			</ul>
+		</div>
+	</div>
+	{% endfor %}
+
+</div>

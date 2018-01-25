@@ -1,0 +1,21 @@
+<div class="unit-nav">
+	<nav>
+		<ul>
+			<li><a href="#" class="is-active">Resources for Researchers</a></li>
+			<li><a href="#">Corporate Partners</a></li>
+			<li class="has-dropdown">
+				<button>
+					Participate in Research
+					{% include 'atoms-icon' with { icon: 'chevron-right', icon_alt: 'Toggle Menu' } %}
+				</button>
+				<ul class="dropdown">
+					{% for i in 1..4 %}
+						<li><a href="#">{{ fake('bs')|capitalize }}</a></li>
+					{% endfor %}
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+

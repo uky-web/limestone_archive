@@ -1,0 +1,47 @@
+{% if tagline %}
+	{% set hero_modifier = hero_modifier ~ ' has-tagline' %}
+{% endif %}
+
+{% if news_hero %}
+	{% set hero_modifier = hero_modifier ~ ' has-news' %}
+{% endif %}
+
+<div class="hero {{ hero_modifier }}">
+
+	{% if tagline %}
+		{% include 'atoms-tagline' %}
+	{% endif %}
+
+	<div class="hero-wrapper">
+		{% if news_hero %}
+
+			<div class="shield-icon">{{ svg.ref('podcast','podcast','podcast') }}</div>
+
+			{% include 'molecules-news-teaser' with {
+				show_thumbnail: true,
+				show_meta: false,
+				show_button: true
+			} %}
+
+		{% else %}
+
+			<div class="hero-body">
+				{% include 'molecules-headline-group' %}
+				<p>{{ fake('paragraph') }}</p>
+				{% include 'atoms-button' with {
+					label: 'About Us'
+				} %}
+			</div>
+
+			{% if image %}
+				<div class="hero-image">
+					{% include 'atoms-image' %}
+				</div>
+			{% endif %}
+
+
+		{% endif %}
+	</div>
+
+	<div class="background-image"></div>
+</div>

@@ -1,0 +1,15 @@
+
+
+<div class="announcements {{ announcements_modifier }}">
+
+	{% include 'molecules-headline-group' with {
+		headline: 'Annoucements'
+	} %}
+
+	{% include 'molecules-rich-list' %}
+
+	{% if buttons %}
+		{% include 'molecules-button-group' %}
+	{% endif %}
+
+</div>

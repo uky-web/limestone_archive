@@ -1,0 +1,51 @@
+---
+image: newcity/builder:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - combine
+  - deploy
+
+compile:assets:
+  stage: build
+  script:
+    - cp docker/taskrunner/* .
+    - npm install
+    - gulp build-all
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 week
+  only:
+     - master
+
+generate:patternlab:
+  image: newcity/pl-bash:latest
+  stage: combine
+  script:
+    - mv /pl pl
+    - rm -rf pl/source/*
+    - cp -R dist/* pl/source/
+    - cp -R src/* pl/source/
+    - cd pl && php core/console --generate
+  artifacts:
+    paths:
+      - dist
+      - pl/public
+    expire_in: 1 week
+  only:
+     - master
+
+pages:
+  stage: deploy
+  script:
+    - rm -rf public
+    - mv pl/public public
+  artifacts:
+    paths:
+      - public
+  only:
+     - master

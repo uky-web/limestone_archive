@@ -1,0 +1,13 @@
+
+
+<div class="aside">
+	{% include 'atoms-heading' with {
+		level: 4,
+		label: headline
+	} %}
+
+	{% block aside_content %}
+		{% include 'atoms-paragraph' %}
+	{% endblock %}
+
+</div>

@@ -1,0 +1,25 @@
+
+{% if button is same as(true) %}
+	{% set button = 'Button' %}
+{% endif %}
+
+<div class="stats-list">
+	{% include 'molecules-headline-group' with {
+		headline: 'By the Numbers',
+		style_modifier: 'section-title rainbow4'
+	} %}
+
+	<div class="blocks">
+	{% for icon in ['petri-dish','microscope','chart'] %}
+		{% include 'molecules-stats-block' with {
+			icon: icon
+		} %}
+	{% endfor %}
+	</div>
+
+	{% if button %}
+		{% include 'molecules-button-group' with {
+			buttons: buttons
+		} %}
+	{% endif %}
+</div>

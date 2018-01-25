@@ -1,0 +1,20 @@
+<div class="filters">
+	<h3>Filter</h3>
+	<form>
+		{% for i in 0..2 %}
+		<label>Filter Title</label>
+		<select>
+			<option>Option</option>
+			<option>Option</option>
+			<option>Option</option>
+		</select>
+	{% endfor %}
+
+	<div class="button-wrapper">
+		{% include 'atoms-button' with {
+			button_style: "submit",
+			label: "Apply"
+		} %}
+	</div>
+	</form>
+</div>

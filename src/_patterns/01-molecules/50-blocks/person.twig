@@ -1,0 +1,56 @@
+
+{% if titles is null %}
+	{% set titles = [
+		{
+			title_name: "Sample Title for This Person",
+			title_department: "Department of Sample Departments"
+		} ] %}
+{% endif %}
+
+<div class="person">
+	<div class="headshot">
+		{% if linked %}<a href="#">{% endif %}
+			{% if no_photo %}
+				<img src="/images/no-photo-avatar.svg" alt="{{ name }}" />
+			{% else %}	
+				{% include 'atoms-image'with { width: 800, height: 800 } %}
+			{% endif %}
+		{% if linked %}</a>{% endif %}
+	</div>
+
+	<div class="person-details">
+
+		{% include 'molecules-headline-group' with {
+			linked: linked,
+			headline: name|default(fake('name'))
+		} %}
+
+		<div class="titles">
+			<ul>
+				{% for title in titles %}
+				<li>
+					<span class="title-name">{{ title.title_name }}</span>
+					{% if title.title_department %}<span class="title-department">{{ title.title_department }}</span>{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+
+{# 		{% if links or not hide_email %}
+		<div class="links">
+			<ul>
+				{% if not hide_email %}
+					<li><a href="#">{{ email|default('emailaddress@uky.edu') }}</a></li>
+				{% endif %}
+				{% for link in links %}
+					<li>
+						<a href="#">{{ link.text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %} #}
+
+	</div>
+</div>

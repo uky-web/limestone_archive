@@ -1,0 +1,34 @@
+
+
+<div class="callout large-feature">
+	
+	<div class="callout-headline-wrapper">
+		{{ svg.ref('lightbulb') }}
+		{% include 'molecules-headline-group' with {
+			level: 2,
+			headline: 'Join us in research and discovery.',
+			superhead: 'You can make a difference.'
+		} %}
+	</div>
+
+	<div class="callout-content">
+		{% block callout_content %}
+			{% for i in 0..1 %}
+				<p>{{ fake('sentences',{nb:6,asText:true}) }}</p>
+			{% endfor %}
+		{% endblock %}
+	</div>
+
+	{% block callout_images %}
+		<div class="callout-images">
+			<ul>
+				{% for i in 0..2 %}
+					<li>
+						{% include 'atoms-image'with { width: 800, height: 450 } %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endblock %}
+
+</div>

@@ -1,0 +1,52 @@
+{% include 'organisms-main-header' %}
+
+{% include 'organisms-page-header' with {
+	title: "News",
+	tagline: "by telling the stories behind our research"
+} %}
+
+
+{% embed 'molecules-page-section' with {
+	page_section_modifier: 'narrow-sidebar'
+	} %}
+
+	{% block page_section_content %}
+
+		{% include 'molecules-breadcrumbs' %}
+
+
+		{% include 'organisms-news-story' with {
+			show_related_stories: false
+		} %}
+
+
+
+	{% endblock %}
+
+	{% block page_section_sidebar %}
+
+		{% include 'organisms-news-collection' with {
+			collection_headline: "You may also like...",
+			news_collection_modifier: 'narrow',
+			show_story_thumbnails: true,
+			show_story_summaries: false,
+			show_story_meta: true,
+			story_media_type_randomize: true,
+			num_stories: 3
+			} 
+		%}
+
+
+
+		{% include 'organisms-social-callout' with {
+			social_superhead: 'Stay up to date',
+			social_headline: 'The latest in research at the University of Kentucky'
+		}%}
+
+
+	{% endblock %}
+
+{% endembed %}
+
+
+{% include 'organisms-footer' %}

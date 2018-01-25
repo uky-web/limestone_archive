@@ -1,0 +1,15 @@
+{
+	"buttons" : [ 
+		{
+			"button_text": "You can have"
+		},
+		{
+			"button_text": "As many buttons",
+			"button_style": "accent"
+		},
+		{
+			"button_text": "As you need",
+			"button_style": "tertiary"
+		}
+	]
+}

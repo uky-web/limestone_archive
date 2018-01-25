@@ -1,0 +1,22 @@
+{
+	"news_collection_modifier": "feature-list",
+	"collection_headline": "Feature List",
+	"collection_headline_modifier": "section-title",
+	"secondary_headline": "Secondary Headline",
+	"feature_story": [
+		{
+			"show_story_thumbnail": true,
+			"show_story_meta": true
+		}],
+	"story_media_type_randomize": true,
+	"story_show_large_media_icon": true,
+	"buttons": [
+		{
+			"button_text": "Button"
+		},
+		{
+			"button_text": "Another Button",
+			"button_style": "accent"
+		}
+	]
+}

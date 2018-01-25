@@ -1,0 +1,32 @@
+{% include 'organisms-main-header' %}
+
+{% include 'organisms-page-header' with {
+	tagline: true
+} %}
+
+{% embed 'molecules-page-section' %}
+
+	{% block page_section_content %}
+
+		{% include 'molecules-breadcrumbs' %}
+
+		{% include 'molecules-page-title' %}
+
+
+        {% include 'templates-form' %}
+
+
+
+	{% endblock %}
+
+	{% block page_section_sidebar %}
+
+		<h4>This is a possibly-not-needed sidebar</h4>
+
+	{% endblock %}
+
+{% endembed %}
+
+
+
+{% include 'organisms-footer' %}

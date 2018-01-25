@@ -1,0 +1,10 @@
+<nav class="breadcrumbs">
+	<ul>
+	{% for i in 1..4 %}
+		<li>
+			{% include 'atoms-link' with {label: fake('words',{nb:2,asText:true})|capitalize }%}
+			{% include 'atoms-icon' with {icon: 'angle-double-right'} %}
+		</li>
+	{% endfor %}
+	</ul>
+</nav>

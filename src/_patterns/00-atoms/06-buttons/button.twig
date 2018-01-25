@@ -1,0 +1,18 @@
+{% if standalone is sameas(true) %}<div class="sg-standalone" style="padding: 20px; {% if standalone_dark %}background-color: #000;{% endif %}">{% endif %}
+
+{% if button_style is empty %}
+	{% set button_style = "link" %}
+{% endif %}
+
+{% if button_style == "link"  %}
+	<a href="{{ url|default('http://www.example.com/') }}" role="button" class="button {{ style_modifier }}">{% block content_button_link %}{{ label|default(fake('bs')) }}{% endblock %}</a>
+{% elseif button_style == "button" %}
+	<button class="{{ style_modifier }}">{% block content_button_button %}{{ label|default(fake('bs')) }}{% endblock %}</button>
+{% elseif button_style == "input" %}
+	<input type="button" value="{{ label|default(fake('bs')) }}" class="button {{ style_modifier }}" />
+{% elseif button_style == "submit" %}
+	<input type="submit" value="{{ label|default(fake('bs')) }}" class="button {{ style_modifier }}" />
+{% elseif button_style == "reset" %}
+	<input type="reset" value="{{ label|default(fake('bs')) }}" class="button {{ style_modifier }}" />
+{% endif %}
+{% if standalone is sameas(true) %}</div>{% endif %}

@@ -1,0 +1,29 @@
+{% if exposed %}
+	{% set toggler_style_modifier = toggler_style_modifier ~ ' exposed' %}
+{% endif %}
+
+
+<div class="toggle-content {{ toggler_style_modifier }}">
+	{% embed 'atoms-button' with {
+		label: "Show Transcript",
+		button_style: 'button',
+		url: '#'
+	} %}
+
+	{% block content_button_button %}
+		<span class="content-visible-text">Hide Transcript</span>
+		<span class="content-hidden-text">Show Transcript</span>
+	{% endblock %}
+
+	{% endembed %}
+
+	<div class="to-toggle">
+		{% if exposed %}
+			<p>This is toggleable content that is visible by default.</p>
+		{% else %}
+			<p>This is toggleable content that is hidden by default.</p>
+		{% endif %}
+		<p>{{ fake('sentences',{nb:8,asText:true}) }}</p>
+		<p>{{ fake('sentences',{nb:8,asText:true}) }}</p>
+	</div>
+</div>

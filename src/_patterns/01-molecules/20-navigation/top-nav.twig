@@ -1,0 +1,22 @@
+<div class="top-nav">
+	<div>
+		<nav>
+			<ul>
+				<li class="has-dropdown">
+					<button>
+						Offices
+						{% include 'atoms-icon' with { icon: 'chevron-right', icon_alt: 'Toggle Menu' } %}
+					</button>
+					<ul class="dropdown">
+						{% for i in 1..4 %}
+							<li><a href="#">{{ fake('bs')|capitalize }}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li><a href="#">Centers &amp; Institutes</a></li>
+				<li><a href="#" class="is-active">Core Facilities</a></li>
+				<li><a href="#">News</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="unit-nav">
+	<nav>
+		<ul>
+			<li><a href="#" class="unit-home">
+				{{ svg.ref('home','Subsection Home','home') }}
+				<span class="sr-only">Subsection Home</span>
+			</a></li>
+			{% for i in 1..3 %}
+				<li><a href="#">Custom Link {{ i }}</a></li>
+			{% endfor %}
+			<li><a href="#">About</a></li>
+			<li><a href="#">Announcements</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+</div>
+
+

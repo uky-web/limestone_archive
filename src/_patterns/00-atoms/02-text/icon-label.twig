@@ -1,0 +1,15 @@
+{% if url is not empty %}
+	<a href="{{ url }}" class="icon-label {{ label_modifier }}">
+{% else %}
+	<div class="icon-label {{ label_modifier }}">
+{% endif %}
+
+
+	<div class="icon-wrapper">{{ svg.ref(icon|default('angle-double-right'), title_text, "icon") }}</div>
+	<div class="label {% if hide_label %}show-for-sr{% endif %}">{{ label|default(fake('bs')) }}</div>
+
+	{% if url is not empty %}
+		</a>
+	{% else %}
+</div>
+	{% endif %}

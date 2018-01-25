@@ -1,0 +1,69 @@
+
+{% if people is null %}
+	{% set randomize = true %}
+{% endif %}
+
+
+{% if randomize %}
+
+	{% set num_people = random(8) %}
+	{% set num_people = num_people + 5 %}
+
+	{% set people = {} %}
+
+	{% for i in 1 .. num_people %}
+
+
+		{% set temp_person = {} %}
+
+		{% set temp_name = fake('name') %}
+		{% set temp_linked = random([true, false]) %}
+		{% set temp_num_titles = random(2) + 1 %}
+		{# {% set show_bio_link = random([true, false]) %} #}
+		{% set temp_no_photo = random([true, false]) %}
+
+
+		{% set titles = {} %}
+		{% for j in 1 .. temp_num_titles %}
+
+			{% set temp_title = {} %}
+
+			{% set temp_title = temp_title|merge({'title_name': fake('bs')|capitalize}) %}
+			{% set temp_title = temp_title|merge({'title_department': random(['Department of ','School of ']) ~ fake('bs')|capitalize}) %}
+
+			{% set titles = titles|merge({(j): temp_title}) %}
+
+		{% endfor %}
+
+
+
+		{% set temp_person = temp_person|merge({'name': temp_name}) %}
+		{% set temp_person = temp_person|merge({'linked': temp_linked}) %}
+		{% set temp_person = temp_person|merge({'titles': titles}) %}
+		{# {% set temp_person = temp_person|merge({'links': links}) %} #}
+		{% set temp_person = temp_person|merge({'no_photo': temp_no_photo}) %}
+
+
+		{% set people = people|merge({(i): temp_person}) %}
+
+
+	{% endfor %}
+
+
+{% endif %}
+
+<div class="people-list">
+	<ul>
+		{% for person in people %}
+			<li>
+				{% include 'molecules-person' with {
+					name: person.name,
+					linked: person.linked,
+					titles: person.titles,
+					links: person.links,
+					no_photo: person.no_photo
+				} %}
+			</li>
+		{% endfor %}
+	</ul>
+</div>

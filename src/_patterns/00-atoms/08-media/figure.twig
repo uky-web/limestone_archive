@@ -1,0 +1,14 @@
+<figure>
+	{% block figure_media %}
+		{% include 'atoms-image' %}
+	{% endblock %}
+	{% if show_caption %}
+		<figcaption>
+			{% if show_credit %}
+				{% include 'atoms-media-caption' with { show_credit: true } %}
+			{% else %}
+				{% include 'atoms-media-caption' %}
+			{% endif %}
+		</figcaption>
+	{% endif %}
+</figure>

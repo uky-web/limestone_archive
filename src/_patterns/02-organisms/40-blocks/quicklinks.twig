@@ -1,0 +1,20 @@
+
+
+<div class="quicklinks {{ quicklinks_modifier }}">
+
+	{% include 'molecules-headline-group' with {
+		headline: 'Quicklinks',
+		level: 3
+	} %}
+
+	<div class="rich-list">
+		<ul>
+			{% for i in 0..4 %}
+				<li>
+					<a href="#">{{ fake('words',{nb:3,asText:true})|capitalize }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+</div>
