@@ -14,7 +14,7 @@ clone:
 	git config --global user.name "CI Bot"
 
 replay:
-	rsync -av --exclude .git pl/public/ $(BUILD_REPO)
+	rsync -av --delete --exclude .git pl/public/ $(BUILD_REPO)/docs/
 
 push:
 	cd $(BUILD_REPO) && git add . && git commit -m "$(COMMIT_MESSAGE)" && git push origin master
