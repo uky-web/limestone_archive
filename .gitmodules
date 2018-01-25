@@ -1,3 +1,6 @@
 [submodule "assets"]
 	path = assets
 	url = git@gitlab.com:newcity/uk-d8/assets.git
+[submodule "docker"]
+	path = docker
+	url = git@gitlab.com:newcity/uk-d8/docker-config.git
