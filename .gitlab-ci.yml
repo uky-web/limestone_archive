@@ -41,13 +41,12 @@ generate:patternlab:
   only:
      - master
 
-pages:
+push:
   stage: deploy
   script:
-    - rm -rf public
-    - mv pl/public public
-  artifacts:
-    paths:
-      - public
+    - make init
+    - make clone
+    - make replay
+    - make push
   only:
      - master
