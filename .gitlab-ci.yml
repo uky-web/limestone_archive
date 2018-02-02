@@ -2,6 +2,7 @@
 image: newcity/builder:latest
 
 before_script:
+  # make all submodule references relative and bring them up to date
   - sed -i 's/git@gitlab.com:newcity/..\/../g' .gitmodules
   - git submodule sync --recursive
   - git submodule update --init --recursive
@@ -46,6 +47,7 @@ generate:patternlab:
 push:
   stage: deploy
   script:
+    - cp docker/pl/Makefile .
     - make init
     - make clone
     - make replay
