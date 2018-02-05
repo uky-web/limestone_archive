@@ -1,0 +1,80 @@
+.block-ukr-main-menu {
+    a {
+        @extend .inverted;
+    }
+}
+
+// the logged in tabs
+#block-ukr-local-tasks {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 999;
+    ul {
+        @extend .strip-list;
+        li {
+            display: inline-block;
+            margin-left: 1rem;
+        }
+    }
+    a {
+        color: $white;
+    }
+}
+
+.page-section__content-suffix {
+    .social-callout {
+        @extend .wide-layout;
+    }
+}
+
+.page-section__sidebar {
+    .event-detail {
+        .field {
+            @extend .event-detail__item;
+        }
+        .field__label {
+            @extend .event-detail__label;
+        }
+    }
+}
+
+.toolbar-menu {
+    li {
+        margin-bottom: 0;
+    }
+}
+
+.fullcalendar {
+    a.fc-event {
+        color: #fff;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .fc-day-top.fc-other-month {
+        opacity: .6;
+    }
+}
+
+.news-story-video {
+    .field {
+        text-align: center;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .embedded-entity {
+        &.align-left,
+        &.align-right {
+            max-width: 50%;
+            margin-bottom: 1rem;
+        }
+        &.align-left {
+            margin-right: 1.5rem;
+        }
+        &.align-right {
+            margin-left: 1.5rem;
+        }
+    }
+}

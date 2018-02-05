@@ -1,0 +1,29 @@
+.quicklinks {
+	margin-bottom: rem-calc(60);
+
+	.headline-group {
+		.head {
+			text-transform: uppercase;
+		}
+	}
+
+	.rich-list {
+		ul {
+			// padding-left: rem-calc(40);
+			padding-left: 0;
+			li {
+				font-size: rem-calc(20);
+				padding: rem-calc(20) 0 rem-calc(20) rem-calc(40);
+				border-bottom: $border-hairline $color-shade-lighter solid;
+				margin-bottom: 0;
+				&:before {
+					top: rem-calc(22);
+					left: rem-calc(10);
+				}
+				a {
+					// 
+				}
+			}
+		}
+	}
+}

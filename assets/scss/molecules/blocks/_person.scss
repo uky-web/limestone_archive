@@ -1,0 +1,84 @@
+.person {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-bottom: rem-calc(50);
+	.headshot,
+	.person-details {
+		// width: 50%;
+	}
+
+	.headshot {
+		padding-right: rem-calc(20);
+		width: 30%;
+		@include media-breakpoint-down(xs) {
+			order: 2;
+			width: 100%;
+			padding: 0;
+		}
+		img {
+			// 
+		}
+	}
+
+	.person-details {
+		width: 70%;
+		@include media-breakpoint-down(xs) {
+			order: 1;
+			width: 100%;
+		}
+
+		.headline-group {
+			@extend .lined;
+			@extend .rainbow3;
+			margin-bottom: rem-calc(30);
+			.head {
+				font-family: $font-secondary;
+				font-size: rem-calc(30);
+				@include media-breakpoint-down(sm) {
+					font-size: rem-calc(30);
+				}
+			}
+			&:after {
+				margin-top: rem-calc(8);
+				width: 60%;
+			}
+		}
+
+		.titles ul,
+		.links ul {
+			@include strip-list;
+		}
+
+		.titles {
+			ul {
+				margin-bottom: rem-calc(20);
+				li {
+					font-size: rem-calc(20);
+					margin-bottom: rem-calc(20);
+					span {
+						display: block;
+						&.title-name {
+							font-weight: $weight-black;
+						}
+						&.title-department {
+							font-weight: $weight-light;
+						}
+					}
+				}
+			}
+		}
+
+		.links {
+			ul {
+				li {
+					margin-bottom: rem-calc(10);
+					font-size: rem-calc(18);
+					a {
+						// 
+					}
+				}
+			}
+		}
+	}
+}

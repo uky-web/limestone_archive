@@ -1,0 +1,16 @@
+.callout--simple {
+    border: $color-quaternary 3px solid;
+
+    padding: 0;
+
+    .callout-body {
+        padding: 1rem;
+        text-align: center;
+    }
+    .image {
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}

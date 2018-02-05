@@ -1,0 +1,39 @@
+form {
+    .form-item {
+        margin-bottom: rem-calc(40);
+        .form-item {
+            margin-bottom: rem-calc(20);
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+    }
+
+    .form-checkboxes {
+        label {
+            font-weight: normal;
+            display: inline;
+        }
+    }
+
+    .form-text,
+    .form-email,
+    .form-tel,
+    .form-url,
+    .form-time,
+    .form-select {
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+    textarea {
+        border-color: $color-shade-lighter;
+    }
+
+    input[type="reset"],
+    input[value="reset"],
+    input[value="Reset"] {
+        @extend .button.accent;
+    }
+}

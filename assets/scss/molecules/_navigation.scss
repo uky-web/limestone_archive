@@ -1,0 +1,107 @@
+@import "navigation/breadcrumbs";
+@import "navigation/utility-nav";
+@import "navigation/unit-nav";
+@import "navigation/search-bar";
+@import "navigation/button-group";
+@import "navigation/pagination";
+@import "navigation/filters";
+@import "navigation/sticky-nav";
+
+
+// match all the nav item fonts/dropdowns/whatever
+.top-nav,
+.unit-nav {
+	nav {
+		ul {
+			@extend .strip-list;
+			display: flex;
+			@include media-breakpoint-down(sm) {
+				flex-flow: row wrap;
+				// display: block;
+			}
+			li {
+				font-size: rem-calc(18);
+				position: relative;
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+				&.has-dropdown {
+					button {
+						.icon-wrapper {
+							transition: transform 0.2s;
+							transform: rotate(90deg);
+							width: 18px;
+							height: 18px;
+							margin: auto;
+							position: absolute;
+							right: 0;
+							top: 2px;
+							bottom: 0;
+							@include media-breakpoint-down(sm) {
+								bottom: auto;
+								top: 14px;
+							}
+							svg {
+								max-width: 100%;
+								max-height: 100%;
+							}
+						}
+					}
+					&.open {
+						button {
+							border-bottom: 0;
+							.icon-wrapper {
+								transform: rotate(-90deg);
+							}
+						}
+					}
+				}
+				a, button {
+					display: block;
+					padding-right: rem-calc(20);
+					padding-left: rem-calc(20);
+					@include media-breakpoint-down(sm) {
+						width: 100%;
+						text-align: left;
+						padding: rem-calc(10) rem-calc(20);
+						border-bottom: $border-hairline rgba(#000, 0.3) solid;
+					}
+				}
+				ul.dropdown {
+					display: none;
+					position: absolute;
+					z-index: $zindex-dropdown;
+					left: 0;
+					margin: 0;
+					padding: 0;
+					@include media-breakpoint-down(sm) {
+						position: static;
+						// display: block;
+					}
+					@include media-breakpoint-up(md) {
+						width: rem-calc(350);
+					}
+					li {
+						display: block;
+						margin: 0;
+						a, button {
+							border-bottom: 0;
+							text-align: left;
+						}
+					}
+				}
+				&:last-child {
+					ul.dropdown {
+						@include media-breakpoint-down(lg) {
+							right: 0;
+							left: auto;
+						}
+					}
+				}
+			}
+		}
+	}
+}

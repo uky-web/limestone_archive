@@ -1,0 +1,17 @@
+.callout.wide-layout {
+	@include media-breakpoint-up(lg) {
+		display: flex;
+		align-items: center;
+		.callout-body {
+			width: 70%;
+			padding-right: rem-calc(40);
+		}
+		.action-link {
+			width: 30%;
+			.button,
+			button {
+				display: block;
+			}
+		}
+	}
+}

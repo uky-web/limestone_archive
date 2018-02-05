@@ -1,0 +1,50 @@
+@mixin content_container {
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 100%;
+
+	@include media-breakpoint-up(lg) {
+		max-width: $max-width;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	@include media-breakpoint-up(74em) {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	// this style is obsolete.
+	.max-page-width {
+		background-color: red !important;
+	}
+}
+
+@mixin spread_layout {
+	.left,
+	.right {
+		display: block;
+	}
+
+	@include media-breakpoint-up(md) {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		.left,
+		.right {
+			width: 100%;
+			flex: 1 1 auto;
+		}
+
+		.left {
+			margin-right: rem-calc(8);
+		}
+
+		.right {
+			margin-left: rem-calc(8);
+			text-align: right;
+		}
+	}
+}

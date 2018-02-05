@@ -1,0 +1,82 @@
+.headline-group {
+	// margin: 0.5rem;
+	// margin-top: 0;
+
+	.head {
+		// vertical-align: bottom;
+		// line-height: 1;
+	}
+
+	.superhead,
+	.subhead {
+		// @include fontstyle('h6');
+		// text-transform: uppercase;
+		display: block;
+		color: $color-text;
+		font-family: $font-secondary;
+		font-size: rem-calc(24);
+		font-weight: normal;
+	}
+
+	&.lined {
+		position: relative;
+		margin-bottom: rem-calc(60);
+		&:after {
+			display: block;
+			content: '';
+			height: 3px;
+			width: 60%;
+			background: $rainbow1;
+			margin-top: rem-calc(30);
+			@include media-breakpoint-up(md) {
+				// width: rem-calc(350);
+				width: 350px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin-top: rem-calc(20);
+			}
+		}
+		&.rainbow2 {
+			&:after {
+				background: $rainbow2;
+			}
+		}
+		&.rainbow3 {
+			&:after {
+				background: $rainbow3;
+			}
+		}
+		&.rainbow4 {
+			&:after {
+				background: $rainbow4;
+			}
+		}
+	}
+
+	&.titled {
+		.head {
+			text-transform: uppercase;
+		}
+	}
+
+	&.section-title {
+		@extend .lined;
+		@extend .titled;
+		text-align: center;
+		&:after {
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	&.headline-group-level-2 {
+		@extend h2;
+	}
+	&.headline-group-level-3 {
+		@extend h3;
+	}
+	&.headline-group-level-4 {
+		@extend h4;
+	}
+}

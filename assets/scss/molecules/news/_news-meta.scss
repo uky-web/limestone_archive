@@ -1,0 +1,36 @@
+.news-meta {
+	ul {
+		display: flex;
+		align-items: center;
+		@include strip-list;
+		@include media-breakpoint-down(xs) {
+			display: block;
+		}
+		li {
+			@include fontstyle('meta');
+			padding-right: rem-calc(10);
+			&:after {
+				content: '';
+				display: inline-block;
+				width: 1px;
+				background: $color-shade-light;
+				height: rem-calc(10);
+				margin-left: rem-calc(10);
+				@include media-breakpoint-down(xs) {
+					display: none;
+				}
+			}
+			&:last-child,
+			&.media-type-icon {
+				&:after {
+					display: none;
+				}
+			}
+			&.media-type-icon {
+				@include media-breakpoint-down(xs) {
+					float: left;
+				}
+			}
+		}
+	}
+}

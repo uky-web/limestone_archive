@@ -1,0 +1,58 @@
+.event {
+	display: flex;
+	@include media-breakpoint-down(xs) {
+		align-items: flex-start;
+	}
+	.datebox {
+		background-color: $color-primary;
+		color: #fff;
+		text-align: center;
+		min-width: rem-calc(100);
+		max-height: rem-calc(120);
+		width: rem-calc(100);
+		height: rem-calc(120);
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		margin-right: rem-calc(30);
+		@include media-breakpoint-down(xs) {
+			min-width: auto;
+			min-height: auto;
+			width: auto;
+			height: auto;
+			display: inline-block;
+			margin-right: rem-calc(16);
+			padding: rem-calc(10) rem-calc(20);
+		}
+		.month {
+			text-transform: uppercase;
+			font-weight: $weight-black;
+			font-size: rem-calc(14);
+			@include media-breakpoint-down(xs) {
+				font-size: rem-calc(10);
+			}
+		}
+		.date {
+			font-family: $font-secondary;
+			font-size: rem-calc(40);
+			@include media-breakpoint-down(xs) {
+				font-size: rem-calc(20);
+			}
+		}
+	}
+	.event-details {
+		.event-category,
+		.event-time {
+			@include fontstyle('meta');
+		}
+		.event-name {
+			font-family: $font-secondary;
+			font-size: rem-calc(24);
+			font-weight: $weight-black;
+		}
+		.event-location {
+			font-family: $font-secondary;
+			font-size: rem-calc(18);
+		}
+	}
+}

@@ -1,0 +1,34 @@
+.stats-block {
+	background: $color-secondary;
+	border: $dark-stroke $border-medium solid;
+	padding: rem-calc(20);
+	color: #fff;
+	text-align: center;
+	.headline-group {
+		margin-bottom: rem-calc(30);
+		.superhead,
+		.subhead {
+			color: #fff;
+			font-size: rem-calc(18);
+			font-family: $font-primary;
+			font-weight: $weight-black;
+			line-height: 0;
+		}
+		.head {
+			font-size: rem-calc(50);
+		}
+	}
+	.stat-text {
+		p {
+			font-family: $font-primary;
+			font-size: rem-calc(20);
+			line-height: rem-calc(24);
+		}
+	}
+	&.shield {
+		@include shield($dark-stroke, 'center');
+		.headline-group {
+			margin-top: rem-calc(-20);
+		}
+	}
+}

@@ -1,0 +1,57 @@
+.button {
+	display: inline-block;
+	cursor: pointer;
+	padding: rem-calc(10 40);
+
+	color: #fff;
+	font-size: rem-calc(18);
+	// text-transform: uppercase;
+	// font-weight: $weight-black;
+	text-align: center;
+
+	border: rem-calc(4) solid rgba(#000, 0.2);
+	transition: background-color $transition-time;
+	background-color: darken($color-quaternary, 7%);
+	&:link,
+	&:visited {
+		color: #fff;
+	}
+	&:hover,
+	&:active {
+		background-color: lighten($color-quaternary, 0%);
+	}
+
+	.arrow {
+		display: inline-block;
+		margin-right: 0.3em;
+		font-family: arial, helvetica, sans-serif;
+	}
+
+	&.accent {
+		background-color: $color-accent-primary;
+		&:hover,
+		&:active {
+			background-color: lighten($color-accent-primary, 10%);
+		}
+	}
+
+	&.tertiary {
+		background-color: $color-accent-tertiary;
+		&:hover,
+		&:active {
+			background-color: lighten($color-accent-tertiary, 10%);
+		}
+	}
+
+	&.button-ghost {
+		padding: rem-calc(10 18);
+		border: 2px $color-link solid;
+		background-color: $white;
+		color: $color-link;
+
+		.arrow {
+			color: $color-quaternary;
+		}
+	}
+}
+

@@ -1,0 +1,13 @@
+.event-detail {
+	border: $border-medium $color-shade-lightest solid;
+	padding: rem-calc(30);
+	margin-bottom: rem-calc(60);
+}
+
+.event-detail__item {
+	margin-bottom: rem-calc(20);
+}
+
+.event-detail__label {
+	font-weight: bold;
+}

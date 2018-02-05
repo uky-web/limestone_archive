@@ -1,0 +1,25 @@
+.news-story-tags {
+	.tags-list {
+		margin-top: rem-calc(20);
+		ul {
+			@include strip-list;
+			li {
+				display: inline;
+				a {
+					display: inline-block;
+					font-size: rem-calc(18);
+					padding: rem-calc(8) rem-calc(30);
+					border-radius: rem-calc(20);
+					background-color: $color-shade-lightest;
+					transition: background-color $transition-time;
+					margin-right: rem-calc(5);
+					margin-bottom: rem-calc(10);
+					&:hover,
+					&:active {
+						background-color: darken($color-shade-lightest, 5%);
+					}
+				}
+			}
+		}
+	}
+}

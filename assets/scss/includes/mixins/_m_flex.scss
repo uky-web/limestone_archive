@@ -1,0 +1,5 @@
+@mixin flex($direction: column, $justify: space-around) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+}

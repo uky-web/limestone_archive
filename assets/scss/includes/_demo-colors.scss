@@ -1,0 +1,47 @@
+/* -------------------------------------------------------------- */
+/*    Demo Color Palette
+/* -------------------------------------------------------------- */
+
+// These colors are for testing and development of the Monolith PatternLab
+
+
+$color-newcity: #bada55;
+
+// Brand Color Palette: primaries
+$color-primary: darken(desaturate($color-newcity, 10%), 20%);
+$color-secondary: darken($color-newcity, 30%);
+$color-tertiary: darken($color-newcity, 20%);
+$color-quaternary: darken($color-newcity, 10%);
+$color-quinary: $color-newcity;
+$color-senary: lighten($color-newcity, 10%);
+$color-septenary: lighten($color-newcity, 20%);
+$color-octonary: lighten($color-newcity, 30%);
+$color-nonary: desaturate($color-newcity, 30%);
+$color-denary: desaturate($color-newcity, 40%);
+
+$color-demo-accent: #79A6DC;
+
+// Brand Color Palette: accents
+$color-accent-primary: darken(desaturate($color-demo-accent, 20%), 20%);
+$color-accent-secondary: darken($color-demo-accent, 30%);
+$color-accent-tertiary: darken($color-demo-accent, 20%);
+$color-accent-quaternary: darken($color-demo-accent, 10%);
+$color-accent-quinary: $color-demo-accent;
+$color-accent-senary: lighten($color-demo-accent, 10%);
+$color-accent-septenary: lighten($color-demo-accent, 20%);
+$color-accent-octonary: lighten($color-demo-accent, 30%);
+$color-accent-nonary: desaturate($color-demo-accent, 30%);
+$color-accent-denary: desaturate($color-demo-accent, 40%);
+
+$shade-list: darkest darker dark norm light lighter lightest;
+
+$color-demo-gray: #aaaaaa;
+
+// Grays / Shades / Support Colors
+$color-shade-lightest: lighten($color-demo-gray, 30%);
+$color-shade-lighter: lighten($color-demo-gray, 20%);
+$color-shade-light: lighten($color-demo-gray, 10%);
+$color-shade: $color-demo-gray;
+$color-shade-dark: darken($color-demo-gray, 10%);
+$color-shade-darker: darken($color-demo-gray, 20%);
+$color-shade-darkest: darken($color-demo-gray, 30%);

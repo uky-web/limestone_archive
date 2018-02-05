@@ -1,0 +1,18 @@
+.tagline {
+	font-family: $font-primary;
+	span.tagline-intro {
+		display: inline-block;
+		text-transform: uppercase;
+		font-weight: $weight-black;
+		font-size: rem-calc(20);
+		border-bottom: $color-text 3px solid;
+		padding-bottom: rem-calc(8);
+		margin-bottom: rem-calc(8);
+	}
+
+	span.tagline-main {
+		display: block;
+		font-size: rem-calc(18);
+		font-weight: $weight-bold;
+	}
+}

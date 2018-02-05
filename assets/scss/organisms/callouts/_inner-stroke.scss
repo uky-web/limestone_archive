@@ -1,0 +1,14 @@
+.callout.inner-stroke {
+	border: 0;
+	padding: 0;
+	.headline-group {
+		margin-left: rem-calc(40);
+		.head {
+			text-transform: uppercase;
+		}
+	}
+	.callout-content {
+		border: $color-shade-lightest 10px solid;
+		padding: rem-calc(20) rem-calc(40);
+	}
+}

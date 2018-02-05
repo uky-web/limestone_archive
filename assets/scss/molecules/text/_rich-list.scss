@@ -1,0 +1,13 @@
+.rich-list {
+	ul {
+		@extend .angle-list;
+		li {
+			font-size: rem-calc(18);
+			font-weight: $weight-light;
+			a {
+				display: block;
+				font-weight: $weight-bold;
+			}
+		}
+	}
+}

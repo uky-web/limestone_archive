@@ -1,0 +1,42 @@
+ul, ol {
+	margin-bottom: rem-calc(30);
+	li {
+		font-size: rem-calc(18);
+		margin-bottom: rem-calc(16);
+	}
+
+	ul, ol {
+		margin-top: rem-calc(10);
+	}
+
+	&.secondary-font {
+		li {
+			font-family: $font-secondary;
+		}
+	}
+}
+
+@mixin strip-list {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	@include no-bullet;
+	&> li {
+		text-indent: 0;
+		margin: 0 0 0 0;
+		&:before {
+			display: none;
+		}
+	}
+}
+
+@mixin no-bullet {
+	list-style: none;
+}
+
+ul.strip-list {
+	@include strip-list;
+}
+
+ul.no-bullet {
+	@include no-bullet;
+}

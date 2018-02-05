@@ -1,0 +1,91 @@
+/**
+ * This stylesheet is for styles you want to include only when displaying demo
+ * styles for grids, animations, color swatches, etc.
+ * These styles will not be your production CSS.
+ */
+#sg-patterns {
+	-webkit-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+	max-width: 100%;
+	padding: 0 0.5em;
+}
+
+.demo-animate {
+	background: #ddd;
+	padding: 1em;
+	margin-bottom: 1em;
+	text-align: center;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.sg-colors {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.sg-colors li {
+	-webkit-box-flex: 1;
+	-ms-flex: auto;
+	flex: auto;
+	// padding: 0.3em;
+	margin: 0 0.5em 0.5em 0;
+	min-width: 5em;
+	max-width: 14em;
+	border: 1px solid #ddd;
+
+	&::before {
+		display: none;
+		zoom: 1;
+	}
+}
+
+.sg-colors pre {
+	font-size: 0.7em;
+	padding-top: 1.4rem;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.45);
+}
+
+.sg-swatch {
+	display: block;
+	height: 4em;
+	// margin-bottom: 0.3em;
+	// border-radius: 5px;
+	margin-top: -0.7rem;
+}
+
+.sg-label {
+	font-size: 90%;
+	line-height: 1;
+}
+
+
+.pl-icons {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+
+// putting this here since it seems to come w/drupal,
+// or was added to some other place by andy
+// but I need it to style the webforms
+// but don't want it duplicating code in the project
+// not that this isn't in the project
+// but yeah.
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px,1px,1px,1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+}

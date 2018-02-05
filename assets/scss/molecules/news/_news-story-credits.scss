@@ -1,0 +1,12 @@
+.news-story-credits {
+	.credits-list {
+		margin-top: rem-calc(20);
+		ul {
+			@include strip-list;
+			li {
+				font-size: rem-calc(18);
+				margin-bottom: rem-calc(20);
+			}
+		}
+	}
+}

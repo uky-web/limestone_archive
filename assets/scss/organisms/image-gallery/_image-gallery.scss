@@ -1,0 +1,16 @@
+.image-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: space-between;
+    a.image-thumbnail { 
+        display: inline-block;
+        flex: 0 1 15%;
+        padding: rem-calc(0 7 14 7);
+        @include media-breakpoint-down(md) {
+            flex: 0 1 24%;
+        }
+        @include media-breakpoint-down(sm) {
+            flex: 0 1 45%;
+        }
+    }
+}

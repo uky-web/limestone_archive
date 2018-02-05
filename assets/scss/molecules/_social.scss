@@ -1,0 +1,31 @@
+.social-icons {
+    ul {
+        @include strip-list;
+        display: flex;
+        flex-flow: row wrap;
+        li {
+            margin-right: rem-calc(10);
+            &:last-child {
+                margin-right: 0;
+            }
+            a {
+                .icon-wrapper {
+                    width: rem-calc(40);
+                    height: rem-calc(40);
+                    svg {
+                        max-width: 100%;
+                        max-height: 100%;
+                        fill: $color-primary;
+                    }
+                }
+                &:hover {
+                    .icon-wrapper {
+                        svg {
+                            fill: $color-link-hover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

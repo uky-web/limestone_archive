@@ -1,0 +1,197 @@
+
+$hero-stroke-color: #005D8A;
+
+.hero {
+	position: relative;
+	background: $color-quaternary;
+	padding: rem-calc(120) 0;
+	margin-bottom: rem-calc(60);
+	@include media-breakpoint-down(lg) {
+		padding-right: rem-calc(30);
+		padding-left: rem-calc(30);
+	}
+	@include media-breakpoint-down(xs) {
+		padding: rem-calc(10);
+	}
+
+	.hero-wrapper {
+		position: relative;
+		z-index: 2;
+		background: #fff;
+		border: $hero-stroke-color $border-medium solid;
+		padding: 0;
+		max-width: $max-width - rem-calc(300);
+		margin: 0 auto;
+		display: flex;
+		@include media-breakpoint-down(md) {
+			flex-flow: row wrap;
+		}
+		@include media-breakpoint-down(xs) {
+			padding: rem-calc(20);
+			border-width: $border-thin;
+		}
+		.hero-body {
+			flex: 1;
+			padding: 2.5rem;
+			@include media-breakpoint-down(md) {
+				flex: 0 1 auto;
+			}
+			.headline-group {
+				@include media-breakpoint-down(xs) {
+					font-size: rem-calc(24);
+				}
+			}
+		}
+		.hero-image {
+			flex: 1;
+			div {
+				height: 100%;
+			}
+			img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center center;
+			}
+
+			@include media-breakpoint-down(md) {
+				flex: 0 1 auto;
+				margin-top: rem-calc(30);
+			}
+		}
+	}
+
+	&.has-tagline {
+		padding-top: rem-calc(50);
+	}
+	.tagline {
+		color: #fff;
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		margin-bottom: rem-calc(40);
+		span.tagline-intro {
+			border-bottom: 0;
+			font-size: rem-calc(40);
+			position: relative;
+			@include media-breakpoint-down(sm) {
+				font-size: rem-calc(30);
+			}
+			@include media-breakpoint-down(xs) {
+				font-size: rem-calc(24);
+			}
+			&:after {
+				display: inline-block;
+				content: '';
+				position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    right: 0;
+			    top: auto;
+			    margin: auto;
+				background: rgba(#fff, 0.5);
+				width: 60%;
+				height: 3px;
+			}
+		}
+		span.tagline-main {
+			font-weight: normal;
+			@include media-breakpoint-down(xs) {
+				font-size: rem-calc(18);
+			}
+		}
+	}
+
+	&.has-news {
+		padding-bottom: rem-calc(80);
+		.hero-wrapper {
+			// position: relative;
+			@include shield($hero-stroke-color, 'center');
+			padding-top: 0;
+			@include media-breakpoint-down(md) {
+				&:before,
+				&:after,
+				.shield-icon {
+					display: none;
+				}
+			}
+		}
+	}
+	.news-teaser {
+		display: flex;
+		align-items: center;
+		@include media-breakpoint-down(md) {
+			flex-flow: column wrap;
+		}
+		.teaser-body {
+			width: 50%;
+			order: 1;
+			padding: rem-calc(40);
+			text-align: center;
+			@include media-breakpoint-down(md) {
+				width: 100%;
+			}
+			@include media-breakpoint-down(xs) {
+				padding: rem-calc(20);
+			}
+			.story-title {
+				font-size: rem-calc(26);
+				font-family: $font-primary;
+				@include media-breakpoint-down(xs) {
+					font-size: rem-calc(22);
+				}
+			}
+			.news-meta {
+				.media-icon {
+					@extend .invert;
+				}
+				ul {
+					justify-content: center;
+					li {
+						&.media-type-icon {
+							@include media-breakpoint-down(sm) {
+								float: none;
+							}
+							.media-icon {
+								@include media-breakpoint-down(sm) {
+									margin: 0 auto;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.story-thumbnail {
+			width: 50%;
+			order: 2;
+			align-self: stretch;
+			margin-bottom: 0;
+			background: darken($hero-stroke-color, 0%);
+			@include media-breakpoint-down(md) {
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	.background-image {
+		background-image: url('../images/sample/background1.jpg');
+		background-size: cover;
+		background-position: center center;
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		margin: 0 auto;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0.2;
+	}
+}
+
+
+// ie11 flexbox + drupal silliness
+.hero .hero-wrapper > div.field {
+	width: 100%;
+}

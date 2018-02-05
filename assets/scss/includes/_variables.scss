@@ -1,0 +1,134 @@
+/* -------------------------------------------------------------- */
+/*    Variables
+/* -------------------------------------------------------------- */
+
+
+/* Colors
+/* remember to turn off any unused swatches in atoms>global>colors.twig
+/* _______________________________________________________________ */
+
+$color-undefined: #aaaaaa;
+$white: #fff;
+$black: #000;
+
+// Brand Color Palette: primaries
+$color-primary: #0033A0;
+$color-secondary: #143788;
+$color-tertiary: #202C60;
+$color-quaternary: #1997D4;
+$color-quinary: #022B82;
+$color-senary: #005D8A;
+$color-septenary: #aaaaaa;
+$color-octonary: #aaaaaa;
+$color-nonary: #aaaaaa;
+$color-denary: #aaaaaa;
+
+// Brand Color Palette: accents
+$color-accent-primary: #457C39;
+$color-accent-secondary: #C3C65D;
+$color-accent-tertiary: #712148;
+$color-accent-quaternary: #E5E1C4;
+$color-accent-quinary: #001F62;
+$color-accent-senary: #aaaaaa;
+$color-accent-septenary: #aaaaaa;
+$color-accent-octonary: #aaaaaa;
+$color-accent-nonary: #aaaaaa;
+$color-accent-denary: #aaaaaa;
+
+
+// Grays / Shades
+$color-shade-lightest: #EEF5F8;
+$color-shade-lighter: #C8C8C8;
+$color-shade-light: #A4ACAF;
+$color-shade: #aaaaaa;
+$color-shade-dark: #64656A;
+$color-shade-darker: #aaaaaa;
+$color-shade-darkest: #2B2A28;
+
+// @import "includes/demo-colors";
+
+
+// Global Color Settings
+$color-text: $color-shade-darkest;
+$color-bg: $color-shade-lightest;
+$color-border: $color-shade;
+$color-link: $color-primary;
+$color-link-hover: lighten($color-primary, 8%);
+$color-link-inverted: $white;
+$color-link-inverted-hover: $color-shade;
+// $color-header-shade: rgba(#000, 0.18);
+$color-dropdown: $color-accent-quinary;
+$dark-stroke: rgba(#000, 0.3);
+$color-hairline-stroke: rgba(#000, 0.11);
+
+$rainbow1: $color-quaternary;
+$rainbow2: $color-accent-primary;
+$rainbow3: $color-accent-secondary;
+$rainbow4: $color-accent-tertiary;
+
+
+
+
+/* Typography
+/* _______________________________________________________________ */
+
+// Setup font families
+
+$font-primary : 'Muli', sans-serif;
+$font-secondary : 'Lora', serif;
+$font-tertiary: fantasy; // Standin for Chronicle Display Light
+$font-quaternary: cursive;
+
+// Set font variables, if any
+$font-accent: $font-tertiary;
+
+// Font sizing
+$base-font-size: 16px;
+
+// Muli Weights
+$weight-light: 300;
+$weight-regular: 400;
+$weight-bold: 700;
+$weight-black: 900;
+
+
+/* Paths
+/* _______________________________________________________________ */
+$image-url-path: "../images/";
+
+//Layout
+$max-width: 87.5rem;
+
+$arrow-right: '>>';
+
+//Defaults
+$space : 1em;
+$space-and-half : $space*1.5;
+$space-double : $space*2;
+$space-quad : $space*4;
+$space-half : $space/2;
+$pad : 1em;
+$pad-and-half : $pad*1.5;
+$pad-double : $pad*2;
+$pad-half : $pad/2;
+$pad-quarter :$pad/4;
+$pullquote-margin: 5rem;
+
+$negative-bleed: -9999px;
+
+$ornament-size: 3.625rem;
+
+//Borders
+$border-hairline: 1px;
+$border-thin: 3px;
+$border-medium: 10px;
+$border-thick: 20px;
+
+// animations
+$transition-time: 0.2s;
+$transition-time-slow: 0.8s;
+
+
+
+
+//

@@ -1,0 +1,44 @@
+/*
+ * Any imports having to do with icons should go here, and then set relevant generic variables
+ * to reference them
+ */
+
+/* Font awesome */
+$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts"; // for referencing Bootstrap CDN font files directly
+@import "../bower_components/font-awesome/scss/variables";
+@import "../bower_components/font-awesome/scss/mixins";
+@import "../bower_components/font-awesome/scss/path";
+@import "../bower_components/font-awesome/scss/core";
+@import "../bower_components/font-awesome/scss/larger";
+// @import "../bower_components/font-awesome/scss/fixed-width";
+// @import "../bower_components/font-awesome/scss/list";
+// @import "../bower_components/font-awesome/scss/bordered-pulled";
+// @import "../bower_components/font-awesome/scss/animated";
+// @import "../bower_components/font-awesome/scss/rotated-flipped";
+// @import "../bower_components/font-awesome/scss/stacked";
+@import "../bower_components/font-awesome/scss/icons";
+
+/* Helper variables */
+$icon-font: 'FontAwesome';
+
+/* Define commonly used icons */
+// arrows
+$icon-chevron-right: $fa-var-chevron-right;
+$icon-chevron-left: $fa-var-chevron-left;
+$icon-chevron-up: $fa-var-chevron-up;
+$icon-chevron-down: $fa-var-chevron-down;
+
+// lists
+$icon-bullet: $fa-var-circle;
+
+// social
+$icon-facebook: $fa-var-facebook-square;
+$icon-twitter: $fa-var-twitter-square;
+$icon-instagram: $fa-var-instagram;
+$icon-linkedin: $fa-var-linkedin-square;
+$icon-google-plus: $fa-var-google-plus-square;
+
+$color-facebook: #3b5998;
+$color-twitter: #55acee;
+$color-linkedin: #0077B5;
+$color-google-plus: #DC4E41;
