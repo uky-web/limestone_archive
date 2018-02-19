@@ -1,8 +1,0 @@
-<div class="event-detail">
-	{% for i in 0..4 %}
-	<div class="event-detail__item">
-		<div class="event-detail__label">{{ fake('words',{ nbWords: 1 + random(2), asText: true })|titleize }}</div>
-		<div class="event-detail__data">{{ fake('bs') }}</div>
-	</div>
-	{% endfor %}
-</div>

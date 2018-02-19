@@ -1,3 +1,0 @@
-{% for i in 1 .. numParagraphs|default(1) %}
-<p class="{%if style_modifier is not empty %}{{style_modifier}}{% endif %} paragraph">{%block content_paragraph %}{{ content|default(fake('paragraph'))|raw }}{% endblock %}</p>
-{% endfor %}
