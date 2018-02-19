@@ -1,0 +1,5 @@
+<div class="button-group">
+	{% for i in 1..button_group_number|default(3) %}
+		{% include 'atoms-button' with { label : fake('words',{nb:3,asText: true})|titleize } %}
+	{% endfor %}
+</div>

@@ -1,0 +1,61 @@
+/* Colors
+/* remember to turn off any unused swatches in atoms>global>colors.twig
+/* _______________________________________________________________ */
+
+$color-undefined: #aaaaaa;
+$white: #fff;
+$black: #000;
+
+// These colors are for testing and development of the Monolith PatternLab
+
+
+$color-brand: #bada55;
+$color-brand-alt: #136c94;
+
+// Brand Color Palette: primaries
+$color-primary: $color-brand;
+$color-secondary: $color-brand-alt;
+$color-tertiary: #b54df0;
+$color-quaternary: #e245c0;
+$color-quinary: #d22e59;
+$color-senary: #ff6a00;
+$color-septenary: #e6bc3a;
+// stahp
+$color-octonary: lighten($color-brand, 30%);
+$color-nonary: saturate(darken($color-brand, 20%),10%);
+$color-denary: desaturate($color-brand, 40%);
+
+$color-success: $color-nonary;
+$color-warning: $color-senary;
+$color-alert: $color-quinary;
+
+
+// Brand Color Palette: accents
+$color-accent-primary: lighten($color-primary,20%);
+$color-accent-secondary: lighten($color-secondary,20%);
+$color-accent-tertiary: lighten($color-tertiary,20%);
+$color-accent-quaternary: lighten($color-quaternary,20%);
+$color-accent-quinary: lighten($color-quinary,20%);
+$color-accent-senary: lighten($color-senary,20%);
+$color-accent-septenary: lighten($color-septenary,20%);
+$color-accent-octonary: saturate($color-octonary,50%);
+$color-accent-nonary: lighten($color-nonary,20%);
+$color-accent-denary: lighten($color-denary,20%);
+
+$color-shade-base: #aaaaaa;
+
+// Grays / Shades / Support Colors
+$color-shade-lightest: lighten($color-shade-base, 30%);
+$color-shade-lighter: lighten($color-shade-base, 20%);
+$color-shade-light: lighten($color-shade-base, 10%);
+$color-shade: $color-shade-base;
+$color-shade-dark: darken($color-shade-base, 10%);
+$color-shade-darker: darken($color-shade-base, 20%);
+$color-shade-darkest: darken($color-shade-base, 30%);
+
+// Global Color Settings
+$color-text: $color-shade-darkest;
+$color-bg: $color-shade-lightest;
+$color-border: $color-shade;
+$color-link: $color-brand-alt;
+$color-link-hover: $color-quinary;

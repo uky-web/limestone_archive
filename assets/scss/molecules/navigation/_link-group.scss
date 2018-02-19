@@ -1,0 +1,9 @@
+.link-group--collapsed {
+	display: none;
+}
+
+@include breakpoint(medium) {
+	.link-group--collapsed {
+		display: block;
+	}
+}

@@ -1,0 +1,5 @@
+<span class="icon-label">
+	{% if icon is not null %}<span class="icon-wrapper">{{ svg.ref(icon, icon_alt|default('This should be descriptive text for the icon.'), "icon") }}</span>{% endif %}
+	<span class="label">{{ label|default("Default Icon Label") }}</span>
+	{% if icon_right is not null %}<span class="icon-wrapper">{{ svg.ref(icon_right, icon_alt|default('This should be descriptive text for the icon.'), "icon") }}</span>{% endif %}
+</span>

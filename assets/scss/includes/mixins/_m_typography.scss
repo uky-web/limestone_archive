@@ -1,85 +1,67 @@
-
-@mixin fauxunderline($underline-color: $color-secondary) {
-	background: transparent linear-gradient(to top, transparent 0.06em, $underline-color 0.06em, $underline-color 0.06em, transparent 0.13em);
-	text-decoration: none;
-}
-
-.fauxunderline {
-	@include fauxunderline();
-}
-
-
-
-
 @mixin fontstyle($stylename: "default") {
 	@if $stylename == "h1" {
-		font: normal bold rem-calc(45) $font-primary;
+		font: normal 300 rem-calc(38) $font-secondary;
 		line-height: 1.5;
 		text-transform: none;
-		@include media-breakpoint-down(xs) {
-			font-size: rem-calc(26);
-			line-height: 1.2;
-		}
 	}
 	@elseif $stylename == "h2" {
-		font: normal bold rem-calc(38) $font-primary;
+		font: normal normal rem-calc(24) $font-secondary;
 		line-height: 1.5;
 		text-transform: none;
 	}
 	@elseif $stylename == "h3" {
-		font: normal bold rem-calc(30) $font-primary;
-		line-height: 1.2;
+		font: normal bold rem-calc(21.3) $font-tertiary;
+		line-height: 1.5;
 		text-transform: none;
 	}
 	@elseif $stylename == "h4" {
-		font: normal bold rem-calc(25) $font-primary;
-		line-height: 1.2;
+		font: italic normal rem-calc(18.7) $font-tertiary;
+		line-height: 1.5;
 		text-transform: none;
 	}
 	@elseif $stylename == "h5" {
 		font: normal bold rem-calc(16) $font-primary;
 		line-height: 1.5;
-		text-transform: uppercase;
+		text-transform: none;
 	}
 	@elseif $stylename == "h6" {
-		font: normal bold rem-calc(12) $font-primary;
+		font: italic normal rem-calc(16) $font-primary;
 		line-height: 1.5;
-		text-transform: uppercase;
+		text-transform: none;
 	}
 	@elseif $stylename == "button" {
-		font: normal bold 1.2rem $font-primary;
+		font: normal bold 1rem $font-primary;
 		line-height: 1;
-		text-transform: uppercase;
-		text-align: center;
-	}
-	@elseif $stylename == "label" {
-		font: normal normal 1.3rem $font-primary;
-		line-height: 1.2;
-		text-align: center;
-	}
-	@elseif $stylename == "serif_label" {
-		font: normal normal 1.3rem $font-secondary;
-		line-height: 1.2;
-		text-align: center;
 		text-transform: none;
-	}
-	@elseif $stylename == "caption" {
-		font: normal normal 1.1rem $font-secondary;
-		font-style: italic;
-		line-height: 1.2;
-		text-align: center;
-		text-transform: none;
-	}
-	@elseif $stylename == "meta" {
-		// color: darken($color-shade-light, 25%);
-		color: $color-shade-dark;
-		text-transform: uppercase;
-		font-weight: $weight-black;
-		font-size: rem-calc(14);
 	}
 	@else {
 		font: normal normal $base-font-size $font-primary;
 		text-transform: none;
 		line-height: 1.5;
 	}
+}
+
+/* This is an example of setting color themes for text
+   with a mixin. You can/should make several of these. */
+@mixin ondark {
+	color: $white;
+
+	abbr {
+		color: $white;
+	}
+
+	a {
+		&:link,
+		&:visited {
+			color: $white;
+		}
+		&:hover,
+		&:active {
+			color: $color-brand-alt;
+		}
+	}
+}
+
+.ondark {
+	@include ondark;
 }

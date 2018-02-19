@@ -1,25 +1,13 @@
-.button {
+.button,
+button {
+	@include fontstyle('button');
+
+	border-radius: 0;
+	border-width: 0;
 	display: inline-block;
-	cursor: pointer;
-	padding: rem-calc(10 40);
-
-	color: #fff;
-	font-size: rem-calc(18);
-	// text-transform: uppercase;
-	// font-weight: $weight-black;
-	text-align: center;
-
-	border: rem-calc(4) solid rgba(#000, 0.2);
-	transition: background-color $transition-time;
-	background-color: darken($color-quaternary, 7%);
-	&:link,
-	&:visited {
-		color: #fff;
-	}
-	&:hover,
-	&:active {
-		background-color: lighten($color-quaternary, 0%);
-	}
+	padding: rem-calc(12 20);
+	background-color: $color-link;
+	color: $white;
 
 	.arrow {
 		display: inline-block;
@@ -27,20 +15,8 @@
 		font-family: arial, helvetica, sans-serif;
 	}
 
-	&.accent {
-		background-color: $color-accent-primary;
-		&:hover,
-		&:active {
-			background-color: lighten($color-accent-primary, 10%);
-		}
-	}
-
-	&.tertiary {
-		background-color: $color-accent-tertiary;
-		&:hover,
-		&:active {
-			background-color: lighten($color-accent-tertiary, 10%);
-		}
+	&.button-secondary {
+		background-color: $color-quaternary;
 	}
 
 	&.button-ghost {
@@ -52,6 +28,44 @@
 		.arrow {
 			color: $color-quaternary;
 		}
+
+		&.button-secondary {
+			border-color: $color-quaternary;
+			color: $color-quaternary;
+
+			.arrow {
+				color: $color-link;
+			}
+		}
 	}
 }
 
+.button {
+	&:link,
+	&:visited {
+		color: $white;
+		text-decoration: none;
+
+		&.button-ghost {
+			color: $color-link;
+
+			&.button-secondary {
+				color: $color-quaternary;
+			}
+		}
+	}
+
+	&:hover,
+	&:active {
+		color: $white;
+		text-decoration: none;
+
+		&.button-ghost {
+			color: $color-link;
+
+			&.button-secondary {
+				color: $color-quaternary;
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+<div class="editorial-panel">
+	{% embed 'molecules-one-column' with { row_constraint : 'nest' } %}
+		{% block one_column_col %}
+			{% for i in ['organisms-media-aside','organisms-teaser-aside','','organisms-pullquote-aside'] %}
+				{% include 'organisms-editorial' with { aside : i } %}
+			{% endfor %}
+		{% endblock %}
+	{% endembed %}
+</div>

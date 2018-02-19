@@ -20,7 +20,7 @@ class JSON extends \Faker\Provider\Base
   function __construct() {
     // we're going to make a bunch of functions based on what's in a JSON file (in src/data)
     try {
-      $contents = file_get_contents(dirname(__FILE__).'/../../../../_data/faker.json');
+      $contents = file_get_contents(dirname(__FILE__).'/../../../../data/faker.json');
       $this->map = json_decode($contents);
     }
     catch (Exception $e) {

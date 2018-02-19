@@ -1,0 +1,11 @@
+{% set first_line = attribution|default(fake('name')) %}
+{% set second_line = description|default(fake('jobTitle') ~ ', ' ~ fake('company')) %}
+<div class="pullquote">
+  <div class="pullquote__quote">
+    {% include 'atoms-paragraph' %}
+  </div>
+  <cite class="pullquote__attribution">
+    <span class="pullquote__first-line">{{ first_line }}</span>
+    <span class="pullquote__second-line">{{ second_line }}</span>
+  </cite>
+</div>

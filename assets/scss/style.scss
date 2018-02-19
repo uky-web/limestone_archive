@@ -1,62 +1,68 @@
-@import "includes/variables";
-
-// Core variables and mixins
-@import "includes/bootstrap-variables";
-
 @import "includes/math";
-@import "includes/unit";
+@import "includes/colors";
+@import "includes/fonts";
+@import "includes/variables";
 @import "includes/mixins";
 
+/*
+* Foundation
+*/
+@import "includes/foundation-settings";
+@import "../bower_components/foundation-sites/scss/foundation";
 
-// -------------------------------------
-// Bootstrap
-// -------------------------------------
+$flex: false;
 
-@import "../bower_components/bootstrap/scss/mixins";
-@import "../bower_components/bootstrap/scss/custom";
+@if $flex {
+	$global-flexbox: true !global;
+}
 
-// Reset and dependencies
-@import "../bower_components/bootstrap/scss/normalize";
-@import "../bower_components/bootstrap/scss/print";
+@include foundation-global-styles;
+@if not $flex {
+	@include foundation-grid;
+}
+@else {
+	@include foundation-flex-grid;
+}
 
-// Core CSS
-@import "../bower_components/bootstrap/scss/reboot";
-@import "../bower_components/bootstrap/scss/type";
-@import "../bower_components/bootstrap/scss/images";
-@import "../bower_components/bootstrap/scss/code";
-@import "../bower_components/bootstrap/scss/grid";
-@import "../bower_components/bootstrap/scss/tables";
-@import "../bower_components/bootstrap/scss/forms";
-@import "../bower_components/bootstrap/scss/buttons";
-
-// Components
-@import "../bower_components/bootstrap/scss/transitions";
-@import "../bower_components/bootstrap/scss/dropdown";
-@import "../bower_components/bootstrap/scss/button-group";
-@import "../bower_components/bootstrap/scss/input-group";
-@import "../bower_components/bootstrap/scss/custom-forms";
-@import "../bower_components/bootstrap/scss/nav";
-@import "../bower_components/bootstrap/scss/navbar";
-@import "../bower_components/bootstrap/scss/card";
-@import "../bower_components/bootstrap/scss/breadcrumb";
-@import "../bower_components/bootstrap/scss/pagination";
-@import "../bower_components/bootstrap/scss/badge";
-@import "../bower_components/bootstrap/scss/jumbotron";
-@import "../bower_components/bootstrap/scss/alert";
-@import "../bower_components/bootstrap/scss/progress";
-//@import "../bower_components/bootstrap/scss/media";
-@import "../bower_components/bootstrap/scss/list-group";
-@import "../bower_components/bootstrap/scss/responsive-embed";
-@import "../bower_components/bootstrap/scss/close";
-
-// Components w/ JavaScript
-@import "../bower_components/bootstrap/scss/modal";
-@import "../bower_components/bootstrap/scss/tooltip";
-@import "../bower_components/bootstrap/scss/popover";
-@import "../bower_components/bootstrap/scss/carousel";
-
-// Utility classes
-@import "../bower_components/bootstrap/scss/utilities";
+// @include foundation-grid; // mutually exclusive with foundation-flex-grid
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@if $flex {
+	@include foundation-flex-classes;
+}
 
 
 /*
@@ -82,29 +88,23 @@
 @import "atoms/text";
 @import "atoms/buttons";
 @import "atoms/lists";
-@import "atoms/tables";
 @import "atoms/media";
-@import "atoms/images";
-@import "atoms/forms";
 
 @import "molecules/text";
 @import "molecules/layouts";
+@import "molecules/page-layouts";
 @import "molecules/navigation";
-@import "molecules/media";
-@import "molecules/headers";
-@import "molecules/blocks";
-@import "molecules/news";
-@import "molecules/social";
+@import "molecules/interactive";
+@import "molecules/data";
 
-@import "organisms/global";
-@import "organisms/headers";
+@import "organisms/clamp";
+@import "organisms/panels";
 @import "organisms/asides";
-@import "organisms/callouts";
-@import "organisms/blocks";
-@import "organisms/news";
-@import "organisms/image-gallery";
+@import "organisms/teasers";
+@import "organisms/collections";
+@import "organisms/editorial";
 
-@import "templates/homepage";
 
-// drupal hacks
-@import "includes/drupal";
+// Template, page styles could go below here
+// but if you have any you might want to rethink
+// your approach.

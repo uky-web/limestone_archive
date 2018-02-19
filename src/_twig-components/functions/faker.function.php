@@ -23,12 +23,12 @@
  */
 
 	$function = new Twig_SimpleFunction('fake',function($what = null, $options = array()) {
-		
+
 		$faker = Faker\Factory::create();
 
 		// add any custom providers here
-		require_once('FakerExtensions/Provider/JSON.php');
-		$faker->addProvider(new Faker\Provider\JSON($faker));
+		//require_once('FakerExtensions/Provider/JSON.php');
+		//$faker->addProvider(new Faker\Provider\JSON($faker));
 		require_once('FakerExtensions/Provider/FontAwesome.php');
 		$faker->addProvider(new Faker\Provider\FontAwesome($faker));
 		// end custom providers
@@ -37,60 +37,64 @@
 			return "If you want to fake something, you need to tell me \$what.";
 		}
 		if (!is_callable(array($faker,$what))) {
-			return "hell $what " . $faker->$what;
 			return "Unknown fake content generator $what. See https://github.com/fzaninotto/Faker.";
 		}
 
-		$default_options = array(
-			'nb' => 3,
-			'nbWords' => 6,
-			'nbSentences'=> 3,
-			'maxNbChars' => 200,
-			'variableNbWords' => true,
-			'variableNbSentences' => true,
-			'asText' => false, // I hate this default but I am keeping it to match faker docs. JHW
-			'gender' => null,
-			'latMin' => -90,
-			'latMax' => 90,
-			'lonMin' => -180,
-			'lonMax' => 180,
-			'dateMax' => 'now',
-			'dateFormat' => 'Y-m-d',
-			'timeFormat' => 'H:i:s',
-			'timeZone' => null, // null will use the system setting or UTC if there is no system setting
-			'startDate' => '-30 years',
-			'endDate' => 'now',
-			'interval' => '+5 days',
-			'countryCode' => 'US',    // 2-letter ISO country code? https://countrycode.org/
-			'width' => 640,
-			'height' => 480,
-			'imgTag' => '*',
-			'imgProvider' => 'https://magicyeti.us',
-			'imgFilter' => '',
-			'indexSize' => 2,
-			'chanceOfGettingTrue' => 50,
-			'biasMin' => 10,
-			'biasMax' => 20,
-			'biasFunc' => 'sqrt',
-			'unique' => false
-		);
-		$o = array_merge($default_options,$options);
+		if (is_array($options)) {
+			$default_options = array(
+				'nb' => 3,
+				'nbWords' => 6,
+				'nbSentences'=> 3,
+				'maxNbChars' => 200,
+				'variableNbWords' => true,
+				'variableNbSentences' => true,
+				'asText' => false, // I hate this default but I am keeping it to match faker docs. JHW
+				'gender' => null,
+				'latMin' => -90,
+				'latMax' => 90,
+				'lonMin' => -180,
+				'lonMax' => 180,
+				'dateMax' => 'now',
+				'dateFormat' => 'Y-m-d',
+				'timeFormat' => 'H:i:s',
+				'timeZone' => null, // null will use the system setting or UTC if there is no system setting
+				'startDate' => '-30 years',
+				'endDate' => 'now',
+				'interval' => '+5 days',
+				'countryCode' => 'US',    // 2-letter ISO country code? https://countrycode.org/
+				'width' => 640,
+				'height' => 480,
+				'imgTag' => '*',
+				'imgProvider' => 'https://magicyeti.us',
+				'imgFilter' => '',
+				'indexSize' => 2,
+				'chanceOfGettingTrue' => 50,
+				'biasMin' => 10,
+				'biasMax' => 20,
+				'biasFunc' => 'sqrt',
+				'unique' => false
+			);
+			$o = array_merge($default_options,$options);
 
-		// make sure there's a timezone set
-		if (is_null($o['timeZone'])) {
-			// but if not specified don't override the system setting
-			if (!ini_get('date.timezone')) {
-				date_default_timezone_set('UTC');
+					// make sure there's a timezone set
+			if (is_null($o['timeZone'])) {
+				// but if not specified don't override the system setting
+				if (!ini_get('date.timezone')) {
+					date_default_timezone_set('UTC');
+				}
 			}
+			else {
+				// otherwise set to the specified timezone
+				date_default_timezone_set($o['timeZone']);
+			}
+
+			if($o['unique'] === true) {
+				$faker = $faker->unique();
+			}
+		} else {
+			$o = $options;
 		}
-		else {
-			// otherwise set to the specified timezone
-			date_default_timezone_set($o['timeZone']);
-		}
-		
-		if($o['unique'] === true) {
-			$faker = $faker->unique();
-		}
+
 
 		// Most faker routines accept no parameters so they can
 		// fall through to the default. For the ones that do,
@@ -102,6 +106,20 @@
 			case 'paragraphs':
 				$returnable = $faker->$what(5,false);
 				$returnable = $faker->$what($o['nb'],$o['asText']);
+			break;
+			case 'lexify':
+			case 'numerify':
+			case 'bothify':
+				// These three typically take a string as an argument instead of an array of options. 
+				if(is_string($o)) {
+					$returnable = $faker->$what($o);
+				} elseif (is_array($o) && !empty($o['string'])) { 
+					// But we'll take an array with an option of 'string if that's on offer.
+					$returnable = $faker->$what($o['string']);
+				} else {
+					// I'm not going to advertise that in the error message, tho.
+					$returnable = "Pass a string instead of an array hash to `$what`";
+				}
 			break;
 			case 'sentence':
 				$returnable = $faker->sentence($o['nbWords'],$o['variableNbWords']);

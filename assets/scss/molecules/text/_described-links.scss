@@ -1,0 +1,17 @@
+.described-links {
+
+	@at-root #{&}__item {
+		padding: 1rem 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+	@at-root #{&}__description {
+
+	}
+
+	@at-root #{&}__link {
+
+	}
+}

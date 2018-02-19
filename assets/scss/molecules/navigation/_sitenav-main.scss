@@ -1,0 +1,51 @@
+.main-nav {
+	padding: 1em;
+
+	.link-group a {
+		display: block;
+	}
+
+	a {
+		line-height: 2;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.input-group {
+		margin-bottom: 0;
+	}
+}
+
+@include breakpoint(medium) {
+	.main-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.menu-toggle {
+			display: none;
+		}
+
+		.link-group {
+			display: flex;
+			align-items: center;
+
+			> * {
+				margin-right: 2rem;
+				text-align: center;
+			}
+		}
+
+		a {
+			line-height: 1.3;
+		}
+	}
+
+	.main-nav.search-bar--active {
+		.link-group {
+			width: 0;
+			overflow: hidden;
+		}
+	}
+}

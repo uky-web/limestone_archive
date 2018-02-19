@@ -1,0 +1,8 @@
+.formatted-text {
+
+}
+
+.formatted-text--dark {
+	@include ondark;
+	background-color: $black;
+}

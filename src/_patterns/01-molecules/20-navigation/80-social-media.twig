@@ -1,0 +1,6 @@
+<div class="social-media-nav">
+	<h2>Follow us on:</h2>
+	{% for i in ['Facebook','Twitter','Instagram','Snapchat'] %}
+		{% include 'atoms-link' with { label: i } %}
+	{% endfor %}
+</div>

@@ -1,0 +1,43 @@
+{# COLORS #}
+{# comment out any swatches not needed by your palette #}
+
+{% set colorset = ['primary', 'secondary', 'tertiary', 'quaternary', 'quinary', 'senary', 'septenary', 'octonary', 'nonary', 'denary'] %}
+{% set accentset = ['primary', 'secondary', 'tertiary', 'quaternary', 'quinary', 'senary', 'septenary', 'octonary', 'nonary', 'denary'] %}
+{% set shadeset = ['darkest','darker','dark','', 'light', 'lighter','lightest'] %}
+
+<p><b>Primary Colors</b></p>
+
+<ul class="sg-colors">
+	{% for i in colorset %}
+	<li>
+		Color {{ i|titleize }} <pre>$color-{{ i }}</pre>
+		<span class="sg-swatch bg-{{ i }}"></span>
+	</li>
+	{% endfor %}
+</ul>
+
+<p><b>Accent Colors</b></p>
+<ul class="sg-colors">
+	{% for i in accentset %}
+	<li>
+		Color {{ i|titleize }} <pre>$color-accent-{{ i }}</pre>
+		<span class="sg-swatch bg-accent-{{ i }}"></span>
+	</li>
+	{% endfor %}
+</ul>
+
+<p><b>Grays and Shades</b></p>
+
+<ul class="sg-colors">
+	{% for i in shadeset %}
+		{% if i is empty %}
+			{% set shadename = '' %}
+		{% else %}
+			{% set shadename = '-' ~ i %}
+		{% endif %}
+	<li>
+		Shade {{ i|titleize }} <pre>$color-shade{{shadename}}</pre>
+		<span class="sg-swatch bg-shade{{shadename}}"></span>
+	</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+.one-column {
+	@include grid-row;
+
+	@each $i in 'col' {
+		@at-root #{&}__#{$i} {
+			@include grid-column;
+		}
+	}
+}

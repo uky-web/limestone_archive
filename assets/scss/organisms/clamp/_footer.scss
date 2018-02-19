@@ -1,0 +1,19 @@
+.main-footer {
+	@include ondark;
+	background-color: $color-shade-darkest;
+
+	.row__col {
+		padding: {
+			top: 0.5rem;
+			bottom: 0.5rem;
+		}
+	}
+}
+
+.main-footer__ribbon {
+	background-color: $black;
+	padding: {
+		top: 0.5rem;
+		bottom: 0.5rem;
+	}
+}

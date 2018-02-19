@@ -1,0 +1,4 @@
+.page-header {
+	@include ondark;
+	background-color: $color-secondary;
+}

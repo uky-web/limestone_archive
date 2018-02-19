@@ -1,23 +1,18 @@
-@mixin content_container {
+@mixin content-container {
 	padding-left: 1em;
 	padding-right: 1em;
 	width: 100%;
 
-	@include media-breakpoint-up(lg) {
-		max-width: $max-width;
+	@include breakpoint(large) {
+		max-width: $global-width;
 		width: 100%;
 		margin: 0 auto;
 	}
 
-	@include media-breakpoint-up(74em) {
+	@include breakpoint(74em) {
 		width: 100%;
 		padding-left: 0;
 		padding-right: 0;
-	}
-
-	// this style is obsolete.
-	.max-page-width {
-		background-color: red !important;
 	}
 }
 
@@ -27,7 +22,7 @@
 		display: block;
 	}
 
-	@include media-breakpoint-up(md) {
+	@include breakpoint(medium) {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;

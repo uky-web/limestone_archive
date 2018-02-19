@@ -1,10 +1,2 @@
-.aside {
-	margin: rem-calc(20) 0 rem-calc(50) rem-calc(30);
-	border-left: $border-medium $color-shade-lightest solid;
-	padding-left: rem-calc(20);
-	@include media-breakpoint-down(sm) {
-		margin: rem-calc(20) 0;
-		padding: rem-calc(10);
-		border: $border-medium $color-shade-lightest solid;
-	}
-}
+@import 'asides/captioned-media.scss';
+@import 'asides/teaser-aside.scss';

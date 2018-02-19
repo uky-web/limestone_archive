@@ -1,0 +1,7 @@
+<div class="accordion" data-accordion data-allow-all-closed="true">
+	{% block accordion_panels %}
+		{% for i in 1..5 %}
+			{% include 'molecules-accordion-panel' with { accordion_panel_headline : 'Panel ' ~ i } %}
+		{% endfor %}
+	{% endblock %}
+</div>

@@ -1,10 +1,18 @@
-{% include 'organisms-main-header' %}
+{% include 'molecules-skip-nav' %}
+{% include 'organisms-header' %}
+<main class="main">
+	{% block main_content %}
+		{% include 'organisms-page-header' with { page_header_show_hero : true } %}
 
+		<div class="page-section">
+			{% embed 'molecules-one-column' %}
+				{% block one_column_col %}
+					{% include 'atoms-heading' with {level: 2, headline: 'Default Content Warning'} %}
+					<p>If you are seeing this page it is because you have not overridden the base template block.</p>
+				{% endblock %}
+			{% endembed %}
+		</div>
 
-<div class="base-wrap">
-  {% block base %}
-  <h1>Hello, sailor</h1>
-  {% endblock %}
-</div>
-
-{# {% include 'organisms-footer' %} #}
+	{% endblock %}
+</main>
+{% include 'organisms-footer' %}

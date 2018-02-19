@@ -3,7 +3,11 @@
 	{% for i in 1..4 %}
 		<li>
 			{% include 'atoms-link' with {label: fake('words',{nb:2,asText:true})|capitalize }%}
-			{% include 'atoms-icon' with {icon: 'angle-double-right'} %}
+			<span class="icon">
+				<div class="cell icon-wrapper">
+					{{ svg.ref('design--angle-right','design--angle-right','design--angle-right') }}
+				</div>
+			</span>
 		</li>
 	{% endfor %}
 	</ul>

@@ -1,0 +1,25 @@
+.pullquote {
+
+	text-align: center;
+
+	@at-root #{&}__quote {
+		font-size: 2rem;
+	}
+
+	@at-root #{&}__attribution {
+		font-size: 1rem;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	@at-root #{&}__first-line {
+		display: block;
+	}
+
+	@at-root #{&}__second-line {
+		display: block;
+	}
+	
+}

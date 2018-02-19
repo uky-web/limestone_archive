@@ -1,16 +1,15 @@
 {% if superhead is sameas(true) %}{% set superhead = fake('bs')|titleize %}{% endif %}
 {% if subhead is sameas(true) %}{% set subhead = fake('bs')|titleize %}{% endif %}
-{% if tagline is sameas(true) %}{% set tagline = fake('bs')|titleize %}{% endif %}
 {% if semantic|default(true) is sameas(true) %}
-<h{{level|default(2)}} class="headline-group {{ style_modifier }}" {% if jumplink_target %}id="{{ jumplink_target }}"{% endif %}>
+<h{{level|default(2)}} class="headline-group">
 {% else %}
-<div class="headline-group {{ style_modifier }}" {% if jumplink_target %}id="{{ jumplink_target }}"{% endif %}>
+<div class="headline-group {{ style_modifier }}">
 {% endif %}
 	<span class="superhead">{{ superhead }}</span>
 	{% if linked is sameas(true) %}
-	{% include 'atoms-link' with {style_modifier: 'head', label: headline|default(fake('bs')|titleize) } %}
+	{% include 'atoms-link' with {style_modifier: 'head', label: headline|default(fake('bs')) } %}
 	{% else %}
-	<span class="head">{{ headline|default(fake('bs')|titleize) }}</span>
+	<span class="head">{{ headline|default(fake('bs')) }}</span>
 	{% endif %}
 	<span class="subhead">{{ subhead }}</span>
 {% if semantic|default(true) is sameas(true) %}

@@ -1,0 +1,21 @@
+@include breakpoint(medium) {
+	.teaser-full-row .teaser {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.teaser__image {
+			width: calc(50% - 0.5rem);
+			flex: 0 0 auto;
+		}
+
+		.teaser__body {
+			width: calc(50% - 0.5rem);
+			flex: 0 0 auto;
+		}
+	}
+
+	.teaser-full-row.teaser-full-row--image-right .teaser {
+		flex-direction: row-reverse;
+	}
+}

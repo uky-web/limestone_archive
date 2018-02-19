@@ -1,0 +1,5 @@
+{
+	"hide_editorial" : true,
+	"editorial_style" : "editorial--aside-only",
+	"asides": ["organisms-media-aside"]
+}

@@ -1,0 +1,7 @@
+<div class="link-collection">
+	<ul class="strip-list">
+	{% for i in 1..link_group_number|default(20) %}
+		<li>{% include 'atoms-link' with { link_style : 'arrow', label : fake('words',{nb:3,asText: true})|titleize } %}</li>
+	{% endfor %}
+	</ul>
+</div>

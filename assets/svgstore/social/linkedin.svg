@@ -1,0 +1,6 @@
+<svg aria-labelledby="title" role="img" id="linkedin" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.36 75.36">
+  <title>Linked In</title>
+  <rect width="75.36" height="75.36" fill="#017bb6"/>
+  <path d="M12.89,29.09H23.53V63.25H12.89V29.09Zm5.32-17a6.16,6.16,0,1,1-6.16,6.15,6.16,6.16,0,0,1,6.16-6.15" fill="#fff"/>
+  <path d="M30.19,29.09H40.38v4.67h0.14a11.16,11.16,0,0,1,10.05-5.52c10.75,0,12.74,7.07,12.74,16.27V63.25H52.7V46.64c0-4-.08-9.06-5.52-9.06S40.8,41.9,40.8,46.35v16.9H30.19V29.09Z" fill="#fff"/>
+</svg>

@@ -1,0 +1,16 @@
+{
+    "panels": [
+        { 
+            "title": "Panel 1",
+            "content": "<p>Proident in ad anim sit commodo reprehenderit laboris consequat in.</p>"
+        },
+        { 
+            "title": "Panel 2",
+            "content": "<p>Proident in ad anim sit commodo reprehenderit laboris consequat in.</p>"
+        },
+        { 
+            "title": "Panel 3",
+            "content": "<p>Proident in ad anim sit commodo reprehenderit laboris consequat in.</p>"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+<header class="main-header">
+	<div class="main-header__sitenav-util">
+		{% embed 'molecules-one-column' %}
+			{% block one_column_col %}
+				{% include 'molecules-sitenav-utility' %}
+			{% endblock %}
+		{% endembed %}
+	</div>
+	<div class="main-header__brand">
+		{% embed 'molecules-one-column' %}
+			{% block one_column_col %}
+				{% include 'atoms-logo-horizontal' %}
+			{% endblock %}
+		{% endembed %}
+	</div>
+	<div class="main-header__sitenav-main">
+		{% embed 'molecules-one-column' %}
+			{% block one_column_col %}
+				{% include 'molecules-sitenav-main' %}
+			{% endblock %}
+		{% endembed %}
+	</div>
+</header>

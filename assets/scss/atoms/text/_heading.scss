@@ -1,29 +1,6 @@
 @for $i from 1 through 6 {
-	h#{$i}, .heading-level-#{$i} {
+	h#{$i} {
 		@include fontstyle("h#{$i}");
-		// margin: rem-calc(8 0);
-		// padding: rem-calc(0 10);
-
-		&.accent-1 {
-			color: $color-senary 
-		}
-		&.accent-2 {
-			color: $color-accent-tertiary;
-		}
-	}
-}
-
-.uppercase {
-	text-transform: uppercase;
-}
-
-.underline {
-
-	&::after {
-		content: "";
-		display: block;
-		width: rem-calc(255);
-		border-bottom: rem-calc(3) solid $color-shade-darkest;
-		margin: rem-calc(15) 0;
+		margin: rem-calc(8 0);
 	}
 }

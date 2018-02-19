@@ -1,95 +1,9 @@
 @import "mixins/m_layout";
 @import "mixins/m_typography";
-@import "mixins/m_flex";
 
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
-
-@mixin shield ($shield-color, $align: 'left') {
-	$shield-width: 70px;
-	$shield-height: $shield-width / 1.5;
-
-	$left-value: '';
-	$right-value: auto;
-	@if ($align == 'left') {
-		// put it at the "left" of the block
-		// default matches callout style: padding 40px
-		$left-value: 40px;
-	} @else if ($align == 'center' ) {
-		// center it horizontally
-		$left-value: 0;
-		$right-value: 0;
-	} @else {
-		// accept an explicit pixel value
-		$left-value: $align;
-	}
-
-	position: relative;
-	padding-top: rem-calc($shield-height + 30px);
-	.shield-icon {
-		display: inline-block;
-		position: absolute;
-		z-index: 3;
-		top: 0;
-		@if ($align == 'left') {
-			left: $left-value + 15;
-		} @else {
-			left: $left-value;
-		}
-		right: $right-value;
-		margin: auto;
-		width: 36px;
-		height: 36px;
-		svg {
-			max-width: 100%;
-			max-height: 100%;
-			color: #fff;
-			fill: #fff;
-		}
-	}
-	&:before,
-	&:after {
-		display: block;
-		content: '';
-		position: absolute;
-		left: $left-value;
-		right: $right-value;
-		margin: auto;
-	}
-	&:before {
-		width: $shield-width;
-		height: $shield-height / 1.5;
-		top: 0;
-		// left: $callout-padding;
-		background: $shield-color;
-		z-index: 2;
-	}
-	&:after {
-		width: 0;
-		height: 0;
-		// top: $shield-height - $callout-stroke-width;
-		top: 31px;
-		// top: 0;
-		// left: $callout-padding + rem-calc(1);
-		// border: ($shield-height - $callout-stroke-width) solid transparent;
-		// border-top-color: $default-stroke;
-
-		$hex-size: 34px;
-		border-left: $hex-size solid transparent;
-		border-right: $hex-size solid transparent;
-		border-top: $hex-size/2 solid $shield-color;
-	}
-	&.dark {
-		&:before {
-			background: $dark-stroke;
-		}
-		&:after {
-			border-top-color: $dark-stroke;
-		}
-	}
-}
-
 
 // generate the image url by prefixing the layout image path
 @function image-url($url) {

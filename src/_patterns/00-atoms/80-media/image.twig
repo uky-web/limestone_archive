@@ -1,0 +1,6 @@
+{% if width is empty %}{% set width = 800 %}{% endif %}
+{% if height is empty %}{% set height = 600 %}{% endif %}
+{% if imgsrc is empty %}
+	{% set imgsrc = fake('imageUrl',{width: width, height: height}) %}
+{% endif %}
+<img src="{{ imgsrc }}" alt="{{ alt }}" class="{{ image_style }}" />

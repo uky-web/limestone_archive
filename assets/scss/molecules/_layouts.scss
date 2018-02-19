@@ -1,2 +1,27 @@
-@import 'layouts/child-alignments';
-@import 'layouts/page-section';
+@import 'layouts/one-column';
+@import 'layouts/two-columns';
+@import 'layouts/three-columns';
+@import 'layouts/four-columns';
+@import 'layouts/with-sidebar';
+
+.one-column,
+.two-columns,
+.with-sidebar,
+.three-columns,
+.four-columns {
+	&.expanded {
+		@include grid-row-size('expand');
+	}
+
+	&.collapse {
+		@include grid-row(null,'collapse');
+	}
+
+	&.nest {
+		@include grid-row(null,'nest')
+	}
+
+	&.collapse.nest {
+		@include grid-row(null,'nest collapse')
+	}
+}

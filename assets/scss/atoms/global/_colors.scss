@@ -1,130 +1,133 @@
+@mixin show_color($color) {
+	background-color: $color;
+	&::before {
+		content: '#{$color}';
+		display: inline-block;
+		padding: .5em;
+		border-radius: 0 0 4px 0;
+		font-size: 12px;
+		font-weight: bold;
+		@if (brightness($color) > 50) {
+			color: #000;
+			background-color: rgba(255,255,255,.5);
+		}
+		@else {
+			color: #fff;
+			background-color: rgba(0,0,0,.5);
+		}
+	}
+}
+
 // primaries
 .bg-primary {
-	background-color: $color-primary;
+	@include show_color($color-primary);
 }
 
 .bg-secondary {
-	background-color: $color-secondary;
+	@include show_color($color-secondary);
 }
 
 .bg-tertiary {
-	background-color: $color-tertiary;
+	@include show_color($color-tertiary);
 }
 
 .bg-quaternary {
-	background-color: $color-quaternary;
+	@include show_color($color-quaternary);
 }
 
 .bg-quinary {
-	background-color: $color-quinary;
+	@include show_color($color-quinary);
 }
 
 .bg-senary {
-	background-color: $color-senary;
+	@include show_color($color-senary);
 }
 
 .bg-septenary {
-	background-color: $color-septenary;
+	@include show_color($color-septenary);
 }
 
 .bg-octonary {
-	background-color: $color-octonary;
+	@include show_color($color-octonary);
 }
 
 .bg-nonary {
-	background-color: $color-nonary;
+	@include show_color($color-nonary);
 }
 
 .bg-denary {
-	background-color: $color-denary;
+	@include show_color($color-denary);
 }
 
 
 // accents
 
 .bg-accent-primary {
-  background-color: $color-accent-primary;
+	@include show_color($color-accent-primary);
 }
 
 .bg-accent-secondary {
-  background-color: $color-accent-secondary;
+	@include show_color($color-accent-secondary);
 }
 
 .bg-accent-tertiary {
-  background-color: $color-accent-tertiary;
+	@include show_color($color-accent-tertiary);
 }
 
 .bg-accent-quaternary {
-  background-color: $color-accent-quaternary;
+	@include show_color($color-accent-quaternary);
 }
 
 .bg-accent-quinary {
-  background-color: $color-accent-quinary;
+	@include show_color($color-accent-quinary);
 }
 
 .bg-accent-senary {
-  background-color: $color-accent-senary;
+	@include show_color($color-accent-senary);
 }
 
 .bg-accent-septenary {
-  background-color: $color-accent-septenary;
+	@include show_color($color-accent-septenary);
 }
 
 .bg-accent-octonary {
-  background-color: $color-accent-octonary;
+	@include show_color($color-accent-octonary);
 }
 
 .bg-accent-nonary {
-	background-color: $color-accent-nonary;
+	@include show_color($color-accent-nonary);
 }
 
 .bg-accent-denary {
-	background-color: $color-accent-denary;
+	@include show_color($color-accent-denary);
 }
 
 
 // grays & shades
 .bg-shade-lightest {
-	background-color: $color-shade-lightest;
+	@include show_color($color-shade-lightest);
 }
 
 .bg-shade-lighter {
-	background-color: $color-shade-lighter;
+	@include show_color($color-shade-lighter);
 }
 
 .bg-shade-light {
-	background-color: $color-shade-light;
+	@include show_color($color-shade-light);
 }
 
 .bg-shade {
-	background-color: $color-shade;
+	@include show_color($color-shade);
 }
 
 .bg-shade-dark {
-	background-color: $color-shade-dark;
+	@include show_color($color-shade-dark);
 }
 
 .bg-shade-darker {
-	background-color: $color-shade-darker;
+	@include show_color($color-shade-darker);
 }
 
 .bg-shade-darkest {
-	background-color: $color-shade-darkest;
-}
-
-// rainbow
-.bg-rainbow1 {
-	background-color: $rainbow1;
-}
-
-.bg-rainbow2 {
-	background-color: $rainbow2;
-}
-
-.bg-rainbow3 {
-	background-color: $rainbow3;
-}
-
-.bg-rainbow4 {
-	background-color: $rainbow4;
+	@include show_color($color-shade-darkest);
 }

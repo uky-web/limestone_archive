@@ -1,0 +1,10 @@
+<p><span class="decoration">This has a decoration on the left.</span></p>
+<p><span class="decoration-on-right">This has a decoration on the right.</span></p>
+<p><span class="decoration-both">This has a decoration on both sides.</span></p>
+<hr />
+{% for shape in ['arrow','triangle'] %}
+	{% for direction in ['right','down','left','up'] %}
+		<p><span class="{{ shape }}-{{direction}}">{{ shape|titleize }} pointing {{ direction }}.</span></p>
+	{% endfor %}
+	{% if not loop.last %}<hr />{% endif %}
+{% endfor %}

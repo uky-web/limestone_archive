@@ -1,0 +1,40 @@
+.search-bar {
+	.search-bar__toggle {
+		display: none;
+	}
+}
+
+.search-bar__toggle {
+	transition: width 3s;
+}
+
+.search-bar__form {
+	transition: width 3s;
+}
+
+.search-bar--initialized {
+	display: flex;
+	align-items: center;
+
+	.search-bar__toggle {
+		display: block;
+	}
+
+	.search-bar__form {
+		width: 0;
+		overflow: hidden;
+
+		.input-group {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.search-bar--exposed {
+	.search-bar__toggle {
+		width: 0;
+	}
+	.search-bar__form {
+		width: 100%;
+	}
+}

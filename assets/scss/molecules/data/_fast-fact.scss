@@ -1,0 +1,26 @@
+.fast-fact {
+
+	text-align: center;
+
+	@at-root #{&}__stat {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 1rem;
+	}
+
+	@at-root #{&}__main-stat {
+		font-size: 3rem;
+	}
+
+	@at-root #{&}__sub-stat {
+
+	}
+
+	@at-root #{&}__description {
+
+	}
+
+	@at-root #{&}--reversed {
+		flex-direction: column-reverse;
+	}
+}

@@ -1,2 +1,14 @@
 // font embed from google fonts
-@import url('https://fonts.googleapis.com/css?family=Lora|Muli:300,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Raleway:300,300i,400,400i,700,700i');
+
+// Setup font families
+$font-primary : 'Open Sans', sans-serif;
+$font-secondary : 'Raleway', sans-serif;
+$font-tertiary: Georgia, sans-serif;
+$font-quaternary: 'Open Sans';
+
+// Set font variables, if any
+$font-accent: $font-tertiary;
+
+// Font sizing
+$base-font-size: 16px;

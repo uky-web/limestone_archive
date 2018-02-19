@@ -1,0 +1,20 @@
+<div class="page-header {{ page_header_style }}">
+	{% if page_header_show_hero %}
+	<div class="page-header__hero">
+		<picture>
+			{% include 'atoms-source' with { width: 2400, height: 600, mediaQuery: 'all and (min-width: 1440px)' } %}
+			{% include 'atoms-source' with { width: 1300, height: 300, mediaQuery: 'all and (min-width: 1200px) and (max-width: 1439px)' } %}
+			{% include 'atoms-source' with { width: 750, height: 150, mediaQuery: 'all and (min-width: 640px) and (max-width: 1023px)' } %}
+			{% include 'atoms-source' with { width: 320, height: 110, mediaQuery: '' } %}
+			{% include 'atoms-image' with { width: 1300, height: 300 } %}
+		</picture>
+	</div>
+	{% endif %}
+	<div class="page-header__page-title">
+		{% embed 'molecules-one-column' %}
+			{% block one_column_col %}
+				{% include 'molecules-headline-group' with { level : 1, subhead : subhead, superhead: superhead } %}
+			{% endblock %}
+		{% endembed %}
+	</div>
+</div>
