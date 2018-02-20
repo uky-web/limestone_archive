@@ -1,5 +1,0 @@
-<div class="button-collection">
-	{% for i in 1..link_group_number|default(10) %}
-		{% include 'atoms-button' with { label : fake('words',{nb:3,asText: true})|titleize } %}
-	{% endfor %}
-</div>
