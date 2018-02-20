@@ -1,9 +1,12 @@
 @import "mixins/m_layout";
 @import "mixins/m_typography";
+@import "mixins/m_third";
 
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
+
+
 
 // generate the image url by prefixing the layout image path
 @function image-url($url) {
@@ -129,105 +132,3 @@
 	}
 }
 
-
-// Use in conjunction with pseudo-cover. Applies a color to an image container.
-// If mix-blend-mode is supported by the browser, a color layer will be applied
-// above the image with the 'multiply' blend mode (blend mode can be changed
-// using $mode argument). If the browser does not support mix-blend-mode
-// (e.g. IE and Edge), the image will be made partially transparent
-// on top of a colored layer. The effect is similar, but not identical.
-// A modernizr function to check for mix-blend-mode is required for this
-// mixin to function fully.
-//
-// Arguments:
-//	$color[color hex value] default: primary theme color
-//	$opacity[decimal value between 0 and 1] default: $opacity-overlay variable
-//	$mode['multiply'|'overlay'|'screen'] default: 'multiply'
-
-@mixin color-overlay($color:$color-primary, $opacity:$opacity-overlay, $mode:multiply) {
-	&::after {
-		@include pseudo-cover;
-		background-color: rgba($color, $opacity);
-	}
-
-	.mix-blend-mode & {
-		> img {
-			opacity: $opacity * 0.5;
-		}
-
-		&::after {
-			background-color: $color;
-			mix-blend-mode: $mode;
-		}
-	}
-}
-
-
-// Simple variant of color overlay. Darkens the contents of an element
-// by placing a semi-transparent black (or specified color) layer on
-// top of it.
-@mixin dark-bg-image($color:#000, $opacity:$opacity-overlay) {
-	&::after {
-		@include pseudo-cover;
-		background-color: rgba($color, $opacity);
-	}
-}
-
-// Similar to dark-bg-image, uses a gradient from black (or specified color) to
-// transparent instead of a solid color layer.
-@mixin gradient-overlay($color:#000, $direction:to right, $distance:50%, $opacity:0) {
-	&::after {
-		@include pseudo-cover;
-		background-image: linear-gradient($direction, $color, $color $distance, rgba($color, $opacity));
-	}
-}
-
-
-// Background image of a horizontal line, made up of dots.
-// Arguments:
-//		$size[pixel value] default: set in variables file
-//			Size of a single dot in pixels
-//
-//		$spacing[float]	default: set in variables file
-//			Size ratio of space between dots to dot size. Larger value means bigger space between dots.
-//
-//		$color[color hex value] default: set in variables file
-//			Color of dots
-@mixin line-dotted($size:$border-dot-size, $spacing:$border-dot-spacing, $color:$border-dot-color) {
-
-	$radius: $size / 2;
-	$space-width: $spacing * $size;
-
-	$image-horizontal: "data:image/svg+xml;utf8,<svg width='#{$size + $space-width}' height='#{$size}' viewBox='0 0 #{$size + $space-width} #{$size}' xmlns='http://www.w3.org/2000/svg'><ellipse fill='#{$color}' cx='#{$radius}' cy='#{$radius}' rx='#{$radius}' ry='#{$radius}'/></svg>";
-
-	background-image: url($image-horizontal);
-	background-repeat: repeat-x;
-	background-position: center center;
-	background-size: #{$size + $space-width}px auto;
-
-}
-
-// Similar to line-dotted, this mixin puts a dotted border around an element on any or all sides.
-// Takes same arguments as line-dotted, and also:
-// 	$sides[up to 4 strings] default: 'top' 'right' 'bottom' 'left'
-//		Border is applied only to the sides listed in this argument.
-
-$dotted-border-sides-default: 'top' 'right' 'bottom' 'left';
-
-@mixin border-dotted($size:$border-dot-size, $spacing:$border-dot-spacing, $color:$border-dot-color, $sides:$dotted-border-sides-default) {
-	$radius: $size / 2;
-	$space-width: $spacing * $size;
-
-	$image-size: $size * 3 + $space-width * 2;
-
-	$image-border: "data:image/svg+xml;utf8,<svg width='#{$image-size}' height='#{$image-size}' viewBox='0 0 #{$image-size} #{$image-size}' xmlns='http://www.w3.org/2000/svg'><g fill='#{$color}'><ellipse cx='#{$radius}' cy='#{$radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{$size + $space-width + $radius}' cy='#{$radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{($size * 2) + $space-width * 2 + $radius}' cy='#{$radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{$radius}' cy='#{$size + $space-width + $radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{($size * 2) + $space-width * 2 + $radius}' cy='#{$size + $space-width + $radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{$radius}' cy='#{($size * 2) + ($spacing * $size * 2) + $radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{$size + $space-width + $radius}' cy='#{($size * 2) + $space-width * 2 + $radius}' rx='#{$radius}' ry='#{$radius}'/><ellipse cx='#{($size * 2) + $space-width * 2 + $radius}' cy='#{($size * 2) + $space-width * 2 + $radius}' rx='#{$radius}' ry='#{$radius}'/></g></svg>";
-
-	border-width: 0;
-	border-style: solid;
-	border-image: url($image-border) 33% round;
-
-	@each $side in $sides {
-		border-#{$side}-width: #{$radius + $space-width}px;
-	}
-
-}

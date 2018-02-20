@@ -1,44 +1,35 @@
-@mixin fontstyle($stylename: "default") {
-	@if $stylename == "h1" {
-		font: normal 300 rem-calc(38) $font-secondary;
-		line-height: 1.5;
-		text-transform: none;
-	}
-	@elseif $stylename == "h2" {
-		font: normal normal rem-calc(24) $font-secondary;
-		line-height: 1.5;
-		text-transform: none;
-	}
-	@elseif $stylename == "h3" {
-		font: normal bold rem-calc(21.3) $font-tertiary;
-		line-height: 1.5;
-		text-transform: none;
-	}
-	@elseif $stylename == "h4" {
-		font: italic normal rem-calc(18.7) $font-tertiary;
-		line-height: 1.5;
-		text-transform: none;
-	}
-	@elseif $stylename == "h5" {
-		font: normal bold rem-calc(16) $font-primary;
-		line-height: 1.5;
-		text-transform: none;
-	}
-	@elseif $stylename == "h6" {
-		font: italic normal rem-calc(16) $font-primary;
-		line-height: 1.5;
-		text-transform: none;
-	}
-	@elseif $stylename == "button" {
-		font: normal bold 1rem $font-primary;
-		line-height: 1;
-		text-transform: none;
-	}
-	@else {
-		font: normal normal $base-font-size $font-primary;
-		text-transform: none;
-		line-height: 1.5;
-	}
+/*
+ * This mixin produces a font size / line-height pair 
+ * that fits the font size into a specific vertical rhythm. 
+ * 
+ * $size: the size, in px (no units please).
+ * $spacing: How many increments to increase the line height.
+ *   This will return a line-height that is the minimum to fit
+ *   For example, assuming an 8px grid, a geometic progression,
+ *	 and a font at 16px, a spacing value of `1` will return a line height of 1, 
+ *   
+ */
+
+$font-primary: sans-serif;
+$font-secondary: serif;
+
+// Font sizing
+$base-font-size: 16;
+ 
+
+// Adjusting this ratio will change how rapidly the font sizes grow.
+$space-ratio: 1.25;
+
+@mixin fontstyle($style) {
+	@include fontsize();
+}
+
+@mixin fontsize($step: 0, $spacing : 1, $px_offset: 0) {
+	$fontsize: $base-font-size * pow($space-ratio,$step);
+	$lineheight: $base-font-size * pow($space-ratio, $step + $spacing);
+	// Make sure our lineheight is some multiple of 8?
+	font-size: rem(#{$fontsize}px);
+	line-height: $lineheight / $fontsize;
 }
 
 /* This is an example of setting color themes for text

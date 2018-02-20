@@ -1,8 +1,10 @@
 @import 'global/colors';
-@import 'global/fonts';
+@import 'global/font-styles';
 
+// Prep images to be responsive
 img {
 	width: 100%;
 	height: auto;
-	display: inline-block;
+	display: block;
 }
+

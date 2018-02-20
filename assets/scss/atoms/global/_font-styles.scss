@@ -1,0 +1,21 @@
+$sizes: -1 0 1 2 3 4 5 6 7 8 9 10;
+
+@each $size in $sizes {
+    .text-#{$size}-narrow {
+        @include fontsize($size, 0);
+        background-color: lightgrey;
+    }
+    .text-#{$size} {
+        @include fontsize($size,1);
+        background-color: lightgrey;
+    }
+    .text-#{$size}-wide {
+        @include fontsize($size, 2);
+        background-color: lightgrey;
+    }
+    .text-#{$size}-redic {
+        @include fontsize($size, 3);
+        background-color: lightgrey;
+    }
+}
+

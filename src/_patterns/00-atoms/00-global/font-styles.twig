@@ -1,0 +1,15 @@
+{% set sizes = [-1,0,1,2,3,4,5,6,7,8,9,10] %}
+{% for size in sizes %}
+    {% for spacing in ['narrow','','wide','redic'] %}
+        <p class="text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
+            {% spaceless %}
+            Font, size step {{ size }}
+            {% if spacing is not empty %}
+                , {{ spacing }} lineheight.
+            {% else %}
+                , normal lineheight.
+            {% endif %}
+            {% endspaceless %}
+        </p>
+    {% endfor %}
+{% endfor %}
