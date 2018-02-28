@@ -20,6 +20,8 @@
 
 $rr-grid-divisions: 2;
 
+$rr-blend-mode: multiply;
+
 $rr-grid-settings: ( 
     s: ( 
         mq: max-width, 
@@ -28,8 +30,8 @@ $rr-grid-settings: (
         gutter: 1rem / $rr-grid-divisions, 
         offset: 1rem, 
         vspace: 2,
-        column_color: rgba(200, 200, 255, .2),
-        baseline_color: rgba(128, 128, 128, .2)
+        column_color: rgba(200, 200, 200, .2),
+        baseline_color: rgba(128, 128, 200, .2)
     ), 
     m: ( 
         mq: min-width, 
