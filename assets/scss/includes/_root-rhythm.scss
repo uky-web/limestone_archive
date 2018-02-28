@@ -1,0 +1,217 @@
+$rr-maxwidth: 72rem !default;
+$rr-grid-divisions: 2 !default;
+
+$rr-grid-settings: ( 
+    s: ( 
+        mq: max-width, 
+        size: 35rem, 
+        columns: 4, 
+        gutter: 1rem / $rr-grid-divisions, 
+        offset: 1rem, 
+        column_color: rgba(128, 128, 255, .3), 
+        ), 
+    m: ( 
+        mq: min-width, 
+        size: 35rem, 
+        columns: 8, 
+        offset: 2rem, 
+        column_color: rgba(128, 255, 128, .3), 
+        ), 
+    l: ( 
+        size: 48rem, 
+        columns: 12, 
+        column_color: rgba(255, 128, 128, .3), 
+        ), 
+    xl: ( 
+        size: $rr_maxwidth + 4rem, 
+        offset: 0, 
+        column_color: rgba(168, 168, 255, .3), 
+        baseline_color: rgba(255, 128, 0, .3)
+        )
+    ) !default;
+
+
+@function rr-breakpoint-list() {
+    @return map-keys($rr-grid-settings);
+}
+
+@function rr-breakpoint-first() {
+    @return map-get($rr-grid-settings,nth(rr-breakpoint-list(),1));
+}
+
+@function rr-grid-units($steps) {
+    @return rr-gridbase() * $steps;
+}
+
+@function rr-breakpoint($tag) {
+    $config: $rr-grid-settings;
+    @if map-has-key($config,$tag) {
+        @return map-get($config, $tag);
+    }
+    @else {
+        @return map-get($config, nth(map-keys($config),1));
+    }
+}
+
+@function rr-combined-breakpoint($break: s) {
+    $breaks: rr-breakpoint-list();
+    $work-map: rr-breakpoint-first();
+    $stop: index($breaks, $break);
+    
+    @if not $stop {
+        @return $work-map;
+    }
+
+    // Bounds-check the stop
+    @if ($stop > 1) {
+        @for $i from 2 through $stop {
+            $tag: nth($breaks, $i);
+            $work-map: map-merge($work-map, rr-breakpoint($tag));
+        }
+    } 
+
+    @return $work-map;
+}
+
+@function rr-prop-for-breakpoint($break,$prop) {
+    $bp: rr-combined-breakpoint($break);
+    @if map-has-key($bp,$prop) {
+        @return map-get($bp,$prop);
+    }
+    @return null;
+}
+
+@function strict-prop-for-breakpoint($break, $prop) {
+    $bp: rr-breakpoint($break);
+    @if map-has-key($bp,$prop) {
+        @return map-get($bp,$prop);
+    }
+    @return null;
+}
+
+@function rr-gridbase() {
+    @return 1rem / $rr-grid-divisions;
+}
+
+@function rr-columns($break: s) {
+    $gutter: rr-prop-for-breakpoint($break, gutter);
+    $color: rr-prop-for-breakpoint($break, column_color);
+    $columns: rr-prop-for-breakpoint($break, columns);
+    $colwidth: 100% / $columns;
+    @if not $color {
+        $color: rgba(0,0,0,.5);
+    }
+    @return repeating-linear-gradient( 
+        to left, 
+        transparent 0,
+        transparent $gutter,
+        $color $gutter,
+        $color $colwidth
+    );
+}
+
+@function rr-baselines($break: s) {
+    $baseline: rr-gridbase();
+    $color: rr-prop-for-breakpoint($break,baseline_color);
+    @if not $color {
+        $color: rgba(0, 0, 0, .5);
+    }
+    @return linear-gradient( 
+        to top, 
+        #{$color} 0,
+        #{$color} 1px,
+        transparent 1px,
+        transparent 100%
+    );
+}
+
+@mixin rr-font-line-height($fontsize, $offset_steps: 0) {
+    // Our grid unit
+    $gridbase: gridbase();
+
+    // Match to the font size
+    $container: ceil($fontsize / $gridbase) * $gridbase;
+
+    // Add the offset value to the text
+    $leading: $offset * $gridbase;
+
+    font-size: $fontsize;
+    line-height: $container + $leading;
+}
+
+
+@mixin rr-grid-overlay {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: $rr_maxwidth;
+        min-height: 100vh;
+        z-index: 1000;
+        pointer-events: none;
+
+        $breaks: rr-breakpoint_list();
+        @each $break in $breaks {
+            $offset: rr-prop-for-breakpoint($break, offset);
+            $gutter: rr-prop-for-breakpoint($break, gutter);
+            $cols: rr-prop-for-breakpoint($break, columns);
+            @include rr-break-directive($break) {
+                @if $offset > 0 {
+                    width: calc(100% - (2 * #{$offset}));
+                }
+                @else {
+                    width: 100%;
+                }
+                background-image: rr-columns($break);
+                background-size: calc(100% + #{$gutter});
+            }
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        min-height: 100vh;
+        z-index: 1000;
+        pointer-events: none;      
+        mix-blend-mode: multiply;
+        $breaks: rr-breakpoint_list();
+        @each $break in $breaks {
+            background: transparent rr-baselines($break) scroll repeat left top / 100% rr-gridbase();
+        }
+    }
+}
+
+@mixin rr-break-directive($break) {
+    $mq: rr-prop-for-breakpoint($break, mq);
+    $size: rr-prop-for-breakpoint($break, size);
+    size: $size;
+    @media screen and ($mq: $size) {
+        @content
+    }
+}
+
+html {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    @include rr-grid-overlay();
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1rem;
+}

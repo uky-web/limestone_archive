@@ -1,0 +1,28 @@
+.slab {
+    @include rr-slab;
+}
+
+.slab__wrapper {
+    @include rr-slab-wrapper;
+}
+
+$skins: transparent;
+
+@each $name,$color in $colors {
+    .slab--#{$name} {
+        background-color: $color;
+        contrast: contrast($color,$black);
+        @if (contrast($color,color(wildcat-black)) < 4.5) {
+            @include usescheme($text-colors-dark);
+        }
+    }
+    $skins: append($skins, slab--#{$name});
+}
+
+
+@include rr-slab-adjacency($style-list: $skins);
+
+.slab--photo {
+
+}
+

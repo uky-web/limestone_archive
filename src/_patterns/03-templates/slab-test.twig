@@ -1,0 +1,10 @@
+{% extends 'base.twig' %}
+{% block main_content %}
+{% set slab_styles = ['wildcat-black','wildcat-white','wildcat-blue','light-blue','medium-blue','dark-blue','light-gray','medium-gray','dark-gray','success','warning','alert','info'] %}
+
+{% for skin in slab_styles %}
+    {% include 'molecules-slab' with {slab_variant: 'slab--' ~ skin} %}
+    {% include 'molecules-slab' with {slab_variant: 'slab--' ~ skin} %}
+{% endfor %}
+
+{% endblock %}

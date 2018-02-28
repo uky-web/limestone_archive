@@ -1,0 +1,19 @@
+<div class="slab {{ slab_variant }}">
+    {% block slab_outer %}
+        <div class="slab__wrapper">
+            {% block slab_inner %}
+                <p>Slab Contents</p>
+            {% endblock %}
+        </div>
+    {% endblock %}
+</div>
+
+{#
+article + sidebar
+slab__layout--2-up
+3-up
+4-up
+5-up
+half-bleed (left + right)
+#}
+

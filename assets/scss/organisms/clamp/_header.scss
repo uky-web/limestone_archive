@@ -1,15 +1,13 @@
 .main-header {
-	background-color: $color-shade-lightest;
+	
 }
 
 .main-header__sitenav-main {
 	@include ondark;
-	background-color: $color-accent-secondary;
 }
 
 .main-header__sitenav-util {
 	@include ondark;
-	background-color: $color-secondary;
 	text-align: right;
 	padding: {
 		top: 0.5rem;

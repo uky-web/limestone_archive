@@ -1,5 +1,5 @@
-<div class="slab slab--placeholder">
-    <div class="slab__wrapper">
+{% embed 'molecules-slab' with {slab_variant: 'slab--placeholder'} %}
+    {% block slab_inner %}
         <p>Placeholder: {{ title|default("Default Placeholder") }}</p>
-    </div>
-</div>
+    {% endblock %}
+{% endembed %}

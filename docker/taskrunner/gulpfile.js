@@ -1,30 +1,26 @@
 var interactive = false;
 
-var gulp = require('gulp'),
+var 
 	argv = require('yargs').argv,
-	postcss = require('gulp-postcss'),
-	autoprefixer = require('autoprefixer');
-	flexbugs = require('postcss-flexbugs-fixes'),
+	autoprefixer = require('autoprefixer'),
+	babel = require('gulp-babel');
 	coffee = require('gulp-coffee'),
-	colors = require('colors/safe'),
-	concat = require('gulp-concat'),
-	del = require('del'),
+	colors = require('ansi-colors'),
+	eyeglass = require('eyeglass'),
 	exec = require('child_process').exec,
+	flexbugs = require('postcss-flexbugs-fixes'),
+	gulp = require('gulp'),
 	gulpif = require('gulp-if'),
-	gutil = require('gulp-util'),
-	imagemin = require('gulp-imagemin'),
+	log = require('fancy-log'),
 	modernizr = require('gulp-modernizr'),
 	plumber = require('gulp-plumber'),
-	pngquant = require('imagemin-pngquant'),
-	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps'),
+	postcss = require('gulp-postcss'),
 	sanewatch = require('gulp-sane-watch'),
-	svgmin = require('gulp-svgmin'),
-	svgsprite = require('gulp-svg-sprite'),
-	inject = require('gulp-inject'),
-	uglify = require('gulp-uglify'),
+	sass = require('gulp-sass'),
 	save = require('gulp-save'),
-	babel = require('gulp-babel');
+	sourcemaps = require('gulp-sourcemaps'),
+	svgmin = require('gulp-svgmin'),
+	svgsprite = require('gulp-svg-sprite');
   
 // within the container,
 //   /app/assets is the source parent
@@ -46,21 +42,7 @@ var paths = {
 		bower_path + '/jquery/dist/jquery.js',
 		bower_path + '/jquery.fitvids/jquery.fitvids.js',
 		bower_path + '/slick-carousel/slick/slick.js',
-		bower_path + '/list.js/dist/list.js',
-		// required by bootstrap tooltips
-		bower_path + '/tether/dist/js/tether.js',
 		bower_path + '/magnific-popup/dist/jquery.magnific-popup.js',
-		bower_path + '/bootstrap/js/dist/alert.js',
-		bower_path + '/bootstrap/js/dist/button.js',
-		bower_path + '/bootstrap/js/dist/carousel.js',
-		bower_path + '/bootstrap/js/dist/collapse.js',
-		bower_path + '/bootstrap/js/dist/dropdown.js',
-		bower_path + '/bootstrap/js/dist/modal.js',
-		// bower_path + '/bootstrap/js/src/popover.js',
-		bower_path + '/bootstrap/js/dist/scrollspy.js',
-		bower_path + '/bootstrap/js/dist/tab.js',
-		// bower_path + '/bootstrap/js/src/tooltip.js',
-		bower_path + '/bootstrap/js/src/util.js'
 	],
 	dist_css: 'dist/css',
 	dist_js: 'dist/js',
@@ -73,21 +55,26 @@ var plumber_error = function (err) {
 	if (!interactive) {
 		throw err;
 	}
-	gutil.log( gutil.colors.red('\u0007') );
-	gutil.log( gutil.colors.red(err) );
+	log( "hi ");
+	log( colors.red(err) );
 	this.emit('end');
 };
 
 // application and third-party SASS -> CSS
 gulp.task('styles', function() {
+	var sassOptions = {
+		outputStyle : 'nested',
+		eyeglass: {
+
+		}
+	}
+
 	return gulp.src( paths.sass )
 		.pipe( plumber({ errorHandler: plumber_error }) )
 
 		// If not in production mode, generate a sourcemap
 		.pipe( gulpif( !argv.production, sourcemaps.init() ) )
-		.pipe( sass({
-			outputStyle: 'nested'
-		 }) )
+		.pipe( sass(eyeglass(sassOptions)) )
 		.pipe( postcss([ 
 			autoprefixer( [ 'last 2 versions', '> 1%' ] ),
 			flexbugs()
@@ -120,7 +107,7 @@ gulp.task('styles', function() {
 // (after optimizing them, if enabled)
 gulp.task('images', function() {
 	return gulp.src( paths.images )
-		.pipe( plumber() )
+		.pipe(plumber({ errorHandler: plumber_error }) )
 		.pipe( gulp.dest( paths.dist_images ));
 });
 
@@ -128,7 +115,7 @@ gulp.task('images', function() {
 // already injected in drupal by jquery_update
 gulp.task('jquery', function() {
 	return gulp.src( paths.jquery )
-		.pipe( plumber() )
+		.pipe(plumber({ errorHandler: plumber_error }) )
 		.pipe( gulp.dest( paths.dist_js ) );
 });
 
@@ -143,7 +130,7 @@ gulp.task('vendorscripts', function() {
 // JS folder
 gulp.task('coffee', function() {
 	return gulp.src( paths.coffee )
-		.pipe( plumber() )
+		.pipe(plumber({ errorHandler: plumber_error }) )
 		.pipe( coffee() )
 		.pipe( gulp.dest( paths.dist_js ) );
 });
@@ -214,7 +201,7 @@ gulp.task('svgstore', function () {
 		}
 	};
 	return gulp.src(paths.svgstore)
-		.pipe(plumber())
+		.pipe(plumber({ errorHandler: plumber_error }))
 		.pipe(svgsprite(svgsprite_config))
 		.pipe(gulp.dest(paths.dist_svg))
 });

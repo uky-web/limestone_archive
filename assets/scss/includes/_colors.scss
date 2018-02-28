@@ -4,58 +4,105 @@
 
 $color-undefined: #aaaaaa;
 $white: #fff;
-$black: #000;
+$black: #2c2a29;
 
-// These colors are for testing and development of the Monolith PatternLab
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black
+/// @param {Color} $color - Color
+/// @return {Number}
+/// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
+@function luminance($color) {
+    $colors: ( 'red': red($color), 'green': green($color), 'blue': blue($color));
+    @each $name,
+    $value in $colors {
+        $adjusted: 0;
+        $value: $value / 255;
+        @if $value < 0.03928 {
+            $value: $value / 12.92;
+        }
+        @else {
+            $value: ($value + .055) / 1.055;
+            $value: pow($value, 2.4);
+        }
+        $colors: map-merge($colors, ($name: $value));
+    }
+    @return (map-get($colors, 'red') * .2126)+(map-get($colors, 'green') * .7152)+(map-get($colors, 'blue') * .0722);
+}
+
+@function contrast($c1,$c2) {
+    $l1: luminance($c1);
+    $l2: luminance($c2);
+    @if $l1 > $l2 {
+        @return ($l1 + 0.05) / ($l2 + 0.05);
+    }
+    @return ($l2 + 0.05) / ($l1 + 0.05);
+}
+
+@function color($name: wildcat-blue, $scheme: $colors) {
+    @if map-has-key($scheme, $name) {
+        @return map-get($scheme, $name);
+    }
+    @return $color-undefined;
+}
+
+@mixin usescheme($textscheme) {
+    color: color(text,$textscheme);
+    abbr {
+        color: $white;
+    }
+    a {
+        &:link,
+        &:visited {
+            color: color(link,$textscheme);
+        }
+        &:hover,
+        &:active {
+            color: color(link-active,$textscheme);
+        }
+    }
+}
+
+@mixin ondark() {
+    warning: "ondark-depricated";
+    @include usescheme($text-colors-dark);
+}
 
 
-$color-brand: #bada55;
-$color-brand-alt: #136c94;
 
-// Brand Color Palette: primaries
-$color-primary: $color-brand;
-$color-secondary: $color-brand-alt;
-$color-tertiary: #b54df0;
-$color-quaternary: #e245c0;
-$color-quinary: #d22e59;
-$color-senary: #ff6a00;
-$color-septenary: #e6bc3a;
-// stahp
-$color-octonary: lighten($color-brand, 30%);
-$color-nonary: saturate(darken($color-brand, 20%),10%);
-$color-denary: desaturate($color-brand, 40%);
+$colors: (
+    wildcat-blue: #0033a0,
+    wildcat-white: #fff,
+    wildcat-black: #2c2a29,
+    light-blue: #1897d4,
+    medium-blue: #143887,
+    dark-blue: #202c5f,
+    light-gray: #c8c8c7,
+    medium-gray: #a5acaf,
+    dark-gray: #63656a,
+    success: lawngreen,
+    warning: darkorange,
+    alert: darkred,
+    info: lightsteelblue,
+);
 
-$color-success: $color-nonary;
-$color-warning: $color-senary;
-$color-alert: $color-quinary;
+$text-colors: (
+    link: rebeccapurple,
+    link-active: purple,
+    text: color(wildcat-white),
+    accent: color(alert)
+);
+
+$text-colors-dark: (
+    link: lightskyblue,
+    link-active: lightsteelblue,
+    text: color(wildcat-white),
+    accent: color(success)
+);
 
 
-// Brand Color Palette: accents
-$color-accent-primary: lighten($color-primary,20%);
-$color-accent-secondary: lighten($color-secondary,20%);
-$color-accent-tertiary: lighten($color-tertiary,20%);
-$color-accent-quaternary: lighten($color-quaternary,20%);
-$color-accent-quinary: lighten($color-quinary,20%);
-$color-accent-senary: lighten($color-senary,20%);
-$color-accent-septenary: lighten($color-septenary,20%);
-$color-accent-octonary: saturate($color-octonary,50%);
-$color-accent-nonary: lighten($color-nonary,20%);
-$color-accent-denary: lighten($color-denary,20%);
+// convenience aliases
+$white: color(wildcat-white);
+$black: color(wildcat-black);
+$color-text: color(text);
+$color-link: color(link);
 
-$color-shade-base: #aaaaaa;
-
-// Grays / Shades / Support Colors
-$color-shade-lightest: lighten($color-shade-base, 30%);
-$color-shade-lighter: lighten($color-shade-base, 20%);
-$color-shade-light: lighten($color-shade-base, 10%);
-$color-shade: $color-shade-base;
-$color-shade-dark: darken($color-shade-base, 10%);
-$color-shade-darker: darken($color-shade-base, 20%);
-$color-shade-darkest: darken($color-shade-base, 30%);
-
-// Global Color Settings
-$color-text: $color-shade-darkest;
-$color-bg: $color-shade-lightest;
-$color-border: $color-shade;
-$color-link: $color-brand-alt;
-$color-link-hover: $color-quinary;

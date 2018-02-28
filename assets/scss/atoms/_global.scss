@@ -2,6 +2,16 @@
 @import 'global/font-styles';
 @import 'global/placeholder';
 
+:root {
+	position: relative;
+	@include rr-grid-overlay;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
 // Prep images to be responsive
 img {
 	width: 100%;

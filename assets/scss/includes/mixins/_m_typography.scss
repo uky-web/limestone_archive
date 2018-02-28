@@ -34,24 +34,6 @@ $space-ratio: 1.25;
 
 /* This is an example of setting color themes for text
    with a mixin. You can/should make several of these. */
-@mixin ondark {
-	color: $white;
-
-	abbr {
-		color: $white;
-	}
-
-	a {
-		&:link,
-		&:visited {
-			color: $white;
-		}
-		&:hover,
-		&:active {
-			color: $color-brand-alt;
-		}
-	}
-}
 
 .ondark {
 	@include ondark;
