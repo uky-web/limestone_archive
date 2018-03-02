@@ -34,6 +34,7 @@ var paths = {
 	coffee: ['assets/coffee/*.coffee'],
 	js: ['assets/js/**/*.js'],
 	images: ['assets/images/**/*'],
+	fonts: ['assets/fonts/**/*'],
 	svgstore: ['assets/svg/**/*.svg'],
 	jquery: bower_path + '/jquery/dist/jquery.min.js',
 	vendorscripts: [
@@ -48,6 +49,7 @@ var paths = {
 	dist_js: 'dist/js',
 	dist_svg: 'dist/sprites',
 	dist_images: 'dist/images',
+	dist_fonts: 'dist/fonts',
 };
 
 // Error reporter for plumber.
@@ -55,7 +57,6 @@ var plumber_error = function (err) {
 	if (!interactive) {
 		throw err;
 	}
-	log( "hi ");
 	log( colors.red(err) );
 	this.emit('end');
 };
@@ -109,6 +110,14 @@ gulp.task('images', function() {
 	return gulp.src( paths.images )
 		.pipe(plumber({ errorHandler: plumber_error }) )
 		.pipe( gulp.dest( paths.dist_images ));
+});
+
+// Copy images from src to PL source destination
+// (after optimizing them, if enabled)
+gulp.task('fonts', function () {
+	return gulp.src(paths.fonts)
+		.pipe(plumber({ errorHandler: plumber_error }))
+		.pipe(gulp.dest(paths.dist_fonts));
 });
 
 // just copy over jquery
@@ -208,7 +217,7 @@ gulp.task('svgstore', function () {
 
 
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles', 'jquery', 'vendorscripts','svgstore', 'js', 'coffee', 'images']);
+gulp.task('build-all', ['styles', 'jquery', 'vendorscripts','svgstore', 'js', 'coffee', 'images', 'fonts']);
 
 // all the watchy stuff
 gulp.task('watcher', ['build-all'], function() {
@@ -254,6 +263,12 @@ gulp.task('watcher', ['build-all'], function() {
 			gulp.start('images');
 		}
 	);
+
+	sanewatch(paths.fonts, watcherOptions,
+		function () {
+			gulp.start('fonts');
+		}
+	);	
 });
 
 // Default build task

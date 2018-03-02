@@ -12,6 +12,7 @@ services:
       - css:/app/dist/css
       - js:/app/dist/js
       - images:/app/dist/images
+      - fonts:/app/dist/fonts
       - sprites:/app/dist/sprites
       # config overrides
       - ./docker/taskrunner/package.json:/app/package.json:ro
@@ -27,6 +28,7 @@ services:
       - js:/pl/public/js:ro
       - images:/pl/public/images:ro
       - sprites:/pl/source/sprites:ro
+      - fonts:/pl/public/fonts:ro
       - ./src/_annotations:/pl/source/_annotations:ro
       - ./src/_data:/pl/source/_data:ro
       - ./src/_layouts:/pl/source/_layouts:ro
@@ -48,3 +50,4 @@ volumes:
   images:
   js:
   sprites:
+  fonts:
