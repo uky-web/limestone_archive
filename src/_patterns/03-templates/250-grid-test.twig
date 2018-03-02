@@ -1,0 +1,19 @@
+{% extends 'base.twig' %}
+{% block main_content %}
+    {% set slab_styles = ['wildcat-black','wildcat-white','wildcat-blue','light-blue','medium-blue','dark-blue','light-gray','medium-gray','dark-gray','success','warning','alert','info'] %}
+    {% set grid_types = ['2-up','3-up','4-up','5-up','6-up'] %}
+    {% for skin in slab_styles %}
+        {% for grid in grid_types %} 
+            {% include 'molecules-grid' with {
+                    slab_variant: 'slab--' ~ skin, 
+                    grid_type: 'grid--' ~ grid, 
+                    grid_cols: loop.index + 1
+                } 
+            %}
+        {% endfor %}
+        {% include 'molecules-grid-1x2' with { slab_variant: 'slab--' ~ skin } %}
+        {% include 'molecules-grid-2x1' with { slab_variant: 'slab--' ~ skin } %}
+        {% include 'molecules-grid-sidebar-left' with { slab_variant: 'slab--' ~ skin } %}
+        {% include 'molecules-grid-sidebar-right' with { slab_variant: 'slab--' ~ skin } %}=        
+    {% endfor %}
+{% endblock %}

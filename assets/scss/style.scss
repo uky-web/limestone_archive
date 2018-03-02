@@ -36,6 +36,7 @@ $rr-grid-settings: (
     m: ( 
         mq: min-width, 
         size: 35rem, 
+        gutter: 1rem,
         columns: 8, 
         offset: 2rem,
         vspace: 3
@@ -47,6 +48,7 @@ $rr-grid-settings: (
     xl: ( 
         size: $global-width + 4rem, 
         offset: 0,
+        gutter: 2rem,
         vspace: 4
     )
 );

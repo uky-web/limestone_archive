@@ -1,0 +1,12 @@
+{% embed 'molecules-slab' with { slab_variant: slab_variant } %}
+    {% block slab_outer %}
+        <div class="grid grid--major-right">
+            <div class="grid__column grid__column--minor">
+                {% include 'atoms-placeholder' %}
+            </div>
+            <div class="grid__column grid__column--major">
+                {% include 'atoms-placeholder' %}
+            </div>            
+        </div>
+    {% endblock %}
+{% endembed %}

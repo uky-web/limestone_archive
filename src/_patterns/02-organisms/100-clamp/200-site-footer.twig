@@ -1,1 +1,5 @@
-{% include 'atoms-placeholder' with { title: "Site Footer" } %}
+{% embed 'molecules-slab' %}
+    {% block slab_content %}
+        {% include 'atoms-placeholder' with { title: "Site Footer" } %}
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,38 @@
+.grid {
+    @include rr-slab-wrapper($margins: true);
+}
+
+$styles: map-keys($rr-grids);
+@each $name, $template in $rr-grids {
+    .grid--#{$name} {
+        @include css-grid-columns($template, $class-prefix: 'grid');
+    }
+}
+
+.grid__column--major {
+    grid-area: major;
+}
+
+.grid__column--minor {
+    grid-area: minor;
+}
+
+.grid__column--article {
+    grid-area: main;
+}
+
+.grid__column--sidebar {
+    grid-area: side;
+}
+
+
+body * {
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
