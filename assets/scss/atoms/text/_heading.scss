@@ -1,6 +1,35 @@
-@for $i from 1 through 6 {
-	h#{$i} {
-		@include fontstyle("h#{$i}");
-		margin: rem-calc(8 0);
-	}
+h1 {
+	@include font-compute(xl);
+	margin-top: rr-gridbase() * 3;
+	margin-bottom: rr-gridbase() * 2;
+}
+
+h2 {
+	@include font-compute(l);
+	margin-top: rr-gridbase() * 3;
+	margin-bottom: rr-gridbase() * 2;
+}
+
+h3 {
+	@include font-compute(l);
+	margin-top: rr-gridbase() * 2;
+	margin-bottom: rr-gridbase();
+}
+
+h4 {
+	@include font-compute(m);
+	margin-top: rr-gridbase() * 2;
+	margin-bottom: rr-gridbase();
+}
+
+h5 {
+	@include font-compute(m);
+	margin-top: rr-gridbase();
+	margin-bottom: rr-gridbase();
+}
+
+h6 {
+	@include font-compute(m);
+	margin-top: rr-gridbase();
+	margin-bottom: rr-gridbase();
 }

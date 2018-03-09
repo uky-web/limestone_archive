@@ -1,6 +1,11 @@
 .nc-placeholder {
-    box-shadow: rgba(128,128,255,.5) 0 0 0 1px inset;
+    background-color: rgba(128,128,128,.8);
     text-align: center;
     font-weight: bold;
     font-family: sans-serif;
+    padding-top: rr-gridbase() * 2;
+    padding-bottom: rr-gridbase() * 2;
+    p {
+        @include font-compute(l,wide);
+    }
 }

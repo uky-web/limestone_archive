@@ -3,6 +3,10 @@
  * styles for grids, animations, color swatches, etc.
  * These styles will not be your production CSS.
  */
+@import 'root-rhythm';
+@import 'includes/colors';
+@import 'includes/fonts';
+
 #sg-patterns {
   -webkit-box-sizing: border-box !important;
           box-sizing: border-box !important;
@@ -20,26 +24,25 @@
 }
 
 .sg-colors {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  margin-left: 0;
+  list-style: none;
+  @include css-grid-columns(map-get($rr-grids,6-up));
 }
 
-.sg-colors li {
+.sg-colors .sg-colors__swatch {
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
-  padding: 0.3em;
-  margin: 0 0.5em 0.5em 0;
-  min-width: 5em;
-  max-width: 14em;
-  border: 1px solid #ddd;
+
+  border: 1px solid color(light-gray);
+  border-width: 2px;
   border-radius: 8px;
+  padding: rr-grid-remainder(2px);
+  @include font-compute(m,tight);
+  margin {
+    top: rr-gridbase() * 2;
+    bottom: rr-gridbase() * 2;
+  }
 
   &::before {
 	  display: none;
@@ -48,14 +51,16 @@
 }
 
 .sg-colors pre {
-  font-size: 0.7em;
+  @include font-compute(s,tight);
+  margin-bottom: rr-gridbase();
 }
 
 .sg-swatch {
   display: block;
-  height: 4em;
-  margin-bottom: 0.3em;
+  height: rr-gridbase() * 10;
+  margin-bottom: rr-gridbase();
   border-radius: 5px;
+  padding: rr-grid-remainder(5px);
 }
 
 .sg-label {
@@ -65,4 +70,28 @@
 
 .sg-pattern-example {
 	overflow: hidden;
+}
+
+.sg-pattern {
+  margin-bottom: rr-gridbase() * 4;
+}
+
+.sg-pattern-head {
+  @include font-compute(m);
+  padding: rr-gridbase();
+}
+
+.sg-pattern-title {
+  padding {
+    top: rr-gridbase() * 2;
+    bottom: rr-gridbase() * 2;
+  }
+  a {
+    padding: 0;
+    border-bottom-width: 0;
+  }
+}
+
+.sg-pattern-extra {
+  display: none;
 }

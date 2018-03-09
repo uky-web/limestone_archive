@@ -71,3 +71,9 @@ $lineheights: ( tight: ( grid-units: 0),
 medium: ( grid-units: 1),
 wide: ( grid-units: 2),
 huge: ( grid-units: 3));
+
+@mixin font-compute($size : m, $lineheight : medium) {
+    $fontsize: map-get(map-get($fonts,$size),size);
+    $linegridheight: map-get(map-get($lineheights, $lineheight),grid-units);
+    @include rr-font-line-height($fontsize,$linegridheight);
+}

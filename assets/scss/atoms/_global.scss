@@ -19,3 +19,7 @@ img {
 	display: block;
 }
 
+hr {
+	border-width: 0 0 1px;
+	padding-bottom: rr-grid-remainder(1px);
+}

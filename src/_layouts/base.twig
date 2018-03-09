@@ -1,5 +1,6 @@
 {% include 'molecules-skip-nav' %}
-{% include 'organisms-header' %}
+{% include 'components-universal-header' %}
+{% include 'components-global-header' %}
 <main class="main">
 	{% block main_content %}
 		{% include 'organisms-page-header' with { page_header_show_hero : true } %}
@@ -15,4 +16,5 @@
 
 	{% endblock %}
 </main>
-{% include 'organisms-footer' %}
+{% include 'components-global-footer' %}
+{% include 'components-universal-footer' %}
