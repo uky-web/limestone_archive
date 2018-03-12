@@ -1,5 +1,3 @@
-
-
 // susy is a grid layout tool. This is used when grid or flexbox choices aren't appropriate
 // sshttp: //oddbird.net/susy/
 @import 'susy';
@@ -24,9 +22,13 @@
 @import "includes/design-variables";
 
 :root {
-    font-size: 16px;
+    font-size: 18px;
     position: relative;
-    @include rr-grid-overlay;    
+    
+}
+
+body {
+    @include rr-grid-overlay;
 }
 
 /* Slick */

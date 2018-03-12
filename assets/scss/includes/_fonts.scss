@@ -48,8 +48,6 @@
     src: url('/fonts/35E586_2_0.eot?#iefix') format('embedded-opentype'), url('/fonts/35E586_2_0.woff2') format('woff2'), url('/fonts/35E586_2_0.woff') format('woff'), url('/fonts/35E586_2_0.ttf') format('truetype');
 }
 
-$font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
-$font-avenirnext: 'AvenirNextLTPro', sans-serif;
 
 body {
     font-family: $font-avenirnext;
@@ -68,10 +66,12 @@ body {
     $linegridheight: map-get($lineheights, $lineheight);
     @each $break in $breaks {
         @if map-has-key($fonts,$break) {
-            $font-size-set: map-get($fonts,$break);
-            @if map-has-key($font-size-set,$size) {
-                $fontsize: map-get($font-size-set,$size);
-                @include rr-font-line-height($fontsize,$linegridheight);
+            $font-size-set: map-get($fonts, $break);
+            @if map-has-key($font-size-set, $size) {
+                @include rr-break-directive($break) {
+                    $fontsize: map-get($font-size-set, $size);
+                    @include rr-font-line-height($fontsize, $linegridheight);
+                }
             }
         }
     }

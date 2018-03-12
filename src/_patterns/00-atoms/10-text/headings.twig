@@ -1,0 +1,11 @@
+{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white' } %}
+	{% block slab_inner %}
+		{% for i in 1..6 %}
+			<h2>H{{i}}</h2>
+			{% set headline = 'Heading level ' ~ i ~ ' (fontstyle: h' ~ i ~ ')' %}
+			{% include 'atoms-heading' with { headline: headline, level : i } %}
+			{% include 'atoms-heading' with { headline: headline, level : i, linked : true } %}
+			{% if loop.last is not sameas(true) %}<hr />{% endif %}
+		{% endfor %}
+	{% endblock %}
+{% endembed %}

@@ -1,6 +1,0 @@
-{% for i in 1..6 %}
-	{% set headline = 'Heading level ' ~ i ~ ' (fontstyle: h' ~ i ~ ')' %}
-	{% include 'atoms-heading' with { headline: headline, level : i } %}
-	{% include 'atoms-heading' with { headline: headline, level : i, linked : true } %}
-	{# {% if loop.last is not sameas(true) %}<hr />{% endif %} #}
-{% endfor %}

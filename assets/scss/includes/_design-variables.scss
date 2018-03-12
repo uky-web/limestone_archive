@@ -1,3 +1,7 @@
+$font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
+
+$font-avenirnext: 'AvenirNextLTPro', sans-serif;
+
 $global-width: 72rem;
 
 $rr-max-width: $global-width;
@@ -40,26 +44,6 @@ $rr-grid-settings: (
         vspace: 5, // (36px / 72px)
         column_color: rgba(200, 128, 255, .2),
         baseline_color: rgba(128, 128, 200, .2)        
-    )
-);
-
-$fonts: ( 
-    s : (
-        xs: .75rem,
-        s: .875rem,
-        m: 1rem,
-        l: 1.125rem,
-        xl: 1.25rem,
-        2xl: 1.45rem,
-        3xl: 1.67rem,
-        4xl: 1.92rem,
-        5xl: 2.24rem
-    ),
-    l : (
-        2xl: 1.5rem,
-        3xl: 2.25rem,
-        4xl: 3rem,
-        5xl: 4.5rem
     )
 );
 
@@ -153,3 +137,56 @@ $lineheights: (
     huge: 3,
     redic: 4
 );
+
+$fonts: ( 
+    s : (
+        xs: .75rem,
+        s: .875rem,
+        m: 1rem,
+        l: 1.125rem,
+        xl: 1.25rem,
+        2xl: 1.45rem,
+        3xl: 1.67rem,
+        4xl: 1.92rem,
+        5xl: 2.24rem
+    ),
+    l : (
+        2xl: 1.5rem,
+        3xl: 2.25rem,
+        4xl: 3rem,
+        5xl: 4.5rem
+    )
+);
+
+$headings: (
+    h1 : (
+        size: 5xl,
+        lineheight: tight,
+        font: $font-mercury,
+        weight: normal
+    ),
+    h2 : (
+        size: 4xl,
+        lineheight: tight,
+        font: $font-mercury,        
+        weight: normal,
+    ),
+    h3 : (
+        size: 3xl,
+        weight: normal,
+    ),
+    h4 : (
+        size: 2xl,        
+        weight: normal,
+    ), 
+    h5 : (
+        size: xl,
+        weight: normal,
+        style: italic
+    ),
+    h6 : (
+        size: l,
+        weight: bold
+    )
+)
+

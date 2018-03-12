@@ -1,20 +1,20 @@
+{% set sizes = ['xs','s','m','l','xl','2xl','3xl','4xl','5xl'] %}
 {% for size in sizes %}
-    {% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+    {% embed 'molecules-slab' with { slab_variant : "slab--wildcat-white" } %}
         {% block slab_inner %}
             <h2>Font size: {{ size }}</h2>
             {% for spacing in ['tight','medium','wide','huge','redic'] %}
                 <p class="font-avenirnext text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
                     {% spaceless %}
-                    Font, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
+                    Avenir, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
                     {% endspaceless %}
                 </p>
                 <p class="font-mercury text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
                     {% spaceless %}
-                    Font, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
+                    Mercury, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
                     {% endspaceless %}
                 </p>
             {% endfor %}
-            {% if not loop.last() %}<hr />{% endif %}
         {% endblock %}
     {% endembed %}
 {% endfor %}

@@ -1,35 +1,38 @@
-h1 {
-	@include font-compute(xl);
-	margin-top: rr-gridbase() * 3;
-	margin-bottom: rr-gridbase() * 2;
+@mixin heading($config_map_tag) {
+	@if map-has-key($headings, $config_map_tag) {
+		$config: map-get($map: $headings, $key: $config_map_tag);
+		$size: m;
+		@if map-has-key($config, size) {
+			$size: map-get($config, size);
+		}
+		
+		$lineheight: medium; 
+		@if map-has-key($config, lineheight) {
+			$lineheight: map-get($config, lineheight);
+		}
+
+		@include font-compute($size, $lineheight);
+
+		$font: $font-avenirnext; 
+		@if map-has-key($config, font) {
+			$font: map-get($config, font);
+		}
+		font-family: $font;
+
+		@if map-has-key($config, weight) {
+			font-weight: map-get($config, weight);
+		}
+
+		@if map-has-key($config, style) {
+			font-style: map-get($config, style);
+		}		
+	}
 }
 
-h2 {
-	@include font-compute(l);
-	margin-top: rr-gridbase() * 3;
-	margin-bottom: rr-gridbase() * 2;
-}
-
-h3 {
-	@include font-compute(l);
-	margin-top: rr-gridbase() * 2;
-	margin-bottom: rr-gridbase();
-}
-
-h4 {
-	@include font-compute(m);
-	margin-top: rr-gridbase() * 2;
-	margin-bottom: rr-gridbase();
-}
-
-h5 {
-	@include font-compute(m);
-	margin-top: rr-gridbase();
-	margin-bottom: rr-gridbase();
-}
-
-h6 {
-	@include font-compute(m);
-	margin-top: rr-gridbase();
-	margin-bottom: rr-gridbase();
+@each $tag,$config in $headings {
+	#{$tag} {
+		@include heading($tag);
+		margin-top: 0;
+		margin-bottom: rr-gridbase() * 2;
+	}
 }
