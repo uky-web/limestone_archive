@@ -1,5 +1,7 @@
 $global-width: 72rem;
 
+$rr-max-width: $global-width;
+
 $rr-grid-divisions: 2;
 
 $rr-blend-mode: multiply;
@@ -40,6 +42,96 @@ $rr-grid-settings: (
         baseline_color: rgba(128, 128, 200, .2)        
     )
 );
+
+$rr-grids: (
+    2-up: (
+        m : (
+            columns: repeat(2, 1fr),
+            flex-columns: 2
+        )
+    ),
+    3-up: (
+        m : (
+            columns: repeat(3, 1fr),
+            flex-columns: 3
+        )
+    ),
+    4-up: (
+        m : (
+            columns: repeat(2, 1fr),
+            flex-columns: 3
+        ),
+        l : (
+            columns: repeat(4, 1fr),
+            flex-columns: 4
+        )
+    ),
+    5-up: (
+        m : (
+            columns: repeat(3, 1fr),
+            flex-columns: 3
+        ),
+        l : (
+            columns: repeat(5, 1fr),
+            flex-columns: 5
+        )        
+    ),
+    6-up: (
+        m : (
+            columns: repeat(3, 1fr),
+            flex-columns: 3
+        ),
+        l : (
+            columns: repeat(6, 1fr),
+            flex-columns: 6
+        )        
+    ),
+    sidebar-left: (
+        m: (
+            columns: repeat(3, 1fr),
+            areas: main side,
+            flex-columns: 2
+        ),
+        l : (
+            columns: repeat(4, 1fr),
+            areas: main main main side
+        )
+    ),
+    sidebar-right: (
+        m: (
+            columns: repeat(3, 1fr),
+            areas: side main main,
+            flex-columns: 2
+        ),
+        l : (
+            columns: repeat(4, 1fr),
+            areas: side main main main
+        )
+    ),
+    major-left: (
+        m: (
+            columns: repeat(2, 1fr),
+            areas: major minor,
+            flex-columns: 2
+        ),
+        l : (
+            columns: repeat(6, 1fr),
+            areas: major major major major minor minor,
+        )        
+    ),
+    major-right: (
+        m: (
+            columns: repeat(2, 1fr),
+            areas: minor major,
+            flex-columns: 2
+        ),
+        l : (
+            columns: repeat(12, 1fr),
+            areas: minor minor minor minor major major major major major major major major,
+        )
+    )
+) !default;
+
 
 $fonts: ( 
     s : (

@@ -31,15 +31,12 @@
 }
 
 .sg-colors .sg-colors__swatch {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-
-  border: 1px solid color(light-gray);
+  border: 2px solid color(light-gray);
   border-width: 2px;
   border-radius: 8px;
   padding: rr-grid-remainder(2px);
   @include font-compute(m,tight);
+  
   margin {
     top: rr-gridbase() * 2;
     bottom: rr-gridbase() * 2;
@@ -47,7 +44,7 @@
 
   &::before {
 	  display: none;
-	 zoom: 1;
+	  zoom: 1;
   }
 }
 
