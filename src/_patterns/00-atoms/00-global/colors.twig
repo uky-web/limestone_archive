@@ -8,7 +8,7 @@
 		<h2>Official Colors</h2>
 		<div class="sg-colors">
 			{% for i in colorset %}
-			<div class="sg-colors__swatch">
+			<div class="sg-colors__column">
 				Color {{ i|titleize }} <pre>color({{ i }})</pre>
 				<span class="sg-swatch bg-{{ i }}"></span>
 			</div>
@@ -22,7 +22,7 @@
 		<h2>Other Colors</h2>
 		<div class="sg-colors">
 			{% for i in othercolors %}
-			<div class="sg-colors__swatch">
+			<div class="sg-colors__column">
 				Color {{ i|titleize }} <pre>color({{ i }})</pre>
 				<span class="sg-swatch bg-{{ i }}"></span>
 			</div>

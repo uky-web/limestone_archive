@@ -43,96 +43,6 @@ $rr-grid-settings: (
     )
 );
 
-$rr-grids: (
-    2-up: (
-        m : (
-            columns: repeat(2, 1fr),
-            flex-columns: 2
-        )
-    ),
-    3-up: (
-        m : (
-            columns: repeat(3, 1fr),
-            flex-columns: 3
-        )
-    ),
-    4-up: (
-        m : (
-            columns: repeat(2, 1fr),
-            flex-columns: 3
-        ),
-        l : (
-            columns: repeat(4, 1fr),
-            flex-columns: 4
-        )
-    ),
-    5-up: (
-        m : (
-            columns: repeat(3, 1fr),
-            flex-columns: 3
-        ),
-        l : (
-            columns: repeat(5, 1fr),
-            flex-columns: 5
-        )        
-    ),
-    6-up: (
-        m : (
-            columns: repeat(3, 1fr),
-            flex-columns: 3
-        ),
-        l : (
-            columns: repeat(6, 1fr),
-            flex-columns: 6
-        )        
-    ),
-    sidebar-left: (
-        m: (
-            columns: repeat(3, 1fr),
-            areas: main side,
-            flex-columns: 2
-        ),
-        l : (
-            columns: repeat(4, 1fr),
-            areas: main main main side
-        )
-    ),
-    sidebar-right: (
-        m: (
-            columns: repeat(3, 1fr),
-            areas: side main main,
-            flex-columns: 2
-        ),
-        l : (
-            columns: repeat(4, 1fr),
-            areas: side main main main
-        )
-    ),
-    major-left: (
-        m: (
-            columns: repeat(2, 1fr),
-            areas: major minor,
-            flex-columns: 2
-        ),
-        l : (
-            columns: repeat(6, 1fr),
-            areas: major major major major minor minor,
-        )        
-    ),
-    major-right: (
-        m: (
-            columns: repeat(2, 1fr),
-            areas: minor major,
-            flex-columns: 2
-        ),
-        l : (
-            columns: repeat(12, 1fr),
-            areas: minor minor minor minor major major major major major major major major,
-        )
-    )
-) !default;
-
-
 $fonts: ( 
     s : (
         xs: .75rem,
@@ -150,6 +60,89 @@ $fonts: (
         3xl: 2.25rem,
         4xl: 3rem,
         5xl: 4.5rem
+    )
+);
+
+$rr-grids: (
+    2-up: (
+        m : (
+            columns: 2,
+        )
+    ),
+    3-up: (
+        m : (
+            columns: 3,
+        )
+    ),
+    4-up: (
+        m : (
+            columns: 2,
+        ),
+        l : (
+            columns: 4,
+        )
+    ),
+    5-up: (
+        m : (
+            columns: 3,
+        ),
+        l : (
+            columns: 5,
+        )        
+    ),
+    6-up: (
+        m : (
+            columns: 3,
+        ),
+        l : (
+            columns: 4,
+        ),
+        xl : (
+            columns: 6
+        )
+    ),
+    sidebar-left: (
+        m: (
+            columns: 3,
+            areas : side main main
+        ),
+        l : (
+            columns: 4,
+            areas: side main main main
+        )
+    ),
+    sidebar-right: (
+        m: (
+            columns: 3,
+            areas: main main side,
+            flex-columns: 2
+        ),
+        l : (
+            columns: 4,
+            areas: main main main side
+        )
+    ),
+    major-left: (
+        m: (
+            columns: 2,
+            areas: major minor,
+            flex-columns: 2
+        ),
+        l : (
+            columns: 3,
+            areas: major major minor,
+        )        
+    ),
+    major-right: (
+        m: (
+            columns: 2,
+            areas: minor major,
+            flex-columns: 2
+        ),
+        l : (
+            columns: 3,
+            areas: minor major major,
+        )
     )
 );
 

@@ -9,10 +9,7 @@
 @import 'includes/fonts';
 
 #sg-patterns {
-  -webkit-box-sizing: border-box !important;
-          box-sizing: border-box !important;
   max-width: 100%;
-  padding: 0 0.5em;
 }
 
 .demo-animate {
@@ -30,26 +27,21 @@
   @include css-grid-columns(map-get($rr-grids,6-up));
 }
 
-.sg-colors .sg-colors__swatch {
+.sg-colors__column {
   border: 2px solid color(light-gray);
-  border-width: 2px;
   border-radius: 8px;
   padding: rr-grid-remainder(2px);
-  @include font-compute(m,tight);
-  
+  overflow: hidden;
+  @include font-compute(m, tight);
+
   margin {
     top: rr-gridbase() * 2;
     bottom: rr-gridbase() * 2;
-  }
-
-  &::before {
-	  display: none;
-	  zoom: 1;
-  }
+  }  
 }
 
 .sg-colors pre {
-  @include font-compute(s,tight);
+  @include font-compute(xs,tight);
   margin-bottom: rr-gridbase();
 }
 
@@ -59,11 +51,6 @@
   margin-bottom: rr-gridbase();
   border-radius: 5px;
   padding: rr-grid-remainder(5px);
-}
-
-.sg-label {
-  font-size: 90%;
-  line-height: 1;
 }
 
 .sg-pattern-example {
