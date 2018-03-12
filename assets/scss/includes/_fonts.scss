@@ -63,17 +63,24 @@ body {
     font-family: $font-avenirnext;
 }
 
-$fonts: ( s: ( size: .8rem),
-m: ( size: 1rem),
-l: ( size: 1.5rem),
-xl: ( size: 2rem));
-$lineheights: ( tight: ( grid-units: 0),
-medium: ( grid-units: 1),
-wide: ( grid-units: 2),
-huge: ( grid-units: 3));
-
 @mixin font-compute($size : m, $lineheight : medium) {
-    $fontsize: map-get(map-get($fonts,$size),size);
-    $linegridheight: map-get(map-get($lineheights, $lineheight),grid-units);
-    @include rr-font-line-height($fontsize,$linegridheight);
+    $breaks: rr-breakpoint-list();
+    $linegridheight: map-get($lineheights, $lineheight);
+    @each $break in $breaks {
+        @if map-has-key($fonts,$break) {
+            $font-size-set: map-get($fonts,$break);
+            @if map-has-key($font-size-set,$size) {
+                $fontsize: map-get($font-size-set,$size);
+                @include rr-font-line-height($fontsize,$linegridheight);
+            }
+        }
+    }
+}
+
+@function font-sizes() {
+    $workingMap: ();
+    @each $break, $fontmap in $fonts {
+        $workingMap: map-merge($workingMap,$fontmap);
+    }
+    @return map-keys($workingMap);
 }

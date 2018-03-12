@@ -2,10 +2,6 @@
 @import 'global/font-styles';
 @import 'global/placeholder';
 
-:root {
-	position: relative;
-	@include rr-grid-overlay;
-}
 
 body {
 	margin: 0;

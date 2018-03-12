@@ -1,12 +1,12 @@
 
-
-@each $name, $size in $fonts {
-    $fontsize: map-get($size,size);
-    @each $linename, $lineheight in $lineheights {
-        $height: map-get($lineheight,grid-units);
-        .text-#{$name}-#{$linename} {
-            @include rr-font-line-height($fontsize, $height);
-            background-color: rgba(200,255,200,.3);
+$font-sizes: font-sizes();
+@each $fs in $font-sizes {
+    @each $name, $size in $fs {
+        @each $linename, $lineheight in $lineheights {
+            .text-#{$name}-#{$linename} {
+                background-color: rgba(200, 255, 200, .3);
+                @include font-compute($name,$linename);
+            }
         }
     }
 }

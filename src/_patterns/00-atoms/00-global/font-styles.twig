@@ -1,38 +1,30 @@
-{% set sizes = ["s","m","l","xl"] %}
+{% set sizes = ["xs","s","m","l","xl","2xl","3xl","4xl","5xl"] %}
 {% set sentences = fake('sentences',{nb: 10, asText: true} ) %}
 
-<h2>Avenir Next</h2>
-<div class="font-avenirnext">
-<p>Normal text | {{ sentences }}</p>
-<p style="font-style: italic ">Italic text | {{ sentences }}</p>
-<p style="font-weight: 500;">Medium text | {{ sentences }}</p>
-<p style="font-style: italic; font-weight: 500;">Medium italic text | {{ sentences }}</p>
-<p style="font-weight: bold;">Bold text | {{ sentences }}</p>
-<p style="font-style: italic; font-weight: bold;">Bold italic text | {{ sentences }}</p>
-</div>
-<hr>
-<h2>Mercury</h2>
-<div class="font-mercury">
-<p>Normal text {{ sentences }}</p>
-<p style="font-style: italic ">Italic text {{ sentences }}</p>
-<p style="font-weight: bold;">Bold text {{ sentences }}</p>
-<p style="font-style: italic; font-weight: bold;">Bold italic text {{ sentences }}</p>
-</div>
-<hr>
-{% for size in sizes %}
-    <h2>Font size: {{ size }}</h2>
-    {% for spacing in ['tight','medium','wide','huge'] %}
-        <p class="font-avenirnext text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
-            {% spaceless %}
-            Font, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
-            {% endspaceless %}
-        </p>
-        <p class="font-mercury text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
-            {% spaceless %}
-            Font, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
-            {% endspaceless %}
-        </p>
-    {% endfor %}
-    {% if not loop.last() %}<hr />{% endif %}
-{% endfor %}
+{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+    {% block slab_inner %}
+    <h2>Avenir Next</h2>
+    <div class="font-avenirnext">
+        <p>Normal text | {{ sentences }}</p>
+        <p style="font-style: italic ">Italic text | {{ sentences }}</p>
+        <p style="font-weight: 500;">Medium text | {{ sentences }}</p>
+        <p style="font-style: italic; font-weight: 500;">Medium italic text | {{ sentences }}</p>
+        <p style="font-weight: bold;">Bold text | {{ sentences }}</p>
+        <p style="font-style: italic; font-weight: bold;">Bold italic text | {{ sentences }}</p>
+    </div>
+    {% endblock %}
+{% endembed %}
+
+{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+    {% block slab_inner %}
+        <div class="font-mercury">
+        <p>Normal text {{ sentences }}</p>
+        <p style="font-style: italic ">Italic text {{ sentences }}</p>
+        <p style="font-weight: bold;">Bold text {{ sentences }}</p>
+        <p style="font-style: italic; font-weight: bold;">Bold italic text {{ sentences }}</p>
+        </div>
+    {% endblock %}
+{% endembed %}
+
+
 

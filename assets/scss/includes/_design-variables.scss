@@ -1,0 +1,70 @@
+$global-width: 72rem;
+
+$rr-grid-divisions: 2;
+
+$rr-blend-mode: multiply;
+
+$rr-grid-settings: ( 
+    s: ( 
+        mq: max-width, 
+        size: 35rem, 
+        columns: 4, 
+        gutter: 1rem / $rr-grid-divisions, 
+        offset: 1rem, 
+        vspace: 2,
+        column_color: rgba(200, 200, 255, .2),
+        baseline_color: rgba(128, 128, 200, .2)
+    ), 
+    m: ( 
+        mq: min-width, 
+        size: 35rem, 
+        gutter: 1rem,
+        columns: 8, 
+        offset: 2rem,
+        vspace: 3, //  21px / 42px
+        column_color: rgba(255, 200, 200, .2),
+        baseline_color: rgba(128, 128, 200, .2)        
+    ), 
+    l: ( 
+        size: 48rem, 
+        columns: 12,
+        column_color: rgba(128, 255, 200, .2),
+        baseline_color: rgba(128, 128, 200, .2)        
+    ), 
+    xl: ( 
+        size: $global-width + 4rem, 
+        offset: 0,
+        gutter: 2rem, //36px 
+        vspace: 5, // (36px / 72px)
+        column_color: rgba(200, 128, 255, .2),
+        baseline_color: rgba(128, 128, 200, .2)        
+    )
+);
+
+$fonts: ( 
+    s : (
+        xs: .75rem,
+        s: .875rem,
+        m: 1rem,
+        l: 1.125rem,
+        xl: 1.25rem,
+        2xl: 1.45rem,
+        3xl: 1.67rem,
+        4xl: 1.92rem,
+        5xl: 2.24rem
+    ),
+    l : (
+        2xl: 1.5rem,
+        3xl: 2.25rem,
+        4xl: 3rem,
+        5xl: 4.5rem
+    )
+);
+
+$lineheights: ( 
+    tight: 0,
+    medium: 1,
+    wide: 2,
+    huge: 3,
+    redic: 4
+);
