@@ -158,6 +158,8 @@ $fonts: (
     )
 );
 
+$font-sizes: rr-font-sizes();
+
 $headings: (
     h1 : (
         size: 5xl,

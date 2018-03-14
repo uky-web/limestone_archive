@@ -1,22 +1,26 @@
-<h2>Headline Groups</h2>
+{% embed 'molecules-slab' with {slab_variant : 'slab--wildcat-white'} %}
+    {% block slab_inner %}
+        <h2>Headline Groups</h2>
 
-<p>
-    These are the default headline group styles. 
-    To include a headline group in a patternlab pattern, use <code>molecules-headline-group</code>.
-</p>
+        <p>
+            These are the default headline group styles. 
+            To include a headline group in a patternlab pattern, use <code>molecules-headline-group</code>.
+        </p>
 
-{% set sub = "Subhead" %}
-{% set super = "Superhead" %}
-{% for i in 0 .. 6 %}
-    {% if i == 0 %}
-        {% set head = "Nonsemantic headline" %}
-    {% else %}
-        {% set head = "Headline level " ~ i %}
-    {% endif %}
-    {% include 'molecules-headline-group' with { level : i, head: head } only %}
-    {% include 'molecules-headline-group' with { level : i, super: super, head: head } only %}
-    {% include 'molecules-headline-group' with { level : i, sub: sub, head: head } only %}
-    {% include 'molecules-headline-group' with { level : i, super: super, sub: sub, head: head } only %}
-{% endfor %}
+        {% set sub = "Subhead" %}
+        {% set super = "Superhead" %}
+        {% for i in 0 .. 6 %}
+            {% if i == 0 %}
+                {% set head = "Nonsemantic headline" %}
+            {% else %}
+                {% set head = "Headline level " ~ i %}
+            {% endif %}
+            {% include 'molecules-headline-group' with { level : i, head: head } only %}
+            {% include 'molecules-headline-group' with { level : i, super: super, head: head } only %}
+            {% include 'molecules-headline-group' with { level : i, sub: sub, head: head } only %}
+            {% include 'molecules-headline-group' with { level : i, super: super, sub: sub, head: head } only %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}
 
 

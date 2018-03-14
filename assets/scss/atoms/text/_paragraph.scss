@@ -1,11 +1,10 @@
 p {
     @include rr-font-compute(m,medium);
     margin-bottom: rr-grid-units(2);
-    background-color: #ccc;
 }
 
 code {
     // have to make this text slightly smaller than the surround to keep from
     // interfering with the line height.
-    font-size: .9em;
+    font-size: .8em;
 }

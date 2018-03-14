@@ -1,29 +1,38 @@
 .headline-group {
 	margin-top: 0;
 	margin-bottom: rr-gridbase() * 2;
-	background-color: color(light-gray);
+	display: block;
+	line-height: auto;
 }
 
-.headline-group__super,
-.headline-group__sub {
-	display: block;
-
-	@at-root div #{&} {
+div.headline-group {
+	> .headline-group__super,
+	> .headline-group__sub {
+		display: block;
 		@include rr-font-compute(s, tight);
 	}
-}
-
-.headline-group__head {
-	@at-root div #{&} {
-		@include rr-font-compute(l,medium);
+	> .headline-group__head {
+		@include rr-font-compute(l, medium);
 		font-weight: bold;
 	}
-}
+} 
 
-@each $level in 1..6 {
-	.headline-group__super {
-		@at-root h#{$level} #{&} {
-
+$sizelist: 5xl 4xl 3xl 2xl xl l;
+@each $size in 5xl 4xl 3xl 2xl xl l {
+	$pos: index($sizelist,$size);
+	$supersize: map-offset-from($font-sizes, $size, -2);
+	$subsize: map-offset-from($font-sizes, $size, -2);
+	h#{$pos} {
+		.headline-group__super {
+			@include rr-font-compute($supersize, tight);
+			display: block;
+		}
+		.headline-group__head {
+			display: block;
+		}
+		.headline-group__sub {
+			@include rr-font-compute($subsize, tight);
+			display: block;
 		}
 	}
 }
