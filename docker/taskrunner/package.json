@@ -50,7 +50,7 @@
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-stream": "^1.19.0",
-    "root-rhythm": "latest",
+    "root-rhythm": "git+https://github.com/newcity/root-rhythm.git",
     "susy":"^3.0.3",
     "sass-mq": "^4.0",
     "yargs": "^4.4.0"

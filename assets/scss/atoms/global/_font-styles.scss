@@ -1,12 +1,3 @@
 
-$font-sizes: font-sizes();
-@each $fs in $font-sizes {
-    @each $name, $size in $fs {
-        @each $linename, $lineheight in $lineheights {
-            .text-#{$name}-#{$linename} {
-                background-color: rgba(200, 255, 200, .3);
-                @include font-compute($name,$linename);
-            }
-        }
-    }
-}
+@include rr-font-samples($prefix: 'text');
+

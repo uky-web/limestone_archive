@@ -6,6 +6,6 @@
     padding-top: rr-gridbase() * 4;
     padding-bottom: rr-gridbase() * 4;
     p {
-        @include font-compute(l,wide);
+        @include rr-font-compute(l,wide);
     }
 }

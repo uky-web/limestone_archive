@@ -1,37 +1,6 @@
-@mixin heading($config_map_tag) {
-	@if map-has-key($headings, $config_map_tag) {
-		$config: map-get($map: $headings, $key: $config_map_tag);
-		$size: m;
-		@if map-has-key($config, size) {
-			$size: map-get($config, size);
-		}
-		
-		$lineheight: medium; 
-		@if map-has-key($config, lineheight) {
-			$lineheight: map-get($config, lineheight);
-		}
-
-		@include font-compute($size, $lineheight);
-
-		$font: $font-avenirnext; 
-		@if map-has-key($config, font) {
-			$font: map-get($config, font);
-		}
-		font-family: $font;
-
-		@if map-has-key($config, weight) {
-			font-weight: map-get($config, weight);
-		}
-
-		@if map-has-key($config, style) {
-			font-style: map-get($config, style);
-		}		
-	}
-}
-
-@each $tag,$config in $headings {
+@each $tag,$config in $rr-headings {
 	#{$tag} {
-		@include heading($tag);
+		@include rr-heading($tag);
 		margin-top: 0;
 		margin-bottom: rr-gridbase() * 2;
 	}

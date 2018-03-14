@@ -5,6 +5,7 @@
  */
 @import 'root-rhythm';
 @import 'includes/design-variables';
+@import 'includes/mixins/m_typography';
 @import 'includes/colors';
 @import 'includes/fonts';
 
@@ -32,7 +33,7 @@
   border-radius: 8px;
   padding: rr-grid-remainder(2px);
   overflow: hidden;
-  @include font-compute(m, tight);
+  @include rr-font-compute(m, tight);
 
   margin {
     top: rr-gridbase() * 2;
@@ -41,7 +42,7 @@
 }
 
 .sg-colors pre {
-  @include font-compute(xs,tight);
+  @include rr-font-compute(xs,tight);
   margin-bottom: rr-gridbase();
 }
 
@@ -62,7 +63,7 @@
 }
 
 .sg-pattern-head {
-  @include font-compute(m);
+  @include rr-font-compute(m);
   padding: rr-gridbase();
 }
 

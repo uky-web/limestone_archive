@@ -1,0 +1,10 @@
+
+{% spaceless %}
+<span class="headline-group__head">
+    {% if linked %}
+        {% include 'atoms-link' with {label: text} %}
+    {% else %}
+        {{ text|default('bs') }}
+    {% endif %}
+</span>
+{% endspaceless %}

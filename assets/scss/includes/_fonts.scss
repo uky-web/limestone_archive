@@ -48,7 +48,6 @@
     src: url('/fonts/35E586_2_0.eot?#iefix') format('embedded-opentype'), url('/fonts/35E586_2_0.woff2') format('woff2'), url('/fonts/35E586_2_0.woff') format('woff'), url('/fonts/35E586_2_0.ttf') format('truetype');
 }
 
-
 body {
     font-family: $font-avenirnext;
 }
@@ -61,26 +60,3 @@ body {
     font-family: $font-avenirnext;
 }
 
-@mixin font-compute($size : m, $lineheight : medium) {
-    $breaks: rr-breakpoint-list();
-    $linegridheight: map-get($lineheights, $lineheight);
-    @each $break in $breaks {
-        @if map-has-key($fonts,$break) {
-            $font-size-set: map-get($fonts, $break);
-            @if map-has-key($font-size-set, $size) {
-                @include rr-break-directive($break) {
-                    $fontsize: map-get($font-size-set, $size);
-                    @include rr-font-line-height($fontsize, $linegridheight);
-                }
-            }
-        }
-    }
-}
-
-@function font-sizes() {
-    $workingMap: ();
-    @each $break, $fontmap in $fonts {
-        $workingMap: map-merge($workingMap,$fontmap);
-    }
-    @return map-keys($workingMap);
-}
