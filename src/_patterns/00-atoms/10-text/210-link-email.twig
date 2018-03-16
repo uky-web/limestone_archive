@@ -1,0 +1,2 @@
+{% set email = fake('email') %}
+{% include 'atoms-link' with {label: email, href: 'mailto:' ~ email } %}

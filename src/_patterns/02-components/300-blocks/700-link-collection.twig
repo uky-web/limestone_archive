@@ -1,1 +1,11 @@
-{% include 'atoms-placeholder' with { title: "Link Collection" } %}
+<div class="link-collection">
+    {% set super = fake('bs') %}
+    {% set sub = fake('bs') %}
+    {% set head = 'Link Collection' %}
+    {% include 'molecules-headline-group' %}
+    <ul>
+        {% for i in 0..6 %}
+        <li>{% include 'atoms-link' %}</li>
+        {% endfor %}
+    </ul>
+</div>

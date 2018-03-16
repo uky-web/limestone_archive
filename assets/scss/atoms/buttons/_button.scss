@@ -1,0 +1,23 @@
+button, .button {
+    @include rr-font-compute(l,tight);
+    border: 2px solid color(wildcat-blue);
+    background-color: color(wildcat-blue);
+    color: color(wildcat-white);
+    padding: rr-grid-remainder(2px,2);
+
+    &:hover {
+        background-color: color(info);
+        border-color: currentColor;
+        color: color(wildcat-blue);
+    }
+
+    &:active {
+        background-color: color(info);
+        border-color: currentColor;
+        color: color(medium-blue);
+    }
+
+    &:focus {
+        box-shadow: color(wildcat-blue) 0 0 0 4px;
+    }
+}

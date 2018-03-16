@@ -54,12 +54,13 @@ body {
 @import "molecules/interactive";
 @import "molecules/data";
 
-@import "organisms/clamp";
-@import "organisms/panels";
-@import "organisms/asides";
-@import "organisms/teasers";
-@import "organisms/collections";
-@import "organisms/editorial";
+@import "components/clamp";
+@import "components/blocks";
+@import "components/panels";
+@import "components/asides";
+@import "components/teasers";
+@import "components/collections";
+@import "components/editorial";
 
 // Grid overlay
 

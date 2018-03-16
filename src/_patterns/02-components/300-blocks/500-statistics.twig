@@ -1,1 +1,15 @@
-{% include 'atoms-placeholder' with { title: "Statistics" } %}
+<div class="statistics">
+    {% set phrases = [
+        '$9,999,999',
+        '99.99%',
+        '9 out of 10',
+        '98/99',
+        '99th'
+    ] %}
+    {% for phrase in phrases %}
+        {% set super = fake('bs') %}
+        {% set sub = fake('bs') %}
+        {% set main = phrase %}
+        {% include 'molecules-statistic' %}
+    {% endfor %}
+</div>

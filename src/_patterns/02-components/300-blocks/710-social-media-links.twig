@@ -1,1 +1,7 @@
-{% include 'atoms-placeholder' with { title: "Social Media Links" } %}
+<div class="social-icons">
+    {% include 'molecules-headline-group' with { head: 'Social Media Links' } %}
+    {% set icons = ['facebook','flickr','instagram','linkedin','pinterest','rss','twitter','youtube'] %}
+    {% for social in icons %}
+        {% include 'atoms-svgref' with {svgid: social} %}
+    {% endfor %}
+</div>

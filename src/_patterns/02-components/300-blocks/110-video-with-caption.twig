@@ -1,1 +1,8 @@
-{% include 'atoms-placeholder' with { title: "Video With Caption" } %}
+<div class="video-with-caption">
+    {% include 'molecules-headline-group' with { head: 'Video Player Headline' } %}
+    {% embed 'atoms-figure' %}
+        {% block figure_media %}
+            {% include 'molecules-nice-video' %}
+        {% endblock %}
+    {% endembed %}
+</div>

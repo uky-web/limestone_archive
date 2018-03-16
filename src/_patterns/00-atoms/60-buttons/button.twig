@@ -1,0 +1,5 @@
+<button class="{{ button_variant }}">
+	{% block content_button_button %}
+		{{ label|default(fake('bs')) }}
+	{% endblock %}
+</button>

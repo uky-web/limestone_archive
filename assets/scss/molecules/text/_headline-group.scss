@@ -18,7 +18,7 @@ div.headline-group {
 } 
 
 $sizelist: 5xl 4xl 3xl 2xl xl l;
-@each $size in 5xl 4xl 3xl 2xl xl l {
+@each $size in $sizelist {
 	$pos: index($sizelist,$size);
 	$supersize: map-offset-from($font-sizes, $size, -2);
 	$subsize: map-offset-from($font-sizes, $size, -2);
