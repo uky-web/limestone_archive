@@ -9,6 +9,11 @@ $styles: map-keys($rr-grids);
     }
 }
 
+.grid-column {
+    display: flex;
+    align-items: stretch;
+}
+
 .grid__column--major {
     grid-area: major;
 }

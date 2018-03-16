@@ -1,0 +1,9 @@
+{
+    "grid_type": "grid--3-up",
+    "grid_columns" : [
+        "components-call-to-action",
+        "components-call-to-action",
+        "components-call-to-action",
+        "components-call-to-action"
+    ]
+}

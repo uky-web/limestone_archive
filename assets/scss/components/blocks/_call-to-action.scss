@@ -1,0 +1,14 @@
+.grid__column {
+    .cta {
+        border: 1px color(wildcat-blue) solid;
+        padding: rr-grid-remainder(2px, 2);
+
+        .teaser__text {
+            background-color: red;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}

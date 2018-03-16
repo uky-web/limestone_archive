@@ -1,9 +1,11 @@
 button, .button {
     @include rr-font-compute(l,tight);
     border: 2px solid color(wildcat-blue);
+    padding: rr-grid-remainder(2px, 2);
+    
     background-color: color(wildcat-blue);
     color: color(wildcat-white);
-    padding: rr-grid-remainder(2px,2);
+    display: inline-block;
 
     &:hover {
         background-color: color(info);
@@ -19,5 +21,6 @@ button, .button {
 
     &:focus {
         box-shadow: color(wildcat-blue) 0 0 0 4px;
+        outline: 1px color(wildcat-white) dotted;
     }
 }
