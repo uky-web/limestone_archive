@@ -27,8 +27,21 @@
     
 }
 
-body {
+body.layout-grid--on {
     @include rr-grid-overlay;
+}
+
+.gridToggle {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background-color: black;
+    border-color: black;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 8px;
+    line-height: 1;
+    border-radius: 8px;
 }
 
 /* Slick */
