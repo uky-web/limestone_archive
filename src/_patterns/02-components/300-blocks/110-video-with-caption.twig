@@ -2,7 +2,7 @@
     {% include 'molecules-headline-group' with { head: 'Video Player Headline' } %}
     {% embed 'atoms-figure' %}
         {% block figure_media %}
-            {% include 'molecules-nice-video' %}
+            {% include 'molecules-nice-video' with { show_preview_image: true } %}
         {% endblock %}
     {% endembed %}
 </div>
