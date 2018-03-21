@@ -1,0 +1,6 @@
+{% set heading_level = 2 %}
+
+{% for i in 0..formatted_text_paragraphs|default(0) %}
+	<p>{{ text.editorial(random(formatted_text_sentences)) }}</p>
+{% endfor %}
+

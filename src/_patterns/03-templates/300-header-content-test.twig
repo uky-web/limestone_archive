@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+{% block main_content %}
+
+{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white' } %}
+    {% block slab_inner %}
+        {% for i in 1..6 %}
+            {% include 'atoms-heading' with { level: 1 } %}
+            {% include 'atoms-formatted-text' %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}
+
+{% endblock %}
