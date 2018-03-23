@@ -1,5 +1,5 @@
 prepNiceVideo = () ->
-    console?.log "hi"
+    $('iframe[src*="youtube"]').parent().fitVids();
     $('.nice-video button').on 'click', () ->
         $wrapper = $(this).parents '.nice-video'
         $wrapper.toggleClass 'nice-video--playing'
