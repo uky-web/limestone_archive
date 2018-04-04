@@ -6,12 +6,12 @@
 }
 
 div.headline-group {
-	> .headline-group__super,
-	> .headline-group__sub {
+	.headline-group__super,
+	.headline-group__sub {
 		display: block;
 		@include rr-font-compute(s, tight);
 	}
-	> .headline-group__head {
+	.headline-group__head {
 		@include rr-font-compute(l, medium);
 		font-weight: bold;
 	}
