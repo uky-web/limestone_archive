@@ -61,4 +61,5 @@ body.layout-grid--on {
 @import "molecules/page-layouts";
 @import "molecules/navigation";
 
-@import "components/clamp";
+@import 'clamp/header';
+@import 'clamp/footer';
