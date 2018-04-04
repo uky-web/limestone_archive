@@ -3,9 +3,11 @@ var interactive = false;
 var 
 	argv = require('yargs').argv,
 	autoprefixer = require('autoprefixer'),
-	babel = require('gulp-babel');
+	babel = require('gulp-babel'),
+	cached = require('gulp-cached'),
 	coffee = require('gulp-coffee'),
 	colors = require('ansi-colors'),
+	dependents = require('gulp-dependents'),
 	eyeglass = require('eyeglass'),
 	exec = require('child_process').exec,
 	flexbugs = require('postcss-flexbugs-fixes'),
@@ -15,6 +17,7 @@ var
 	modernizr = require('gulp-modernizr'),
 	plumber = require('gulp-plumber'),
 	postcss = require('gulp-postcss'),
+	print = require('gulp-print').default,
 	sanewatch = require('gulp-sane-watch'),
 	sass = require('gulp-sass'),
 	save = require('gulp-save'),
@@ -49,7 +52,7 @@ var paths = {
 	dist_js: 'dist/js',
 	dist_svg: 'dist/sprites',
 	dist_images: 'dist/images',
-	dist_fonts: 'dist/fonts',
+	dist_fonts: 'dist/fonts'
 };
 
 // Error reporter for plumber.
@@ -71,6 +74,9 @@ gulp.task('styles', function() {
 	}
 
 	return gulp.src( paths.sass )
+		.pipe(cached('sass'))
+		.pipe(dependents())
+		.pipe(print())
 		.pipe( plumber({ errorHandler: plumber_error }) )
 
 		// If not in production mode, generate a sourcemap
@@ -81,10 +87,12 @@ gulp.task('styles', function() {
 			flexbugs()
 		]) )
 		.pipe( sourcemaps.write('.') )
+		.pipe( gulp.dest( paths.dist_css ) )
+});
 
-		// Destination for the processed CSS file and sourcemap
-		// cache it so as not to trigger downstream watchers
-		.pipe( save('css') )
+gulp.task('modernizr', function() {
+	return gulp.src(paths.sass.concat(paths.coffee))
+		.pipe( plumber({ errorHandler: plumber_error }) )
 
 		// Script to configure modernizr based on flags
 		// that are actually used in the stylesheets
@@ -99,9 +107,6 @@ gulp.task('styles', function() {
 		}) )
 		// Destinations for the custom modernizr
 		.pipe( gulp.dest( paths.dist_js ) )
-		// and dump out the original css
-		.pipe( save.restore('css'))
-		.pipe( gulp.dest( paths.dist_css ) )
 });
 
 // Copy images from src to PL source destination
@@ -269,6 +274,12 @@ gulp.task('watcher', ['build-all'], function() {
 			gulp.start('fonts');
 		}
 	);	
+
+	sanewatch(paths.sass.concat(paths.coffee), watcherOptions, 
+		function() {
+			gulp.start('modernizr');
+		}
+	);
 });
 
 // Default build task

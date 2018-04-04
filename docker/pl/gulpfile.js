@@ -14,7 +14,6 @@ var reload_path = [
                     'pl/source/**/*.php',
                     'pl/public/images/**/*',
                     'pl/public/**/*.svg',
-                    'pl/source/**/*.svg',
                     'pl/public/css/*.css',
                     'pl/public/js/*.js',
                   ];
@@ -71,7 +70,7 @@ gulp.task('watch', ['build'], function() {
 	// https://www.npmjs.com/package/gulp-sane-watch
 
 	//var watcherOptions = { debounce:300,watchman:true };
-	var watcherOptions = { debounce:300 };
+	var watcherOptions = { debounce:900 };
 
 	sanewatch(reload_path, watcherOptions,
 		function() {
