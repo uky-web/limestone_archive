@@ -1,7 +1,20 @@
-@each $tag,$config in $rr-headings {
-	#{$tag} {
-		@include rr-heading($tag);
-		margin-top: 0;
-		margin-bottom: rr-gridbase() * 2;
+// Normalize heading sizes; headings in a 
+// display context should have an additional 
+// font style applied to them.
+
+h1,h2,h3,
+h4,h5,h6 {
+	@include rr-font-compute(l,tight);
+	font-weight: normal;
+}
+
+.editorial {
+	@each $tag, $config in $editorial-headings {
+		#{$tag} {
+			@include rr-heading($tag,$editorial-headings);
+			margin-top: 0;
+			margin-bottom: rr-gridbase() * 2;
+		}
 	}
 }
+

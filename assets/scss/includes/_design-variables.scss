@@ -160,35 +160,33 @@ $fonts: (
 
 $font-sizes: rr-font-sizes();
 
-$headings: (
-    h1 : (
-        size: 5xl,
-        lineheight: tight,
-        font: $font-mercury,
-        weight: normal
-    ),
+$editorial-headings: (
     h2 : (
-        size: 4xl,
+        size: 3xl,
         lineheight: tight,
         font: $font-mercury,        
         weight: normal,
     ),
     h3 : (
-        size: 3xl,
+        size: 2xl,
+        lineheight: tight,
         weight: normal,
     ),
     h4 : (
-        size: 2xl,        
+        size: xl,
+        lineheight: tight,
         weight: normal,
     ), 
     h5 : (
         size: xl,
+        lineheight: tight,
         weight: normal,
         style: italic
     ),
     h6 : (
         size: l,
-        weight: bold
+        lineheight: tight,
+        weight: normal
     )
 );
 
@@ -232,7 +230,6 @@ $color-link: color(link);
 // Set rr defaults
 
 $rr-fonts: $fonts;
-$rr-headings: $headings;
 $rr-lineheights: $lineheights;
 
 
