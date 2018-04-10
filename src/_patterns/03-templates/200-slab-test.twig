@@ -3,6 +3,11 @@
     {% set slab_styles = ['wildcat-black','wildcat-white','wildcat-blue','light-blue','medium-blue','dark-blue','light-gray','medium-gray','dark-gray','success','warning','alert','info'] %}
     {% set grid_types = ['2-up','3-up','4-up','5-up','6-up'] %}
     {% for skin in slab_styles %}
+        {% include 'molecules-slab' with { slab_variant: 'slab--' ~ skin } %}
+        {% include 'molecules-slab-1x2' with { slab_variant: 'slab--' ~ skin } %}
+        {% include 'molecules-slab-1x2' with { slab_variant: 'slab--' ~ skin, reverse_order: true } %}
+        {% include 'molecules-slab-sidebar' with { slab_variant: 'slab--' ~ skin } %}
+        {% include 'molecules-slab-sidebar' with { slab_variant: 'slab--' ~ skin, reverse_order: true } %}
         {% for grid in grid_types %} 
             {% include 'molecules-grid' with {
                     slab_variant: 'slab--' ~ skin, 
@@ -11,9 +16,5 @@
                 } 
             %}
         {% endfor %}
-        {% include 'molecules-slab-1x2' with { slab_variant: 'slab--' ~ skin } %}
-        {% include 'molecules-slab-1x2' with { slab_variant: 'slab--' ~ skin, reverse_order: true } %}
-        {% include 'molecules-slab-sidebar' with { slab_variant: 'slab--' ~ skin } %}
-        {% include 'molecules-slab-sidebar' with { slab_variant: 'slab--' ~ skin, reverse_order: true } %}
     {% endfor %}
 {% endblock %}
