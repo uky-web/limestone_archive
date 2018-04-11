@@ -1,0 +1,39 @@
+.underline-link, .editorial a {
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: .2s background-position ease-out;
+
+    background:
+        linear-gradient(to top,
+            #{rgba(color('light-blue-tint'),.4)} 0,
+            #{rgba(color('light-blue-tint'),.4)} 50%,
+            transparent 2px,
+            transparent 100%
+        ) scroll repeat-x 0 .5em,
+        transparent linear-gradient(to top,
+            #{rgba(color('wildcat-blue'),.4)} 0,
+            #{rgba(color('wildcat-blue'),.4)} 2px,
+            transparent 2px,
+            transparent 100%
+        ) scroll repeat-x 0 0;
+
+    &:visited, 
+    &:link {
+       color: color('wildcat-black');
+    }
+    
+    // Shift the layered gradients around 
+    // to give the impression the dark inactive
+    // underline is changing color and growing.
+    // The huge offset value for the inactive state
+    // makes sure the whole underline disappears in
+    // one animation frame, otherwise you get an 
+    // unsettling flicker.
+    &:active, 
+    &:hover {
+        color: color('wildcat-blue');
+        background-position: 0 0, 1000px 2px;
+    }
+}
