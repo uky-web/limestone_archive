@@ -1,4 +1,4 @@
-<button class="{{ button_variant }}">
+<button {% if disabled %}disabled{% endif %} class="{{ button_variant }}">
 	{% block content_button_button %}
 		{{ label|default(fake('bs')) }}
 	{% endblock %}

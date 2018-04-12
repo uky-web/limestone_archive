@@ -1,7 +1,5 @@
 {% spaceless %}
 <a href="{{ url|default('http://www.example.com/')}}" class="{{ link_variant }}">
-    {% block link_content %}
-        {{ label|default(fake('bs')) }}
-    {% endblock %}
+    {% block link_content %}{{ label|default(fake('bs')) }}{% endblock %}
 </a>
 {% endspaceless %}

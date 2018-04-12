@@ -1,0 +1,27 @@
+{% embed 'molecules-slab' %}
+    {% block slab_inner %}
+        {% include 'atoms-heading' with { headline: 'Small Buttons'} %}
+        <p>
+            {% include 'atoms-button' with { button_variant: 'button--small', label : 'Button Control' } %}
+            {% include 'atoms-button' with { button_variant: 'button--small', label : 'Disabled', disabled: true } %}
+            {% include 'atoms-link' with { link_variant: 'button button--small', label : 'Faux' } %}
+            {% include 'atoms-button' with { button_variant: 'button--small button--ghost', label : 'Faux' } %}
+        </p>
+
+        {% include 'atoms-heading' with { headline: 'Default Buttons'} %}
+        <p>
+            {% include 'atoms-button' with { label : 'Button Control' } %}
+            {% include 'atoms-button' with { label : 'Disabled', disabled: true } %}
+            {% include 'atoms-link' with { link_variant: 'button', label : 'Faux' } %}
+            {% include 'atoms-button' with { button_variant: 'button--ghost', label : 'Ghost Button' } %}
+        </p>
+
+        {% include 'atoms-heading' with { headline: 'Large Buttons'} %}
+        <p>
+            {% include 'atoms-button' with { button_variant: 'button--large', label : 'Button Control' } %}
+            {% include 'atoms-button' with { button_variant: 'button--large', label : 'Disabled', disabled: true } %}
+            {% include 'atoms-link' with { link_variant: 'button button--large', label : 'Faux' } %}
+            {% include 'atoms-button' with { button_variant: 'button--large button--ghost', label : 'Ghost Button' } %}
+        </p>                
+    {% endblock %}
+{% endembed %}

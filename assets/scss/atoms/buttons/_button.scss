@@ -1,26 +1,69 @@
-button, .button {
-    @include rr-font-compute(l,tight);
-    border: 2px solid color(wildcat-blue);
-    padding: rr-grid-remainder(2px, 2);
+button, a.button {
+    @include rr-font-compute(m,tight);
     
+    font-weight: 500;
+    font-family: $font-avenirnext;
+    text-transform: uppercase;
+    text-align: center;
+    padding: rr-grid-remainder(3px, 2);
+    padding-left: 1.667rem;
+    padding-right: 1.667rem;
+    margin: 0;
+    
+    border: 3px solid color(wildcat-blue);
     background-color: color(wildcat-blue);
     color: color(wildcat-white);
     display: inline-block;
+    dominant-baseline: text-top;
+    text-decoration: none;
 
-    &:hover {
-        background-color: color(info);
-        border-color: currentColor;
+    transition: .3s ease-in-out;
+
+    &.button--ghost {
+        background-color: transparent;
         color: color(wildcat-blue);
     }
 
+    /* Variants */
+    &.button--small {
+        @include rr-font-compute(s, tight);
+        padding: rr-grid-remainder(2px, 1);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    &.button--large {
+        @include rr-font-compute(xl, tight);
+        padding: rr-grid-remainder(4px, 2);
+        padding-left: 2.112rem;
+        padding-right: 2.112rem;
+        border-width: 4px;
+    }
+
+    /* States */
+    &:hover {
+        background-color: color(light-blue);
+        border-color: color(light-blue);
+        color: color(wildcat-white);
+
+    }
+
     &:active {
-        background-color: color(info);
-        border-color: currentColor;
-        color: color(medium-blue);
+        background-color: color(medium-blue);
+        border-color: color(medium-blue);
+        color: color(wildcat-white);
+        &.button--ghost {
+            background-color: transparent;
+        }        
     }
 
     &:focus {
-        box-shadow: color(wildcat-blue) 0 0 0 4px;
-        outline: 1px color(wildcat-white) dotted;
+        background-color: color(light-blue);
+        outline: none;
+        color: white;        
+        
+        &.button--ghost {
+            background-color: transparent;
+        }
     }
 }
