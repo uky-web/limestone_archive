@@ -1,27 +1,21 @@
 {% embed 'molecules-slab' %}
     {% block slab_inner %}
-        {% include 'atoms-heading' with { headline: 'Small Buttons'} %}
-        <p>
-            {% include 'atoms-button' with { button_variant: 'button--small', label : 'Button Control' } %}
-            {% include 'atoms-button' with { button_variant: 'button--small', label : 'Disabled', disabled: true } %}
-            {% include 'atoms-link' with { link_variant: 'button button--small', label : 'Faux' } %}
-            {% include 'atoms-button' with { button_variant: 'button--small button--ghost', label : 'Faux' } %}
-        </p>
-
-        {% include 'atoms-heading' with { headline: 'Default Buttons'} %}
-        <p>
-            {% include 'atoms-button' with { label : 'Button Control' } %}
-            {% include 'atoms-button' with { label : 'Disabled', disabled: true } %}
-            {% include 'atoms-link' with { link_variant: 'button', label : 'Faux' } %}
-            {% include 'atoms-button' with { button_variant: 'button--ghost', label : 'Ghost Button' } %}
-        </p>
-
-        {% include 'atoms-heading' with { headline: 'Large Buttons'} %}
-        <p>
-            {% include 'atoms-button' with { button_variant: 'button--large', label : 'Button Control' } %}
-            {% include 'atoms-button' with { button_variant: 'button--large', label : 'Disabled', disabled: true } %}
-            {% include 'atoms-link' with { link_variant: 'button button--large', label : 'Faux' } %}
-            {% include 'atoms-button' with { button_variant: 'button--large button--ghost', label : 'Ghost Button' } %}
-        </p>                
+        {% set sizes = ['small','','large'] %}
+        {% for size in sizes %}
+            {% if size is not sameas('') %}
+                {% set sizeclass = 'button--' ~ size %}
+                {% set sizelabel = size|capitalize %}
+            {% else %}
+                {% set sizeclass = '' %}
+                {% set sizelabel = 'Default' %} 
+            {% endif %}
+            {% include 'atoms-heading' with { headline: sizelabel ~ ' Buttons'} %}
+            <p>
+                {% include 'atoms-button' with { button_variant: sizeclass, label : 'Button' } %}
+                {% include 'atoms-button' with { button_variant: sizeclass, label : 'Disabled', disabled: true } %}
+                {% include 'atoms-link' with { link_variant: 'button ' ~ sizeclass, label : 'Link Button' } %}
+                {% include 'atoms-button' with { button_variant: 'button--ghost ' ~ sizeclass, label : 'Ghost' } %}
+            </p>            
+        {% endfor %}
     {% endblock %}
 {% endembed %}

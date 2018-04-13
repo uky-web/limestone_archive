@@ -14,7 +14,6 @@ button, a.button {
     background-color: color(wildcat-blue);
     color: color(wildcat-white);
     display: inline-block;
-    dominant-baseline: text-top;
     text-decoration: none;
 
     transition: .3s ease-in-out;
@@ -41,6 +40,12 @@ button, a.button {
     }
 
     /* States */
+    &[disabled] {
+        background-color: color(subtle-gray) !important;
+        border-color: color(subtle-gray) !important;
+        color: color(dark-gray) !important;
+    }
+
     &:hover {
         background-color: color(light-blue);
         border-color: color(light-blue);
