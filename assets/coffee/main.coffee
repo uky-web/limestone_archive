@@ -18,4 +18,8 @@ $(document).ready () ->
     $('.gridToggle').on 'click', () ->
         $('body').toggleClass 'layout-grid--on'
 
+    $('img').baseline () ->
+        size = parseFloat(getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+        return size / 2
+
     do prepNiceVideo

@@ -81,3 +81,21 @@
 .sg-pattern-extra {
   display: none;
 }
+
+.sg-image-grid {
+  .sg-image-grid-tile {
+    margin-bottom: 2rem;
+  }
+
+  @media screen and ( min-width: 44rem ) {
+    display: flex;
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+    .sg-image-grid-tile {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  }
+}
