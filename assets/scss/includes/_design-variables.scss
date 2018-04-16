@@ -140,21 +140,26 @@ $lineheights: (
 
 $fonts: ( 
     s : (
-        xs: .75rem,
-        s: .875rem,
-        m: 1rem,
-        l: 1.125rem,
-        xl: 1.25rem,
-        2xl: 1.45rem,
-        3xl: 1.67rem,
-        4xl: 1.92rem,
-        5xl: 2.24rem
+        xs: .75rem, //12  xxs
+        s: .875rem, //14  xs
+        r: 1rem, //16 s
+        l: 1.1667rem, // r
+        xl: 1.25rem, // l 
+        2xl: 1.5rem, 
+        3xl: 1.875rem,
+        4xl: 2.375rem,
+        5xl: 3.4286rem
     ),
     l : (
+        xs: .75rem,
+        s: .875rem,
+        r: 1rem,
+        l: 1.1667rem,
+        xl: 1.25rem,
         2xl: 1.5rem,
-        3xl: 2.25rem,
-        4xl: 3rem,
-        5xl: 4.5rem
+        3xl: 1.875rem,
+        4xl: 2.375rem,
+        5xl: 3.4286rem
     )
 );
 
@@ -194,7 +199,7 @@ $colors: (
     wildcat-blue: #0033a0,
     wildcat-white: #fff,
     wildcat-black: #2c2a29,
-    light-blue: #1797d4,
+    light-blue: #1897d4,
     medium-blue: #2b3a82,
     dark-blue: #1f2c5e,
     light-blue-tint: #a1d3ed,

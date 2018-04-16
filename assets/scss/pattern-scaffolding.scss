@@ -33,7 +33,7 @@
   border-radius: 8px;
   padding: rr-grid-remainder(2px);
   overflow: hidden;
-  @include rr-font-compute(m, tight);
+  @include rr-font-compute(r, tight);
 
   margin {
     top: rr-gridbase() * 2;
@@ -63,7 +63,7 @@
 }
 
 .sg-pattern-head {
-  @include rr-font-compute(m);
+  @include rr-font-compute(r);
   padding: rr-gridbase();
 }
 

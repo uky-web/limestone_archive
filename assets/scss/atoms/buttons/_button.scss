@@ -1,14 +1,22 @@
 button, a.button {
-    @include rr-font-compute(m,tight);
+    @include rr-font-compute(r,tight);
     
     font-weight: 500;
     font-family: $font-avenirnext;
     text-transform: uppercase;
     text-align: center;
-    padding: rr-grid-remainder(3px, 2);
-    padding-left: 1.667rem;
-    padding-right: 1.667rem;
     margin: 0;
+
+    // Avenir is not quite centered in the lineheight
+    // because of weird font metrics, so in order to get
+    // text visibly aligned I have to provide unique padding
+    // values for top and bottom.
+    padding: {
+        top: calc(1rem - 2px);
+        bottom: calc(1rem - 4px);
+        left: calc(1.875rem - 3px);
+        right: calc(1.875rem - 3px);        
+    }
     
     border: 3px solid color(wildcat-blue);
     background-color: color(wildcat-blue);
@@ -26,17 +34,20 @@ button, a.button {
     /* Variants */
     &.button--small {
         @include rr-font-compute(s, tight);
-        padding: rr-grid-remainder(2px, 1);
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: {
+            top: calc(.5rem - 3px);
+            bottom: calc(.5rem - 3px);
+            left: calc(1.625rem - 3px);
+            right: calc(1.625rem - 3px);
+        }
     }
 
     &.button--large {
-        @include rr-font-compute(xl, tight);
-        padding: rr-grid-remainder(4px, 2);
-        padding-left: 2.112rem;
-        padding-right: 2.112rem;
-        border-width: 4px;
+        @include rr-font-compute(l, tight);
+        padding: {
+            left: calc(2rem - 3px);
+            right: calc(2rem - 3px);
+        }        
     }
 
     /* States */

@@ -22,9 +22,8 @@
 @import "includes/design-variables";
 
 :root {
-    font-size: 18px;
+    @include rr-font-compute(r,tight);
     position: relative;
-    
 }
 
 body.layout-grid--on {
