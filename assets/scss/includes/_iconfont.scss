@@ -13,7 +13,7 @@
     font-style: normal;
 }
 
-.if:before {
+.ic:before {
     display: inline-block;
     font-family: "icons";
     font-style: normal;
@@ -23,116 +23,111 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.if-lg {
+.ic--lg {
     font-size: 1.3333333333333333em;
     line-height: 0.75em;
     vertical-align: -15%;
 }
 
-.if-2x {
+.ic--2x {
     font-size: 2em;
 }
 
-.if-3x {
+.ic--3x {
     font-size: 3em;
 }
 
-.if-4x {
+.ic--4x {
     font-size: 4em;
 }
 
-.if-5x {
+.ic--5x {
     font-size: 5em;
 }
 
-.if-fw {
+.ic--fw {
     width: 1.2857142857142858em;
     text-align: center;
 }
 
 
 $icon-angle-right: "\EA01";
-.if-angle-right:before {
+.ic--angle-right:before {
     content: "#{$icon-angle-right}";
 }
     
 $icon-audio: "\EA02";
-.if-audio:before {
+.ic--audio:before {
     content: "#{$icon-audio}";
 }
     
 $icon-camera: "\EA03";
-.if-camera:before {
+.ic--camera:before {
     content: "#{$icon-camera}";
 }
     
 $icon-cog-box: "\EA04";
-.if-cog-box:before {
+.ic--cog-box:before {
     content: "#{$icon-cog-box}";
 }
     
 $icon-facebook: "\EA05";
-.if-facebook:before {
+.ic--facebook:before {
     content: "#{$icon-facebook}";
 }
     
 $icon-flickr: "\EA06";
-.if-flickr:before {
+.ic--flickr:before {
     content: "#{$icon-flickr}";
 }
     
 $icon-home: "\EA07";
-.if-home:before {
+.ic--home:before {
     content: "#{$icon-home}";
 }
     
 $icon-instagram: "\EA08";
-.if-instagram:before {
+.ic--instagram:before {
     content: "#{$icon-instagram}";
 }
     
 $icon-linkedin: "\EA09";
-.if-linkedin:before {
+.ic--linkedin:before {
     content: "#{$icon-linkedin}";
 }
     
 $icon-magnify: "\EA0A";
-.if-magnify:before {
+.ic--magnify:before {
     content: "#{$icon-magnify}";
 }
     
 $icon-navigation-drawer-2: "\EA0B";
-.if-navigation-drawer-2:before {
+.ic--navigation-drawer-2:before {
     content: "#{$icon-navigation-drawer-2}";
 }
     
 $icon-pinterest: "\EA0C";
-.if-pinterest:before {
+.ic--pinterest:before {
     content: "#{$icon-pinterest}";
 }
     
 $icon-rss: "\EA0D";
-.if-rss:before {
+.ic--rss:before {
     content: "#{$icon-rss}";
 }
     
 $icon-twitter: "\EA0E";
-.if-twitter:before {
+.ic--twitter:before {
     content: "#{$icon-twitter}";
 }
     
 $icon-video: "\EA0F";
-.if-video:before {
+.ic--video:before {
     content: "#{$icon-video}";
 }
     
 $icon-youtube: "\EA10";
-.if-youtube:before {
+.ic--youtube:before {
     content: "#{$icon-youtube}";
-}
-    
-$icon-video-radio-star: "\EA11";
-.if-video-radio-star:before {
-    content: "#{$icon-video-radio-star}";
 }
     

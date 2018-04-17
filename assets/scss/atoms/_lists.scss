@@ -8,25 +8,8 @@ ul {
 	}
 }
 
-
-// this should be moved somewhere else probably?
-@mixin no-decoration {
-	margin: 0 0 0 0;
-	list-style: none;
-	padding: 0 0 0 0;
-	&> li {
-		text-indent: 0;
-		margin-left: 0;
-		&:before {
-			display: none;
-		}
+ul, ol {
+	&.no-decoration {
+		@include no-decoration;
 	}
-}
-
-ul.no-decoration {
-	@include no-decoration;
-}
-
-ol.no-decoration {
-	@include no-decoration;
 }

@@ -44,6 +44,7 @@ var paths = {
 	fonts: ['assets/fonts/**/*'],
 	svgstore: ['assets/svgstoredocker /**/*.svg'],
 	font_svg: ['assets/font-svg/**/*.svg'],
+	font_sass_tpl: ['assets/font-svg/_iconfont.scss'],
 	jquery: bower_path + '/jquery/dist/jquery.min.js',
 	vendorscripts: [
 		// scripts to make available from bower
@@ -174,13 +175,13 @@ gulp.task('iconfont', function (done) {
 	async.parallel([
 		function handleGlyphs (cb) {
 			iconStream.on('glyphs', function(glyphs, options){
-				gulp.src('assets/font-svg/_iconfont.scss')
+				gulp.src(paths.font_sass_tpl)
 					.pipe(plumber())
 					.pipe(consolidate('lodash', {
 						glyphs: glyphs,
 						fontName: 'icons',
 						fontPath: '../fonts/',
-						className: 'if'
+						className: 'ic'
 					}))
 					.pipe(gulp.dest('assets/scss/includes/'))
 			});
@@ -292,7 +293,7 @@ gulp.task('watcher', ['build-all'], function() {
 		}
 	);
 	
-	sanewatch(paths.font_svg, watcherOptions,
+	sanewatch(paths.font_sass_tpl.concat(paths.font_svg), watcherOptions,
 		function () {
 			gulp.start('iconfont');
 		}

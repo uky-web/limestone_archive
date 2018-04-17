@@ -1,27 +1,20 @@
 .icon-label {
 	white-space: nowrap;
-
-	.arrow,
-	.icon-wrapper,
-	.label {
+	.ic {
 		display: inline-block;
-		vertical-align: top;
-		max-height: 1em;
-	}
-
-	.icon-wrapper:first-child {
-		margin-right: 0.5em;
-	}
-
-	icon-wrapper:last-child {
-		margin-left: 0.5em;
-	}
-
-	.arrow {
-		font-family: arial, helvetica, sans-serif;
+		vertical-align: baseline;
+		font-size: .8em;
 	}
 
 	.label {
 		white-space: normal;
+		margin-left: 0.3em;
 	}
+}
+
+// Just to let you know this is an option.
+// This tweaks the icon-label styles so the
+// label and the icons line up
+.align-icons {
+	@include icon-label-align;
 }

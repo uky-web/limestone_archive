@@ -6,7 +6,33 @@
     $MIXINS
 \*------------------------------------*/
 
+// Strip decorations from unordered, ordered lists
+@mixin no-decoration {
+	margin: 0 0 0 0;
+	list-style: none;
+	padding: 0 0 0 0;
+	&>li {
+		text-indent: 0;
+		margin-left: 0;
+		&:before {
+			display: none;
+		}
+	}
+}
 
+// Adjust icon labels so the icons and labels 
+// line up
+@mixin icon-label-align {
+	.icon-label {
+		.ic {
+			width: 1em;
+		}
+
+		.label {
+			margin-left: 0.5em;
+		}
+	}
+}
 
 // generate the image url by prefixing the layout image path
 @function image-url($url) {

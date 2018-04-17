@@ -1,1 +1,9 @@
 @import "icons/main";
+
+.icon-catalog {
+    @include no-decoration;
+    @include icon-label-align;
+    li {
+        @include rr-font-compute(xl,wide);
+    }
+}

@@ -2,17 +2,23 @@
 {% embed 'molecules-slab' %}
 	{% block slab_inner %}
 		{% include 'atoms-heading' with { level: 2, headline: 'Icon Set'} %}
+		<ul class="icon-catalog">
 		{% for icon in [
 				'audio',
 				'camera',
 				'video',
-				'video-radio-star'
+				'magnify',
+				'navigation-drawer-2',
+				'angle-right',
+				'cog-box',
+				'home'
 			]
 		%}
-			<div class="icon-wrapper">
-				{% include 'atoms-icon-label' with { icon: icon, label: icon|capitalize }  %}
-			</div>
+			
+		<li>{% include 'atoms-icon-label' with { icon: icon, label: icon|capitalize ~ ' | ' ~ 'ic--' ~ icon }  %}</li>
+			
 		{% endfor %}
+		</ul>
 	{% endblock %}
 {% endembed %}
 
