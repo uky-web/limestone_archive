@@ -1,0 +1,18 @@
+
+{% embed 'molecules-slab' %}
+	{% block slab_inner %}
+		{% include 'atoms-heading' with { level: 2, headline: 'Icon Set'} %}
+		{% for icon in [
+				'audio',
+				'camera',
+				'video',
+				'video-radio-star'
+			]
+		%}
+			<div class="icon-wrapper">
+				{% include 'atoms-icon-label' with { icon: icon, label: icon|capitalize }  %}
+			</div>
+		{% endfor %}
+	{% endblock %}
+{% endembed %}
+

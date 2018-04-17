@@ -2,10 +2,12 @@ var interactive = false;
 
 var 
 	argv = require('yargs').argv,
+	async = require('async'),
 	autoprefixer = require('autoprefixer'),
 	babel = require('gulp-babel');
 	coffee = require('gulp-coffee'),
 	colors = require('ansi-colors'),
+	consolidate = require('gulp-consolidate'),
 	eyeglass = require('eyeglass'),
 	exec = require('child_process').exec,
 	flexbugs = require('postcss-flexbugs-fixes'),
@@ -20,7 +22,8 @@ var
 	save = require('gulp-save'),
 	sourcemaps = require('gulp-sourcemaps'),
 	svgmin = require('gulp-svgmin'),
-	svgsprite = require('gulp-svg-sprite');
+	svgsprite = require('gulp-svg-sprite'),
+	iconfont = require('gulp-iconfont');
   
 // within the container,
 //   /app/assets is the source parent
@@ -29,13 +32,18 @@ var
 // bower_path is used as a prefix in other paths
 var bower_path = 'assets/bower_components';
 
+// used by the font generator
+var runTimestamp = Math.round(Date.now() / 1000);
+
+
 var paths = {
 	sass: ['assets/scss/**/*.scss'],
 	coffee: ['assets/coffee/*.coffee'],
 	js: ['assets/js/**/*.js'],
 	images: ['assets/images/**/*'],
 	fonts: ['assets/fonts/**/*'],
-	svgstore: ['assets/svg/**/*.svg'],
+	svgstore: ['assets/svgstoredocker /**/*.svg'],
+	font_svg: ['assets/font-svg/**/*.svg'],
 	jquery: bower_path + '/jquery/dist/jquery.min.js',
 	vendorscripts: [
 		// scripts to make available from bower
@@ -47,7 +55,7 @@ var paths = {
 	],
 	dist_css: 'dist/css',
 	dist_js: 'dist/js',
-	dist_svg: 'dist/sprites',
+	dist_svg: 'dist/images/sprites/',
 	dist_images: 'dist/images',
 	dist_fonts: 'dist/fonts',
 };
@@ -151,73 +159,87 @@ gulp.task('js',function() {
 		.pipe( gulp.dest( paths.dist_js ));
 });
 
+gulp.task('iconfont', function (done) {
+	var iconStream = gulp.src(paths.font_svg)
+		.pipe(plumber())
+		.pipe(iconfont({
+			fontName: 'icons', // required
+			prependUnicode: true, // recommended option
+			formats: ['ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
+			timestamp: runTimestamp, // recommended to get consistent builds when watching files
+			normalize: true,
+			fontHeight: 1001
+		}));
+
+	async.parallel([
+		function handleGlyphs (cb) {
+			iconStream.on('glyphs', function(glyphs, options){
+				gulp.src('assets/font-svg/_iconfont.scss')
+					.pipe(plumber())
+					.pipe(consolidate('lodash', {
+						glyphs: glyphs,
+						fontName: 'icons',
+						fontPath: '../fonts/',
+						className: 'if'
+					}))
+					.pipe(gulp.dest('assets/scss/includes/'))
+			});
+		},
+		function handleFonts(cb) {
+			iconStream.pipe(gulp.dest(paths.dist_fonts))
+			.on('finish', cb);
+		}
+	], done);
+
+	return iconStream;
+});
+
+
 // Build the SVG spritesheet. This pulls everything
 // out of the svgstore directory, combines them into
 // one SVG element with the filename as an ID, then
-// injects the result into a Twig macro definition.
-// That macro is then called in a strategically
-// selected template to ensure that the svgstore
-// content is injected into the page template.
+// stores these in the images/sprites directory 
+// as svg-sprite-custom-symbol.svg.
 gulp.task('svgstore', function () {
-	function fileContents(filePath, file) {
-		return file.contents.toString();
-	}
-	var svgsprite_config = {
+	svgsprite_config = {
 		"shape": {
-			"transform": [
-				{
-					"svgo": {
-						"plugins": [
-							{
-								"removeTitle": true
-							},
-							{
-								"removeUnknownsAndDefaults": false
-							},
-							{
-								"cleanupIDs": false
-							},
-							{
-								"cleanupNumericValues": false
-							}
-						]
-					}
+			"transform": [{
+				"svgo": {
+					"plugins": [{
+							"removeTitle": true
+						},
+						{
+							"removeUnknownsAndDefaults": false
+						},
+						{
+							"cleanupIDs": false
+						},
+						{
+							"cleanupNumericValues": false
+						}
+					]
 				}
-			]
+			}]
 		},
 		"svg": {
 			"xmlDeclaration": false,
-			"doctypeDeclaration": false,
-			"transform": [
-				function(svg) {
-					var DOMParser = require('xmldom').DOMParser;
-					var XMLSerializer = require('xmldom').XMLSerializer;
-					var doc = new DOMParser().parseFromString(svg);
-					var paths = doc.getElementsByTagName('path');
-					for (var i = 0; i < paths.length; i++) {
-						paths[i].setAttribute('fill', 'currentColor');
-					}
-					return new XMLSerializer().serializeToString(doc);
-				}
-			]
+			"doctypeDeclaration": false
 		},
 		"mode": {
-			"inline": true,
 			"symbol": {
-				"dest": '.',
-				"sprite": 'icons.svg'
+				"dest": ".",
+				"sprite": 'standard_icons.svg'
 			}
 		}
 	};
 	return gulp.src(paths.svgstore)
-		.pipe(plumber({ errorHandler: plumber_error }))
+		.pipe(plumber())
 		.pipe(svgsprite(svgsprite_config))
 		.pipe(gulp.dest(paths.dist_svg))
 });
 
-
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles', 'jquery', 'vendorscripts','svgstore', 'js', 'coffee', 'images', 'fonts']);
+gulp.task('build-all', ['styles', 'jquery', 'vendorscripts', 'js', 'coffee', 'images', 'iconfont']);
 
 // all the watchy stuff
 gulp.task('watcher', ['build-all'], function() {
@@ -268,7 +290,13 @@ gulp.task('watcher', ['build-all'], function() {
 		function () {
 			gulp.start('fonts');
 		}
-	);	
+	);
+	
+	sanewatch(paths.font_svg, watcherOptions,
+		function () {
+			gulp.start('iconfont');
+		}
+	);
 });
 
 // Default build task

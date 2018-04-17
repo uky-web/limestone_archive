@@ -7,6 +7,7 @@
   "private" : true,
   "dependencies": {
     "ansi-colors": "^1",
+    "async": "^2.6",
     "autoprefixer": "^8",
     "babel-core": "^6.10.4",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -28,6 +29,8 @@
     "gulp": "latest",
     "gulp-babel": "^6.1.2",
     "gulp-coffee": "latest",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-iconfont": "^9",
     "gulp-if": "^2.0.0",
     "gulp-modernizr": "latest",
     "gulp-plumber": "latest",

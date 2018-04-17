@@ -8,7 +8,7 @@ services:
     image: newcity/taskrunner:latest
     volumes:
       # map assets in and persistent storage containers out
-      - ./assets:/app/assets:ro
+      - ./assets:/app/assets
       - css:/app/dist/css
       - js:/app/dist/js
       - images:/app/dist/images

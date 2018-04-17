@@ -1,0 +1,7 @@
+
+<span class="icon-label">
+	{% if icon is not null %}
+	<span class="if if-{{ icon }}"></span>
+	{% endif %}
+	<span class="label">{{ label|default("Default Icon Label") }}</span>
+</span>
