@@ -1,17 +1,12 @@
 prepNiceVideo = () ->
-    $('iframe[src*="youtube"]').parent().fitVids();
-    $('.nice-video button').on 'click', () ->
-        $wrapper = $(this).parents '.nice-video'
-        $wrapper.toggleClass 'nice-video--playing'
-        $iframe = $wrapper.find 'iframe'
-        closure = () ->
-            $iframe.attr {
-                'src': $iframe.attr('src').replace "autoplay=0", "autoplay=1"
-            }
-        setTimeout closure, 300
-        return
-
-    $('.nice-video').addClass 'nice-video--ready'
+    $('.nice-video--control').magnificPopup {
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    }
 
 $(document).ready () ->
     # Grid toggle behavior, dev only

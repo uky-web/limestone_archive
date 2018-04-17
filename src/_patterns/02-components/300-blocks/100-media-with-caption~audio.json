@@ -1,0 +1,6 @@
+{
+    "media": "audio",
+    "icon": "audio",
+    "headline": "Audio with Caption",
+    "media_pattern": "atoms-audio"
+}

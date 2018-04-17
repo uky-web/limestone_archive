@@ -131,3 +131,8 @@ $icon-youtube: "\EA10";
     content: "#{$icon-youtube}";
 }
     
+$icon-play-triangle: "\EA11";
+.ic--play-triangle:before {
+    content: "#{$icon-play-triangle}";
+}
+    

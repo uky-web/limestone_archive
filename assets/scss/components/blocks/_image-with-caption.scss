@@ -1,0 +1,18 @@
+.image-with-caption {
+    figcaption {
+        margin-top: 2rem;
+    }
+    
+    h2,
+    h3,
+    h4 {
+        @include rr-font-compute(3xl, tight);
+        font-weight: 500;
+    }
+
+    @at-root .layout-grid--on #{&} {
+        h2,h3,h4,p {
+            background-color: #dfafdf;
+        }
+    }
+}

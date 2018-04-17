@@ -1,0 +1,16 @@
+{% if media is empty %}
+    {% set media = 'image' %}
+{% endif %}
+<div class="image-with-caption">
+    {% embed 'molecules-figure' %}
+        {% block figure_media %}
+            {% include media_pattern|default('atoms-image') %}
+        {% endblock %}
+        {% block figure_caption %}
+            {% include 'atoms-heading' with { level:level|default(2) } %}
+            {% include 'atoms-paragraph' %}
+            {% set citation = media|capitalize ~ ' by ' ~ fake('name') %}
+            {% include 'molecules-cite-media' with { icon:icon|default('camera'), label: citation } %}
+        {% endblock %}
+    {% endembed %}
+</div>

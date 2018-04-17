@@ -1,0 +1,5 @@
+.cite-media {
+    @include rr-font-compute(s, tight);
+    color: color(dark-gray);
+    font-style: normal;
+}

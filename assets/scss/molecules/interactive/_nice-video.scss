@@ -2,78 +2,55 @@
 
 .nice-video {
 	position: relative;
-	background-color: $black;
-
-	.embedded-video,
-	.embedded-widescreen-video {
-		margin-bottom: 0;
-	}
-
-	button {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%) translateX(-50%);
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 300ms;
-	}
-}
-
-.nice-video__preview {
-	background: {
-		color: $black;
-		position: 50% 50%;
-		size: cover;
-	}
-
-	opacity: 0;
-	position: absolute;
-	z-index: 0;
-	pointer-events: none;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	transition: opacity 300ms;
-	overflow: hidden;
+	background-color: color(wildcat-blue);
 
 	img {
-		width: 100%;
-		height: auto;
+		opacity: .57;
 	}
 }
 
-.nice-video__transcript {
-	padding: 0.2rem 1rem;
-	text-align: center;
+.nice-video--control {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	text-decoration: none;
+	background-color: white;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 100%;
+	color: color(wildcat-blue);
 
-	a {
-		color: $white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: .2s color ease-in-out, .2s background-color ease-in-out;
+
+	&:hover {
+		background-color: color(light-blue);
+		color: color(wildcat-white);
+	}
+
+	.icon-label {
+		line-height: 1;
+		font-size: 1.8rem;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	/* Special tuning for this icon position */
+	.ic.ic--play-triangle {
+		height: 1em;
+		width: .78em;
+		position: relative;
+		top: .14em;
+		left: .17em;
+	}
+
+	.label {
+		position: absolute;
+		left: -99999em;
 	}
 }
 
-.nice-video--ready {
-	.nice-video__preview {
-		z-index: 10;
-		opacity: 1;
-		pointer-events: auto;
-	}
-
-	button {
-		opacity: 1;
-		z-index: 10;
-		pointer-events: auto;
-	}
-}
-
-.nice-video--playing {
-	.nice-video__preview {
-		opacity: 0;
-		pointer-events: none;
-	}
-	button {
-		opacity: 0;
-		pointer-events: none;
-	}
-}
