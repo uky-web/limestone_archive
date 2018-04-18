@@ -13,6 +13,10 @@ $(document).ready () ->
     $('.gridToggle').on 'click', () ->
         $('body').toggleClass 'layout-grid--on'
 
+    # Include labels
+    $('.includeToggle').on 'click', () ->
+        $('body').toggleClass 'twig-includes--on'
+
     $('img').baseline () ->
         size = parseFloat(getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
         return size / 2
