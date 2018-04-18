@@ -56,6 +56,7 @@ var paths = {
 		bower_path + '/slick-carousel/slick/slick.js',
 		bower_path + '/magnific-popup/dist/jquery.magnific-popup.js',
 	],
+	intermediate: 'intermediate',
 	dist_css: 'dist/css',
 	dist_js: 'dist/js',
 	dist_svg: 'dist/images/sprites/',
@@ -73,7 +74,7 @@ var plumber_error = function (err) {
 };
 
 // application and third-party SASS -> CSS
-gulp.task('styles', function() {
+gulp.task('styles', ['iconfont'], function() {
 	var sassOptions = {
 		outputStyle : 'nested',
 		eyeglass: {
@@ -162,7 +163,7 @@ gulp.task('js',function() {
 		.pipe( gulp.dest( paths.dist_js ));
 });
 
-gulp.task('iconfont', function (done) {
+gulp.task('iconfont', function () {
 	// Get a nonce for the font name for this build
 	// The font file name will change, but since gulp
 	// builds the font loading rule, too, everything
@@ -192,14 +193,17 @@ gulp.task('iconfont', function (done) {
 						fontPath: '../fonts/',
 						className: 'ic'
 					}))
-					.pipe(gulp.dest('assets/scss/includes/'))
+					.pipe(gulp.dest(paths.intermediate))
 			});
 		},
 		function handleFonts(cb) {
 			iconStream.pipe(gulp.dest(paths.dist_fonts))
 			.on('finish', cb);
 		}
-	], done);
+	], function() {
+		// delete all the generated fonts except the most recent generated one
+		del([paths.dist_fonts + '/icon*', '!' + paths.dist_fonts + '/' + fontName + '*']);
+	});
 
 	return iconStream;
 });
@@ -249,7 +253,7 @@ gulp.task('svgstore', function () {
 });
 
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles', 'jquery', 'vendorscripts', 'js', 'coffee', 'images', 'iconfont']);
+gulp.task('build-all', ['styles', 'jquery', 'vendorscripts', 'js', 'coffee', 'images']);
 
 // all the watchy stuff
 gulp.task('watcher', ['build-all'], function() {
@@ -272,7 +276,7 @@ gulp.task('watcher', ['build-all'], function() {
 	//var watcherOptions = { debounce:300,watchman:true };
 	var watcherOptions = { debounce:300, watchman:false };
 
-	sanewatch(paths.sass, watcherOptions,
+	sanewatch(paths.sass.concat(paths.font_svg, paths.font_sass_tpl), watcherOptions,
 		function() {
 			gulp.start('styles');
 		}
@@ -299,12 +303,6 @@ gulp.task('watcher', ['build-all'], function() {
 	sanewatch(paths.fonts, watcherOptions,
 		function () {
 			gulp.start('fonts');
-		}
-	);
-	
-	sanewatch(paths.font_sass_tpl.concat(paths.font_svg), watcherOptions,
-		function () {
-			gulp.start('iconfont');
 		}
 	);
 });
