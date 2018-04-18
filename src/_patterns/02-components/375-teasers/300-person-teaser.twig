@@ -1,0 +1,12 @@
+<div class="teaser">
+	<div class="teaser__media">
+		{% include 'atoms-image' with { width: 600, aspect: "3:2"} %}
+	</div>
+	{% include 'molecules-headline-group' with { headline_group_linked: true, head:fake('name') } %}
+    <p><span class="title">{{ fake('jobTitle') }}</span><br />
+    {% include 'atoms-link-fancy' with { label:'College or Department' } %}
+    </p>
+	<div class="teaser__content">
+		{% include 'atoms-formatted-text' %}
+	</div>
+</div>

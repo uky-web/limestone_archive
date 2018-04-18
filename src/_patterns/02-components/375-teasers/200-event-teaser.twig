@@ -1,0 +1,13 @@
+<div class="teaser teaser--event">
+	<div class="teaser__media">
+		{% include 'atoms-image' with { width: 600, aspect: "3:2"} %}
+	</div>
+	{% include 'molecules-headline-group' with { headline_group_linked: true, super: "Optional Superhead", sub:"Optional Subhead" } %}
+	<div class="teaser__meta">
+		<span class="date">{{ "now"|date("M d, Y") }}</span> | <span class="time">{{ "now"|date("h:i a") }}</span>
+        <span class="taxo-term">Taxonomy</span>, <span class="taxo-term">Taxonomy</span>
+	</div>
+	<div class="teaser__content">
+		{% include 'atoms-formatted-text' %}
+	</div>
+</div>
