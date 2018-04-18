@@ -20,6 +20,13 @@
 	}
 }
 
+@mixin block-header-font {
+	h2,h3,h4 {
+		@include rr-font-compute(3xl, tight);
+		font-weight: 500;
+	}
+}
+
 // Adjust icon labels so the icons and labels 
 // line up
 @mixin icon-label-align {

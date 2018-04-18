@@ -8,7 +8,7 @@
         {% endblock %}
         {% block figure_caption %}
             {% include 'atoms-heading' with { level:level|default(2) } %}
-            {% include 'atoms-paragraph' %}
+            {% include 'atoms-formatted-text' %}
             {% set citation = media|capitalize ~ ' by ' ~ fake('name') %}
             {% include 'molecules-cite-media' with { icon:icon|default('camera'), label: citation } %}
         {% endblock %}

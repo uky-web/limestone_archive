@@ -5,6 +5,7 @@ button, a.button {
     font-family: $font-avenirnext;
     text-transform: uppercase;
     text-align: center;
+    background-clip: padding-box ;
     margin: 0;
 
     // Avenir is not quite centered in the lineheight
@@ -18,12 +19,11 @@ button, a.button {
         right: calc(1.875rem - 3px);        
     }
     
-    border: 3px solid color(wildcat-blue);
-    background-color: color(wildcat-blue);
-    color: color(wildcat-white);
     display: inline-block;
     text-decoration: none;
 
+    border-width: 3px;
+    border-style: solid;
     transition: .3s ease-in-out;
 
     &.button--ghost {
@@ -46,38 +46,5 @@ button, a.button {
             left: calc(2rem - 3px);
             right: calc(2rem - 3px);
         }        
-    }
-
-    /* States */
-    &[disabled] {
-        background-color: color(subtle-gray) !important;
-        border-color: color(subtle-gray) !important;
-        color: color(dark-gray) !important;
-    }
-
-    &:hover {
-        background-color: color(light-blue);
-        border-color: color(light-blue);
-        color: color(wildcat-white);
-
-    }
-
-    &:active {
-        background-color: color(medium-blue);
-        border-color: color(medium-blue);
-        color: color(wildcat-white);
-        &.button--ghost {
-            background-color: transparent;
-        }        
-    }
-
-    &:focus {
-        background-color: color(light-blue);
-        outline: none;
-        color: white;        
-        
-        &.button--ghost {
-            background-color: transparent;
-        }
     }
 }

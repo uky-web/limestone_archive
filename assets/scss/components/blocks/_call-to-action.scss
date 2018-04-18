@@ -1,14 +1,26 @@
-.grid__column {
-    .cta {
-        border: 1px color(wildcat-blue) solid;
-        padding: rr-grid-remainder(2px, 2);
+.cta {
+    @include block-header-font;
 
-        .teaser__text {
-            background-color: red;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    border: 3px color(wildcat-blue) solid;
+    padding: rr-grid-remainder(3px, 2);
+
+    @include rr-break-directive('m') {
+        padding: rr-grid-remainder(3px, 3);
+    }
+
+    @include rr-break-directive('l') {
+        border-width: 6px;
+        padding: rr-grid-remainder(6px, 5);
+    }
+
+    &.cta--dark {
+        @include usescheme($text-colors-dark);
+        background-color: color(wildcat-blue);
+    }
+
+    &.cta--light {
+        background-color: color(subtle-gray);
+        border-color: color(subtle-gray);
     }
 }
+

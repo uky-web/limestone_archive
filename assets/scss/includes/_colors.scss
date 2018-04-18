@@ -47,9 +47,6 @@ $black: #2c2a29;
 
 @mixin usescheme($textscheme) {
     color: color(text,$textscheme);
-    abbr {
-        color: $white;
-    }
     a {
         &:link,
         &:visited {
@@ -58,6 +55,76 @@ $black: #2c2a29;
         &:hover,
         &:active {
             color: color(link-active,$textscheme);
+        }
+    }
+
+    button, .button {
+        border-color: color(button-border,$textscheme);
+        background-color: color(button-background,$textscheme);
+        color: color(button-text,$textscheme);
+
+        // attach default colors to the anchor-as-button version
+        &:link {
+            border-color: color(button-border, $textscheme);
+            background-color: color(button-background, $textscheme);
+            color: color(button-text, $textscheme);
+        }
+        
+
+        &.button--ghost {
+            background-color: transparent;
+            color: color(button-border,$textscheme);
+        }
+
+        &[disabled] {
+            border-color: color(button-disabled-border, $textscheme) !important;
+            background-color: color(button-disabled-background, $textscheme) !important;
+            color: color(button-disabled-text, $textscheme) !important;
+
+            &.button--ghost {
+                background-color: transparent !important;
+                // The ghost disabled text is a weird case; we have to 
+                // tune it for specific text schemes
+                @if $textscheme == $text-colors-dark {
+                    color: color(wildcat-white) !important;
+                } @else {
+                    color: color(button-disabled-text, $textscheme) !important;
+                }                
+            }
+        }
+
+        &:hover {
+            border-color: color(button-hover-border, $textscheme);
+            background-color: color(button-hover-background, $textscheme);
+            color: color(button-hover-text, $textscheme);
+        }
+
+        &:active {
+            border-color: color(button-active-border, $textscheme);
+            background-color: color(button-active-background, $textscheme);
+            color: color(button-active-text, $textscheme);
+            &.button--ghost {
+                color: color(button-active-text,$textscheme);
+            }
+        }
+
+        &:focus {
+            background-color: color(button-focus-background, $textscheme);
+            border-color: color(button-focus-border, $textscheme);
+            color: color(button-focus-text, $textscheme);
+            outline: none;
+
+            &.button--ghost {
+                background-color: transparent;
+                // Like disabled ghost, the focus state is quite different
+                // and we need some extra tuning                
+                @if $textscheme == $text-colors-dark {
+                    color: color(wildcat-white);
+                }
+                @else {
+                    color: color(button-focus-text, $textscheme);
+                }
+            }
         }
     }
 }

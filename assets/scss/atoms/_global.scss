@@ -6,6 +6,16 @@
 body {
 	margin: 0;
 	padding: 0;
+
+	@include usescheme($text-colors);
+}
+
+.default-colors {
+	@include usescheme($text-colors);
+}
+
+.dark-colors {
+	@include usescheme($text-colors);
 }
 
 // Prep images to be responsive

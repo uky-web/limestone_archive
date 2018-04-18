@@ -215,17 +215,48 @@ $colors: (
 );
 
 $text-colors: (
-    link: rebeccapurple,
-    link-active: purple,
+    link: color(wildcat-black),
+    link-active: color(medium-blue),
     text: color(wildcat-black),
     accent: color(alert),
+    button-border: color(wildcat-blue),
+    button-background: color(wildcat-blue),
+    button-text: color(wildcat-white),
+    button-disabled-border: color(subtle-gray),
+    button-disabled-background: color(subtle-gray),
+    button-disabled-text: color(dark-gray),
+    button-hover-border: color(light-blue),
+    button-hover-background: color(light-blue),
+    button-hover-text: color(wildcat-white),
+    button-active-border: color(medium-blue),
+    button-active-background: color(medium-blue),
+    button-active-text: color(wildcat-white),
+    button-focus-border: color(light-blue),
+    button-focus-background: color(wildcat-white),
+    button-focus-text: color(wildcat-blue)    
 );
 
 $text-colors-dark: (
-    link: lightskyblue,
+    link: color(wildcat-white),
     link-active: lightsteelblue,
     text: color(wildcat-white),
-    accent: color(success)
+    accent: color(success),
+    button-border: color(wildcat-white),
+    button-background: color(wildcat-white),
+    button-text: color(wildcat-blue),
+    button-disabled-border: rgba(#ededed,.66),
+    button-disabled-background: rgba(#ededed, .66),
+    button-disabled-text: color(wildcat-blue),
+    button-hover-border: color(light-blue),
+    button-hover-background: color(light-blue),
+    button-hover-text: color(wildcat-white), 
+    button-active-border: color(dark-blue),
+    button-active-background: color(dark-blue),
+    button-active-text: color(wildcat-white),
+    button-focus-border: color(light-blue),
+    button-focus-background: color(wildcat-white),
+    button-focus-text: color(wildcat-blue)
+    
 );
 
 
