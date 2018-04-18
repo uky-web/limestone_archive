@@ -1,5 +1,7 @@
 var interactive = false;
 
+const Nonce = require('nonce-fast'), nonce = Nonce(9);
+
 var 
 	argv = require('yargs').argv,
 	async = require('async'),
@@ -161,10 +163,18 @@ gulp.task('js',function() {
 });
 
 gulp.task('iconfont', function (done) {
+	// Get a nonce for the font name for this build
+	// The font file name will change, but since gulp
+	// builds the font loading rule, too, everything
+	// will be OK
+	// This is a cache buster, and should only run
+	// when a new font is created
+	var fontName = 'icons-' + nonce();
+
 	var iconStream = gulp.src(paths.font_svg)
 		.pipe(plumber())
 		.pipe(iconfont({
-			fontName: 'icons', // required
+			fontName: fontName, // required
 			formats: ['ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
 			timestamp: runTimestamp, // recommended to get consistent builds when watching files
 			normalize: true,
@@ -178,7 +188,7 @@ gulp.task('iconfont', function (done) {
 					.pipe(plumber())
 					.pipe(consolidate('lodash', {
 						glyphs: glyphs,
-						fontName: 'icons',
+						fontName: fontName,
 						fontPath: '../fonts/',
 						className: 'ic'
 					}))

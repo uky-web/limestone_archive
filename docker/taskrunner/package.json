@@ -44,6 +44,7 @@
     "fancy-log": "^1",
     "lodash": "^4.17.4",
     "modernizr": "latest",
+    "nonce-fast": "^1",
     "postcss-assets": "^4.1.0",
     "postcss-clean": "^1.1.0",
     "postcss-flexbugs-fixes": "^3.2.0",
