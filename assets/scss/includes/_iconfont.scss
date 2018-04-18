@@ -111,28 +111,28 @@ $icon-pinterest: "\EA0C";
     content: "#{$icon-pinterest}";
 }
     
-$icon-rss: "\EA0D";
+$icon-play-triangle: "\EA0D";
+.ic--play-triangle:before {
+    content: "#{$icon-play-triangle}";
+}
+    
+$icon-rss: "\EA0E";
 .ic--rss:before {
     content: "#{$icon-rss}";
 }
     
-$icon-twitter: "\EA0E";
+$icon-twitter: "\EA0F";
 .ic--twitter:before {
     content: "#{$icon-twitter}";
 }
     
-$icon-video: "\EA0F";
+$icon-video: "\EA10";
 .ic--video:before {
     content: "#{$icon-video}";
 }
     
-$icon-youtube: "\EA10";
+$icon-youtube: "\EA11";
 .ic--youtube:before {
     content: "#{$icon-youtube}";
-}
-    
-$icon-play-triangle: "\EA11";
-.ic--play-triangle:before {
-    content: "#{$icon-play-triangle}";
 }
     

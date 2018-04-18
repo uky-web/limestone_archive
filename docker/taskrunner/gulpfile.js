@@ -165,7 +165,6 @@ gulp.task('iconfont', function (done) {
 		.pipe(plumber())
 		.pipe(iconfont({
 			fontName: 'icons', // required
-			prependUnicode: true, // recommended option
 			formats: ['ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
 			timestamp: runTimestamp, // recommended to get consistent builds when watching files
 			normalize: true,
