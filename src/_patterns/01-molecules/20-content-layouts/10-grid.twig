@@ -1,5 +1,10 @@
 {% embed 'molecules-slab' with { slab_variant: slab_variant } %}
     {% block slab_outer %}
+        {% if head %}
+        <div class="slab__wrapper">
+            {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, head:head|default("Grid Headline") } %}
+        </div>
+        {% endif %}
         <div class="grid {{ grid_type|default('grid--2-up') }}">
             {% if grid_columns %}                
                 {% for col in grid_columns %}

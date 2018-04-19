@@ -4,6 +4,42 @@
 
 .slab__wrapper {
     @include rr-slab-wrapper;
+
+    .heading--display {
+        @include rr-font-compute(3xl, tight);
+        font-family: $font-mercury;
+        margin-bottom: 2rem;
+        position: relative;
+
+        .heading__text {
+            display: inline-block;
+            position: relative;
+            background-color: color(wildcat-white);
+            padding-right: 2rem;
+            z-index: 1;
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: .15em;
+            height: 2px;
+            z-index: 0;
+            background-image: repeating-linear-gradient(to right, #{color(light-gray)},#{color(light-gray)} 3px, transparent 3px, transparent 7px);
+        }
+
+        @include rr-break-directive('m') {
+            margin-bottom: 3rem;
+        }
+
+        @include rr-break-directive('l') {
+            margin-bottom: 5.5rem;
+        }
+    } 
+    
+    
 }
 
 $skins: transparent;
@@ -14,6 +50,10 @@ $skins: transparent;
         contrast: contrast($color,$black);
         @if (contrast($color,color(wildcat-black)) < 4.5) {
             @include usescheme($text-colors-dark);
+        }
+
+        .heading-display .heading__text {
+            background-color: $color;
         }
     }
     $skins: append($skins, slab--#{$name});
