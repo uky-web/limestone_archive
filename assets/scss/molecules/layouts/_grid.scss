@@ -9,9 +9,14 @@ $styles: map-keys($rr-grids);
     }
 }
 
-.grid-column {
+.grid__column {
     display: flex;
     align-items: stretch;
+    justify-content: stretch;
+
+    > div {
+        width: 100%;
+    }
 }
 
 .grid__column--major {

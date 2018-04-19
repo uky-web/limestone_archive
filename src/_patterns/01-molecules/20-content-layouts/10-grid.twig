@@ -2,7 +2,7 @@
     {% block slab_outer %}
         {% if head %}
         <div class="slab__wrapper">
-            {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, head:head|default("Grid Headline") } %}
+            {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, headline:head|default("Grid Headline") } %}
         </div>
         {% endif %}
         <div class="grid {{ grid_type|default('grid--2-up') }}">
