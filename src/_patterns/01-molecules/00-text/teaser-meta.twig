@@ -4,7 +4,7 @@
         <span class="date">{{ "now"|date(teaser_date_format|default("M d, Y - g:i a")) }}</span>
     {% endif %}
     {% if teaser_taxonomy %}
-        <span class="taxonomy-list">Taxonomy, Taxonomy</span> 
+        <span class="taxonomy-list">{% set taxo = fake('words',{nb: random(3)}) %}{% for w in taxo %}{{ w|capitalize }}{% if not loop.last %}, {% endif %}{% endfor %}</span> 
     {% endif %}       
 </div>
 {% endif %}
