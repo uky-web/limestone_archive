@@ -2,7 +2,7 @@
 {% spaceless %}
 <span class="headline-group__head">
     {% if linked %}
-        {% include 'atoms-link' with {label: text} %}
+        {% include 'atoms-link' with {label: text, link_variant: "underline-link"} %}
     {% else %}
         {{ text|default('bs') }}
     {% endif %}

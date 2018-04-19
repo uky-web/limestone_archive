@@ -1,15 +1,24 @@
 .teaser {
-
-}
-
-.teaser__image {
-	img {
-		width: 100%;
-		height: auto;
+	.headline-group {
+		.headline-group__sub,
+		.headline-group__super {
+			text-transform: uppercase;
+			font-weight: 500;
+			@include rr-font-compute(xl,medium);
+		}
+		.headline-group__head {
+			@include rr-font-compute(3xl, medium);
+		}
 	}
 }
 
-.teaser__text {
+.teaser__media {
+	margin-bottom: 1.5rem;
+}
 
+.teaser__content {
+	.editorial {
+		margin-top: 1rem;
+	}
 }
 

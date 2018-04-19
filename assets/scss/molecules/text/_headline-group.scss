@@ -1,39 +1,68 @@
+$sizelist: 4xl 3xl 2xl 2xl xl xl;
+
 .headline-group {
+	// Since the meaning of & changes depending on nesting.
+	$bem_root: &;
+	
 	margin-top: 0;
 	margin-bottom: rr-gridbase() * 2;
 	display: block;
 	line-height: auto;
-}
 
-div.headline-group {
-	> .headline-group__super,
-	> .headline-group__sub {
+	#{$bem_root}__super,
+	#{$bem_root}__sub {
 		display: block;
-		@include rr-font-compute(s, tight);
 	}
-	> .headline-group__head {
-		@include rr-font-compute(l, medium);
-		font-weight: bold;
-	}
-} 
 
-$sizelist: 5xl 4xl 3xl 2xl xl l;
-@each $size in $sizelist {
-	$pos: index($sizelist,$size);
-	$supersize: map-offset-from($font-sizes, $size, -2);
-	$subsize: map-offset-from($font-sizes, $size, -2);
-	h#{$pos} {
-		.headline-group__super {
-			@include rr-font-compute($supersize, tight);
-			display: block;
+	// Default non-semantic headline group
+	@at-root div#{$bem_root} {
+		#{$bem_root}__super,
+		#{$bem_root}__sub {
+			@include rr-font-compute(l, tight);
 		}
-		.headline-group__head {
-			display: block;
+		#{$bem_root}__head {
+			@include rr-font-compute(2xl, tight);
 		}
-		.headline-group__sub {
-			@include rr-font-compute($subsize, tight);
-			display: block;
+	}
+
+	// Headline groups in teasers
+	@at-root .teaser #{$bem_root} {
+		#{$bem_root}__super,
+		#{$bem_root}__sub {
+			text-transform: uppercase;
+			font-weight: 500;
+			color: color(dark-gray);
+			@include rr-font-compute(xl, medium);
+		}
+
+		#{$bem_root}__head {
+			font-weight: 500;
+			@include rr-font-compute(3xl, medium);
+
+			.underline-link {
+				&:link, &:visited {
+					color: color(dark-blue);
+				}
+			}
+		}
+	}
+
+	// Semantic headline groups
+	// eg h1.headline-group, h2.headline-group
+	@for $pos from 1 through 6 {
+		$size: nth($sizelist, $pos);
+		$subsize: map-offset-from($font-sizes, $size, -2);
+
+		@at-root h#{$pos}#{&} {
+			#{$bem_root}__super,
+			#{$bem_root}__sub {
+				@include rr-font-compute($subsize, tight);
+			}
+			#{$bem_root}__head {
+				@include rr-font-compute($size, medium);
+			}
 		}
 	}
 }
+
 

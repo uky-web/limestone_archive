@@ -1,0 +1,10 @@
+{% if teaser_date or teaser_taxonomy %}
+<div class="teaser__meta">
+    {% if teaser_date %}
+        <span class="date">{{ "now"|date(teaser_date_format|default("M d, Y - g:i a")) }}</span>
+    {% endif %}
+    {% if teaser_taxonomy %}
+        <span class="taxonomy-list">Taxonomy, Taxonomy</span> 
+    {% endif %}       
+</div>
+{% endif %}

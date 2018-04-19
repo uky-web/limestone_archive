@@ -1,0 +1,11 @@
+.teaser__meta {
+    @include rr-font-compute(r,medium);
+    .date {
+        display: block;
+        font-weight: 500;
+    }
+    .taxonomy-list {
+        font-style: italic;
+        display: block;
+    }
+}
