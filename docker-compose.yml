@@ -8,12 +8,13 @@ services:
     image: newcity/taskrunner:latest
     volumes:
       # map assets in and persistent storage containers out
-      - ./assets:/app/assets
+      - ./assets:/app/assets:ro
       - css:/app/dist/css
       - js:/app/dist/js
       - images:/app/dist/images
       - fonts:/app/dist/fonts
       - sprites:/app/dist/sprites
+      - intermediate:/app/intermediate
       # config overrides
       - ./docker/taskrunner/package.json:/app/package.json:ro
       - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
@@ -51,3 +52,4 @@ volumes:
   js:
   sprites:
   fonts:
+  intermediate:
