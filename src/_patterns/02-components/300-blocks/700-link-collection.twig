@@ -1,11 +1,10 @@
 <div class="link-collection">
-    {% set super = fake('bs') %}
-    {% set sub = fake('bs') %}
-    {% set head = 'Link Collection' %}
-    {% include 'molecules-headline-group' %}
-    <ul>
-        {% for i in 0..6 %}
-        <li>{% include 'atoms-link' %}</li>
-        {% endfor %}
-    </ul>
-</div> ]
+    <div class="link-collection__header">
+        {% include 'molecules-headline-group' with { super: 'Described Links Block', head: 'Link Collection' } %}
+        {% include 'atoms-formatted-text' with { formatted_text_sentences : 2 } %}
+    </div>
+    <div class="link-collection__content">
+        {% include 'molecules-described-links' %}
+        {% include 'atoms-button' %}
+    </div>
+</div>

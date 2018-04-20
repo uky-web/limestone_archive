@@ -1,17 +1,6 @@
 .described-links {
-
-	@at-root #{&}__item {
-		padding: 1rem 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-	}
-
-	@at-root #{&}__description {
-
-	}
-
-	@at-root #{&}__link {
-
+	dd {
+		margin-left: .75rem; // matches padding on fancy links
+		margin-bottom: .5rem;
 	}
 }

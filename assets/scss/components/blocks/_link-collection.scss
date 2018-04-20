@@ -1,0 +1,9 @@
+.link-collection {
+    &__header {
+        margin-bottom: 1rem;
+
+        p {
+            @include rr-font-compute('l',medium);
+        }
+    }
+}

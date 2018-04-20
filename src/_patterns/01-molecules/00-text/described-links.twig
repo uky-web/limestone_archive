@@ -1,0 +1,8 @@
+{% set link_description = true %}
+
+<dl class="described-links">
+  {% for i in 1..3 %}
+    <dt>{% include 'atoms-link-fancy' with { label:fake('words',{nb:4, asText: true}) } %}</dt>
+    <dd>{% include 'atoms-formatted-text' with {formatted_text_sentences: 2} %}</dd>
+  {% endfor %}
+</dl>

@@ -26,22 +26,24 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 	}
 
 	// Headline groups in teasers
-	@at-root .teaser #{$bem_root} {
-		#{$bem_root}__super,
-		#{$bem_root}__sub {
-			text-transform: uppercase;
-			font-weight: 500;
-			color: color(dark-gray);
-			@include rr-font-compute(xl, medium);
-		}
+	@at-root .teaser, .link-collection  {
+		#{$bem_root} {
+			#{$bem_root}__super,
+			#{$bem_root}__sub {
+				text-transform: uppercase;
+				font-weight: 500;
+				color: color(dark-gray);
+				@include rr-font-compute(xl, medium);
+			}
 
-		#{$bem_root}__head {
-			font-weight: 500;
-			@include rr-font-compute(3xl, medium);
-
-			.underline-link {
-				&:link, &:visited {
-					color: color(dark-blue);
+			#{$bem_root}__head {
+				font-weight: 500;
+				@include rr-font-compute(3xl, medium);
+				.underline-link {
+					&:link,
+					&:visited {
+						color: color(dark-blue);
+					}
 				}
 			}
 		}
