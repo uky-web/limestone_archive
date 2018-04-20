@@ -99,3 +99,49 @@
     }
   }
 }
+
+body.layout-grid--on {
+  @include rr-grid-overlay;
+}
+
+.toggleGroup {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 999;
+
+  button {
+    display: inline-block;
+
+    background-color: black;
+    border-color: black;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 8px;
+    line-height: 1;
+    border-radius: 8px;
+  }
+}
+
+.twig-include {
+  position: relative;
+}
+
+.twig-include__label {
+  display: none;
+
+  position: absolute;
+  right: 1rem;
+  top: 0rem;
+  color: red;
+  z-index: 998;
+}
+
+body.twig-includes--on {
+  .twig-include {
+    border: 2px solid red;
+  }
+  .twig-include__label {
+    display: block;
+  }
+}
