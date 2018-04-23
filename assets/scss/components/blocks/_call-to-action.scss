@@ -1,17 +1,6 @@
 .cta {
     @include block-header-font;
-
-    border: 3px color(wildcat-blue) solid;
-    padding: rr-grid-remainder(3px, 2);
-
-    @include rr-break-directive('m') {
-        padding: rr-grid-remainder(3px, 3);
-    }
-
-    @include rr-break-directive('l') {
-        border-width: 6px;
-        padding: rr-grid-remainder(6px, 5);
-    }
+    @include block-spacing;
 
     &.cta--dark {
         @include usescheme($text-colors-dark);

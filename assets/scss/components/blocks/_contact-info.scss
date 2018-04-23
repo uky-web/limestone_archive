@@ -1,0 +1,69 @@
+.contact-info {
+    @include block-spacing(subtle-gray);
+    background-color: color(subtle-gray);
+
+    &__heading {
+        margin-bottom: rr-gridbase() * 2;
+        p {
+            @include rr-font-compute(l,medium);
+        }
+    }
+    
+    &__content {
+        position: relative;
+        @include rr-break-directive('m') {
+            margin-top: rr-gridbase() * 4.5;
+        }
+    }
+
+    &__identity {
+        @include rr-break-directive('m') {
+            border-top: 1px transparent solid;
+            position: relative;
+            top: -1px;
+            margin-top: rr-gridbase() * 4.5;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 4px;
+                width: 50px;
+                background-color: color(wildcat-blue);
+            }            
+        }        
+    }
+
+    &__photo {
+        width: 66vw;
+        height: auto;
+        margin: 0 auto #{rr-gridbase() * 2};
+
+        @include rr-break-directive('m') {
+            width: 6.25rem;
+            float: right;
+            position: relative;
+            margin: 0;
+            right: rr-gridbase() * -2;            
+            right: rr-gridbase() * -3;
+        }
+        @include rr-break-directive('l') {
+            right: rr-gridbase() * -6;
+        }
+    }
+
+    &__name {
+        @include rr-font-compute(l,medium);
+        display: block;
+        font-weight: 500;
+
+        @include rr-break-directive('m') {
+            margin-top: rr-gridbase() * 4.5;
+        }
+    }
+
+    &__title {
+        @include rr-font-compute(r, medium);
+        display: block;
+    }
+}

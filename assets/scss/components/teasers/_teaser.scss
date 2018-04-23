@@ -19,6 +19,10 @@
 .teaser__content {
 	.editorial {
 		margin-top: 1rem;
+		@include rr-font-compute(l, medium);
+	}
+	.editorial + .button {
+		margin-top: 1rem;
 	}
 }
 

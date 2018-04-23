@@ -27,6 +27,19 @@
 	}
 }
 
+@mixin block-spacing($borderColor:wildcat-blue) {
+	border: 3px color($borderColor) solid;
+	padding: rr-grid-remainder(3px, 2);
+	@include rr-break-directive('m') {
+		padding: rr-grid-remainder(3px, 3);
+	}
+
+	@include rr-break-directive('l') {
+		border-width: 6px;
+		padding: rr-grid-remainder(6px, 5);
+	}
+}
+
 // Adjust icon labels so the icons and labels 
 // line up
 @mixin icon-label-align {
