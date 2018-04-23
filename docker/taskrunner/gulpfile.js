@@ -44,7 +44,7 @@ var paths = {
 	js: ['assets/js/**/*.js'],
 	images: ['assets/images/**/*'],
 	fonts: ['assets/fonts/**/*'],
-	svgstore: ['assets/svgstoredocker /**/*.svg'],
+	svgstore: ['assets/svgstore/**/*.svg'],
 	font_svg: ['assets/font-svg/**/*.svg'],
 	font_sass_tpl: ['assets/font-svg/_iconfont.scss'],
 	jquery: bower_path + '/jquery/dist/jquery.min.js',
