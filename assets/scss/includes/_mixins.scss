@@ -54,6 +54,24 @@
 	}
 }
 
+@mixin divider($centered: false, $color: wildcat-blue) {
+	&:before {
+		content: '';
+		background-color: color($color);
+		width: 50px;
+		height: 4px;
+		position: absolute;
+		top: 0;
+		@if $centered {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		@else {
+			left: 0;
+		}
+	}
+}
+
 // generate the image url by prefixing the layout image path
 @function image-url($url) {
   @return url("#{$image-url-path}#{$url}");

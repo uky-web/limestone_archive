@@ -29,16 +29,6 @@
             @include rr-font-compute(l, medium); 
         }
 
-        // centered divider line
-        &:before {
-            content: '';
-            background-color: color(wildcat-blue);
-            width: 50px;
-            height: 4px;
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-        }
+        @include divider($centered: true);
     }
 }
