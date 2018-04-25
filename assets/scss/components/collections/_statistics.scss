@@ -1,0 +1,19 @@
+.grid--divided {
+    .statistic {
+        padding: rr-gridbase() * 4;
+    }
+}
+
+.grid--two-tone {
+    .headline-group__head {
+        color: color(wildcat-white);
+    }
+
+    .headline-group__sub {
+        color: color(light-blue-tint);
+    }
+
+    .editorial:before {
+        background-color: color(light-blue-tint);
+    }
+}

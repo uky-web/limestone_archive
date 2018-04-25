@@ -52,7 +52,7 @@ $skins: transparent;
             @include usescheme($text-colors-dark);
         }
 
-        .heading-display .heading__text {
+        .heading--display .heading__text {
             background-color: $color;
         }
     }

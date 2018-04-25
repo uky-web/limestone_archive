@@ -47,9 +47,7 @@ class Project_include_Node extends Twig_Node_Include
 
         if ($name) {
             $compiler
-                ->write("echo '<div class=\"twig-include\" data-twig-include=\"" . $name . "\">';\n")
-                ->indent()
-                ->write("echo '<span class=\"twig-include__label\">" . $name . "</span>';\n");
+                ->write("echo '<!-- TWIG INCLUDE : " . $name . "\" -->';\n");
         }
 
         if ($this->getAttribute('ignore_missing')) {
@@ -80,8 +78,7 @@ class Project_include_Node extends Twig_Node_Include
 
         if ($name) {
             $compiler
-                ->outdent()
-                ->write("echo '</div>';\n");
+                 ->write("echo '<!-- END TWIG INCLUDE : " . $name . "\" -->';\n");
         }
     }
 

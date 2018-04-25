@@ -6,6 +6,6 @@ A large number or number-like phrase with some short explanation.
 
 Fields:
 
-* Label Above, Simple Text Editor
 * Statistic: Text only (no markup)
-* Label Below, Simple Text Editor
+* Label Below: Text only (no markup)
+* Editorial text: Simple text editor, 1-2 short sentences

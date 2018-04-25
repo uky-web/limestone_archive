@@ -5,7 +5,7 @@
             {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, headline:head|default("Grid Headline") } %}
         </div>
         {% endif %}
-        <div class="grid {{ grid_type|default('grid--2-up') }}">
+        <div class="grid {{ grid_type|default('grid--2-up') }} {{ grid_style }}">
             {% if grid_columns %}                
                 {% for col in grid_columns %}
                 <div class="grid__column">

@@ -1,0 +1,44 @@
+.statistic {
+    text-align: center;
+    // We need about 16px padding from the top and bottom
+    // but the headline has < 1em line height, so we need
+    // 1 grid row extra padding for the ascenders.
+    padding-top: rr-gridbase() * 2;
+    padding-bottom: rr-gridbase();
+    overflow: hidden;
+
+    .headline-group__head {
+        @include rr-font-compute(5xl, squeeze);
+        color: color(wildcat-blue);
+        font-weight: 500;
+        display: inline-block;
+    }
+    .headline-group__super,
+    .headline-group__sub {
+        @include rr-font-compute(xl, tight);
+        color: color(light-blue);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .editorial {
+        padding-top: rr-gridbase() * 2;
+        position: relative; 
+
+        p {
+            @include rr-font-compute(l, medium); 
+        }
+
+        // centered divider line
+        &:before {
+            content: '';
+            background-color: color(wildcat-blue);
+            width: 50px;
+            height: 4px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+    }
+}

@@ -15,7 +15,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 	}
 
 	// Default non-semantic headline group
-	@at-root div#{$bem_root} {
+	@at-root #{$bem_root} {
 		#{$bem_root}__super,
 		#{$bem_root}__sub {
 			@include rr-font-compute(l, tight);

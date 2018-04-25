@@ -2,10 +2,103 @@
     @include rr-slab-wrapper($margins: true);
 }
 
-$styles: map-keys($rr-grids);
+/* The divided style separates blocks with a vertical border between
+   the elements. This exists in the gap space between grid items, though,
+   so we need to do a little finagling. 
+ */
+.grid--divided {
+    .grid__column {
+        position: relative;
+
+        // The border is drawn with a pseudoelement so we can move it around.
+        // The mobile-first treatment is to have the border at the bottom.
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            bottom: -1px;
+            background-color: color(subtle-gray);
+        }
+    }
+
+    // The last child does not need a border because duh
+    .grid__column:last-child:after {
+        display: none;
+    }
+}
+
+.grid--two-tone {
+    
+    .grid__column {
+        margin: rr-gridbase() * 1;
+        padding: rr-gridbase() * 3;
+        background-color: color(wildcat-blue);
+        @include usescheme($text-colors-dark);
+    }
+}
+
+// This is where things get tricky -- managing border position for all defined grid layouts
+// where 1 col has borders on the bottom, > 1 col has a border on the right except for the
+// last child in a list AND the last children in a row
+// 
+// And also we need to be aware of grid-gap configuration changes based on the baseline grid 
+// config. 
+
 @each $name, $template in $rr-grids {
     .grid--#{$name} {
+
         @include css-grid-columns($template, $class-prefix: 'grid');
+
+        &.grid--divided {
+            $breaks: rr-breakpoint-list();
+            $moved-borders: false;
+            $last-columns: null;
+            $last-grid-gap: null;
+           
+            @each $break in $breaks {                
+                $num_columns: rr-columns-for-template($template, $break);
+                $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
+   
+                @include rr-break-directive($break) {
+                    .grid__column:after {
+                        // Border position (bottom or right side) depend on the first breakpoint where columns are defined
+                        // and we are loading those from a config hash where we can't be certain which breakpoint will be used
+                        // or even what that breakpoint will be called.
+                        @if $num_columns and not($moved-borders) {
+                            height: auto;
+                            top: 0;
+                            bottom: 0;
+                            left: auto;
+                            width: 3px;
+                            $moved-borders: true;
+                            $last-columns: $num_columns;
+                        }
+
+                        // If the grid gap has changed, we need to adjust that too
+                        // Assuming the borders moved.
+                        @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
+                            right: calc(-#{$grid-gap}/2 - 1px);
+                            $last-grid-gap: $grid-gap;
+                        }
+                    }
+
+                    @if ($num_columns) {
+                        // If we are changing the number of columns in 
+                        @if ($last-columns) and ($last-columns != $num_columns) {
+                            .grid__column:nth-child(#{$last-columns}n):after {
+                                display: block;
+                            }
+                        }
+                        .grid__column:nth-child(#{$num_columns}n):after {
+                            display: none;
+                        }
+                        $last-columns: $num_columns;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -35,7 +128,8 @@ $styles: map-keys($rr-grids);
     grid-area: side;
 }
 
-
+// this is causing more trouble than it is worth
+/*
 body div {
     > :first-child {
         margin-top: 0;
@@ -45,4 +139,5 @@ body div {
         margin-bottom: 0;
     }
 }
+*/
 

@@ -55,6 +55,9 @@ $rr-grids: (
     ),
     3-up: (
         m : (
+            columns: 2,
+        ),
+        l : (
             columns: 3,
         )
     ),
@@ -130,7 +133,9 @@ $rr-grids: (
     )
 );
 
-$lineheights: ( 
+$lineheights: (
+    hpc: -2,
+    squeeze: -1,
     tight: 0,
     medium: 1,
     wide: 2,
@@ -146,11 +151,11 @@ $fonts: (
         l: 1.1667rem, // r
         xl: 1.25rem, // l 
         2xl: 1.5rem, 
-        3xl: 1.875rem,
-        4xl: 2.375rem,
-        5xl: 3.4286rem
+        3xl: 1.775rem, 
+        4xl: 2.0rem,
+        5xl: 2.4286rem
     ),
-    l : (
+    xl : (
         xs: .75rem,
         s: .875rem,
         r: 1rem,
