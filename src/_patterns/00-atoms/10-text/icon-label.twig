@@ -1,7 +1,9 @@
 
+{% spaceless %}
 <span class="icon-label">
 	{% if icon is not null %}
 	<span class="ic ic--{{ icon }}" aria-hidden="true"></span>
 	{% endif %}
-	<span class="label">{{ label|default("Default Icon Label") }}</span>
+	<span class="label {% if hide_label %}show-for-sr{% endif %}">{{ label|default("Default Icon Label") }}</span>
 </span>
+{% endspaceless %}

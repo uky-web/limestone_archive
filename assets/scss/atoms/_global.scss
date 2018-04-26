@@ -29,3 +29,12 @@ hr {
 	border-width: 0 0 1px;
 	padding-bottom: rr-grid-remainder(1px);
 }
+
+// Hide component from sighted users,
+// maintain for screen readers
+.show-for-sr {
+	display: block;
+	position: absolute;
+	top: -999999em;
+	left: -999999em;
+}

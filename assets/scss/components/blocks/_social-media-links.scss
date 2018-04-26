@@ -1,0 +1,58 @@
+.social-media-links {
+    padding: rr-gridbase() * 4;
+    background-color: color(subtle-gray);
+
+    &__linkset {
+        @include rr-font-compute(4xl, tight);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: rr-gridbase() * 4; // compensation for flex layout items
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+        margin-bottom: rr-gridbase() * -2;
+        a {
+            width: 2.8rem;
+            text-align: center;
+            margin-right: 1.25rem;
+            margin-left: 1.25rem;
+            margin-bottom: rr-gridbase() * 2;
+            &:link,
+            &:visited {
+                color: color(medium-blue);
+            }
+            &:hover,
+            &:active {
+                color: color(light-blue);
+            }
+        }
+    }
+
+    $root: &;
+
+    &--dark {
+        @include usescheme($text-colors-dark);
+        background-color: color(wildcat-blue);
+
+        #{$root}__linkset {
+            a {
+                &:link, &:visited {
+                    color: color(wildcat-white);
+                }
+                &:hover, &:active {
+                    color: color(light-blue-tint);
+                }
+            }
+        }
+    }
+
+    &--blocks {
+        #{$root}__linkset {
+            @include rr-font-compute(5xl, tight);
+            a {
+                text-align: left;
+            }
+        }
+    }
+}
+
