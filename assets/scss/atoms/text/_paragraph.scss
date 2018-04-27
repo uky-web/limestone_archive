@@ -1,6 +1,6 @@
 p {
     @include rr-font-compute(r,medium);
-    margin-bottom: rr-grid-units(2);
+    margin-bottom: rr-gridbase(2);
 }
 
 code {

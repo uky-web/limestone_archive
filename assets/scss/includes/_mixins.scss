@@ -40,6 +40,20 @@
 	}
 }
 
+// This mixin is a convenience tool for setting link colors
+// on the link/visited state and the hover/active state.
+// Use inside an anchor tag.
+//
+// It's not necessary to use this.
+@mixin link-colors($d: color(wildcat-black),$h: color(wildcat-blue)) {
+	&:link,&:visited {
+		color: $d;
+	}
+	&:hover, &:active {
+		color: $h;
+	}
+}
+
 // Adjust icon labels so the icons and labels 
 // line up
 @mixin icon-label-align {

@@ -18,12 +18,12 @@ dl {
 	dt {
 		font-weight: 500;		
 		@include rr-font-compute(l, medium);
-		margin-bottom: rr-gridbase() * 1;
+		margin-bottom: rr-gridbase(1);
 	}
 	dd {
 		@include rr-font-compute(r, medium);
 		margin-left: 0;
-		margin-bottom: rr-gridbase() * 2;
+		margin-bottom: rr-gridbase(2);
 	}
 
 	&.described-links {

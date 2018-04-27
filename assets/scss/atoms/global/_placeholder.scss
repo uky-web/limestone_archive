@@ -3,8 +3,8 @@
     text-align: center;
     font-weight: bold;
     font-family: sans-serif;
-    padding-top: rr-gridbase() * 4;
-    padding-bottom: rr-gridbase() * 4;
+    padding-top: rr-gridbase(4);
+    padding-bottom: rr-gridbase(4);
     p {
         @include rr-font-compute(l,wide);
     }

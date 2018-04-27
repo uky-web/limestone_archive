@@ -3,7 +3,7 @@
     background-color: color(subtle-gray);
 
     &__heading {
-        margin-bottom: rr-gridbase() * 2;
+        margin-bottom: rr-gridbase(2);
         p {
             @include rr-font-compute(l,medium);
         }
@@ -12,7 +12,7 @@
     &__content {
         position: relative;
         @include rr-break-directive('m') {
-            margin-top: rr-gridbase() * 4.5;
+            margin-top: rr-gridbase(4.5);
         }
     }
 
@@ -21,7 +21,7 @@
             border-top: 1px transparent solid;
             position: relative;
             top: -1px;
-            margin-top: rr-gridbase() * 4.5;
+            margin-top: rr-gridbase(4.5);
             &:before {
                 content: '';
                 position: absolute;
@@ -37,18 +37,18 @@
     &__photo {
         width: 66vw;
         height: auto;
-        margin: 0 auto #{rr-gridbase() * 2};
+        margin: 0 auto #{rr-gridbase(2)};
 
         @include rr-break-directive('m') {
             width: 6.25rem;
             float: right;
             position: relative;
             margin: 0;
-            right: rr-gridbase() * -2;            
-            right: rr-gridbase() * -3;
+            right: rr-gridbase(-2);            
+            right: rr-gridbase(-3);
         }
         @include rr-break-directive('l') {
-            right: rr-gridbase() * -6;
+            right: rr-gridbase(-6);
         }
     }
 
@@ -58,7 +58,7 @@
         font-weight: 500;
 
         @include rr-break-directive('m') {
-            margin-top: rr-gridbase() * 4.5;
+            margin-top: rr-gridbase(4.5);
         }
     }
 

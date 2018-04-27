@@ -19,10 +19,7 @@
             transparent 100%
         ) scroll repeat-x 0 0;
 
-    &:visited, 
-    &:link {
-       color: color('wildcat-black');
-    }
+    @include link-colors();
     
     // Shift the layered gradients around 
     // to give the impression the dark inactive
@@ -33,7 +30,6 @@
     // unsettling flicker.
     &:active, 
     &:hover {
-        color: color('wildcat-blue');
         background-position: 0 0, 1000px 2px;
     }
 }
@@ -73,13 +69,9 @@
         left: 0;
     }
 
-    &:link, &:visited {
-        color: color('medium-blue');
-    }
+    @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
 
     &:hover, &:active {
-        color: color('light-blue');
-
         &::before {
             left: .25em;
         }

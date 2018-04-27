@@ -13,7 +13,7 @@ h4,h5,h6 {
 		#{$tag} {
 			@include rr-heading($tag,$editorial-headings);
 			margin-top: 0;
-			margin-bottom: rr-gridbase() * 2;
+			margin-bottom: rr-gridbase(2);
 		}
 	}
 }

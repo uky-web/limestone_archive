@@ -1,30 +1,21 @@
 .social-media-links {
-    padding: rr-gridbase() * 4;
+    padding: rr-gridbase(4);
     background-color: color(subtle-gray);
 
     &__linkset {
+        // The margin around each link 
+        $cm: rr-gridbase(2);
         @include rr-font-compute(4xl, tight);
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin-top: rr-gridbase() * 4; // compensation for flex layout items
-        margin-left: -1.25rem;
-        margin-right: -1.25rem;
-        margin-bottom: rr-gridbase() * -2;
+        margin: ($cm * 2) ($cm * -1) ($cm * -1);
+
         a {
             width: 2.8rem;
             text-align: center;
-            margin-right: 1.25rem;
-            margin-left: 1.25rem;
-            margin-bottom: rr-gridbase() * 2;
-            &:link,
-            &:visited {
-                color: color(medium-blue);
-            }
-            &:hover,
-            &:active {
-                color: color(light-blue);
-            }
+            margin: 0 $cm $cm;
+            @include link-colors($d:color(medium-blue),$h:color(light-blue))
         }
     }
 
@@ -36,12 +27,7 @@
 
         #{$root}__linkset {
             a {
-                &:link, &:visited {
-                    color: color(wildcat-white);
-                }
-                &:hover, &:active {
-                    color: color(light-blue-tint);
-                }
+                @include link-colors($d:color(wildcat-white), $h:color(light-blue-tint))
             }
         }
     }

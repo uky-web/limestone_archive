@@ -36,8 +36,8 @@
   @include rr-font-compute(r, tight);
 
   margin {
-    top: rr-gridbase() * 2;
-    bottom: rr-gridbase() * 2;
+    top: rr-gridbase(2);
+    bottom: rr-gridbase(2);
   }  
 }
 
@@ -48,7 +48,7 @@
 
 .sg-swatch {
   display: block;
-  height: rr-gridbase() * 10;
+  height: rr-gridbase(10);
   margin-bottom: rr-gridbase();
   border-radius: 5px;
   padding: rr-grid-remainder(5px);
@@ -59,7 +59,7 @@
 }
 
 .sg-pattern {
-  margin-bottom: rr-gridbase() * 4;
+  margin-bottom: rr-gridbase(4);
 }
 
 .sg-pattern-head {
@@ -69,8 +69,8 @@
 
 .sg-pattern-title {
   padding {
-    top: rr-gridbase() * 2;
-    bottom: rr-gridbase() * 2;
+    top: rr-gridbase(2);
+    bottom: rr-gridbase(2);
   }
   a {
     padding: 0;

@@ -48,14 +48,7 @@ $black: #2c2a29;
 @mixin usescheme($textscheme) {
     color: color(text,$textscheme);
     a {
-        &:link,
-        &:visited {
-            color: color(link,$textscheme);
-        }
-        &:hover,
-        &:active {
-            color: color(link-active,$textscheme);
-        }
+        @include link-colors($d: color(link, $textscheme), $h:color(link-active, $textscheme));
     }
 
     button, .button {

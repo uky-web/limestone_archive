@@ -5,7 +5,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 	$bem_root: &;
 	
 	margin-top: 0;
-	margin-bottom: rr-gridbase() * 2;
+	margin-bottom: rr-gridbase(2);
 	display: block;
 	line-height: auto;
 
