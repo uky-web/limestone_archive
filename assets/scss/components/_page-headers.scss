@@ -1,0 +1,39 @@
+@import 'page-headers/text-only';
+
+.page-header {
+    .slab__wrapper {
+        padding-bottom: rr-grid-remainder(4px,5);
+        border-bottom: 4px color(dark-blue) solid;
+    }
+    
+    h1 {
+        .headline-group__head {
+            @include rr-font-compute(5xl,medium);
+            font-weight: 600;
+            font-family: $font-mercury;
+        }
+        .headline-group__sub,
+        .headline-group__super {
+            @include rr-font-compute(2xl, medium);
+            text-transform: uppercase;
+            font-weight: 500;
+            color: color(dark-gray);
+        }
+        .headline-group__super {
+            margin-bottom: rr-gridbase(2);
+        }
+        .headline-group__sub {
+            margin-top: rr-gridbase(2);
+        }
+    }
+
+    &.slab--subtle-gray {
+        padding-bottom: rr-grid-remainder(4px, 6);
+        border-bottom: 4px color(dark-gray) solid;
+        
+        .slab__wrapper {
+            padding-bottom: 0;
+            border-width: 0;
+        }
+    }
+}
