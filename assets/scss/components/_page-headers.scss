@@ -1,4 +1,4 @@
-@import 'page-headers/text-only';
+@import 'page-headers/text-header';
 
 .page-header {
     .slab__wrapper {
@@ -35,5 +35,10 @@
             padding-bottom: 0;
             border-width: 0;
         }
+    }
+
+    .cta-group {
+        margin-top: rr-gridbase(6);
+        margin-bottom: rr-gridbase(2);
     }
 }

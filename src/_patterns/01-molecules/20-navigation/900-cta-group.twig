@@ -1,0 +1,15 @@
+<div class="cta-group">
+{% for i in 1..num_actions|default(2) %}
+    {% set label = fake('words',{nb: 3, asText: true}) %}
+    {% if cta_type is sameas('buttons') or (cta_type is sameas('mixed') and loop.first) %}
+        {% if not loop.first %}
+            {% set link_variant = 'button button--ghost' %}
+        {% else %}
+            {% set link_variant = 'button' %}
+        {% endif %}
+        {% include 'atoms-link' %}
+    {% else %}
+        {% include 'atoms-link-fancy' %}
+    {% endif %}
+{% endfor %}
+</div>
