@@ -27,6 +27,7 @@
 	}
 }
 
+// TODO: Document
 @mixin block-spacing($borderColor:wildcat-blue) {
 	border: 3px color($borderColor) solid;
 	padding: rr-grid-remainder(3px, 2);
