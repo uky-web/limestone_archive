@@ -27,13 +27,27 @@
         }
     }
 
-    &.slab--subtle-gray {
+    &.slab--subtle-gray,
+    &.slab--dark-blue,
+    &.slab--wildcat-blue {
         padding-bottom: rr-grid-remainder(4px, 6);
         border-bottom: 4px color(dark-gray) solid;
         
         .slab__wrapper {
             padding-bottom: 0;
             border-width: 0;
+        }
+    }
+
+    &.slab--dark-blue,
+    &.slab--wildcat-blue {
+        border-bottom-color: color(light-blue);
+
+        h1 {
+            .headline-group__sub,
+            .headline-group__super {
+                color: color(wildcat-white);
+            }
         }
     }
 
