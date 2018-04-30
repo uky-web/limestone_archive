@@ -1,0 +1,35 @@
+.icon-label {
+	display: flex;
+	align-items: baseline;
+	.ic {
+		vertical-align: baseline;
+		font-size: .8em;
+		width: auto;
+		margin-right: 0.3em;
+	}
+
+	.label {
+		white-space: normal;
+	}
+}
+
+.icon-label--big {
+	@include rr-font-compute(xl,tight);
+	align-items: center;
+	font-weight: 500;
+	text-transform: uppercase;
+
+	.ic {
+		font-size: 2em;
+		margin-right: 0.5em;
+		align-self: flex-start;
+		position: relative;
+	}
+}
+
+// Just to let you know this is an option.
+// This tweaks the icon-label styles so the
+// label and the icons line up
+.align-icons {
+	@include icon-label-align;
+}

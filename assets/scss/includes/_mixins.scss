@@ -20,6 +20,22 @@
 	}
 }
 
+@mixin faux-underline($d: color(light-blue-tint), $h:color(wildcat-blue) ) {
+	background:
+        linear-gradient(to top,
+            #{rgba($d,.4)} 0,
+            #{rgba($d,.4)} 50%,
+            transparent 2px,
+            transparent 100%
+        ) scroll repeat-x 0 .5em,
+        transparent linear-gradient(to top,
+            #{rgba($h,.4)} 0,
+            #{rgba($h,.4)} 2px,
+            transparent 2px,
+            transparent 100%
+        ) scroll repeat-x 0 0;
+}
+
 @mixin block-header-font {
 	h2,h3,h4 {
 		@include rr-font-compute(3xl, tight);

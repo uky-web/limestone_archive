@@ -5,19 +5,7 @@
     z-index: 1;
     transition: .2s background-position ease-out;
 
-    background:
-        linear-gradient(to top,
-            #{rgba(color('light-blue-tint'),.4)} 0,
-            #{rgba(color('light-blue-tint'),.4)} 50%,
-            transparent 2px,
-            transparent 100%
-        ) scroll repeat-x 0 .5em,
-        transparent linear-gradient(to top,
-            #{rgba(color('wildcat-blue'),.4)} 0,
-            #{rgba(color('wildcat-blue'),.4)} 2px,
-            transparent 2px,
-            transparent 100%
-        ) scroll repeat-x 0 0;
+    @include faux-underline();
 
     @include link-colors();
     

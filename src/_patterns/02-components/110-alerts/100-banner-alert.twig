@@ -1,1 +1,7 @@
-{% include 'atoms-placeholder' with { title: "Banner Alert" } %}
+<div class="banner-alert {{ banner_alert_variant }}">
+    {% if alert_headline %}
+        {% include 'atoms-icon-label' with { icon_label_variant: "icon-label--big", icon: icon, label: alert_headline } %}
+    {% endif %}
+    {% include 'atoms-paragraph' %}
+    {% include 'atoms-link' with { link_variant : 'underline-link' } %}
+</div>

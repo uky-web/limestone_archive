@@ -215,8 +215,8 @@ $colors: (
     dark-gray: #515664,
     success: lawngreen,
     warning: darkorange,
-    alert: darkred,
-    info: lightsteelblue,
+    alert: #c12c2b,
+    info: #a1d3ed,
 );
 
 $text-colors: (
@@ -243,7 +243,7 @@ $text-colors: (
 
 $text-colors-dark: (
     link: color(wildcat-white),
-    link-active: lightsteelblue,
+    link-active: color(wildcat-white),
     text: color(wildcat-white),
     accent: color(success),
     button-border: color(wildcat-white),
