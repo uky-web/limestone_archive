@@ -1,0 +1,47 @@
+.page-header.page-header--split {
+    padding: 0;
+    background-color: color(subtle-gray);
+
+    $colors: light-gray wildcat-blue dark-blue;
+
+    @each $color in $colors {
+        &.slab--#{$color} {
+            background-color: color($color);
+            padding-bottom: 0;
+            border-width: 0;
+        }
+    }
+
+    .page-header--split__hero {
+
+    }
+
+    .page-header__content {
+        padding-bottom: rr-gridbase(2);
+        border-bottom: 4px color(light-blue) solid;
+        padding: rr-gridbase(2) rr-prop-for-breakpoint(s, offset);
+    }
+
+    .slab__wrapper {
+        border-width: 0;
+        padding: 0;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        a {
+            margin-bottom: rr-gridbase(2);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @include rr-break-directive(l) {
+
+    }
+}

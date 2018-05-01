@@ -17,8 +17,10 @@ $(document).ready () ->
     $('.includeToggle').on 'click', () ->
         $('body').toggleClass 'twig-includes--on'
 
+    ###
     $('img').baseline () ->
         size = parseFloat(getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
         return size / 2
+    ###
 
     do prepNiceVideo
