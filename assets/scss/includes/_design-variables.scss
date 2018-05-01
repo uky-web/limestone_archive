@@ -238,7 +238,9 @@ $text-colors: (
     button-active-text: color(wildcat-white),
     button-focus-border: color(light-blue),
     button-focus-background: color(wildcat-white),
-    button-focus-text: color(wildcat-blue)      
+    button-focus-text: color(wildcat-blue),
+    headline-group-super: color(dark-gray),
+    headline-group-sub: color(dark-gray)
 );
 
 $text-colors-dark: (
@@ -260,7 +262,9 @@ $text-colors-dark: (
     button-active-text: color(wildcat-white),
     button-focus-border: color(light-blue),
     button-focus-background: color(wildcat-white),
-    button-focus-text: color(wildcat-blue)
+    button-focus-text: color(wildcat-blue),
+    headline-group-super: color(light-gray),
+    headline-group-sub: color(light-gray)    
 );
 
 

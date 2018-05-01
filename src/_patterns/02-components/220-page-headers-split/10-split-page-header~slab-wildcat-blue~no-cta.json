@@ -1,5 +1,5 @@
 {
-    "with_cta" : true,
+    "with_cta" : false,
     "cta_type" : "mixed",
     "slab_variant": "slab--wildcat-blue",
     "super": "Split Header"

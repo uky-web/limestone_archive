@@ -1,6 +1,7 @@
 .page-header.page-header--split {
     padding: 0;
     background-color: color(subtle-gray);
+    position: relative;
 
     $colors: light-gray wildcat-blue dark-blue;
 
@@ -42,6 +43,50 @@
     }
 
     @include rr-break-directive(l) {
+        .page-header--split__hero {
+            width: 56%;
+            margin-left: auto;            
+        }
+        .slab__wrapper {
+            position: absolute;
+            width: 100%;
+            max-width: $global-width;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .page-header__content {
+            width: 50%;
+            max-height: 100%;
+            padding: rr-gridbase(4) rr-gridbase(6);
+            background-color: color(wildcat-blue);
+            @include usescheme($text-colors-dark);
+        }
 
+        &.slab--light-gray {
+            .page-header__content {
+                background-color: color(dark-blue);
+                @include usescheme($text-colors-dark);
+            }
+        }
+
+        &.slab--dark-blue {
+            .page-header__content {
+                background-color: color(wildcat-white);
+                @include usescheme($text-colors);
+            }
+        }
+
+        &.slab--wildcat-blue {
+            .page-header__content {
+                background-color: color(wildcat-white);
+                @include usescheme($text-colors);
+            }
+        }
+        
     }
 }

@@ -47,9 +47,11 @@ $black: #2c2a29;
 
 @mixin usescheme($textscheme) {
     color: color(text,$textscheme);
+
     a {
         @include link-colors($d: color(link, $textscheme), $h:color(link-active, $textscheme));
     }
+    
     button, .button {
         border-color: color(button-border,$textscheme);
         background-color: color(button-background,$textscheme);
@@ -119,6 +121,15 @@ $black: #2c2a29;
             }
         }
     }
+
+    .headline-group .headline-group__super {
+        color: color(headline-group-super, $textscheme);
+    }
+
+    .headline-group .headline-group__sub {
+        color: color(headline-group-sub, $textscheme);
+    }
+    
 }
 
 @mixin ondark() {

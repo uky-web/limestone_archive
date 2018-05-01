@@ -1,4 +1,5 @@
 {
     "with_cta" : true,
-    "cta_type" : "mixed"
+    "cta_type" : "mixed",
+    "super" : "Split Header"
 }
