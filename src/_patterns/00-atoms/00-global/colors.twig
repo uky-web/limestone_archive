@@ -5,7 +5,7 @@
 {% set secondarycolors = ['light-blue','medium-blue','dark-blue','light-blue-tint','light-blue-shade','blue-black','light-gray','subtle-gray','dark-gray'] %}
 {% set othercolors = ['success','info','warning','alert'] %}
 {% embed 'molecules-slab' %}
-	{% block slab_inner %}
+	{% block slab_content %}
 		<h2>Primary Colors</h2>
 		<div class="sg-colors">
 			{% for i in colorset %}
@@ -19,7 +19,7 @@
 {% endembed %}
 
 {% embed 'molecules-slab' %}
-	{% block slab_inner %}
+	{% block slab_content %}
 		<h2>Secondary Colors</h2>
 		<div class="sg-colors">
 			{% for i in secondarycolors %}
@@ -34,7 +34,7 @@
 
 
 {% embed 'molecules-slab' %}
-	{% block slab_inner %}
+	{% block slab_content %}
 		<h2>Utility Colors</h2>
 		<div class="sg-colors">
 			{% for i in othercolors %}

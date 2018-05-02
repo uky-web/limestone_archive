@@ -2,7 +2,7 @@
 
 {% for skin in slabstyles %}
     {% embed 'molecules-slab' with { slab_variant: 'slab--' ~ skin } %}
-        {% block slab_inner %}
+        {% block slab_content %}
             {% set sizes = ['small','','large'] %}
             {% for size in sizes %}
                 {% if size is not sameas('') %}

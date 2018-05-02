@@ -2,7 +2,7 @@
 {% block main_content %}
 
 {% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white' } %}
-    {% block slab_inner %}
+    {% block slab_content %}
         {% for i in 2..6 %}
             {% include 'atoms-heading' with { level: i, headline: 'H' ~ i ~ '. ' ~ fake('bs')|titleize } %}
             {% include 'atoms-formatted-text' with { formatted_text_paragraphs:random(5), formatted_text_sentences : 10 + random(10) } %}

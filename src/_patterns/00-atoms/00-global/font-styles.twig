@@ -2,7 +2,7 @@
 {% set sentences = fake('sentences',{nb: 10, asText: true} ) %}
 
 {% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
-    {% block slab_inner %}
+    {% block slab_content %}
     <h2>Avenir Next</h2>
     <div class="font-avenirnext">
         <p>Normal text | {{ sentences }}</p>
@@ -16,7 +16,7 @@
 {% endembed %}
 
 {% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
-    {% block slab_inner %}
+    {% block slab_content %}
         <div class="font-mercury">
         <p>Normal text {{ sentences }}</p>
         <p style="font-style: italic ">Italic text {{ sentences }}</p>

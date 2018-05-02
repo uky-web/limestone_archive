@@ -1,7 +1,7 @@
 {% set sizes = ['xs','s','m','l','xl','2xl','3xl','4xl','5xl'] %}
 {% for size in sizes %}
     {% embed 'molecules-slab' with { slab_variant : "slab--wildcat-white" } %}
-        {% block slab_inner %}
+        {% block slab_content %}
             <h2>Font size: {{ size }}</h2>
             {% for spacing in ['tight','medium','wide','huge','redic'] %}
                 <p class="font-avenirnext text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
