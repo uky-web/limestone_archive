@@ -48,3 +48,22 @@ button, a.button {
         }        
     }
 }
+
+button.video-button {
+    display: block;
+
+    .video-button__pause {
+        display: block;
+    }
+    .video-button__play {
+        display: none;
+    }
+    &.video-button--paused {
+        .video-button__pause {
+            display: none;
+        }
+        .video-button__play {
+            display: block;
+        }
+    }
+}

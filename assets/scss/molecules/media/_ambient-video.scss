@@ -1,0 +1,15 @@
+.ambient-video {
+    width: 100%;
+    position: relative;
+    video {
+        width: 100%;
+        height: auto;
+    }
+    button {
+        display: none;
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        z-index: 20;
+    }
+}
