@@ -1,25 +1,23 @@
-{% set allowed_aspects = ["","1:1","4:3","3:2","16:9","3:4","2:3","9:16"] %}
-{% if aspect not in allowed_aspects %}
-	{% set aspect = "1:1" %}
-{% endif %}
-{% if width is empty %}
-	{% set width = 800 %}
-{% endif %}
-{% if aspect is empty %}
-	{% if height is empty %}
-		{% set height = 800 %}
-	{% endif %}
-	{% set standalone_header = "Image: " ~ width ~ ":" ~ height %}
-{% else %}
-	{% set aspect_components = aspect|split(":") %}
-	{% set height_as_fraction_of_width = aspect_components[1] / aspect_components[0]  %}
-	{% set height = width * height_as_fraction_of_width %}
-	{% set standalone_header = "Image: " ~ aspect %}
-	{% set alt = alt ~ "--" ~ height_as_a_fraction_of_width %}
-{% endif %}
 {% if imgsrc is empty %}
-	{% set imgsrc = fake('imageUrl',{width: width, height: height}) %}
+	{% set allowed_aspects = ["","1:1","4:3","3:2","16:9","3:4","2:3","9:16"] %}
+	{% if aspect not in allowed_aspects %}
+		{% set aspect = "1:1" %}
+	{% endif %}
+	{% if width is empty %}
+		{% set width = 800 %}
+	{% endif %}
+	{% if aspect is empty %}
+		{% if height is empty %}
+			{% set height = 800 %}
+		{% endif %}
+		{% set standalone_header = "Image: " ~ width ~ ":" ~ height %}
+		{% set imgsrc = fake('imageUrl',{width: width, height: height}) %}
+	{% else %}
+		{% set standalone_header = "Image: " ~ aspect %}
+		{% set imgsrc = fake('imageUrl',{aspectRatio: aspect, width: width}) %}
+	{% endif %}
 {% endif %}
+
 {% if standalone %}
 	<p><b>{{ standalone_header }}</b></p>
 {% endif %}

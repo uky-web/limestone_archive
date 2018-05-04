@@ -1,6 +1,6 @@
 <figure>
 	{% block figure_media %}
-		{% include 'atoms-image' with { aspect: "4:3", width: 600 } %}
+		{% include 'atoms-image' with { aspect: aspect|default("4:3"), width: width|default(600) } %}
 	{% endblock %}
 	<figcaption>
 		{% block figure_caption %}

@@ -1,0 +1,54 @@
+.image-gallery {
+    // -1 gridblock in all directions to make up for gutter
+    // around each of the image grid items
+    margin: rr-gridbase(-1);
+}
+
+.image-gallery__block {
+    @include usescheme($text-colors-dark);
+    figure {
+        display: block;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            display: block;
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            background-color: #000000cc;
+            transform: translateY(100%);
+            transition: .3s transform ease-in-out;
+            padding: rr-gridbase(2);
+
+            p:first-child {
+                margin-top: 0;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            figcaption {
+                transform: none;
+            }
+        }
+    }
+}
+
+.image-gallery__block-sizer,
+.image-gallery__block {
+    width: 33.3333%;
+    padding: rr-gridbase();
+}
+.image-gallery__block--width2 {
+    width: 66.6666%;
+}

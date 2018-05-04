@@ -6,12 +6,10 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="stylesheet" href="../../css/pattern-scaffolding.css?{{ cacheBuster }}" media="all" />
 		<link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
+
+		<!-- Style dependency for modals -->
 		<link rel="stylesheet" href="https://unpkg.com/magnific-popup@^1.1/dist/magnific-popup.css">
 		<script src="../../js/jquery.min.js" defer></script>
-		<!--
-			lib.min.js combines all of the libraries we are using
-			except jquery. See the project gulpfile for complete details.
-		-->
 		<script src="../../js/jquery.fitvids.js" defer></script>
 		<!--
 			This modernizr library is custom built by gulp after scanning CSS files.
@@ -19,7 +17,12 @@
 		-->
 		<script src="../../js/modernizr-custom.js" defer></script>
 
+		
 		<script src="../../js/baseline.js" defer></script>
+		<script src="../../js/masonry.pkgd.min.js" defer></script>
+		<script src="../../js/imagesloaded.pkgd.min.js" defer></script>
+		
+		<!-- Dependency for modals -->
 		<script src="https://unpkg.com/magnific-popup@^1.1/dist/jquery.magnific-popup.min.js" defer></script>
 
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->

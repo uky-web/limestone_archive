@@ -1,0 +1,33 @@
+{% set numimages = 5 + random(10) %}
+{% set allowed_aspects = ["1:1","4:3","3:2","16:9","3:4","2:3","9:16"] %}
+<div class="image-gallery">
+    <!-- image-gallery__block-sizer empty element, used by masonry image layout -->
+    <div class="image-gallery__block-sizer"></div>
+    {% for i in 0..numimages %}
+        {#  code below will do random multiple width images in the gallery
+            with a cap on the number of huge images displayed. #}
+        {# Commented out pending designer review 
+        {% set count_big = 0 %} 
+        {% set max_big = 2 %}
+        {% if ((random(10) > 7) and (count_big < max_big)) %}
+            {% set class_modifier = 'image-gallery__block--width2' %}
+            {% set count_big = count_big + 1 %}
+        {% else %}
+            {% set class_modifier = "" %}
+        {% endif %}
+        #}
+        {# end fancy layout code #}
+        {% set aspectRatio = random(allowed_aspects) %}
+        {% set thumbImageSrc = fake('imageUrl',{aspectRatio: aspectRatio, width: 200}) %}
+        {% set bigImageSrc = fake('imageUrl',{aspectRatio: aspectRatio, width: 800}) %}
+        <div class="image-gallery__block {{ class_modifier }}">
+            <a href="{{ bigImageSrc }}"><!-- should open modal eventually -->
+            {% embed 'molecules-figure' with { imgsrc : thumbImageSrc } %}
+                {% block figure_caption %}
+                    {% include 'atoms-paragraph' %}
+                {% endblock %}
+            {% endembed %}
+            </a>
+        </div>
+    {% endfor %}
+</div>

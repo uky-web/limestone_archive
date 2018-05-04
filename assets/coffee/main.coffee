@@ -35,22 +35,45 @@ prepAmbientVideo = () ->
 	else 
 		do av[0].stop
 	return
+
+prepImageGallery = () ->
+	gallery = $ '.image-gallery'
+	grid = gallery.masonry
+		columnWidth: '.image-gallery__block-sizer',
+		itemSelector: '.image-gallery__block',
+	
+	modals = gallery.magnificPopup
+		delegate: 'a'
+		type: 'image'
+		mainClass: 'mfp-fade'
+		tLoading: 'Loading image #%curr%...'
+		gallery:
+			enabled: true
+			navigateByImgClick: true
+			preload: [0,1]
+		image: 
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+
+	grid.imagesLoaded().progress ()->
+		grid.masonry 'layout'
+
     
 
 $(document).ready () ->
-    # Grid toggle behavior, dev only
-    $('.gridToggle').on 'click', () ->
-        $('body').toggleClass 'layout-grid--on'
+	# Grid toggle behavior, dev only
+	$('.gridToggle').on 'click', () ->
+		$('body').toggleClass 'layout-grid--on'
 
-    # Include labels
-    $('.includeToggle').on 'click', () ->
-        $('body').toggleClass 'twig-includes--on'
+	# Include labels
+	$('.includeToggle').on 'click', () ->
+		$('body').toggleClass 'twig-includes--on'
 
-    ###
-    $('img').baseline () ->
-        size = parseFloat(getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
-        return size / 2
-    ###
+	###
+	$('img').baseline () ->
+		size = parseFloat(getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+		return size / 2
+	###
 
-    do prepNiceVideo
-    do prepAmbientVideo
+	do prepNiceVideo
+	do prepAmbientVideo
+	do prepImageGallery

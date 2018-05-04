@@ -192,8 +192,22 @@
 
 			// Unsupported features
 			case 'imageUrl':
+				if (!empty($o['aspectRatio'])) {
+					$aspect_components = explode(':',$o['aspectRatio']);
+					try {
+						$height_as_fraction_of_width = $aspect_components[1] / $aspect_components[0];
+						$w = $o['width'];
+						$h = floor($w * $height_as_fraction_of_width);
+					} catch (Exception $e) {
+						$w = $o['width'];
+						$h = $o['height'];
+					}
+				} else {
+					$w = $o['width'];
+					$h = $o['height'];
+				}
 				// Stomp Faker's generation of image urls in favor of our own
-				$returnable = "{$o['imgProvider']}/{$o['width']}/{$o['height']}/{$o['imgTag']}/{$o['imgFilter']}";
+				$returnable = "{$o['imgProvider']}/{$w}/{$h}/{$o['imgTag']}/{$o['imgFilter']}";
 			break;
 			case 'file':
 			case 'image':
