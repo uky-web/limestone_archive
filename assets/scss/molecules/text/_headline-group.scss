@@ -26,7 +26,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 	}
 
 	// Headline groups in teasers
-	@at-root .teaser, .link-collection  {
+	@at-root .teaser, .link-collection, .image-gallery-block  {
 		#{$bem_root} {
 			#{$bem_root}__super,
 			#{$bem_root}__sub {

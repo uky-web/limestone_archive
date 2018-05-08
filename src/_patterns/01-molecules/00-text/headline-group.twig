@@ -4,7 +4,7 @@
 	{% set tag = 'div' %}
 {% endif %}
 
-<{{tag}} class="headline-group {{ headline_group_variant }}">
+<{{tag}} id="{{ headline_group_id }}" class="headline-group {{ headline_group_variant }}">
 	{% block headline_group %}
 		{% include 'molecules-headline-group-super' with { text: super } %}
 		{% include 'molecules-headline-group-head' with { text: head|default(fake('bs')), linked: headline_group_linked } %}		

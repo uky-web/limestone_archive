@@ -24,7 +24,9 @@
             <a href="{{ bigImageSrc }}"><!-- should open modal eventually -->
             {% embed 'molecules-figure' with { imgsrc : thumbImageSrc } %}
                 {% block figure_caption %}
+                    <span class="image-gallery__block__title">{{ fake('words',{nb: 3, asText: true})|titleize }}</span>
                     {% include 'atoms-paragraph' %}
+                    {% include 'atoms-cite' %}
                 {% endblock %}
             {% endembed %}
             </a>

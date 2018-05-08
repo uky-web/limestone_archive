@@ -32,9 +32,17 @@ hr {
 
 // Hide component from sighted users,
 // maintain for screen readers
-.show-for-sr {
+
+// show-for-sr is used in most case,
+// `invisible` is used by the modal JS library
+.show-for-sr, 
+.invisible {
 	display: block;
 	position: absolute;
 	top: -999999em;
 	left: -999999em;
+}
+
+.show-for-none {
+	display: none;
 }

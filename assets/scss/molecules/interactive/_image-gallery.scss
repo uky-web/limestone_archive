@@ -16,6 +16,7 @@
         }
 
         figcaption {
+            display: none;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -44,6 +45,11 @@
     }
 }
 
+.image-gallery__block__title {
+    @include rr-font-compute(l,tight);
+    font-weight: 500;
+}
+
 .image-gallery__block-sizer,
 .image-gallery__block {
     width: 33.3333%;
@@ -51,4 +57,45 @@
 }
 .image-gallery__block--width2 {
     width: 66.6666%;
+}
+
+// magnific popup 
+
+.mfp-image-holder {
+    .mfp-bottom-bar {
+        position: relative;
+        margin-top: 0;
+        top: auto;
+    }
+
+    .mfp-figure::after {
+        display: none;
+    }
+
+    figure img {
+        padding: 40 0;
+        max-height: 90vh;
+        max-width: 90vh;
+    }
+
+    @include rr-break-directive(m) {
+        .mfp-landscape figure {
+            figcaption {
+                margin: -20px 2rem 2rem;
+            }
+        }
+
+        .mfp-portrait figure {
+            display: flex;
+            img {
+                margin-right: 2rem;
+            }
+            figcaption {
+                margin-right: 2rem;
+            }
+            .mfp-bottom-bar {
+                margin-top: 56px;
+            }
+        }
+    }
 }

@@ -1,0 +1,9 @@
+{% set id = "modal_popup_"|uniqid %}
+<button class="js-modal" 
+    data-modal-content-id="{{ id }}"
+    >{{ modal_trigger_text|default("Open Modal") }}</button>
+<div class="show-for-none" id="{{ id }}">
+    {% block modal_content %}
+        {% include 'components-micro-teaser' %}
+    {% endblock %}
+</div>
