@@ -4,8 +4,20 @@
     margin: rr-gridbase(-1);
 }
 
-.image-gallery__block {
-    @include usescheme($text-colors-dark);
+.modal {
+    .modal__wrapper {
+        max-height: 80vh;
+        max-width: 80vw;
+
+        img {
+            max-width: 80vw;
+            max-height: 80vw;
+        }
+    }
+}
+
+.image-gallery__slide {
+    //@include usescheme($text-colors-dark);
     figure {
         display: block;
         position: relative;
@@ -16,17 +28,6 @@
         }
 
         figcaption {
-            display: none;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 0;
-            background-color: #000000cc;
-            transform: translateY(100%);
-            transition: .3s transform ease-in-out;
-            padding: rr-gridbase(2);
-
             p:first-child {
                 margin-top: 0;
             }
@@ -35,17 +36,14 @@
                 margin-bottom: 0;
             }
         }
+    }
 
-        &:hover,
-        &:focus {
-            figcaption {
-                transform: none;
-            }
-        }
+    @at-root .image-gallery #{&} {
+        display: none;
     }
 }
 
-.image-gallery__block__title {
+.image-gallery__slide__title {
     @include rr-font-compute(l,tight);
     font-weight: 500;
 }
@@ -57,6 +55,12 @@
 }
 .image-gallery__block--width2 {
     width: 66.6666%;
+}
+
+.image-gallery__block {
+    figcaption {
+        display: none;
+    }
 }
 
 // magnific popup 

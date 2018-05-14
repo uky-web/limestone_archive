@@ -8,27 +8,34 @@
 		<link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
 
 		<!-- Style dependency for modals -->
+		<!--
 		<link rel="stylesheet" href="https://unpkg.com/magnific-popup@^1.1/dist/magnific-popup.css">
-		<script src="../../js/jquery.min.js" defer></script>
-		<script src="../../js/jquery.fitvids.js" defer></script>
+		-->
+		
+		<script src="../../js/lib/jquery.min.js" defer></script>
+		<script src="../../js/lib/jquery.fitvids.js" defer></script>
+		
 		<!--
 			This modernizr library is custom built by gulp after scanning CSS files.
 			It will change often during production.
 		-->
-		<script src="../../js/modernizr-custom.js" defer></script>
+		<script src="../../js/lib/modernizr-custom.js" defer></script>
 
 		
-		<script src="../../js/baseline.js" defer></script>
-		<script src="../../js/masonry.pkgd.min.js" defer></script>
-		<script src="../../js/imagesloaded.pkgd.min.js" defer></script>
-
-		<script src="../../js/jquery-accessible-accordion.js" defer></script>
-		<script src="../../js/jquery-accessible-modal-window-aria.js" defer></script>
-		<script src="../../js/slick/slick.min.js" defer></script>
+		<script src="../../js/lib/baseline.js" defer></script>
+		<script src="../../js/lib/masonry.pkgd.min.js" defer></script>
+		<script src="../../js/lib/imagesloaded.pkgd.min.js" defer></script>
+		<script src="../../js/lib/jquery.magnific-popup.min.js" defer></script>
+		<script src="../../js/lib/jquery-accessible-accordion.js" defer></script>
+		<script src="../../js/lib/slick/slick.min.js" defer></script>
 		
-		<!-- Dependency for modals -->
-		<script src="https://unpkg.com/magnific-popup@^1.1/dist/jquery.magnific-popup.min.js" defer></script>
-
+		
+		<!-- Progject script -->
+		
+		<script src="../../js/image-gallery.js" defer></script>
+		<script src="../../js/ambient-video.js" defer></script>
+		<script src="../../js/main.js" defer></script>
+		
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{{ patternLabHead|raw }}
 		<!-- End Pattern Lab -->

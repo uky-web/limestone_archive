@@ -27,11 +27,13 @@
 }
 
 /* Slick */
-@import "../js/slick/slick.scss";
+@import "../lib/slick/slick.scss";
 @import "includes/slick-settings";
-@import "../js/slick/slick-theme.css";
-@import "includes/fonts.scss";
+@import "../lib/slick/slick-theme.css";
 
+@import "includes/magnific-popup";
+
+@import "includes/fonts.scss";
 @import "../../intermediate/iconfont";
 
 /*
