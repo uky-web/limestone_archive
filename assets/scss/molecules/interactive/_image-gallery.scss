@@ -16,6 +16,47 @@
     }
 }
 
+.image-gallery__block {
+    figure {
+        position: relative;  
+        overflow: hidden;           
+        &::before {
+            content: $icon-popup;
+            opacity: 0;
+            transition: opacity .3s ease-in-out, top .3s ease-in-out;
+            font-family: 'iconfont';
+            font-size: 1.5em;
+            position: absolute;
+            top: -2.2rem;
+            right: .5rem;
+            padding: .5rem .7rem; 
+            line-height: 1.2;
+            color: color(wildcat-white);
+            background-color: color(wildcat-blue);                 
+        }
+        &::after {
+            content: '';
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            box-shadow: inset 0 0 0 .5rem color(wildcat-blue);
+            position: absolute;
+            top: 0; right: 0; left: 0; bottom: 0;            
+        }
+    }
+
+    a:hover,
+    a:focus {
+        figure::before {
+            opacity: 1;
+            top: .5rem; 
+        }
+        figure::after {
+            opacity: 1;
+        }
+    }
+}
+
+/*
 .image-gallery__slide {
     //@include usescheme($text-colors-dark);
     figure {
@@ -42,6 +83,7 @@
         display: none;
     }
 }
+*/
 
 .image-gallery__slide__title {
     @include rr-font-compute(l,tight);
@@ -65,37 +107,72 @@
 
 // magnific popup 
 
+.mfp-bg {
+    background-color: color(wildcat-blue);
+}
+
 .mfp-image-holder {
+    .mfp-close {
+        right: 0;
+        width: 1.4em;
+        padding: 0;
+        line-height: 1;
+        text-align: center;
+    }    
+
     .mfp-bottom-bar {
         position: relative;
         margin-top: 0;
         top: auto;
     }
 
+    .mfp-figure {
+        padding: 3rem;
+        background-color: color(wildcat-blue);
+    }
+
     .mfp-figure::after {
         display: none;
     }
-
-    figure img {
-        padding: 40 0;
-        max-height: 90vh;
-        max-width: 90vh;
+    
+    .mfp-title {
+        padding-right: 0;
     }
 
-    @include rr-break-directive(m) {
+    .mfp-counter {
+        bottom: 100%;
+        top: auto;
+    }
+
+    .mfp-img {
+        padding: 0 0 1rem 0;
+    }
+
+    figure img {
+        max-width: 70vw;
+        height: auto;
+    }
+
+    @include rr-break-directive(l) {
         .mfp-landscape figure {
             figcaption {
-                margin: -20px 2rem 2rem;
+                margin: 2rem 2rem;
             }
         }
 
         .mfp-portrait figure {
             display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 70vw;
             img {
                 margin-right: 2rem;
+                max-width: 30vw;
+                flex: 1 1 50%;
             }
             figcaption {
                 margin-right: 2rem;
+                flex: 1 1 50%;
             }
             .mfp-bottom-bar {
                 margin-top: 56px;
