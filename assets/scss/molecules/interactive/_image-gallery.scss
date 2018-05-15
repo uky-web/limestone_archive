@@ -56,35 +56,6 @@
     }
 }
 
-/*
-.image-gallery__slide {
-    //@include usescheme($text-colors-dark);
-    figure {
-        display: block;
-        position: relative;
-        overflow: hidden;
-
-        img {
-            display: block;
-        }
-
-        figcaption {
-            p:first-child {
-                margin-top: 0;
-            }
-
-            p:last-child {
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    @at-root .image-gallery #{&} {
-        display: none;
-    }
-}
-*/
-
 .image-gallery__slide__title {
     @include rr-font-compute(l,tight);
     font-weight: 500;
@@ -130,7 +101,7 @@ button.mfp-close {
 
     .mfp-figure {
         padding: 3rem;
-        background-color: color(wildcat-blue);
+        background-color: color(wildcat-white);
     }
 
     .mfp-figure::after {
