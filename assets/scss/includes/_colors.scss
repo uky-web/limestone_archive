@@ -52,7 +52,7 @@ $black: #2c2a29;
         @include link-colors($d: color(link, $textscheme), $h:color(link-active, $textscheme));
     }
     
-    button, .button {
+    button, a.button {
         border-color: color(button-border,$textscheme);
         background-color: color(button-background,$textscheme);
         color: color(button-text,$textscheme);

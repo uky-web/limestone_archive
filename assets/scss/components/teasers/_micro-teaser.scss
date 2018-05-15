@@ -21,6 +21,14 @@
         }
     }
 
+    .cta-group {
+        flex-direction: column;
+        a {
+            margin-bottom: 1rem;
+        }            
+    }
+
+
     @include rr-break-directive(m) {
         .micro-teaser__wrapper {
             display: flex;
@@ -34,7 +42,7 @@
 
         .micro-teaser__content {
             flex: 1 1 100%;
-        }        
+        }
     }
 
     @include rr-break-directive(l) {
@@ -59,6 +67,14 @@
             margin-right: rr-gridbase(6);
             flex: 1 0 26%;
         }
+
+        .cta-group {
+            flex-direction: row;
+            a {
+                margin-bottom: 0;
+            }            
+        }
+            
     }
     
 }
