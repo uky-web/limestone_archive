@@ -111,14 +111,16 @@
     background-color: color(wildcat-blue);
 }
 
+button.mfp-close {
+    right: 0;
+    width: 1.4em !important;
+    padding: 0;
+    line-height: 1;
+    text-align: center;
+}    
+
+
 .mfp-image-holder {
-    .mfp-close {
-        right: 0;
-        width: 1.4em;
-        padding: 0;
-        line-height: 1;
-        text-align: center;
-    }    
 
     .mfp-bottom-bar {
         position: relative;

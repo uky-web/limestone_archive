@@ -235,7 +235,7 @@ gulp.task('svgstore', function () {
 });
 
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles','lib','js','images']);
+gulp.task('build-all', ['styles','lib','js','images','fonts']);
 
 // all the watchy stuff
 gulp.task('watcher', ['build-all'], function() {

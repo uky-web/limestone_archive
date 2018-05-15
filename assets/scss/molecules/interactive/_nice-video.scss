@@ -15,42 +15,33 @@
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
 	text-decoration: none;
-	background-color: white;
-	width: 3rem;
-	height: 3rem;
-	border-radius: 100%;
 	color: color(wildcat-blue);
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
 	transition: .2s color ease-in-out, .2s background-color ease-in-out;
 
-	&:hover {
-		background-color: color(light-blue);
-		color: color(wildcat-white);
-	}
-
-	.icon-label {
-		line-height: 1;
-		font-size: 1.8rem;
-		vertical-align: middle;
-		text-align: center;
-	}
-
 	/* Special tuning for this icon position */
-	.ic.ic--play-triangle {
-		height: 1em;
-		width: .78em;
-		position: relative;
-		top: .14em;
-		left: .17em;
+	.ic--play-triangle {
+		display: block;
+		line-height: 1;
+		font-size: 3rem;		
+		width: 3.1rem;
+		height: 3.1rem;
+		border-radius: 100%;
+		border: 1px transparent solid;
+		padding-right: 0;	
+		background-color: white;			
 	}
 
 	.label {
 		position: absolute;
 		left: -99999em;
 	}
+
+	&:hover {
+		.ic--play-triangle {
+			background-color: color(light-blue);
+			color: color(wildcat-white);	
+		}
+	}
+	
 }
 

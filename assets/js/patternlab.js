@@ -10,5 +10,5 @@ $(document).ready(() => {
     // Include labels
     $('.includeToggle').on('click', () => {
         $('body').toggleClass('twig-includes--on')
-    });
+    }); 
 });
