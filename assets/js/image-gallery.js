@@ -9,7 +9,6 @@ const fitCaption = ($c) => {
   if (w == 0) {
     return;
   }
-  console.log(w);
   const h = $image.height();
   const r = w/h;
   const captionWidth = (w < 300) ? "70vw" : w;
@@ -17,7 +16,7 @@ const fitCaption = ($c) => {
 
   $caption.css({maxWidth: captionWidth});
 
-  if (r < 1) {
+  if (r <= 1) {
       $c.addClass('mfp-portrait')
       $c.removeClass('mfp-landscape')
   } else {

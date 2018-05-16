@@ -1,0 +1,37 @@
+.accordion__header {
+    @include rr-font-compute(2xl,medium);
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    color: color(wildcat-blue);
+    text-align: left;
+    font-weight: 500;
+    padding: {
+        top: rr-grid-remainder(1px,2);
+        bottom: rr-grid-remainder(1px,2);
+        left: 0;
+        right: 0;
+    }
+    border-bottom: 1px color(subtle-gray) solid;
+
+    &:hover {
+        
+    }
+}
+
+.js-accordion__panel[aria-hidden=true] {
+    display: none;
+  }
+  
+.js-accordion__header {
+display: block;
+}
+
+/* title selected */
+.js-accordion__header[aria-selected="true"]:after {
+content: " (sel)";
+}
+/* title non selected */
+.js-accordion__header[aria-selected="false"]:after {
+content: " (unselc)";
+}

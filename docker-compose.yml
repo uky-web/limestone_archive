@@ -4,7 +4,7 @@ services:
   # taskrunner to compile src
   taskrunner:
     environment:
-      NPM_INSTALL: 1
+      NPM_INSTALL: 0
     image: newcity/taskrunner:latest
     volumes:
       # map assets in and persistent storage containers out

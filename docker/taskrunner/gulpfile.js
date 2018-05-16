@@ -270,6 +270,12 @@ gulp.task('watcher', ['build-all'], function() {
 		}
 	);
 
+	sanewatch(paths.lib, watcherOptions,
+		function() {
+			gulp.start('lib');
+		}
+	);
+
 	sanewatch(paths.images, watcherOptions,
 		function() {
 			gulp.start('images');
