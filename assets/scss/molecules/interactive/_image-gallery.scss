@@ -18,51 +18,60 @@
 
 .image-gallery__block {
     figure {
-        position: relative;  
-        overflow: hidden;
-        transition: transform .6s ease-in-out;
     }
 
     a {
         overflow: hidden;
         display: block;
         
+        figure {
+            position: relative;  
+            overflow: hidden;
+            
+            img {
+                transition: transform .6s ease-in-out;
+            }     
+            
+            &::after {
+                content: $icon-popup;
+                opacity: 0;
+                transition: opacity .3s ease-in-out;
+                font-family: 'iconfont';
+                font-size: 1.5em;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                padding: .5rem .7rem; 
+                line-height: 1.2;
+                color: color(wildcat-white);
+                background-color: color(wildcat-blue);
+                z-index: 10;         
+            }
+            &::before {
+                content: '';
+                opacity: 0;
+                background-color: rgba(color(wildcat-blue),.5);
+                transition: opacity .3s ease-in-out;
+                box-shadow: inset 0 0 0 .5rem color(wildcat-blue);
+                position: absolute;
+                top: 0; right: 0; left: 0; bottom: 0;
+                z-index: 10;        
+            }            
+        }
+
         &:hover,
         &:focus {
             figure {
-                transform: scale(1.1);
+                img {
+                    transform: scale(1.1);
+                }
+                &::before,
+                &::after {
+                    opacity: 1;
+                }                    
             }
-
-            &::before,
-            &::after {
-                opacity: 1;
-            }
-        }
-        &::after {
-            content: $icon-popup;
-            opacity: 0;
-            transition: opacity .3s ease-in-out;
-            font-family: 'iconfont';
-            font-size: 1.5em;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            padding: .5rem .7rem; 
-            line-height: 1.2;
-            color: color(wildcat-white);
-            background-color: color(wildcat-blue);
-            z-index: 10;         
-        }
-        &::before {
-            content: '';
-            opacity: 0;
-            background-color: rgba(color(wildcat-blue),.5);
-            transition: opacity .3s ease-in-out;
-            box-shadow: inset 0 0 0 .5rem color(wildcat-blue);
-            position: absolute;
-            top: 0; right: 0; left: 0; bottom: 0;            
-        }            
+        }        
     }
 }
 
