@@ -3,5 +3,5 @@ const accordion = () => {
 }
 
 $(document).ready( () => {
-    accordion({ buttonsGeneratedContent: 'html' });
+    accordion();
 })
