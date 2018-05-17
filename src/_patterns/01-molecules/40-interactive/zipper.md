@@ -1,5 +1,5 @@
 ---
-Title: Accordion
+Title: Zipper
 ---
 
 This accordion uses `jquery-accessible-accordion-aria` from https://a11y.nicolas-hoffmann.net/accordion/ with keyboard navigation and aria tags closly following WC3 recommendations and progressive markup. We've kept all of the options at their defaults, including *not* opening a panel on first load (that tends to obscure the fact that there's an accordion at all) and also allowing multiple panes to be open at once. 

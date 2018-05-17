@@ -1,14 +1,5 @@
 	<!--DO NOT REMOVE-->
 	{{ patternLabFoot|raw }}
-	<!-- Frontback --> 
-    <script>
-        window.frontback = {
-            repo: 'https://gitlab.com/newcity/uk-d8/patternlab',
-            postUrl: 'https://magicyeti.us/frontback'
-        };
-        var script = document.createElement('script');
-        script.src = frontback.postUrl + '/assets/js/frontback.js';
-        document.body.appendChild(script);
-    </script>
+    {% include 'atoms-frontback' %}
 	</body>
 </html>

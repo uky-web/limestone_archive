@@ -5,7 +5,7 @@
 
 $slick-font-path: "//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/fonts/";
 //$slick-font-family: "slick" !default;
-//$slick-loader-path: "./" !default;
+$slick-loader-path: "./js/slick/" !default;
 $slick-arrow-color: black;
 //$slick-dot-color: black !default;
 //$slick-dot-color-active: $slick-dot-color !default;
@@ -17,3 +17,8 @@ $slick-dot-size: 0.5rem !default;
 //$slick-opacity-default: 0.75 !default;
 //$slick-opacity-on-hover: 1 !default;
 //$slick-opacity-not-active: 0.25 !default;
+
+.slick-loading .slick-list
+{
+    background: #fff url('./js/libs/slick/ajax-loader.gif') center center no-repeat;
+}

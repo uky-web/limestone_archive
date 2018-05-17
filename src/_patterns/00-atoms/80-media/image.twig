@@ -21,4 +21,9 @@
 {% if standalone %}
 	<p><b>{{ standalone_header }}</b></p>
 {% endif %}
-<img src="{{ imgsrc }}" alt="{{ alt }}" class="{{ image_style }}" />
+{% if lazy %}
+	{% set src_attr = "data-lazy" %}
+{% else %}
+	{% set src_attr = "src" %}
+{% endif %}
+<img {{ src_attr }}="{{ imgsrc }}" alt="{{ alt }}" class="{{ image_style }}" />

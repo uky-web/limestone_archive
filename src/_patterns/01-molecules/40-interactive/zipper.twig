@@ -1,7 +1,7 @@
 <div class="js-accordion">
 	{% for i in 0..10 %}
 	<div class="js-accordion__panel">
-		<h2 class="js-accordion__header">{{ fake('sentence') }}</h2>
+		{% include 'atoms-heading' with { level: level|default(2), headline: fake('sentence'), 'heading_variant':'js-accordion__header' } %}
 		{% include 'atoms-formatted-text' with { formatted_text_paragraphs : 2 } %}
 	</div>
 	{% endfor %}

@@ -6,4 +6,4 @@ The image gallery takes a series of images with captions and arranges them in a 
 
 Images that load in the gallery should be small; the modal can load a much larger image. The link that contains the entire figure should have an href that points to the original image; this will be used as a fallback if JS is not present and also let the modal know where to get the image.
 
-This component has dependencies on magnific-popup, masonry, and imagesloaded JS libraries; the code that initializes the image gallery is in `image-gallery.js`.
+This component has dependencies on magnific-popup, masonry, and imagesloaded JS libraries; the code that initializes the image gallery is in `image-gallery.js`. 
