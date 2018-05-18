@@ -10,5 +10,3 @@ const modals = () => {
         fixedContentPos: false
     });    
 }
-
-$(document).ready( () => { modals(); } )

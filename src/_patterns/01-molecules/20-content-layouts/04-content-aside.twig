@@ -1,0 +1,8 @@
+<div class="content-aside">
+    {% block content_aside_aside %}
+        <aside class="{{ float_block_position }}">
+            {% include content_aside|default('components-media-with-caption') %}
+        </aside>
+    {% endblock %}    
+    {% include 'atoms-formatted-text' with { formatted_text_paragraphs: 3, formatted_text_sentences: 6 } %}
+</div>

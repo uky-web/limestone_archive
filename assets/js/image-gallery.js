@@ -62,5 +62,3 @@ const image_gallery = () => {
     }
   });               
 }
-
-$(document).ready(() => { image_gallery() });

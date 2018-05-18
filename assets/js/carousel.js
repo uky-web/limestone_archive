@@ -62,5 +62,3 @@ const carousel = () => {
         $(elem).slick(config);
     });
 }
-
-$(document).ready(() => { carousel() });

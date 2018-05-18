@@ -31,7 +31,3 @@ const ambient_video = () => {
       $av[0].stop();
   }
 }
-
-$(document).ready( () => {
-    ambient_video();
-})
