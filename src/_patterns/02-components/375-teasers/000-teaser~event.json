@@ -1,5 +1,5 @@
 {
     "teaser_variant": "teaser--event",
-    "teaser_date": true,
-    "teaser_taxonomy": true
+    "content_date": true,
+    "content_taxonomy": true
 }

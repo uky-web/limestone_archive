@@ -1,0 +1,17 @@
+.content-meta {
+    @include rr-font-compute(r,medium);
+    margin-bottom: rr-gridbase(1);
+    
+    .who-when {
+        font-weight: 500;
+    }
+    .taxonomy-list {
+        font-style: italic;
+        display: block;
+    }
+    .byline + .date {
+        &::before {
+            content: ' | '
+        }
+    }
+}

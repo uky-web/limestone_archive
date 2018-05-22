@@ -1,0 +1,27 @@
+.pulltext {
+
+	&__content {
+		p {
+			@include rr-font-compute(4xl,medium);
+			font-family: $font-mercury;
+			font-weight: 500;
+			font-style: italic;
+			margin-top: 0;
+		}
+	}
+
+	$root: &;
+
+	&--dark {
+		@include usescheme($text-colors-dark);
+		padding: rr-gridbase(4);
+		background-color: color(wildcat-blue);	
+	}
+
+	&--brief {
+		#{$root}__content p {
+			@include rr-font-compute(2xl,medium);
+		}		
+	}
+	
+}

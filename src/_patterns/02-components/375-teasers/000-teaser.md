@@ -9,6 +9,6 @@ News teasers have a date with day precision; events have a date with minute prec
 Variables:
 
 * _teaser_variant_ : Pass additional class names here. Create a matching `json` file to expose this variant.
-* _teaser_date_ : Boolean; whether or not to display a date
-* _teaser_date_format_ : String, see php date format docs at http://php.net/manual/en/function.date.php
-* _teaser_taxonomy_ : Boolean, whether or not to include a taxonomy list.
+* _content_date_ : Boolean; whether or not to display a date
+* _content_date_format_ : String, see php date format docs at http://php.net/manual/en/function.date.php
+* _content_taxonomy_ : Boolean, whether or not to include a taxonomy list.

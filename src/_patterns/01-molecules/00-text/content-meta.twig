@@ -1,0 +1,20 @@
+{% if content_date or content_taxonomy %}
+<div class="content-meta">
+    <div class="content-meta__who-when">
+        {% if content_byline %}
+            <span class="byline">By {{ fake('name') }}</span>
+        {% endif %}
+        {% if content_date %}
+            <span class="date">{{ "now"|date(content_date_format|default("M d, Y - g:i a")) }}</span>
+        {% endif %}
+    </div>
+    {% if content_taxonomy %}
+        <span class="taxonomy-list">
+            {% set taxo = fake('words',{nb: 1 + random(3)}) %}
+            {% for w in taxo %}
+                {{ w|capitalize }}
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}</span> 
+    {% endif %}       
+</div>
+{% endif %}

@@ -5,9 +5,7 @@
     {% for skin in slab_styles %}
         {% include 'molecules-slab' with { slab_variant: 'slab--' ~ skin } %}
         {% include 'molecules-slab-1x2' with { slab_variant: 'slab--' ~ skin } %}
-        {% include 'molecules-slab-1x2' with { slab_variant: 'slab--' ~ skin, reverse_order: true } %}
-        {% include 'molecules-slab-sidebar' with { slab_variant: 'slab--' ~ skin } %}
-        {% include 'molecules-slab-sidebar' with { slab_variant: 'slab--' ~ skin, reverse_order: true } %}
+        {% include 'molecules-slab-2x1' with { slab_variant: 'slab--' ~ skin } %}
         {% for grid in grid_types %} 
             {% include 'molecules-grid' with {
                     slab_variant: 'slab--' ~ skin, 

@@ -1,5 +1,5 @@
 {
     "super": "Dark Blue Background",
-    "slab_skin": "slab--dark-blue",
+    "slab_variant": "slab--dark-blue",
     "button_style" : "button--ghost"
 }

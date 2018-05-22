@@ -112,12 +112,33 @@
     }
 }
 
+@include rr-break-directive(xl) {
+    .grid--major-left {
+        .editorial .editorial__aside.align-left {
+            margin-left: -2vw;
+            max-width: 50%;
+        }
+    }
+    .grid--major-right {
+        .editorial .editorial__aside.align-right {
+            margin-left: -2vw;
+            max-width: 50%;
+        }
+    }        
+}
+
 .grid__column--major {
     grid-area: major;
+    display: block;
 }
 
 .grid__column--minor {
     grid-area: minor;
+    display: block;
+    
+    > * {
+        margin-bottom: rr-gridbase(2);
+    }
 }
 
 .grid__column--article {

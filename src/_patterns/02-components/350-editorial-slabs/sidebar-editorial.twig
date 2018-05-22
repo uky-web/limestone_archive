@@ -1,0 +1,26 @@
+{% set content_aside = ['components-media-with-caption','components-call-to-action','components-contact-info','components-pulltext'] %}
+{% set aside_positions = ['align-left','align-right','align-right','align-left'] %}
+
+{% embed 'molecules-slab-2x1'  %}
+    {% block slab_content %}
+        {% for i in 0..4 %}
+            {% include 'components-editorial' with { 
+                    aside : content_aside[i], 
+                    aside_position: aside_positions[i],
+                    cta_variant : 'cta--dark',
+                    pulltext_variant: 'pulltext--brief pulltext--dark',
+                    show_meta: loop.first
+                } 
+            %}        
+        {% endfor %}
+    {% endblock %}
+    {% block slab_sidebar %}
+        {% for i in 4..0 %}
+            {% include content_aside[i] with {
+                    cta_variant : 'cta--dark',
+                    pulltext_variant: 'pulltext--brief pulltext--dark'
+                }
+            %}
+        {% endfor %}“
+    {% endblock %}
+{% endembed %}

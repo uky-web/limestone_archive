@@ -1,8 +1,1 @@
-{% embed 'components-teaser' with {teaser_variant : "teaser--person" } %}
-	{% block teaser_content %}
-		{% include 'molecules-headline-group' with { level:level|default(3), super: "Optional superheader", head:"Custom Teaser" } %}
-		{% include 'atoms-formatted-text' %}
-        {% include 'atoms-link' with {link_variant : 'button'} %}
-	{% endblock %}
-{% endembed %}
-</div>
+{% include 'components-teaser' %}
