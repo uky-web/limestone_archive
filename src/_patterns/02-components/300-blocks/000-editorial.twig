@@ -1,8 +1,4 @@
 <div class="editorial">
-	{% if show_meta %}
-		{% include 'molecules-content-meta' with {content_byline: true, content_date: true, content_taxonomy: true} %}
-	{% endif %}
-
 	{% block editorial_aside %}
 		{% if aside is not empty %}
 		<aside class="editorial__aside {{ aside_position|default('align-right') }}">

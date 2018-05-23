@@ -1,17 +1,7 @@
-{% if content_date or content_taxonomy %}
-<div class="content-meta">
-    <div class="content-meta__who-when">
-        {% if content_date %}
-            <span class="date">{{ "now"|date(content_date_format|default("M d, Y - g:i a")) }} — {{ "now + 3 hours"|date(content_date_format|default("M d, Y - g:i a")) }}</span>
-        {% endif %}
-    </div>
-    {% if content_taxonomy %}
-        <span class="taxonomy-list">
-            {% set taxo = fake('words',{nb: 1 + random(3)}) %}
-            {% for w in taxo %}
-                {{ w|capitalize }}
-            {% if not loop.last %}, {% endif %}
-            {% endfor %}</span> 
-    {% endif %}       
-</div>
-{% endif %}
+{% embed 'molecules-content-meta' %}
+    {% block meta_fields %}
+        <span class="location"><a class="modal-control mfp-iframe" href="https://maps.google.com/maps?q=201+Ave+of+Champions,+Lexington,+KY">Memorial Coliseum</a></span>
+        <span class="date">{{ "now"|date(content_date_format|default("M d, Y - g:i a")) }} — {{ "now + 3 hours"|date(content_date_format|default("M d, Y - g:i a")) }}</span>
+    {% endblock %}
+{% endembed %}
+

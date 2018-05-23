@@ -5,7 +5,8 @@
     "content_taxonomy" : true,
     "with_cta" : true,
     "cta_type" : "mixed",
-    "slab_variant" : "slab--wildcat-blue",
+    "slab_variant" : "slab--wildcat-white",
+    "header_slab" : "slab--wildcat-blue",
     "super": "Split Header",
     "page_header" : "split-page-header"
 }

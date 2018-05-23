@@ -49,7 +49,7 @@
 	padding: rr-grid-remainder(3px, 2);
 	margin-left: rr-gridbase(-2);
 	margin-right: rr-gridbase(-2);
-	overflow: hidden;
+	
 	
 	@include rr-break-directive('m') {
 		margin-left: 0;
