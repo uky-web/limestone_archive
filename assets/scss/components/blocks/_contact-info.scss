@@ -37,18 +37,20 @@
     &__photo {
         width: 66vw;
         height: auto;
-        margin: 0 auto #{rr-gridbase(2)};
+        margin: 0 auto #{rr-grid-remainder(3px, 2)};
 
         @include rr-break-directive('m') {
             width: 6.25rem;
             float: right;
             position: relative;
-            margin: 0;
-            right: rr-gridbase(-2);            
-            right: rr-gridbase(-3);
+            margin-left: rr-gridbase(2);
+            margin-bottom: rr-gridbase(2);
+            margin-right: calc(#{rr-gridbase(-3)} + 6px);
         }
         @include rr-break-directive('l') {
-            right: rr-gridbase(-6);
+            margin-left: rr-gridbase(2);
+            margin-bottom: rr-gridbase(2);
+            margin-right: calc(#{rr-gridbase(-6)} + 8px);
         }
     }
 

@@ -45,61 +45,63 @@
 // 
 // And also we need to be aware of grid-gap configuration changes based on the baseline grid 
 // config. 
-
-@each $name, $template in $rr-grids {
-    .grid--#{$name} {
-
-        @include css-grid-columns($template, $class-prefix: 'grid');
-
-        &.grid--divided {
-            $breaks: rr-breakpoint-list();
-            $moved-borders: false;
-            $last-columns: null;
-            $last-grid-gap: null;
-           
-            @each $break in $breaks {                
-                $num_columns: rr-columns-for-template($template, $break);
-                $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
-   
-                @include rr-break-directive($break) {
-                    .grid__column:after {
-                        // Border position (bottom or right side) depend on the first breakpoint where columns are defined
-                        // and we are loading those from a config hash where we can't be certain which breakpoint will be used
-                        // or even what that breakpoint will be called.
-                        @if $num_columns and not($moved-borders) {
-                            height: auto;
-                            top: 0;
-                            bottom: 0;
-                            left: auto;
-                            width: 3px;
-                            $moved-borders: true;
-                            $last-columns: $num_columns;
-                        }
-
-                        // If the grid gap has changed, we need to adjust that too
-                        // Assuming the borders moved.
-                        @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
-                            right: calc(-#{$grid-gap}/2 - 1px);
-                            $last-grid-gap: $grid-gap;
-                        }
-                    }
-
-                    @if ($num_columns) {
-                        // If we are changing the number of columns in 
-                        @if ($last-columns) and ($last-columns != $num_columns) {
-                            .grid__column:nth-child(#{$last-columns}n):after {
-                                display: block;
+ 
+@include rr-break-directive(m) {
+    @each $name, $template in $rr-grids {
+        .grid--#{$name} {
+    
+            @include css-grid-columns($template, $class-prefix: 'grid');
+    
+            &.grid--divided {
+                $breaks: rr-breakpoint-list();
+                $moved-borders: false;
+                $last-columns: null;
+                $last-grid-gap: null;
+               
+                @each $break in $breaks {                
+                    $num_columns: rr-columns-for-template($template, $break);
+                    $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
+       
+                    @include rr-break-directive($break) {
+                        .grid__column:after {
+                            // Border position (bottom or right side) depend on the first breakpoint where columns are defined
+                            // and we are loading those from a config hash where we can't be certain which breakpoint will be used
+                            // or even what that breakpoint will be called.
+                            @if $num_columns and not($moved-borders) {
+                                height: auto;
+                                top: 0;
+                                bottom: 0;
+                                left: auto;
+                                width: 3px;
+                                $moved-borders: true;
+                                $last-columns: $num_columns;
+                            }
+    
+                            // If the grid gap has changed, we need to adjust that too
+                            // Assuming the borders moved.
+                            @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
+                                right: calc(-#{$grid-gap}/2 - 1px);
+                                $last-grid-gap: $grid-gap;
                             }
                         }
-                        .grid__column:nth-child(#{$num_columns}n):after {
-                            display: none;
+    
+                        @if ($num_columns) {
+                            // If we are changing the number of columns in 
+                            @if ($last-columns) and ($last-columns != $num_columns) {
+                                .grid__column:nth-child(#{$last-columns}n):after {
+                                    display: block;
+                                }
+                            }
+                            .grid__column:nth-child(#{$num_columns}n):after {
+                                display: none;
+                            }
+                            $last-columns: $num_columns;
                         }
-                        $last-columns: $num_columns;
                     }
                 }
             }
         }
-    }
+    }    
 }
 
 .grid__column {
@@ -112,18 +114,59 @@
     }
 }
 
-@include rr-break-directive(xl) {
+@include rr-break-directive(m) {
+    .grid--major-left,
+    .grid--major-right {
+        .editorial .editorial__aside.align-right,
+        .editorial .editorial__aside.align-left {
+            max-width: 100%;
+            float: none;
+            margin: 1rem 0;
+        }
+    }
     .grid--major-left {
         .editorial .editorial__aside.align-left {
             margin-left: -2vw;
-            max-width: 50%;
         }
     }
     .grid--major-right {
         .editorial .editorial__aside.align-right {
-            margin-left: -2vw;
+            margin-right: -2vw;
+        }
+    }        
+}
+
+
+@include rr-break-directive(l) {
+    .grid--major-left,
+    .grid--major-right {
+        .editorial .editorial__aside.align-right,
+        .editorial .editorial__aside.align-left {
+            margin-top: 0;
             max-width: 50%;
         }
+    }
+    .grid--major-left {
+        .editorial .editorial__aside.align-left {
+            margin-left: -2vw;
+            margin-right: rr-gridbase(4);
+            float: left;
+        }
+        .editorial .editorial__aside.align-right {
+            float: right;
+            margin-left: rr-gridbase(4);
+        }
+    }
+    .grid--major-right {
+        .editorial .editorial__aside.align-right {
+            margin-right: -2vw;
+            margin-left: rr-gridbase(4);
+            float: right;
+        }
+        .editorial .editorial__aside.align-left {
+            float: left;
+            margin-right: rr-gridbase(4);
+        }        
     }        
 }
 

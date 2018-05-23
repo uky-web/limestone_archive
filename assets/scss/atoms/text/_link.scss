@@ -8,6 +8,10 @@
     @include faux-underline();
 
     @include link-colors();
+
+    &.link--fancy {
+        background-image: none;
+    }
     
     // Shift the layered gradients around 
     // to give the impression the dark inactive

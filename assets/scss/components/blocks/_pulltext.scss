@@ -1,4 +1,5 @@
 .pulltext {
+	@include block-spacing($borderColor: transparent);
 
 	&__content {
 		p {
@@ -16,6 +17,7 @@
 		@include usescheme($text-colors-dark);
 		padding: rr-gridbase(4);
 		background-color: color(wildcat-blue);	
+		border-color: color(wildcat-blue);
 	}
 
 	&--brief {

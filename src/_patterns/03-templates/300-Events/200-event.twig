@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+
+{% block main_content %}
+    {% include 'components-' ~ page_header|default('hero-page-header') with { 
+            head: 'Super extra fantastic event', 
+            slab_variant : slab_variant|default('slab--wildcat-white'),
+            with_cta: true
+        } 
+    %}
+    {% include 'components-sidebar-editorial' with { slab_variant : 'slab--wildcat-white' }  %}
+{% endblock %}
+

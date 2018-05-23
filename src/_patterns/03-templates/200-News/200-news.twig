@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block main_content %}
-    {% include 'components-' ~ page_header|default('hero-page-header') with { slab_variant : 'slab--wildcat-white' } %}
+    {% include 'components-' ~ page_header|default('hero-page-header') with { slab_variant : slab_variant|default('slab--wildcat-white') } %}
     {% include 'components-sidebar-editorial' with { slab_variant : 'slab--wildcat-white' }  %}
 {% endblock %}
 
