@@ -104,7 +104,7 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    left: 0;
+    left: -60px;
     [dir="rtl"] & {
         left: auto;
         right: -60px;
@@ -119,9 +119,9 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-    right: 0;
+    right: -60px;
     [dir="rtl"] & {
-        left: -25px;
+        left: -60px;
         right: auto;
     }
     &:before {
@@ -131,6 +131,8 @@ $slick-opacity-not-active: 0.25 !default;
         }
     }
 }
+
+
 
 /* Dots */
 

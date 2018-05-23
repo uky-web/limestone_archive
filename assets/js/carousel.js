@@ -9,7 +9,7 @@ const carousel_center = {
     dots: true,
     lazyLoad: 'progressive',
     centerMode: true,
-    centerPadding: '60px',
+    centerPadding: '100px',
     sidesToShow: 3,
     responsive: [
         {
