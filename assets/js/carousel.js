@@ -37,22 +37,28 @@ const carousel = () => {
     let config = carousel_single; // default configuration
     if ($carousels.length < 1) return;
 
-    const positionArrows = (slick,slide) => {
+    const positionArrows = (slick) => {
+        let buttonTop = slick.slideWidth * .4;
+        let buttons = slick.$nextArrow.add(slick.$prevArrow);
+        buttons.css({ top: buttonTop });
         //arrows should be positioned at 40% of the width of the slide track
     }
 
     $carousels.on('init', (e, slick) => {
-        slick.$slides.find('img').wrap('<div class="carousel__image-wrapper"></div>');
-        console.log(slick);
-        let buttonTop = slick.$slider.width();
-        console.log(buttonTop);
-
+        if ($(e.currentTarget).has('.carousel--single')) {
+            positionArrows(slick);
+        }
     });
     $carousels.on('lazyLoaded', (e, slick,image,imageSource) => {
-        //console.log(image,imageSource);
+        
     });
     $carousels.on('afterChange', (e,slick,currentSlide) => {
-        console.log('after change',slick,currentSlide);
+        
+    });
+    $carousels.on('setPosition', (e,slick) => {
+        if ($(e.currentTarget).has('.carousel--single')) {
+            positionArrows(slick);
+        }
     });
     $carousels.map((index,elem) => {
         // override configuration based on class name
