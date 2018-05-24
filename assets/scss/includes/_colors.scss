@@ -48,10 +48,18 @@ $black: #2c2a29;
 @mixin usescheme($textscheme) {
     color: color(text,$textscheme);
 
+    .cite-media .icon-label {
+        color: color(media-citation,$textscheme);
+    }
+
     a {
         @include link-colors($d: color(link, $textscheme), $h:color(link-active, $textscheme));
     }
-    
+
+    .image-with-caption__media {
+        background-color: color(media-background, $textscheme);
+    }
+
     button, a.button {
         border-color: color(button-border,$textscheme);
         background-color: color(button-background,$textscheme);
@@ -129,7 +137,29 @@ $black: #2c2a29;
     .headline-group .headline-group__sub {
         color: color(headline-group-sub, $textscheme);
     }
-    
+
+    .slick-prev,
+    .slick-next {
+        background-color: color(carousel-single-button,$textscheme);
+        color: transparent; // Content in the button should not be visible
+        &:hover, &:focus {
+            color: transparent; // Content in the button should not be visible
+            background-color: color(carousel-single-button,$textscheme);
+        }
+        &:before {
+            color: color(carousel-single-button-art,$textscheme);
+        }
+    }
+
+
+    .slick-dots li {
+        button:before {
+            color: color(carousel-dot,$textscheme);
+        }
+        &.slick-active button:before {
+            color: color(carousel-dot-active, $textscheme);
+        }
+    }    
 }
 
 @mixin ondark() {

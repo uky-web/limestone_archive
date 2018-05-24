@@ -244,7 +244,16 @@ $text-colors: (
     button-focus-background: color(wildcat-white),
     button-focus-text: color(wildcat-blue),
     headline-group-super: color(dark-gray),
-    headline-group-sub: color(dark-gray)
+    headline-group-sub: color(dark-gray),
+    media-citation: color(dark-gray),
+    carousel-single-button: color(dark-gray),
+    carousel-single-button-art: color(wildcat-white),
+    carousel-center-button: transparent,
+    carousel-center-button-art: color(wildcat-white),
+    carousel-dot: color(light-gray),
+    carousel-dot-active: color(wildcat-black),
+    carousel-center-caption: color(wildcat-black),
+    media-background: color(wildcat-blue)
 );
 
 $text-colors-dark: (
@@ -268,7 +277,16 @@ $text-colors-dark: (
     button-focus-background: color(wildcat-white),
     button-focus-text: color(wildcat-blue),
     headline-group-super: color(light-gray),
-    headline-group-sub: color(light-gray)    
+    headline-group-sub: color(light-gray),
+    media-citation: color(wildcat-white),
+    carousel-single-button: color(dark-gray),
+    carousel-single-button-art: color(wildcat-white),
+    carousel-center-button: transparent,
+    carousel-center-button-art: color(wildcat-white),
+    carousel-dot: color(subtle-gray),
+    carousel-dot-active: color(light-blue-tint),
+    carousel-center-caption: color(wildcat-black),  
+    media-background: color(wildcat-black)
 );
 
 

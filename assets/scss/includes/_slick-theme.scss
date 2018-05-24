@@ -62,7 +62,6 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-prev,
 .slick-next {
-    background-color: color(wildcat-black);
     position: absolute;
     display: block;
     cursor: pointer;
@@ -76,11 +75,8 @@ $slick-opacity-not-active: 0.25 !default;
     border: none;
     outline: none;
     font-size: 0;
-    color: transparent;
     &:hover, &:focus {
-        background-color: color(wildcat-black);
         outline: none;
-        color: transparent;
         &:before {
             opacity: 1;
         }
@@ -96,14 +92,13 @@ $slick-opacity-not-active: 0.25 !default;
         font-family: 'iconfont';
         font-size: 26px;
         line-height: 1;
-        color: color(wildcat-white);
         opacity: $slick-opacity-default;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
 }
 
-.slick-prev {
+button.slick-prev {
     left: -60px;
     [dir="rtl"] & {
         left: auto;
@@ -118,7 +113,7 @@ $slick-opacity-not-active: 0.25 !default;
     z-index: 1000;
 }
 
-.slick-next {
+button.slick-next {
     right: -60px;
     [dir="rtl"] & {
         left: -60px;
@@ -186,14 +181,12 @@ $slick-opacity-not-active: 0.25 !default;
                 font-size: $slick-dot-size;
                 line-height: 20px;
                 text-align: center;
-                color: $slick-dot-color;
                 opacity: $slick-opacity-not-active;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
         }
         &.slick-active button:before {
-            color: $slick-dot-color-active;
             opacity: $slick-opacity-default;
         }
     }

@@ -15,12 +15,10 @@
 .carousel.carousel--center {
     @include rr-break-directive(l) {
         figure {
-            background-color: color(wildcat-blue);
             margin: 0 auto;
         }
         figcaption {
             margin-top: 0;
-            background-color: color(wildcat-white);
             transition: .3s max-height ease-in-out;
             overflow: hidden;
             z-index: -1;
