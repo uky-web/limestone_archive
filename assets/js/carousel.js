@@ -6,27 +6,25 @@ const carousel_single = {
 
 const carousel_center = {
     cssEase: 'ease-in-out',
-    dots: true,
     lazyLoad: 'progressive',
     centerMode: true,
-    centerPadding: '100px',
+    dots: true,
+    centerPadding: '110px',
     sidesToShow: 3,
+    arrows: true,
     responsive: [
         {
             breakpoint: 768,
             settings: {
-                arrows: true,
-                centerMode: true,
-                centerPadding: '40px',
-                slidesToShow: 3
+                centerPadding: '110px',
+                centerMode: false,
+                slidesToShow: 1
             }
         },
         {
             breakpoint: 480,
             settings: {
-                arrows: true,
-                centerMode: false,
-                slidesToShow: 3
+                slidesToShow: 1
             }
         }
     ]        
@@ -37,27 +35,31 @@ const carousel = () => {
     let config = carousel_single; // default configuration
     if ($carousels.length < 1) return;
 
-    const positionArrows = (slick) => {
+    const positionArrowsSingle = (slick) => {
         let buttonTop = slick.slideWidth * .4;
         let buttons = slick.$nextArrow.add(slick.$prevArrow);
         buttons.css({ top: buttonTop });
-        //arrows should be positioned at 40% of the width of the slide track
     }
 
-    $carousels.on('init', (e, slick) => {
-        if ($(e.currentTarget).has('.carousel--single')) {
-            positionArrows(slick);
+    const positionArrowsCentered = (slick) => {
+        const $currentSlide = $(slick.$slides[slick.currentSlide]);
+        const imgHeight = $currentSlide.find('img').height();
+        if (imgHeight > 0) {
+            const buttonTop = imgHeight * .5;
+            const buttons = slick.$nextArrow.add(slick.$prevArrow);
+            buttons.css({ top: buttonTop });
         }
-    });
+    }
+
     $carousels.on('lazyLoaded', (e, slick,image,imageSource) => {
         
     });
-    $carousels.on('afterChange', (e,slick,currentSlide) => {
-        
-    });
-    $carousels.on('setPosition', (e,slick) => {
+    $carousels.on('init setPosition afterChange', (e,slick) => {
         if ($(e.currentTarget).has('.carousel--single')) {
-            positionArrows(slick);
+            positionArrowsSingle(slick);
+        }
+        if ($(e.currentTarget).has('.carousel--center')) {
+            positionArrowsCentered(slick);
         }
     });
     $carousels.map((index,elem) => {

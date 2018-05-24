@@ -44,7 +44,11 @@ $rr-grid-settings: (
         vspace: 5, // (36px / 72px)
         column_color: rgba(200, 128, 255, .2),
         baseline_color: rgba(128, 128, 200, .2)        
+    ),
+    xlp: (
+        size: $global-width + 8rem
     )
+
 );
 
 $rr-grids: (
