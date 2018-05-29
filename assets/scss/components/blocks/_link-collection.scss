@@ -7,3 +7,7 @@
         }
     }
 }
+
+.link-collection--bordered {
+    @include block-spacing;
+}

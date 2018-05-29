@@ -1,4 +1,5 @@
 {% set content_aside = ['components-media-with-caption','components-call-to-action','components-contact-info','components-pulltext'] %}
+{% set sidebar_aside = ['molecules-section-nav','components-contact-info','components-link-collection'] %}
 {% set aside_positions = ['align-left','align-right','align-right','align-left'] %}
 
 {% embed 'molecules-slab-2x1'  %}
@@ -9,17 +10,17 @@
                     aside_position: aside_positions[i],
                     cta_variant : 'cta--dark',
                     pulltext_variant: 'pulltext--brief pulltext--dark'
-                } 
+                } only 
             %}        
         {% endfor %}
     {% endblock %}
     {% block slab_sidebar %}
-        {% for i in 4..0 %}
-            {% include content_aside[i] with {
-                    cta_variant : 'cta--dark',
-                    pulltext_variant: 'pulltext--brief pulltext--dark'
-                }
-            %}
-        {% endfor %}“
+        {% for comp in sidebar_aside %}
+            {% include comp with {
+                section_nav_variant: 'section-nav--subtle-gray',
+                link_collection_variant : 'link-collection--bordered',
+                brief: true
+            } only %}
+        {% endfor %}
     {% endblock %}
-{% endembed %}
+{% endembed %} 

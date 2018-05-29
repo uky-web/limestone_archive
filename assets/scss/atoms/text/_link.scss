@@ -27,45 +27,45 @@
 }
 
 .link--fancy,
-.editorial a.link--fancy {
+.link--fancy-reverse,
+.editorial a.link--fancy,
+.editorial a.link--fancy-reverse {
     @include rr-font-compute(l, medium);
+    @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
     display: inline-block;
     font-weight: 500;
     text-decoration: none;
     transition: color .2s ease-in-out;
     position: relative;
-    padding-left: .7em;
+    padding-left: rr-gridbase(3);
 
     &::before {
-        content: '';
-        position: absolute;
-        transition: left .2s ease-in-out;
-
-        background: transparent
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='7' height='12'%3E%3Cdefs%3E%3Cpath id='a' d='M0 10.6L4.35 6 0 1.42 1.34 0 7 6l-5.66 6z'/%3E%3C/defs%3E%3Cuse fill='%231797d4' xlink:href='%23a'/%3E%3Cuse fill='%23fff' fill-opacity='0' stroke='%231797d4' stroke-miterlimit='50' xlink:href='%23a'/%3E%3C/svg%3E")
-            scroll
-            no-repeat
-            left 50% / contain;
-
-        // the original SVG size is 12px x 9px alongside
-        // 20px type. I can set the width to the exact size
-        // I need, and since the background image is "contain"
-        // the image will scale proportionally. That frees
-        // me to set the height of the font so I can align the
-        // background image with the type more effectively.
-        width: .45em;
-        height: .7em;
-        
-        // This top value required a bit of hand-tuning
-        top: .46em;
-        left: 0;
+        content: $icon-angle-right;
+        font-family: iconfont;
+        color: color(light-blue);
+        font-size: .75em;
+        position: absolute;    
+        transition: left .3s ease-in-out;    
+        left: .25em;
+        top: -.13em;
     }
-
-    @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
 
     &:hover, &:active {
         &::before {
-            left: .25em;
+            left: .5em;
         }
     }
+}
+
+.link--fancy-reverse,
+.editorial a.link--fancy-reverse {
+    &::before {
+        content: $icon-angle-left;
+        left: .25em;
+    }
+    &:hover, &:active {
+        &::before {
+            left: 0;
+        }
+    }    
 }
