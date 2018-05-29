@@ -16,7 +16,6 @@ const carousel_center = {
         {
             breakpoint: 768,
             settings: {
-                centerPadding: '110px',
                 centerMode: false,
                 slidesToShow: 1
             }
@@ -24,6 +23,7 @@ const carousel_center = {
         {
             breakpoint: 480,
             settings: {
+                centerMode: false,
                 slidesToShow: 1
             }
         }
