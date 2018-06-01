@@ -8,7 +8,8 @@
 	{% endblock %}
 	{% block editorial_content %}
 	<div class="editorial__content">
-		{% include 'atoms-formatted-text' with { heading_frequency : 2, formatted_text_paragraphs : paragraphs|default(10) } %}
+		{% include 'atoms-heading' with { level: level|default(2) } %}
+		{% include 'atoms-formatted-text' with { formatted_text_paragraphs : paragraphs|default(10) } %}
 	</div>
 	{% endblock %}
 </div>

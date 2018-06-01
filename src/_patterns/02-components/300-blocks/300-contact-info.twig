@@ -1,19 +1,24 @@
-<div class="teaser teaser--light contact-info">
+<div class="teaser teaser--light contact-info {{ contact_info_variant }}">
+    {% if contact_info_variant is not sameas("contact-info--sheet") %}
     <div class="contact-info__heading">
         {% include 'molecules-headline-group' with { headline_group_linked: false, head:"Contact", level: 3 } %}
         {% include 'atoms-formatted-text' with { formatted_text_sentences : 2 } %}
     </div>
+    {% endif %}
     <div class="contact-info__content">
-        <div class="contact-info__photo">
-            {% include 'atoms-image' with {aspect: "1:1", width: 300 } %}
-        </div>
+        {% if hide_image is not sameas(true) %}
+            <div class="contact-info__photo">
+                {% include 'atoms-image' with {aspect: "1:1", width: 300 } %}
+            </div>
+        {% endif %}
+        {% if contact_info_variant is not sameas("contact-info--sheet") %}
         <div class="contact-info__identity">
             <p>
                 <span class="contact-info__name">{{ fake('name') }}</span>
                 <span class="contact-info__title">{{ fake('jobTitle') }}</span>
             </p>
         </div>
-
+        {% endif %}
         <dl class="invisible-labels">
             <dt>College or Department</dt>
             <dd>{% include 'atoms-link-fancy' with { label:"College or Department" } %}</dd>

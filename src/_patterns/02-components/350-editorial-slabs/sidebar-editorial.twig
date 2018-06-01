@@ -1,6 +1,7 @@
 {% set content_aside = ['components-media-with-caption','components-call-to-action','components-contact-info','components-pulltext'] %}
 {% set sidebar_aside = ['molecules-section-nav','components-contact-info','components-link-collection'] %}
 {% set aside_positions = ['align-left','align-right','align-right','align-left'] %}
+{% set headlines = [2,2,3,4,2] %}
 
 {% embed 'molecules-slab-2x1'  %}
     {% block slab_content %}
@@ -8,6 +9,7 @@
             {% include 'components-editorial' with { 
                     aside : content_aside[i], 
                     aside_position: aside_positions[i],
+                    level: headlines[i],
                     cta_variant : 'cta--dark',
                     pulltext_variant: 'pulltext--brief pulltext--dark'
                 } only 

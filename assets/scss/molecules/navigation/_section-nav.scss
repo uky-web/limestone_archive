@@ -16,13 +16,10 @@
 
             a {
                 text-decoration: none;
-                transition: .2s background-position ease-out;
-                @include faux-underline();
 
-                &:active, 
-                &:hover {
-                    background-position: 0 0, 1000px 2px;
-                }                
+                &:hover, &:active {
+                    color: color(wildcat-blue);
+                }
             }
         }            
     }
