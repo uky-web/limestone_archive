@@ -1,0 +1,25 @@
+.lockup {
+    display: grid;
+    grid-template-columns: 5.3125rem auto;
+    grid-template-rows: auto auto;
+    text-decoration: none !important;
+
+    .logo {
+        
+    }
+
+    .wordmark {
+        font-family: $font-mercury;
+        font-size: 2.6875rem;
+        font-weight: 500;
+        vertical-align: bottom;
+    }
+
+    .unit {
+        padding: rr-gridbase(1) 0;
+        font-size: 1.1875rem;
+        font-family: $font-mercury;
+        font-style: italic;
+        font-weight: 500;
+    }
+}

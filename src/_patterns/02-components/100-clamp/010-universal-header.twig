@@ -1,5 +1,21 @@
-{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-black' } %}
+{% embed 'molecules-slab' with { slab_variant: 'universal-header slab--blue-gray' } %}
     {% block slab_content %}
-        {% include 'atoms-placeholder' with { title: "Global Header" } %}
+        <div class="universal-header__layout">
+            <div class="universal-header__breadcrumb">
+                <ul>
+                    <li><a href="https://www.uky.edu" title="Back to University of Kentucky home page"><img src="../../images/uk-logo.svg" alt="UK Logo">University of Kentucky<sub>&reg;</sub></a></li>
+                    <li><a href="">{{ fake('catchphrase')|titleize }}</a></li>
+                    <li><a href="">College of {{ fake('bs')|titleize }}</a></li>
+                </ul>
+            </div>
+            <div class="universal-header__nav">
+                <a href="https://myuk.uky.edu" title="Log into the myUK portal"><img src="../../images/myuk.svg" alt="myUK portal"></a>
+                {% embed 'molecules-modal' with { content_type: "inline", modal_trigger_text: "Search", modal_variant: "search-control" } %}
+                    {% block modal_content %}
+                        {% include 'components-search-form' %}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        </div>
     {% endblock %}
 {% endembed %}

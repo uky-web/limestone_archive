@@ -1,0 +1,122 @@
+.universal-header {
+    padding-top: rr-gridbase(1);
+    padding-bottom: rr-gridbase(1);
+
+    a {
+        &:link, &:visited {
+            color: color(wildcat-blue);
+        }
+        &:hover, &:active {
+            text-decoration: underline;
+        }
+    }
+
+    img {
+        max-height: 1em;
+        width: auto;
+    }
+
+    button {
+        padding: 0;
+        background-color: transparent;
+        color: color(wildcat-blue);
+        border-width: 0;
+        font-family: $font-avenirnext;
+        @include rr-font-compute(s,tight);
+    }
+
+    .universal-header__layout {
+        justify-content: space-between;
+        color: color(wildcat-black);
+
+        @include rr-break-directive(m) {
+            display: flex;
+        }
+    }
+
+    .universal-header__breadcrumb {
+        display: none;
+
+        @include rr-break-directive(m) {
+            display: block;
+        }
+    
+
+        img {
+            display: inline-block;
+            vertical-align: text-bottom;
+            margin: 0;
+            margin-right: .3em;
+        }
+    
+        ul {
+            @include rr-font-compute(s,tight);            
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-family: $font-mercury;
+            font-weight: normal;
+            text-indent: -1.531em;
+            padding-left: 1.531em;            
+
+            @include rr-break-directive(m) {
+                @include rr-font-compute(r,tight);
+            }
+
+            @include rr-break-directive(l) {
+                @include rr-font-compute(l,tight);
+            }
+
+            @include rr-break-directive(xl) {
+                @include rr-font-compute(xl,tight);
+                text-indent: -1.531em;
+                padding-left: 1.531em;                      
+            }
+
+            li {
+                display: inline;
+                        
+                &::after {
+                    content: '|';
+                    padding-left: rr-gridbase(1);
+                    padding-right: rr-gridbase(1);
+                }
+
+                &:first-child {
+                    img {
+                        
+                    }
+                }
+
+                &:last-child::after {
+                    display: none;
+                }
+            }
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .universal-header__nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        > * {
+            margin-left: rr-gridbase(2);
+        }
+    }
+
+    .search-control {
+        &:hover, &:active {
+            background-color: transparent;
+        }
+        &:before {
+            content: $icon-magnify;
+            font-family: iconfont;
+            vertical-align: text-bottom;
+            margin-right: .3em;
+        }
+    }
+}
