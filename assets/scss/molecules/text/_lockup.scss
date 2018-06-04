@@ -1,25 +1,75 @@
 .lockup {
-    display: grid;
-    grid-template-columns: 5.3125rem auto;
-    grid-template-rows: auto auto;
-    text-decoration: none !important;
-
-    .logo {
-        
+	display: grid;
+    font-size: 0;
+    font-family: $font-mercury;
+	
+	&:link, &:visited {
+		text-decoration: none;
+		color: color(wildcat-black);
+	}
+	&:active, &:hover {
+		text-decoration: none;
+		color: color(wildcat-blue);
+	}
+		
+	&__logo {
+		display: inline-block;
+		vertical-align: baseline;
+		img {
+            margin-right: 1.125rem;
+			width: 5.3125rem;
+			height: auto;
+		}
+	}
+	
+	&__wordmark {
+		display: inline-block;
+        font-size: 2.625rem;
+        line-height: .97674;
+		font-weight: 500;
+	}
+	
+	&__wordmark__row {
+		display: block;
+	}
+	
+	&__unit {
+		font-size: 1.1875rem;	
+		margin-left: 6.4375rem;
+        margin-top: .3rem;
+		font-weight: 500;
+		font-style: italic;        
+    }
+    
+    @include rr-break-directive(m) {
+        &__logo img {
+			width: 4.25rem;            
+            margin-right: .9rem; // (80% of full size)
+        }
+        &__wordmark {
+            font-size: 2.1rem; // ( logo width * .494117647 )
+            line-height: .97674;
+        }
+        &__unit {
+            font-size: .95rem;	// ( wordmark font size * .452380952 )
+            margin-left: 5.15rem; // logo width + logo right margin
+            margin-top: .3rem;                
+        }
     }
 
-    .wordmark {
-        font-family: $font-mercury;
-        font-size: 2.6875rem;
-        font-weight: 500;
-        vertical-align: bottom;
-    }
-
-    .unit {
-        padding: rr-gridbase(1) 0;
-        font-size: 1.1875rem;
-        font-family: $font-mercury;
-        font-style: italic;
-        font-weight: 500;
+    @include rr-break-directive(l) {
+        &__logo img {
+			width: 5.3125rem;            
+            margin-right: 1.125rem; 
+        }
+        &__wordmark {
+            font-size: 2.625rem; // ( logo width * .494117647 )
+            line-height: .97674;
+        }
+        &__unit {
+            font-size: 1.1875rem;	// ( wordmark font size * .452380952 )
+            margin-left: 6.4375rem; // logo width + logo right margin
+            margin-top: .3rem;                
+        }
     }
 }
