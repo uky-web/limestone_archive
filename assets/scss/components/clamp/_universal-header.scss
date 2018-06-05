@@ -97,26 +97,4 @@
             text-decoration: none;
         }
     }
-
-    .universal-header__nav {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        > * {
-            margin-left: rr-gridbase(2);
-        }
-    }
-
-    .search-control {
-        &:hover, &:active {
-            background-color: transparent;
-        }
-        &:before {
-            content: $icon-magnify;
-            font-family: iconfont;
-            vertical-align: text-bottom;
-            margin-right: .3em;
-        }
-    }
 }

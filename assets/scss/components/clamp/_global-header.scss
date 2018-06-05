@@ -1,34 +1,27 @@
-.main-header {
-	
-}
-
-.main-header__sitenav-main {
-	@include ondark;
-}
-
-.main-header__sitenav-util {
-	@include ondark;
-	text-align: right;
-	padding: {
-		top: 0.5rem;
-		bottom: 0.5rem;
+.global-header {
+	.utility-nav {
+		display: none;
 	}
-}
 
-.main-header__brand {
-	padding: 1rem 0;
-
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-}
-
-@include breakpoint(medium) {
-	.main-header__brand {
-
-		img {
-			max-width: rem-calc(300);
+	@include rr-break-directive(l) {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;	
+		
+		.utility-nav {
+			display: block;
+		}
+		
+		.mobile-nav {
+			display: none;
 		}
 	}
+}
+
+.mobile-nav {
+	display: none; // will be triggered by a menu button when the time is right
+	
+	@include rr-break-directive(l) {
+		display: none;
+	}	
 }

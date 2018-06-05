@@ -1,1 +1,7 @@
-{% include 'atoms-placeholder' with { title: "Utility Nav" } %}
+{% set uniqid = "UtilityNavLabel"|uniqid %}
+<nav id="UtilityNav" class="utility-nav" aria-labeledby="{{ uniqid }}">
+    <div class="show-for-sr" id="{{ uniqid }}">Utility Navigation</div>    
+    {% for i in 0..2 %}
+        {% include 'atoms-link' with { label: fake('word')|titleize} %}
+    {% endfor %}
+</nav>

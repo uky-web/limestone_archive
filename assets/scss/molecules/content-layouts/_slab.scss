@@ -1,5 +1,10 @@
 .slab {
     @include rr-slab;
+
+    &.slab--thin {
+        padding-top: rr-gridbase(3);
+        padding-bottom: rr-gridbase(3);
+    }
 }
 
 .slab__wrapper {

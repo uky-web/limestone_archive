@@ -1,7 +1,8 @@
 .lockup {
-	display: grid;
+	display: block;
     font-size: 0;
     font-family: $font-mercury;
+    position: relative;
 	
 	&:link, &:visited {
 		text-decoration: none;
@@ -10,23 +11,29 @@
 	&:active, &:hover {
 		text-decoration: none;
 		color: color(wildcat-blue);
-	}
+    }
+    
+    &__main {
+        word-wrap: none;
+    }
 		
 	&__logo {
 		display: inline-block;
-		vertical-align: baseline;
+        vertical-align: middle;
+        word-wrap: none;
 		img {
-            margin-right: 1.125rem;
-			width: 5.3125rem;
+			width: 10vw; // (80% of full size)           
+            margin-right: 1.5vw; 
 			height: auto;
 		}
 	}
 	
 	&__wordmark {
-		display: inline-block;
-        font-size: 2.625rem;
-        line-height: .97674;
-		font-weight: 500;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 5vw; // ( logo width * .494117647 )
+        line-height: 1; // Line-height is proportional already
+        font-weight: 500;
 	}
 	
 	&__wordmark__row {
@@ -34,42 +41,63 @@
 	}
 	
 	&__unit {
-		font-size: 1.1875rem;	
-		margin-left: 6.4375rem;
-        margin-top: .3rem;
-		font-weight: 500;
-		font-style: italic;        
+        @include rr-font-compute(s,tight);
+        margin-left: 0;
+        font-weight: 500;
+        font-style: italic;
+        margin-top: .2rem;
     }
-    
+
     @include rr-break-directive(m) {
+        &__logo 
+        {
+            vertical-align: baseline;
+            img {
+			    width: 3.71875rem; // (80% of full size)           
+                margin-right: .7875rem; 
+            }
+        }
+        &__wordmark {
+            vertical-align: baseline;
+            font-size: 1.8375rem; // ( logo width * .494117647 )
+            line-height: .97674; // Line-height is proportional already
+            margin-top: 0;
+        }
+        &__unit {
+            margin-left: 4.50625rem; // logo width + logo right margin             
+        }
+    }    
+    
+    @include rr-break-directive(l) {
+        &__main {
+            min-height: rr-gridbase(9);
+        }        
         &__logo img {
-			width: 4.25rem;            
-            margin-right: .9rem; // (80% of full size)
+			width: 4.25rem; // (80% of full size)      
+            margin-right: .9rem; 
         }
         &__wordmark {
             font-size: 2.1rem; // ( logo width * .494117647 )
-            line-height: .97674;
         }
         &__unit {
-            font-size: .95rem;	// ( wordmark font size * .452380952 )
             margin-left: 5.15rem; // logo width + logo right margin
-            margin-top: .3rem;                
         }
     }
 
-    @include rr-break-directive(l) {
+    @include rr-break-directive(xl) {
+        &__main {
+            min-height: rr-gridbase(11);
+        }
         &__logo img {
 			width: 5.3125rem;            
             margin-right: 1.125rem; 
         }
         &__wordmark {
             font-size: 2.625rem; // ( logo width * .494117647 )
-            line-height: .97674;
         }
         &__unit {
-            font-size: 1.1875rem;	// ( wordmark font size * .452380952 )
             margin-left: 6.4375rem; // logo width + logo right margin
-            margin-top: .3rem;                
+            font-size: 1.1875rem;	// ( wordmark font size * .452380952 )
         }
     }
 }

@@ -1,5 +1,31 @@
-{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-blue' } %}
+<header id="MainHeader">
+{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-white' } %}
     {% block slab_content %}
-        {% include 'atoms-placeholder' with { title: "Global Header" } %}
+        <div class="global-header">
+            {% include 'molecules-lockup' %}
+            {% include 'molecules-utility-nav' %}
+        </div>
     {% endblock %}
 {% endembed %}
+{% embed 'molecules-slab' with { slab_variant: 'slab--dark-blue slab--thin global-nav-bar' } %}
+    {% block slab_content %}
+        {% include 'molecules-global-nav' %}
+    {% endblock %}
+{% endembed %}
+{% embed 'molecules-slab' with { slab_variant: 'slab--subtle-gray mobile-nav' } %}
+    {% block slab_content %}
+        <div class="mobile-nav__controls">
+            <button>Main Menu / Search</button>
+            <button>In This Section</button>
+        </div>
+        <div class="mobile-nav__site">
+            {% include 'molecules-global-nav' %}
+            {% include 'molecules-utility-nav' %}
+            {% include 'molecules-universal-nav' %}
+        </div>
+        <div class="mobile-nav__section">
+            {% include 'molecules-section-nav' %}
+        </div>
+    {% endblock %}
+{% endembed %}
+</head>

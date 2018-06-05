@@ -1,1 +1,8 @@
-{% include 'atoms-placeholder' with { title: "Site Main Nav" } %}
+{% set uniqid = "MainNavLabel"|uniqid %}
+<nav id="MainNav" class="global-nav" aria-labeledby="{{ uniqid }}">
+    <div class="show-for-sr" id="{{ uniqid }}">Main Navigation</div>
+    <a href="/patternlab/" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
+    {% for label in ['About','Students','Alumni & Friends','Faculty & Staff Resources','Giving','News & Media','Visit'] %}
+        {% include 'atoms-link' with { label: label } %}
+    {% endfor %}
+</nav>
