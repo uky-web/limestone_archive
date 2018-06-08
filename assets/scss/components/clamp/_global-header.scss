@@ -1,12 +1,18 @@
 .global-header {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;	
+
 	.utility-nav {
 		display: none;
 	}
 
+	.menu-button {
+		align-self: center;
+	}	
+
 	@include rr-break-directive(l) {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;	
 		
 		.utility-nav {
 			display: block;
@@ -15,12 +21,14 @@
 		.mobile-nav {
 			display: none;
 		}
+
+		.toggle-button {
+			display: none;
+		}
 	}
 }
 
 .mobile-nav {
-	display: none; // will be triggered by a menu button when the time is right
-	
 	@include rr-break-directive(l) {
 		display: none;
 	}	

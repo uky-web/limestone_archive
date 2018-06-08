@@ -78,6 +78,12 @@ $black: #2c2a29;
             color: color(button-border,$textscheme);
         }
 
+        &.button--transparent {
+            background-color: transparent;
+            border-color: transparent;
+            color: color(button-border,$textscheme);
+        }
+
         &[disabled] {
             border-color: color(button-disabled-border, $textscheme) !important;
             background-color: color(button-disabled-background, $textscheme) !important;
@@ -101,13 +107,19 @@ $black: #2c2a29;
             color: color(button-hover-text, $textscheme);
         }
 
-        &:active {
+        &:active,
+        &[aria-pressed=true] {
             border-color: color(button-active-border, $textscheme);
             background-color: color(button-active-background, $textscheme);
             color: color(button-active-text, $textscheme);
             &.button--ghost {
                 color: color(button-active-text,$textscheme);
             }
+            &.button--transparent {
+                color: color(button-active-border,$textscheme);
+                background-color: transparent;
+                border-color: transparent;
+            }            
         }
 
         &:focus {

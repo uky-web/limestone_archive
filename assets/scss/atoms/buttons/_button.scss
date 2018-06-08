@@ -30,6 +30,12 @@ button, a.button {
         color: color(wildcat-blue);
     }
 
+    &.button--transparent {
+        background-color: transparent;
+        border-color: transparent;
+        color: color(wildcat-blue);
+    }
+
     /* Variants */
     &.button--small {
         @include rr-font-compute(s, tight);
@@ -66,3 +72,6 @@ button.video-button {
         }
     }
 }
+
+
+

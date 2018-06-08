@@ -19,4 +19,5 @@ $(document).ready(() => {
     ambient_video();
     carousel();
     modals();
+    togglebutton();
 });

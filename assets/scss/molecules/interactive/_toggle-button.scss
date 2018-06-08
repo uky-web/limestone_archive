@@ -1,0 +1,16 @@
+.toggle-button {
+
+}
+
+.toggle-button--down {
+
+}
+
+.toggle-button__demo {
+    margin-top: rr-gridbase(4);
+    margin-bottom: rr-gridbase(4);
+
+    &[aria-hidden=true] {
+        display: none;
+    }
+}

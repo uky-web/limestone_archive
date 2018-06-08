@@ -3,13 +3,25 @@
 	align-items: baseline;
 	.ic {
 		vertical-align: baseline;
-		font-size: .8em;
 		width: auto;
 		margin-right: 0.3em;
 	}
 
 	.label {
 		white-space: normal;
+	}
+}
+
+.icon-label--stacked {
+	flex-direction: column;
+	align-items: center;
+	line-height: 1.1;
+	.ic {
+		font-size: 2.5em;
+		margin-right: 0;
+	}
+	.label {
+		font-size: .85em;
 	}
 }
 
@@ -25,6 +37,14 @@
 		align-self: flex-start;
 		position: relative;
 	}
+
+	@at-root button #{&}, .button #{&} {
+		.label {
+			text-align: left;
+			font-size: 1em;
+			line-height: 1.1;
+		}	
+	}	
 }
 
 // Just to let you know this is an option.
