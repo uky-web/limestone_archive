@@ -1,0 +1,27 @@
+{% embed 'molecules-slab' %}
+    {% block slab_content %}
+<table class="people-list">
+    <thead>
+        <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Name and Title</th>
+            <th scope="col">Contact Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in 1 .. 50 %}
+        <!-- Names should be alphabetical, won't be in the demonstration. -->
+        <tr>
+            <!-- Link image to profile page -->
+            <td><a href="http://www.example.com/">{% include 'atoms-image' with { aspect:"1:1", width: 200 } %}</a></td>
+            <td>
+                <span class="people-list--name"><a class="underline-link" href="http://www.example.com/">{{ fake('lastName') }}, {{ fake('firstName') }}</a></span><br />
+                <span class="people-list--title">{{ fake('jobTitle') }}</span>
+            </td>
+            <td>{% include 'components-contact-info' with { hide_image:true, contact_info_variant: 'contact-info--sheet' } %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    {% endblock %}
+{% endembed %}

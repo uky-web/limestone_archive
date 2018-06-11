@@ -1,0 +1,38 @@
+
+
+.people-list {
+    width: 100%;
+    border-spacing: .5rem;
+    img {
+        max-width: rr-gridbase(24);
+    }
+    
+    .contact-info {
+        margin-bottom: 0;
+
+        dd {
+            @include rr-font-compute(r,medium);
+            .link--fancy {
+                @include rr-font-compute(r,medium);
+            }
+        }
+    }
+
+    .people-list--name {
+        @include rr-font-compute(xl,medium);
+        font-family: $font-mercury;
+        font-weight: 600;
+    }
+    
+    thead {
+        position: absolute;
+        left: -99999999em;
+    }
+    
+    tbody {
+        td {
+            @include rr-font-compute(r,medium);
+            padding: 1rem;
+        }
+    }
+}

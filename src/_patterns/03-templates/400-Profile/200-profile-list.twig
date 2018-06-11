@@ -1,0 +1,7 @@
+{% extends 'base.twig' %}
+
+{% block main_content %}
+    {% include 'components-' ~ page_header|default('text-page-header') with { head: "Directory", sub: false, slab_variant : header_slab|default('slab--wildcat-white') } %}
+    {% include 'components-people-list' with { slab_variant : slab_variant|default('slab--wildcat-white') }  %} 
+{% endblock %}
+
