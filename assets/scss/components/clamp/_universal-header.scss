@@ -11,6 +11,13 @@
         }
     }
 
+    sub {
+        font-size: inherit;
+        position: relative;
+        top: .1875rem;
+        left: -.1875rem;
+    }
+
     img {
         max-height: 1em;
         width: auto;
