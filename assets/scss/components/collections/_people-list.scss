@@ -2,7 +2,8 @@
 
 .people-list {
     width: 100%;
-    
+    border-collapse: collapse;
+
     .contact-info--sheet {
         background-color: transparent;
         margin-left: 0;
@@ -42,8 +43,11 @@
     }
     
     tbody {
-        tr:nth-child(even) {
-            background-color: color(subtle-gray);
+        tr {
+            border-bottom: 1px dashed color(light-gray);
+            &:last-child {
+                border-width: 0;
+            }
         }
         td {
             @include rr-font-compute(r,medium);
