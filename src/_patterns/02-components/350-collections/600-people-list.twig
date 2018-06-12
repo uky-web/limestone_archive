@@ -1,5 +1,3 @@
-{% embed 'molecules-slab' %}
-    {% block slab_content %}
     {% set labelid = "PeopleListLabel"|uniqid %}
     <!-- region labeling for accessibility -->
     <div role="region" aria-labeledby="{{ labelid }}">
@@ -12,7 +10,6 @@
             <thead>
                 <tr>
                     <th scope="col">Photo</th>
-                    <th scope="col">Name and Title</th>
                     <th scope="col">Contact Information</th>
                 </tr>
             </thead>
@@ -25,12 +22,11 @@
                     <td>
                         <span class="people-list--name"><a class="underline-link" href="http://www.example.com/">{{ fake('lastName') }}, {{ fake('firstName') }}</a></span><br />
                         <span class="people-list--title">{{ fake('jobTitle') }}</span>
+                        {% include 'components-contact-info' with { hide_image:true, contact_info_variant: 'contact-info--sheet' } %}
                     </td>
-                    <td>{% include 'components-contact-info' with { hide_image:true, contact_info_variant: 'contact-info--sheet' } %}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        {% include 'molecules-pagination' %}
     </div>
-    {% endblock %}
-{% endembed %}

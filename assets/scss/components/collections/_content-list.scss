@@ -1,0 +1,37 @@
+.item-list {
+    .teaser {
+        margin-bottom: rr-gridbase(2);
+    }
+
+    .contact-info.contact-info--sheet {
+        margin: 0;
+        
+        .contact-info__content {
+            display: block;
+        }
+
+        .contact-info__photo {
+            float: right;
+        }
+
+        .contact-info__identity {
+            border-top-width: 0;
+            margin-top: 0;
+            top: auto;
+        }
+    }
+
+    @include rr-break-directive(l) {
+        .teaser {
+            display: flex;
+            margin-bottom: rr-gridbase(4);
+        }
+
+        .teaser__media {
+            width: 37%;
+            height: auto;
+            flex: 0 0 37%;
+            margin-right: rr-gridbase(4);
+        }
+    }
+}

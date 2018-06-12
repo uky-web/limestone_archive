@@ -1,0 +1,72 @@
+.pagination {
+    ul {
+        margin: 0;
+        text-align: center;
+        li {
+            @include rr-font-compute(l,tight);
+            display: inline-block;
+            margin: 0;
+            a {
+                padding: rr-gridbase(1);
+                color: color(wildcat-white);
+                text-decoration: none;
+                text-align: center;
+                background-color: color(wildcat-blue);
+                &:hover,
+                &:active {
+                    background-color: color(light-blue);
+                }
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+            &.current {
+                // foundation override
+                a {
+                    color: color(wildcat-black);
+                    background-color: color(wildcat-white); 
+                    pointer-events: none;                    
+                }
+            }
+            &.first,
+            &.previous,
+            &.next,
+            &.last {
+                a:before,
+                a:after {
+                    position: relative;
+                    bottom: .1em;
+                    display: inline-block;
+                }
+            }
+            &.first a {
+                &:before {
+                    display: inline-block;
+                    margin-right: .3em;
+                    content: '\00ab'
+                }
+            }
+            &.previous a {
+                &:before {
+                    display: inline-block;
+                    margin-right: .3em;
+                    content: '\2039'
+                }
+            }
+            &.next a {
+                &:after {
+                    display: inline-block;
+                    margin-left: .3em;
+                    content: '\203a'
+                }
+            }
+            &.last a {
+                &:after {
+                    display: inline-block;
+                    margin-left: .3em;
+                    content: '\00bb'
+                }
+            }
+        }
+    }
+}

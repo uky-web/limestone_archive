@@ -1,4 +1,4 @@
-button, a.button {
+button, a.button, input.button {
     @include rr-font-compute(r,tight);
     
     font-weight: 500;

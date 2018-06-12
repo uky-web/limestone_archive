@@ -17,14 +17,10 @@
         position: absolute;
         left: -999999em;
     }
-
-    img {
-        max-width: 39vw;
-        display: block;
-    }
     
     .contact-info {
         margin-bottom: 0;
+        margin-top: 1rem;
 
         dd {
             @include rr-font-compute(r,medium);
@@ -58,24 +54,22 @@
     @include rr-break-directive(m) {
         width: 100%;
         border-spacing: 0;
-    
-        img {
-            min-width: 15vw;
-            max-width: 20vw;
-            margin: 0;
+        td:nth-child(1) {
+            width: 50%;
         }
     }
 
     @include rr-break-directive(l) {
-        img {
-            max-width: rr-gridbase(24);
+        td:nth-child(1) {
+            vertical-align: top;
+            width: 20%;
         }
     }
     
     // This is the opposite of mobile-first but
     // is cleaner for responsifying tables. 
     // See http://adrianroselli.com/2017/11/a-responsive-accessible-table.html#Responsive
-    @media all and (max-width: 35em) {
+    @media all and (max-width: 58em) {
         table, tr, td {
             display: block;
             width: auto;
@@ -85,10 +79,6 @@
         }
         td {
             padding: rr-gridbase() rr-gridbase(2);
-        }
-        td:nth-child(2) {
-            padding-top: 0;
-            padding-bottom: 0;
         }
     }
 
