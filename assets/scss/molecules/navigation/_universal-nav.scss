@@ -7,11 +7,18 @@
     > * {
         margin-left: rr-gridbase(2);
     }
-    
-    
+        
     .search-control {
+        padding: rr-gridbase(1);
+        background-color: transparent;
+        color: color(medium-blue);
+        border-width: 0;
+        font-family: $font-avenirnext;
+        @include rr-font-compute(s,tight);
+
         &:hover, &:active {
-            background-color: transparent;
+            background-color: color(light-blue-tint);
+            color: color(wildcat-blue);
         }
         &:before {
             content: $icon-magnify;
