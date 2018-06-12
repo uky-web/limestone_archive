@@ -21,9 +21,9 @@
         }
         .headline-group__sub,
         .headline-group__super {
-            @include rr-font-compute(2xl, medium);
+            @include rr-font-compute(2xl, tight);
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
         }
         .headline-group__sub {
             margin-top: rr-gridbase(2);
