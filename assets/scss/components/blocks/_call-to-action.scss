@@ -2,6 +2,10 @@
     @include block-header-font;
     @include block-spacing;
 
+    .editorial {
+        margin-bottom: rr-gridbase(3);
+    }
+
     &.cta--dark {
         @include usescheme($text-colors-dark);
         background-color: color(wildcat-blue);

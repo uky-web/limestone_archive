@@ -1,5 +1,5 @@
 button, a.button, input.button {
-    @include rr-font-compute(r,tight);
+    @include rr-font-compute(l,tight);
     
     font-weight: 500;
     font-family: $font-avenirnext;
