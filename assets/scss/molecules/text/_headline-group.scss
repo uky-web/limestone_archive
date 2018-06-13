@@ -33,12 +33,12 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 				text-transform: uppercase;
 				font-weight: 500;
 				color: color(dark-gray);
-				@include rr-font-compute(xl, medium);
+				@include rr-font-compute(xl, tight);
 			}
 
 			#{$bem_root}__head {
 				font-weight: 500;
-				@include rr-font-compute(3xl, medium);
+				@include rr-font-compute(3xl, tight);
 				.underline-link {
 					&:link,
 					&:visited {
@@ -61,7 +61,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 				@include rr-font-compute($subsize, tight);
 			}
 			#{$bem_root}__head {
-				@include rr-font-compute($size, medium);
+				@include rr-font-compute($size, tight);
 			}
 		}
 	}
