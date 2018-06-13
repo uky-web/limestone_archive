@@ -1,6 +1,15 @@
 .content-meta {
-    @include rr-font-compute(r,medium);
+    
     margin-bottom: rr-gridbase(1);
+
+    .byline {
+        @include rr-font-compute(l,medium);
+        font-weight: 400;
+    }
+
+    .date {
+        @include rr-font-compute(r,medium);
+    }
     
     .who-when {
         font-weight: 500;

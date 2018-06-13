@@ -8,8 +8,10 @@
     a {
         @include rr-font-compute(r, medium);
         font-weight: 500;
+        transition: color .3s ease-in-out;
 
         &:link, &:visited {
+            color: color(dark-blue);
             text-decoration: none;
         }
         &:hover, &:active {
