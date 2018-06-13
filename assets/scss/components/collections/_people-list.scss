@@ -32,7 +32,7 @@
     }
 
     .people-list--name {
-        @include rr-font-compute(xl,medium);
+        @include rr-font-compute(2xl,tight);
         font-family: $font-mercury;
         font-weight: 600;
     }
