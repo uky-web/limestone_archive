@@ -1,8 +1,0 @@
-{% embed 'molecules-slab' %}
-    {% block slab_content %}
-        {% for i in 0..4 %}
-            {% set content_aside = random(['components-media-with-caption','components-call-to-action','components-contact-info']) %}
-            {% include 'molecules-content-aside' %}        
-        {% endfor %}
-    {% endblock %}
-{% endembed %}

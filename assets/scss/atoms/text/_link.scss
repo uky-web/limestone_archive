@@ -30,11 +30,14 @@
     @include underline-link;
 }
 
+// We include the editorial link styles here
+// because ".editorial a" has styles that implement
+// the underline. 
 .link--fancy,
 .link--fancy-reverse,
-.editorial a.link--fancy,
-.editorial a.link--fancy-reverse {
-    @include rr-font-compute(l, medium);
+.editorial .link--fancy,
+.editorial .link--fancy-reverse {
+    @include rr-font-compute(xl, tight);
     @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
     display: inline-block;
     font-weight: 500;
@@ -71,4 +74,10 @@
             left: 0;
         }
     }    
+}
+
+// Tweak the font size
+.editorial .link--fancy,
+.editorial .link--fancy-reverse {
+    @include rr-font-compute(l,tight);
 }
