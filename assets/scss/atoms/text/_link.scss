@@ -47,11 +47,10 @@
         content: $icon-angle-right;
         font-family: iconfont;
         color: color(light-blue);
-        font-size: .75em;
+        font-size: .7em;
         position: absolute;    
         transition: left .3s ease-in-out;    
         left: .25em;
-        top: -.13em;
     }
 
     &:hover, &:active {
