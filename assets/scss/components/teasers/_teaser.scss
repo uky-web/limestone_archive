@@ -26,3 +26,14 @@
 	}
 }
 
+@each $name,$color in $colors {
+    .teaser--#{$name} {
+        @include block-spacing;
+        background-color: $color;
+        border-color: $color;
+        @if (contrast($color,color(wildcat-black)) < 4.5) {
+            @include usescheme($text-colors-dark);
+        }
+    }
+}
+

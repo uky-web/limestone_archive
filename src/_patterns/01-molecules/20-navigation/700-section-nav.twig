@@ -1,4 +1,4 @@
-<div class="section-nav {{ section_nav_variant }}">
+<div class="section-nav {{ section_nav_variant|default('section-nav--blue-gray') }}">
     <nav aria-labelledby="sectionNavigationLabel">
         <h2 id="sectionNavigationLabel"><span class="show-for-sr">Section Navigation: </span>{% include 'atoms-link' with { link_variant: 'link--fancy-reverse', label: 'Parent Page/Section' } %}</h2>
         <ol>

@@ -1,7 +1,4 @@
 .contact-info {
-    @include block-spacing(subtle-gray);
-    background-color: color(subtle-gray);
-
     &__heading {
         margin-bottom: rr-gridbase(2);
         p {

@@ -29,42 +29,19 @@
     @include block-spacing;
 }
 
-// For these solid-block backgrounds, we can pull
-// the links back into the padding area so their
-// left margins can align with other blocks; the 
-// arrow on the parent page link will then 
-// overlap the block padding
-.section-nav--wildcat-blue {
-    @include block-spacing;
-    @include usescheme($text-colors-dark);
-    background-color: color(wildcat-blue);
 
-    nav {
-        margin-left: rr-gridbase(-3);
+@each $name,$color in $colors {
+    .section-nav--#{$name} {
+        @include block-spacing;
+        background-color: $color;
+        border-color: $color;
+        @if (contrast($color,color(wildcat-black)) < 4.5) {
+            @include usescheme($text-colors-dark);
+        }
+
+        nav {
+            margin-left: rr-gridbase(-3);
+        }
     }
 }
 
-.section-nav--wildcat-black {
-    @include block-spacing;
-    @include usescheme($text-colors-dark);    
-    background-color: color(wildcat-black);
-    nav {
-        margin-left: rr-gridbase(-3);
-    }      
-}
-
-.section-nav--subtle-gray {
-    @include block-spacing(subtle-gray);
-    background-color: color(subtle-gray);
-    nav {
-        margin-left: rr-gridbase(-3);
-    }    
-}
-
-.section-nav--light-gray {
-    @include block-spacing(light-gray);
-    background-color: color(light-gray);
-    nav {
-        margin-left: rr-gridbase(-3);
-    }    
-}

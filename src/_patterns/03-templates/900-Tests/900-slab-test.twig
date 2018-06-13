@@ -1,6 +1,6 @@
 {% extends 'base.twig' %}
 {% block main_content %}
-    {% set slab_styles = ['wildcat-black','wildcat-white','wildcat-blue','subtle-gray'] %}
+    {% set slab_styles = ['wildcat-black','wildcat-white','wildcat-blue','blue-gray'] %}
     {% set grid_types = ['2-up','3-up','4-up'] %}
     {% for skin in slab_styles %}
         {% include 'molecules-slab' with { slab_variant: 'slab--' ~ skin } %}
