@@ -1,0 +1,37 @@
+{% embed 'molecules-tabs' with { tab_variant: 'mobile-tab-nav'} %}
+    {% block tabs_tabs %}
+        {% include 'molecules-tab-tab' with { tab_target : "mobile_mainmenu", tab_label : "Main Menu / Search" } %}
+        {% include 'molecules-tab-tab' with { tab_target : "mobile_section", tab_label : "In This Section" } %}
+    {% endblock %}
+    {% block tabs_panels %}
+        {% embed 'molecules-tab-panel' with { tab_panel_id : "mobile_mainmenu" } %}
+            {% block tab_panel_content %}
+                {% include 'molecules-global-nav' %}
+                {% include 'molecules-utility-nav' %}
+                {% include 'molecules-universal-nav' %}
+            {% endblock %}
+        {% endembed %}
+        {% embed 'molecules-tab-panel' with { tab_panel_id : "mobile_section" } %}
+            {% block tab_panel_content %}
+                {% include 'molecules-section-nav' %}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+{#
+<div class="mobile-tab-nav js-tabs">
+    <ul class="js-tablist">
+        <li class="js-tablist__item">
+            <a href="#mobile_mainmenu" id="label_mobile_mainmenu" class="js-tablist__link">Main Menu / Search</a>
+        </li>
+        <li class="js-tablist__item">
+            <a href="#mobile_section" id="label_mobile_section" class="js-tablist__link">In This Section</a>
+        </li>
+    </ul>
+    <div id="mobile_mainmenu" data-selected="1" class="js-tabcontent">
+    </div>
+    <div id="mobile_section" class="js-tabcontent">
+        {% include 'molecules-section-nav' %}
+    </div>
+</div>
+#}

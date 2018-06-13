@@ -1,4 +1,5 @@
 const togglebutton = () => {
+    console.log("Hello");
     $('.toggle-button').each((i,e) => {
         if ($(e).data('toggle-viz') == true) {
             const $button = $(e);
@@ -13,7 +14,8 @@ const togglebutton = () => {
         }
     })
     $('.toggle-button').on('click',(e) => {
-        const $button = $(e.target);
+        const $button = $(e.currentTarget);
+        console.log(e);
         const toggleclass = $button.data('toggle-class');
         const toggleviz = ($button.data('toggle-viz') == true)
         const $toggle = $($button.data('toggle'));
@@ -23,6 +25,7 @@ const togglebutton = () => {
         const original_label = $button.data('toggle-label');
         const original_icon = $button.data('toggle-icon');
         const newpressed = (pressed) ? 'false' : 'true';
+        console.log("Hello2");
         if (toggled_label) {
             const nextLabel = (newpressed == 'true') ? toggled_label : original_label;
             $button.find('.label').text(nextLabel);

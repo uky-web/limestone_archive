@@ -1,0 +1,49 @@
+.js-tablist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.js-tablist__item {
+    flex: 1 1 100%;
+    a { 
+        @include rr-font-compute(l,tight);
+        background-color: color(dark-blue);
+        padding: rr-gridbase(2);
+        display: block;
+        color: color(wildcat-white);
+    
+        &:hover, &:active {
+            color: color(light-blue-tint);
+        }
+
+        &:focus {
+            outline: 0;
+            text-decoration: underline;
+        }
+
+        &[aria-selected=true] {
+            background-color: color(blue-gray);
+            color: color(wildcat-black);
+
+            &:hover, &:active {
+                color: color(wildcat-blue);
+            }            
+        }
+    }
+}
+
+.js-tabcontent {
+    background-color: color(blue-gray);
+    padding: rr-gridbase(2);
+    &[aria-hidden=true] {
+        display: none;
+    }
+    @include rr-break-directive(m) {
+        padding: rr-gridbase(3);
+    }
+    @include rr-break-directive(l) {
+        padding: rr-gridbase(4);
+    }
+}
