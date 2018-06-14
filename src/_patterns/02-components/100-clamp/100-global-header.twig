@@ -2,7 +2,11 @@
 {% embed 'molecules-slab' with { slab_variant: banner_color|default('slab--wildcat-white') } %}
     {% block slab_content %}
         <div class="global-header__banner">
-            {% include 'molecules-lockup' %}
+            {% if not is_main %}
+                {% include 'molecules-lockup' %}
+            {% else %}
+                {% include 'atoms-uky-logo-main' %}
+            {% endif %}
             {% include 'molecules-utility-nav' %}
             {% set toggle_config = {
                 toggle: '#MobileNav',

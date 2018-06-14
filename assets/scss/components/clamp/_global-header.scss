@@ -14,6 +14,11 @@
 	justify-content: space-between;
 	align-items: flex-end;	
 
+	.uky-logo-main {
+		width: 23.118rem;
+		height: rr-gridbase(12);
+	}
+
 	.utility-nav {
 		display: none;
 	}
@@ -22,6 +27,16 @@
 		align-self: center;
 	}
 
+	@each $name,$color in $colors { 
+        @at-root .slab--#{$name} #{&} {
+            @if (contrast($color,color(wildcat-black)) < 4.5) {
+				.lockup__logo {
+					color: color(wildcat-white);
+				}
+            } 
+        }
+	}
+	
 	@include rr-break-directive(l) {
 		
 		.utility-nav {

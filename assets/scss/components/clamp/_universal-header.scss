@@ -6,7 +6,6 @@
 
     .universal-header__layout {
         justify-content: space-between;
-        color: color(wildcat-black);
 
         @include rr-break-directive(m) {
             display: flex;
@@ -22,13 +21,6 @@
     
         a {
             text-decoration: none;
-            color: color(medium-blue);
-            &:link, &:visited {
-                color: color(medium-blue);     
-            }
-            &:hover, &:active {
-                color: color(wildcat-blue);
-            }
         }
     
         sub {
@@ -99,14 +91,13 @@
                     margin: 0 auto;
                 }
             }
-            button {
+            .search-control {
                 box-sizing: content-box;
                 display: block;
                 height: rr-gridbase(3);
             }
-            .my-uk-logo, button {
+            .my-uk-logo, .search-control {
                 padding: rr-gridbase(1) rr-gridbase(1);
-                background-color: color(blue-gray);
                 margin-top: rr-gridbase(-1);
                 margin-bottom: rr-gridbase(-1);
             }
@@ -116,4 +107,34 @@
             } 
         }
     }
+
+    @each $name,$color in $colors { 
+        &.slab--#{$name} {
+            $link-color: color(medium-blue);
+            $hover-link-color: color(wildcat-blue);
+            $button-background-color: color(blue-gray);
+
+            @if (contrast($color,color(wildcat-black)) < 4.5) {
+                $link-color: color(wildcat-white);
+                $hover-link-color: color(light-blue-tint);
+                $button-background-color: rgba(255,255,255,.17);
+            } 
+            a, .search-control, .my-uk-logo {
+                color: $link-color;
+                transition: color .3s ease-in-out;
+                &:link, &:visited {
+                    color: $link-color;     
+                }
+                &:hover, &:active {
+                    color: $hover-link-color;            
+                }
+            }
+            .universal-nav {
+                button, .my-uk-logo {
+                    background-color: $button-background-color;
+                }
+            }
+        }
+    }
+
 }

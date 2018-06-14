@@ -52,7 +52,6 @@ $skins: transparent;
 @each $name,$color in $colors {
     .slab--#{$name} {
         background-color: $color;
-        contrast: contrast($color,$black);
         @if (contrast($color,color(wildcat-black)) < 4.5) {
             @include usescheme($text-colors-dark);
         }
