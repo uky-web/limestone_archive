@@ -4,11 +4,6 @@
     padding-top: rr-gridbase(1);
     padding-bottom: rr-gridbase(1);
 
-    img {
-        max-height: 1.5em;
-        width: auto;
-    }
-
     .universal-header__layout {
         justify-content: space-between;
         color: color(wildcat-black);
@@ -92,5 +87,33 @@
 
     @include rr-break-directive(l) {
         display: block;
+        .universal-nav {
+            .my-uk-logo {
+                box-sizing: content-box;
+                height: rr-gridbase(3);
+                width: 3.4375;
+                svg {
+                    display: block;
+                    height: rr-gridbase(3);
+                    width: 3.4375;
+                    margin: 0 auto;
+                }
+            }
+            button {
+                box-sizing: content-box;
+                display: block;
+                height: rr-gridbase(3);
+            }
+            .my-uk-logo, button {
+                padding: rr-gridbase(1) rr-gridbase(1);
+                background-color: color(blue-gray);
+                margin-top: rr-gridbase(-1);
+                margin-bottom: rr-gridbase(-1);
+            }
+            &:first-child:last-child {
+                position: relative;
+                width: 100%;
+            } 
+        }
     }
 }

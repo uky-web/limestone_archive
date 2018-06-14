@@ -8,7 +8,10 @@
         margin-left: rr-gridbase(2);
     }
 
-    a.my-uk-logo {
+    a {
+        text-decoration: none;
+        font-weight: 500;
+
         &:link, &:visited {
             color: color(dark-blue);
         }

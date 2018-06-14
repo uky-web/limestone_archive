@@ -1,6 +1,9 @@
 {% set uniqid = "UniversalNavLabel"|uniqid %}
 <nav class="universal-nav" aria-labeledby="{{ uniqid }}">
     <div class="show-for-sr" id="{{ uniqid }}">University-wide Navigation</div>
+    {% for link in extra_links %}
+        {% include 'atoms-link' with { label: link } %}
+    {% endfor %}
     {% include 'atoms-my-uk-logo' %}
     {% embed 'molecules-modal' with { content_type: "inline", modal_trigger_text: "Search", modal_variant: "search-control" } %}
         {% block modal_content %}
