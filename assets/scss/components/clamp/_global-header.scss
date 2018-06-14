@@ -1,4 +1,14 @@
 .global-header {
+	.slab.mobile-nav {
+		padding: 0;
+		
+		@include rr-break-directive(l) {
+			display: none;
+		}	
+	}
+}
+
+.global-header__banner {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -10,7 +20,7 @@
 
 	.menu-button {
 		align-self: center;
-	}	
+	}
 
 	@include rr-break-directive(l) {
 		
@@ -18,18 +28,8 @@
 			display: block;
 		}
 		
-		.mobile-nav {
-			display: none;
-		}
-
 		.toggle-button {
 			display: none;
 		}
 	}
-}
-
-.mobile-nav {
-	@include rr-break-directive(l) {
-		display: none;
-	}	
 }

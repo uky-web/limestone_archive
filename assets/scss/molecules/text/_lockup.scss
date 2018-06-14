@@ -21,7 +21,8 @@
 		display: inline-block;
         vertical-align: middle;
         word-wrap: none;
-		img {
+        color: color(wildcat-blue);
+		svg {
 			width: 10vw; // (80% of full size)           
             margin-right: 1.5vw; 
 			height: auto;
@@ -52,7 +53,7 @@
         &__logo 
         {
             vertical-align: baseline;
-            img {
+            svg {
 			    width: 3.71875rem; // (80% of full size)           
                 margin-right: .7875rem; 
             }
@@ -72,7 +73,7 @@
         &__main {
             min-height: rr-gridbase(9);
         }        
-        &__logo img {
+        &__logo svg {
 			width: 4.25rem; // (80% of full size)      
             margin-right: .9rem; 
         }
@@ -88,7 +89,7 @@
         &__main {
             min-height: rr-gridbase(11);
         }
-        &__logo img {
+        &__logo svg {
 			width: 5.3125rem;            
             margin-right: 1.125rem; 
         }

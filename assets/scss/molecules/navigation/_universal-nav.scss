@@ -1,11 +1,20 @@
 .universal-nav {
     
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 
     > * {
         margin-left: rr-gridbase(2);
+    }
+
+    a.my-uk-logo {
+        &:link, &:visited {
+            color: color(dark-blue);
+        }
+        &:hover, &:active {
+            color: color(wildcat-blue);
+        }
     }
         
     .search-control {
@@ -26,5 +35,9 @@
             vertical-align: text-bottom;
             margin-right: .3em;
         }
-    }    
+    }  
+    
+    @include rr-break-directive(l) {
+        justify-content: flex-end;
+    }
 }

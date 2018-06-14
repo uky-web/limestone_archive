@@ -1,4 +1,4 @@
-{% embed 'molecules-slab' with { slab_variant: 'universal-header slab--blue-gray' } %}
+{% embed 'molecules-slab' with { slab_variant: 'universal-header ' ~  ribbon_color|default('slab--blue-gray') } %}
     {% block slab_content %}
         <div class="universal-header__layout">
             <div class="universal-header__breadcrumb">

@@ -1,7 +1,7 @@
-<header id="MainHeader">
-{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-white' } %}
+<header id="MainHeader" class="global-header">
+{% embed 'molecules-slab' with { slab_variant: banner_color|default('slab--wildcat-white') } %}
     {% block slab_content %}
-        <div class="global-header">
+        <div class="global-header__banner">
             {% include 'molecules-lockup' %}
             {% include 'molecules-utility-nav' %}
             {% set toggle_config = {
@@ -14,7 +14,7 @@
         </div>
     {% endblock %}
 {% endembed %}
-{% embed 'molecules-slab' with { slab_variant: 'slab--dark-blue slab--thin global-nav-bar' } %}
+{% embed 'molecules-slab' with { slab_variant: bar_color|default('slab--dark-blue') ~ ' slab--thin global-nav-bar' } %}
     {% block slab_content %}
         {% include 'molecules-global-nav' %}
     {% endblock %}

@@ -1,4 +1,6 @@
 .universal-header {
+    display: none; // mobile first! Contents display in a for < m
+
     padding-top: rr-gridbase(1);
     padding-bottom: rr-gridbase(1);
 
@@ -6,7 +8,6 @@
         max-height: 1.5em;
         width: auto;
     }
-
 
     .universal-header__layout {
         justify-content: space-between;
@@ -87,5 +88,9 @@
                 }
             }
         }
+    }
+
+    @include rr-break-directive(l) {
+        display: block;
     }
 }

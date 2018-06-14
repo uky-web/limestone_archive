@@ -23,6 +23,10 @@
             }
         }            
     }
+
+    @at-root .js-tabcontent #{&} {
+        margin: rr-gridbase(2) rr-gridbase(4);
+    }
 }
 
 .section-nav--bordered {
