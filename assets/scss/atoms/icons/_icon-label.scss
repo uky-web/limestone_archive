@@ -1,55 +1,59 @@
 .icon-label {
-	display: flex;
-	align-items: baseline;
-	.ic {
-		vertical-align: baseline;
-		width: auto;
-		margin-right: 0.55em;
-	}
+  display: flex;
+  align-items: baseline;
 
-	.label {
-		white-space: normal;
-	}
+  .ic {
+    width: auto;
+    margin-right: .55em;
+    vertical-align: baseline;
+  }
+
+  .label {
+    white-space: normal;
+  }
 }
 
 .icon-label--stacked {
-	flex-direction: column;
-	align-items: center;
-	line-height: 1.1;
-	.ic {
-		font-size: 2.5em;
-		margin-right: 0;
-	}
-	.label {
-		font-size: .85em;
-	}
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+
+  .ic {
+    margin-right: 0;
+    font-size: 2.5em;
+  }
+
+  .label {
+    font-size: .85em;
+  }
 }
 
 .icon-label--big {
-	@include rr-font-compute(xl,tight);
-	align-items: center;
-	font-weight: 500;
-	text-transform: uppercase;
+  @include rr-font-compute(xl, tight);
+  align-items: center;
+  font-weight: 500;
+  text-transform: uppercase;
 
-	.ic {
-		font-size: 2em;
-		margin-right: 0.5em;
-		align-self: flex-start;
-		position: relative;
-	}
+  .ic {
+    position: relative;
+    align-self: flex-start;
+    margin-right: .5em;
+    font-size: 2em;
+  }
 
-	@at-root button #{&}, .button #{&} {
-		.label {
-			text-align: left;
-			font-size: 1em;
-			line-height: 1.1;
-		}	
-	}	
+  @at-root button #{&},
+  .button #{&} {
+    .label {
+      font-size: 1em;
+      line-height: 1.1;
+      text-align: left;
+    }
+  }
 }
 
 // Just to let you know this is an option.
 // This tweaks the icon-label styles so the
 // label and the icons line up
 .align-icons {
-	@include icon-label-align;
+  @include icon-label-align;
 }

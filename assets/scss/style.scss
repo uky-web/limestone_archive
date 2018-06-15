@@ -22,7 +22,7 @@
 @import "includes/design-variables";
 
 :root {
-    @include rr-font-compute(r,tight);
+    @include rr-font-compute(r, tight);
     position: relative;
 }
 

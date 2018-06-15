@@ -71,7 +71,7 @@
 }
 
 .image-gallery__slide__title {
-    @include rr-font-compute(l,tight);
+    @include rr-font-compute(l, tight);
     font-weight: 500;
 }
 

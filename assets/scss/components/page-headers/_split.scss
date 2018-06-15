@@ -1,7 +1,6 @@
 .page-header.page-header--split {
     padding: 0;
     background-color: color(blue-gray);
-    position: relative;
 
     $colors: light-gray wildcat-blue dark-blue;
 
@@ -11,10 +10,6 @@
             padding-bottom: 0;
             border-width: 0;
         }
-    }
-
-    .page-header--split__hero {
-
     }
 
     .page-header__content {

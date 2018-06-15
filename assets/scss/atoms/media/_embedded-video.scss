@@ -1,7 +1,7 @@
 .embedded-video {
-	@include responsive-embed();
+  @include responsive-embed;
 }
 
 .embedded-widescreen-video {
-	@include responsive-embed(16 by 9);
+  @include responsive-embed(16 by 9);
 }

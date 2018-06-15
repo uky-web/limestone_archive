@@ -3,53 +3,55 @@
 @import 'page-headers/split';
 
 .page-header {
+  .slab__wrapper {
+    padding-bottom: rr-grid-remainder(4px, 5);
+    border-bottom: 4px color(almost-wildcat-blue) solid;
+  }
+
+  h1 {
+    &.headline-group {
+      margin-bottom: 0;
+    }
+
+    .headline-group__head {
+      @include rr-font-compute(5xl, medium);
+      font-family: $font-mercury;
+      font-weight: 600;
+    }
+
+    .headline-group__sub,
+    .headline-group__super {
+      @include rr-font-compute(2xl, tight);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .headline-group__sub {
+      margin-top: rr-gridbase(2);
+    }
+
+    .headline-group__super {
+      margin-bottom: rr-gridbase(0);
+    }
+  }
+
+  &.slab--blue-gray,
+  &.slab--dark-blue,
+  &.slab--wildcat-blue {
+    padding-bottom: rr-grid-remainder(4px, 6);
 
     .slab__wrapper {
-        padding-bottom: rr-grid-remainder(4px,5);
-        border-bottom: 4px color(almost-wildcat-blue) solid;
+      padding-bottom: 0;
+      border-width: 0;
     }
-    
-    h1 {
-        &.headline-group {
-            margin-bottom: 0;
-        }
+  }
 
-        .headline-group__head {
-            @include rr-font-compute(5xl,medium);
-            font-weight: 600;
-            font-family: $font-mercury;
-        }
-        .headline-group__sub,
-        .headline-group__super {
-            @include rr-font-compute(2xl, tight);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .headline-group__sub {
-            margin-top: rr-gridbase(2);
-        }
-        .headline-group__super {
-            margin-bottom: rr-gridbase(0);
-        }
-    }
+  &.slab--dark-blue,
+  &.slab--wildcat-blue {
+    border-bottom-color: color(light-blue);
+  }
 
-    &.slab--blue-gray,
-    &.slab--dark-blue,
-    &.slab--wildcat-blue {
-        padding-bottom: rr-grid-remainder(4px, 6);
-        
-        .slab__wrapper {
-            padding-bottom: 0;
-            border-width: 0;
-        }
-    }
-
-    &.slab--dark-blue,
-    &.slab--wildcat-blue {
-        border-bottom-color: color(light-blue);
-    }
-
-    .cta-group {
-        margin-top: rr-gridbase(4);
-    }
+  .cta-group {
+    margin-top: rr-gridbase(4);
+  }
 }

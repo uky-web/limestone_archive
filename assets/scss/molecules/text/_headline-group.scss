@@ -1,70 +1,70 @@
 $sizelist: 4xl 3xl 2xl 2xl xl xl;
 
 .headline-group {
-	// Since the meaning of & changes depending on nesting.
-	$bem_root: &;
-	
-	margin-top: 0;
-	margin-bottom: rr-gridbase(2);
-	display: block;
-	line-height: auto;
+  // Since the meaning of & changes depending on nesting.
+  $bem_root: &;
+  
+  margin-top: 0;
+  margin-bottom: rr-gridbase(2);
+  display: block;
+  line-height: auto;
 
-	#{$bem_root}__super,
-	#{$bem_root}__sub {
-		display: block;
-	}
+  #{$bem_root}__super,
+  #{$bem_root}__sub {
+    display: block;
+  }
 
-	// Default non-semantic headline group
-	@at-root #{$bem_root} {
-		#{$bem_root}__super,
-		#{$bem_root}__sub {
-			@include rr-font-compute(l, tight);
-		}
-		#{$bem_root}__head {
-			@include rr-font-compute(2xl, tight);
-		}
-	}
+  // Default non-semantic headline group
+  @at-root #{$bem_root} {
+    #{$bem_root}__super,
+    #{$bem_root}__sub {
+      @include rr-font-compute(l, tight);
+    }
+    #{$bem_root}__head {
+      @include rr-font-compute(2xl, tight);
+    }
+  }
 
-	// Headline groups in teasers
-	@at-root .teaser, .link-collection, .image-gallery-block, .editorial aside  {
-		#{$bem_root} {
-			#{$bem_root}__super,
-			#{$bem_root}__sub {
-				text-transform: uppercase;
-				font-weight: 500;
-				color: color(dark-gray);
-				@include rr-font-compute(xl, tight);
-			}
+  // Headline groups in teasers
+  @at-root .teaser, .link-collection, .image-gallery-block, .editorial aside  {
+    #{$bem_root} {
+      #{$bem_root}__super,
+      #{$bem_root}__sub {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: color(dark-gray);
+        @include rr-font-compute(xl, tight);
+      }
 
-			#{$bem_root}__head {
-				font-weight: 500;
-				@include rr-font-compute(3xl, tight);
-				.underline-link {
-					&:link,
-					&:visited {
-						color: color(dark-blue);
-					}
-				}
-			}
-		}
-	}
+      #{$bem_root}__head {
+        font-weight: 500;
+        @include rr-font-compute(3xl, tight);
+        .underline-link {
+          &:link,
+          &:visited {
+            color: color(dark-blue);
+          }
+        }
+      }
+    }
+  }
 
-	// Semantic headline groups
-	// eg h1.headline-group, h2.headline-group
-	@for $pos from 1 through 6 {
-		$size: nth($sizelist, $pos);
-		$subsize: map-offset-from($font-sizes, $size, -2);
+  // Semantic headline groups
+  // eg h1.headline-group, h2.headline-group
+  @for $pos from 1 through 6 {
+    $size: nth($sizelist, $pos);
+    $subsize: map-offset-from($font-sizes, $size, -2);
 
-		@at-root h#{$pos}#{&} {
-			#{$bem_root}__super,
-			#{$bem_root}__sub {
-				@include rr-font-compute($subsize, tight);
-			}
-			#{$bem_root}__head {
-				@include rr-font-compute($size, tight);
-			}
-		}
-	}
+    @at-root h#{$pos}#{&} {
+      #{$bem_root}__super,
+      #{$bem_root}__sub {
+        @include rr-font-compute($subsize, tight);
+      }
+      #{$bem_root}__head {
+        @include rr-font-compute($size, tight);
+      }
+    }
+  }
 }
 
 

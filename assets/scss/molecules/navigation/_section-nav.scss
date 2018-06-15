@@ -9,7 +9,7 @@
         padding-left: rr-gridbase(3);   
         li {
             padding-bottom: rr-gridbase(1);
-            @include rr-font-compute(r,medium);
+            @include rr-font-compute(r, medium);
             &:last-child {
                 padding-bottom: 0;
             }
@@ -39,7 +39,7 @@
         @include block-spacing;
         background-color: $color;
         border-color: $color;
-        @if (contrast($color,color(wildcat-black)) < 4.5) {
+        @if (contrast($color, color(wildcat-black)) < 4.5) {
             @include usescheme($text-colors-dark);
         }
 

@@ -1,45 +1,45 @@
 @mixin content-container {
-	padding-left: 1em;
-	padding-right: 1em;
-	width: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
 
-	@include breakpoint(large) {
-		max-width: $global-width;
-		width: 100%;
-		margin: 0 auto;
-	}
+  @include breakpoint(large) {
+    max-width: $global-width;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-	@include breakpoint(74em) {
-		width: 100%;
-		padding-left: 0;
-		padding-right: 0;
-	}
+  @include breakpoint(74em) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @mixin spread_layout {
-	.left,
-	.right {
-		display: block;
-	}
+  .left,
+  .right {
+    display: block;
+  }
 
-	@include breakpoint(medium) {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+  @include breakpoint(medium) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-		.left,
-		.right {
-			width: 100%;
-			flex: 1 1 auto;
-		}
+    .left,
+    .right {
+      width: 100%;
+      flex: 1 1 auto;
+    }
 
-		.left {
-			margin-right: rem-calc(8);
-		}
+    .left {
+      margin-right: rem-calc(8);
+    }
 
-		.right {
-			margin-left: rem-calc(8);
-			text-align: right;
-		}
-	}
+    .right {
+      margin-left: rem-calc(8);
+      text-align: right;
+    }
+  }
 }

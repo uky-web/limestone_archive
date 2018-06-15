@@ -1,76 +1,79 @@
-button, a.button, input.button {
-    @include rr-font-compute(l,tight);
-    
-    font-weight: 500;
-    font-family: $font-avenirnext;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0;
+button,
+a.button,
+input.button {
+  @include rr-font-compute(l, tight);
 
-    // Avenir is not quite centered in the lineheight
-    // because of weird font metrics, so in order to get
-    // text visibly aligned I have to provide unique padding
-    // values for top and bottom.
+  display: inline-block;
+  margin: 0;
+
+  //  Avenir is not quite centered in the lineheight
+  //  because of weird font metrics, so in order to get
+  //  text visibly aligned I have to provide unique padding
+  //  values for top and bottom.
+  padding: {
+    top: calc(1rem - 2px);
+    right: calc(1.875rem - 3px);
+    bottom: calc(1rem - 4px);
+    left: calc(1.875rem - 3px);
+  }
+  transition: .3s ease-in-out;
+  border-width: 3px;
+  border-style: solid;
+  font-family: $font-avenirnext;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &.button--ghost {
+    background-color: transparent;
+    color: color(wildcat-blue);
+  }
+
+  &.button--transparent {
+    border-color: transparent;
+    background-color: transparent;
+    color: color(wildcat-blue);
+  }
+
+  // Variants
+  &.button--small {
+    @include rr-font-compute(s, tight);
     padding: {
-        top: calc(1rem - 2px);
-        bottom: calc(1rem - 4px);
-        left: calc(1.875rem - 3px);
-        right: calc(1.875rem - 3px);        
+      right: calc(1.625rem - 3px);
+      left: calc(1.625rem - 3px);
     }
-    
-    display: inline-block;
-    text-decoration: none;
+  }
 
-    border-width: 3px;
-    border-style: solid;
-    transition: .3s ease-in-out;
-
-    &.button--ghost {
-        background-color: transparent;
-        color: color(wildcat-blue);
+  &.button--large {
+    @include rr-font-compute(l, tight);
+    padding: {
+      right: calc(2rem - 3px);
+      left: calc(2rem - 3px);
     }
-
-    &.button--transparent {
-        background-color: transparent;
-        border-color: transparent;
-        color: color(wildcat-blue);
-    }
-
-    /* Variants */
-    &.button--small {
-        @include rr-font-compute(s, tight);
-        padding: {
-            left: calc(1.625rem - 3px);
-            right: calc(1.625rem - 3px);
-        }
-    }
-
-    &.button--large {
-        @include rr-font-compute(l, tight);
-        padding: {
-            left: calc(2rem - 3px);
-            right: calc(2rem - 3px);
-        }        
-    }
+  }
 }
 
 button.video-button {
-    display: block;
+  display: block;
 
+  .video-button__pause {
+    display: block;
+  }
+
+  .video-button__play {
+    display: none;
+  }
+
+  &.video-button--paused {
     .video-button__pause {
-        display: block;
+      display: none;
     }
+
     .video-button__play {
-        display: none;
+      display: block;
     }
-    &.video-button--paused {
-        .video-button__pause {
-            display: none;
-        }
-        .video-button__play {
-            display: block;
-        }
-    }
+  }
 }
 
 

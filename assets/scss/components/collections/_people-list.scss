@@ -24,15 +24,15 @@
         margin-top: 1rem;
 
         dd {
-            @include rr-font-compute(r,medium);
+            @include rr-font-compute(r, medium);
             .link--fancy {
-                @include rr-font-compute(r,medium);
+                @include rr-font-compute(r, medium);
             }
         }
     }
 
     .people-list--name {
-        @include rr-font-compute(2xl,tight);
+        @include rr-font-compute(2xl, tight);
         font-family: $font-mercury;
         font-weight: 600;
     }
@@ -50,7 +50,7 @@
             }
         }
         td {
-            @include rr-font-compute(r,medium);
+            @include rr-font-compute(r, medium);
             padding: 1rem;
         }
     }

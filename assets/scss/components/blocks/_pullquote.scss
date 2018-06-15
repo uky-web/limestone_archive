@@ -1,119 +1,119 @@
 .pullquote {
 
-	@include block-spacing($borderColor: transparent);
+  @include block-spacing($borderColor: transparent);
 
-	&__quote {
-		p {
-			@include rr-font-compute(4xl,medium);
-			font-family: $font-mercury;
-			font-weight: 500;
-			font-style: italic;
-			margin-top: 0;
-			&::before,
-			&::after {
-				position: relative;
-				top: -.3em;
-				font-family: iconfont;
-				font-size: .5em;
-				font-style: normal;
-				color: color(wildcat-blue);
-				display: inline-block;
-				vertical-align: top;
-			}
-			&::before {
-				content: $icon-quote-open;
-				margin-right: .5em;
-			}
-			&::after {
-				content: $icon-quote-close;
-				position: relative;
-				margin-left: -1.6em;
-				right: -2.1em;
-				width: 0;
-			}
-		}
-	}
+  &__quote {
+    p {
+      @include rr-font-compute(4xl, medium);
+      font-family: $font-mercury;
+      font-weight: 500;
+      font-style: italic;
+      margin-top: 0;
+      &::before,
+      &::after {
+        position: relative;
+        top: -.3em;
+        font-family: iconfont;
+        font-size: .5em;
+        font-style: normal;
+        color: color(wildcat-blue);
+        display: inline-block;
+        vertical-align: top;
+      }
+      &::before {
+        content: $icon-quote-open;
+        margin-right: .5em;
+      }
+      &::after {
+        content: $icon-quote-close;
+        position: relative;
+        margin-left: -1.6em;
+        right: -2.1em;
+        width: 0;
+      }
+    }
+  }
 
-	&__meta {
-		position: relative;
-		margin-top: rr-gridbase(4);
-		padding-left: 7.8627rem;
-		img {
-			position: absolute;
-			width: 6.25rem;
-			height: auto;
-			top: 0;
-			left: 0;
-		}
-	}
+  &__meta {
+    position: relative;
+    margin-top: rr-gridbase(4);
+    padding-left: 7.8627rem;
+    img {
+      position: absolute;
+      width: 6.25rem;
+      height: auto;
+      top: 0;
+      left: 0;
+    }
+  }
 
-	&__attribution {
-		@include divider($color: light-blue);
-		position: relative;
-		display: block;
-		padding-top: rr-gridbase(3);
-		min-height: 6.25rem;
-	}
+  &__attribution {
+    @include divider($color: light-blue);
+    position: relative;
+    display: block;
+    padding-top: rr-gridbase(3);
+    min-height: 6.25rem;
+  }
 
-	&__first-line {
-		@include rr-font-compute(2xl,tight);
-		color: color(wildcat-blue);
-		font-style: normal;
-		font-weight: 500;
-		display: block;
-	}
+  &__first-line {
+    @include rr-font-compute(2xl, tight);
+    color: color(wildcat-blue);
+    font-style: normal;
+    font-weight: 500;
+    display: block;
+  }
 
-	&__second-line {
-		@include rr-font-compute(xl, medium);
-		display: block;
-	}
+  &__second-line {
+    @include rr-font-compute(xl, medium);
+    display: block;
+  }
 
-	$root: &;
+  $root: &;
 
-	&--dark {
-		@include usescheme($text-colors-dark);
-		padding: rr-gridbase(4);
-		background-color: color(wildcat-blue);
-		border-color: color(wildcat-blue);	
+  &--dark {
+    @include usescheme($text-colors-dark);
+    padding: rr-gridbase(4);
+    background-color: color(wildcat-blue);
+    border-color: color(wildcat-blue);  
 
-		#{$root}__first-line {
-			color: color(light-blue-tint);
-		}
+    #{$root}__first-line {
+      color: color(light-blue-tint);
+    }
 
-		p::before,
-		p::after {
-			color: color(wildcat-white);
-		}
-	}
+    p::before,
+    p::after {
+      color: color(wildcat-white);
+    }
+  }
 
-	&--brief {
-		#{$root}__quote p {
-			@include rr-font-compute(2xl,medium);
-		}
-		#{$root}__meta {
-			margin-top: rr-gridbase(2);
-			padding-left: 0;
-			img {
-				display: none;
-			}
-		}
+  &--brief {
+    #{$root}__quote p {
+      @include rr-font-compute(2xl, medium);
+    }
+    #{$root}__meta {
+      margin-top: rr-gridbase(2);
+      padding-left: 0;
+      img {
+        display: none;
+      }
+    }
 
-		#{$root}__attribution {
-			position: relative;
-			display: block;
-			padding-top: rr-gridbase(2);
-			@include divider($color: light-blue);
-			min-height: auto;
-		}
+    #{$root}__attribution {
+      position: relative;
+      display: block;
+      padding-top: rr-gridbase(2);
+      @include divider($color: light-blue);
+      min-height: auto;
+    }
 
-		#{$root}__first-line {
-			@include rr-font-compute(xl, tight);
-		}
+    #{$root}__first-line {
+      @include rr-font-compute(xl, tight);
+    }
 
-		#{$root}__second-line {
-			@include rr-font-compute(l, medium);
-		}
-		
-	}
-	
+    #{$root}__second-line {
+      @include rr-font-compute(l, medium);
+    }
+    
+  }
+  
 }

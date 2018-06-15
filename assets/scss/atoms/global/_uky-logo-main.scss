@@ -1,22 +1,23 @@
 .uky-logo-main {
-    .uky-logo-main__logo {
-        fill: color(wildcat-blue);
-    }
-    .uky-logo-main__wordmark {
-        fill: color(wildcat-black);
-    }
+  .uky-logo-main__logo {
+    fill: color(wildcat-blue);
+  }
 
-    @each $name,$color in $colors {
-        @at-root .slab--#{$name} {
-            @if (contrast($color,color(wildcat-black)) < 4.5) {
-                .uky-logo-main__logo {
-                    fill: color(wildcat-white);
-                }
-                .uky-logo-main__wordmark {
-                    fill: color(wildcat-white);
-                }
-            }
+  .uky-logo-main__wordmark {
+    fill: color(wildcat-black);
+  }
+
+  @each $name, $color in $colors {
+    @at-root .slab--#{$name} {
+      @if (contrast($color, color(wildcat-black)) < 4.5) {
+        .uky-logo-main__logo {
+          fill: color(wildcat-white);
         }
+
+        .uky-logo-main__wordmark {
+          fill: color(wildcat-white);
+        }
+      }
     }
-    
+  }
 }

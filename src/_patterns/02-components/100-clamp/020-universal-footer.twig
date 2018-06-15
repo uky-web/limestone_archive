@@ -1,5 +1,13 @@
-{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-black' } %}
+{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-blue' } %}
     {% block slab_content %}
-        {% include 'atoms-placeholder' with { title: "Universal Footer" } %}
+        <div class="universal-footer__ribbon">
+            <span>&copy; University of Kentucky</span>
+            <a href="#">{% include 'atoms-icon-label' with { icon: 'pin', 'label': 'Lexington, Kentucky 40506' } %}</a>
+            <span>An Equal Opportunity University</span>
+            <a href="#">Accreditation</a>
+            <a href="#">Diretory</a>
+            <a href="#">Email</a>
+            <a href="#">Accessibility</a>
+        </div>
     {% endblock %}
 {% endembed %}

@@ -1,140 +1,146 @@
 .universal-header {
-    display: none; // mobile first! Contents display in a for < m
+  display: none; // mobile first! Contents display in a for < m
+  padding-top: rr-gridbase(1);
+  padding-bottom: rr-gridbase(1);
 
-    padding-top: rr-gridbase(1);
-    padding-bottom: rr-gridbase(1);
+  .universal-header__layout {
+    justify-content: space-between;
+    @include rr-break-directive(m) {
+      display: flex;
+    }
+  }
 
-    .universal-header__layout {
-        justify-content: space-between;
-
-        @include rr-break-directive(m) {
-            display: flex;
-        }
+  .universal-header__breadcrumb {
+    display: none;
+    @include rr-break-directive(m) {
+      display: block;
     }
 
-    .universal-header__breadcrumb {
-        display: none;
-
-        @include rr-break-directive(m) {
-            display: block;
-        }
-    
-        a {
-            text-decoration: none;
-        }
-    
-        sub {
-            font-size: inherit;
-            position: relative;
-            top: .1875rem;
-            left: -.1875rem;
-        }
-    
-    
-        ul {
-            @include rr-font-compute(s,tight);            
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            font-family: $font-mercury;
-            font-weight: normal;
-            text-indent: -1.531em;
-            padding-left: 1.531em;            
-
-            @include rr-break-directive(m) {
-                @include rr-font-compute(r,tight);
-            }
-
-            @include rr-break-directive(l) {
-                @include rr-font-compute(l,tight);
-            }
-
-            @include rr-break-directive(xl) {
-                @include rr-font-compute(xl,tight);
-                text-indent: -1.531em;
-                padding-left: 1.531em;                      
-            }
-
-            li {
-                display: inline;
-                        
-                &::after {
-                    content: '|';
-                    padding-left: rr-gridbase(1);
-                    padding-right: rr-gridbase(1);
-                }
-
-                &:first-child {
-                    img {
-                        
-                    }
-                }
-
-                &:last-child::after {
-                    display: none;
-                }
-            }
-        }
+    a {
+      text-decoration: none;
     }
 
-    @include rr-break-directive(l) {
+    sub {
+      position: relative;
+      top: .1875rem;
+      left: -.1875rem;
+      font-size: inherit;
+    }
+
+    ul {
+      @include rr-font-compute(s, tight);
+      margin: 0;
+      padding: 0;
+      padding-left: 1.531em;
+      font-family: $font-mercury;
+      font-weight: normal;
+      list-style: none;
+      text-indent: -1.531em;
+
+      @include rr-break-directive(m) {
+        @include rr-font-compute(r, tight);
+      }
+
+      @include rr-break-directive(l) {
+        @include rr-font-compute(l, tight);
+      }
+
+      li {
+        display: inline;
+
+        &::after {
+          padding-right: rr-gridbase(1);
+          padding-left: rr-gridbase(1);
+          content: '|';
+        }
+
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include rr-break-directive(l) {
+    display: block;
+
+    &.slab--wildcat-white .universal-header__breadcrumb {
+      margin-top: rr-gridbase(-1);
+      margin-bottom: calc(#{rr-gridbase(-1)} + 2px);
+      padding-top: rr-gridbase(1);
+      padding-bottom: calc(#{rr-gridbase(1)} - 2px);
+      border-bottom: 2px color(blue-gray) solid;
+    }
+
+    .universal-nav {
+      .my-uk-logo {
+        width: 3.4375;
+        height: rr-gridbase(3);
+        box-sizing: content-box;
+
+        svg {
+          display: block;
+          width: 3.4375em;
+          height: rr-gridbase(3);
+          margin: 0 auto;
+        }
+      }
+
+      .search-control {
         display: block;
-        .universal-nav {
-            .my-uk-logo {
-                box-sizing: content-box;
-                height: rr-gridbase(3);
-                width: 3.4375;
-                svg {
-                    display: block;
-                    height: rr-gridbase(3);
-                    width: 3.4375;
-                    margin: 0 auto;
-                }
-            }
-            .search-control {
-                box-sizing: content-box;
-                display: block;
-                height: rr-gridbase(3);
-            }
-            .my-uk-logo, .search-control {
-                padding: rr-gridbase(1) rr-gridbase(1);
-                margin-top: rr-gridbase(-1);
-                margin-bottom: rr-gridbase(-1);
-            }
-            &:first-child:last-child {
-                position: relative;
-                width: 100%;
-            } 
-        }
+        height: rr-gridbase(3);
+        box-sizing: content-box;
+      }
+
+      .my-uk-logo,
+      .search-control {
+        margin-top: rr-gridbase(-1);
+        margin-bottom: rr-gridbase(-1);
+        padding: rr-gridbase(1);
+      }
+
+      &:first-child:last-child {
+        position: relative;
+        width: 100%;
+      }
     }
+  }
 
-    @each $name,$color in $colors { 
-        &.slab--#{$name} {
-            $link-color: color(medium-blue);
-            $hover-link-color: color(wildcat-blue);
-            $button-background-color: color(blue-gray);
+  @each $name, $color in $colors {
+    &.slab--#{$name} {
+      $link-color: color(medium-blue);
+      $hover-link-color: color(wildcat-blue);
+      $button-background-color: color(blue-gray);
 
-            @if (contrast($color,color(wildcat-black)) < 4.5) {
-                $link-color: color(wildcat-white);
-                $hover-link-color: color(light-blue-tint);
-                $button-background-color: rgba(255,255,255,.17);
-            } 
-            a, .search-control, .my-uk-logo {
-                color: $link-color;
-                transition: color .3s ease-in-out;
-                &:link, &:visited {
-                    color: $link-color;     
-                }
-                &:hover, &:active {
-                    color: $hover-link-color;            
-                }
-            }
-            .universal-nav {
-                button, .my-uk-logo {
-                    background-color: $button-background-color;
-                }
-            }
+      @if (contrast($color, color(wildcat-black)) < 4.5) {
+        $link-color: color(wildcat-white);
+        $hover-link-color: color(light-blue-tint);
+        $button-background-color: rgba(255, 255, 255, .17);
+      }
+
+      a,
+      .search-control,
+      .my-uk-logo {
+        transition: color .3s ease-in-out;
+        color: $link-color;
+
+        &:link,
+        &:visited {
+          color: $link-color;
         }
-    }
 
+        &:hover,
+        &:active {
+          color: $hover-link-color;
+        }
+      }
+
+      .universal-nav {
+        button,
+        .my-uk-logo {
+          background-color: $button-background-color;
+        }
+      }
+    }
+  }
 }

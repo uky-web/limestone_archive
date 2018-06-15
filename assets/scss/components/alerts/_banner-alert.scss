@@ -4,11 +4,15 @@
 
     @include rr-break-directive(l) {
         padding: rr-gridbase(4);
+    } 
+
+    li { 
+
     }
 
     a, p {
         @include rr-font-compute(l, medium);
-    }
+    } 
 
     &--emergency {
         background-color: color(alert);

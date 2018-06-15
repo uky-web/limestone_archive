@@ -1,16 +1,19 @@
 .main-footer {
+  .row__col {
+    padding: {
+      top: 0.5rem;
+      bottom: 0.5rem;
+    }
+  } 
+}
 
-	.row__col {
-		padding: {
-			top: 0.5rem;
-			bottom: 0.5rem;
-		}
-	}
+em {
+
 }
 
 .main-footer__ribbon {
-	padding: {
-		top: 0.5rem;
-		bottom: 0.5rem;
-	}
+  padding: {
+    top: 0.5rem;
+    bottom: 0.5rem;
+  }
 }

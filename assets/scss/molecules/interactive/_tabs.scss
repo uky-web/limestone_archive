@@ -8,7 +8,7 @@
 .js-tablist__item {
     flex: 1 1 100%;
     a { 
-        @include rr-font-compute(l,tight);
+        @include rr-font-compute(l, tight);
         background-color: color(dark-blue);
         padding: rr-gridbase(2);
         display: block;

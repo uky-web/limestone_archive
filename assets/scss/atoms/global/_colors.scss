@@ -1,26 +1,28 @@
-@mixin show_color($color) {
-	background-color: $color;
-	&::before {
-		content: '#{$color}';
-		display: inline-block;
-		padding: .5em;
-		border-radius: 0 0 4px 0;
-		font-size: 12px;
-		font-weight: bold;
-		@if (brightness($color) > 50) {
-			color: #000;
-			background-color: rgba(255,255,255,.5);
-		}
-		@else {
-			color: #fff;
-			background-color: rgba(0,0,0,.5);
-		}
-	}
+@mixin show-color($color) {
+  background-color: $color;
+
+  &::before {
+    $swatch-label-background: rgba($black, .5);
+    $swatch-label-foreground: $white;
+    @if (brightness($color) > 50) {
+      $swatch-label-background: rgba($white, .5);
+      $swatch-label-foreground: $black;
+    }
+
+    display: inline-block;
+    padding: .5em;
+    border-radius: 0 0 4px;
+    background-color: $swatch-label-background;
+    color: $swatch-label-foreground;
+    font-size: 12px;
+    font-weight: bold;
+    content: '#{$color}';
+  }
 }
 
-@each $name,$color in $colors {
-	.bg-#{$name} {
-		@include show_color($color)
-	}
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    @include show-color($color)
+  }
 }
 

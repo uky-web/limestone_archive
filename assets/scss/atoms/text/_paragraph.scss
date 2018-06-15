@@ -1,10 +1,10 @@
 p {
-    @include rr-font-compute(r,medium);
-    margin-bottom: rr-gridbase(2);
+  @include rr-font-compute(r, medium);
+  margin-bottom: rr-gridbase(2);
 }
 
 code {
-    // have to make this text slightly smaller than the surround to keep from
-    // interfering with the line height.
-    font-size: .8em;
+  // have to make this text slightly smaller than the surround to keep from
+  // interfering with the line height.
+  font-size: .8em;
 }

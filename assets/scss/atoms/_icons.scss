@@ -1,10 +1,11 @@
-@import "icons/main";
-@import "icons/icon-label";
+@import 'icons/main';
+@import 'icons/icon-label';
 
 .icon-catalog {
-    @include no-decoration;
-    @include icon-label-align;
-    li {
-        @include rr-font-compute(xl,wide);
-    }
+  @include no-decoration;
+  @include icon-label-align;
+
+  li {
+    @include rr-font-compute(xl, wide);
+  }
 }

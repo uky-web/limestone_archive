@@ -3,12 +3,12 @@
     margin-bottom: rr-gridbase(1);
 
     .byline {
-        @include rr-font-compute(l,medium);
+        @include rr-font-compute(l, medium);
         font-weight: 400;
     }
 
     .date {
-        @include rr-font-compute(r,medium);
+        @include rr-font-compute(r, medium);
     }
     
     .who-when {

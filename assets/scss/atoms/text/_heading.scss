@@ -2,23 +2,27 @@
 // display context should have an additional 
 // font style applied to them.
 
-h1,h2,h3,
-h4,h5,h6 {
-	@include rr-font-compute(l,tight);
-	font-weight: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include rr-font-compute(l, tight);
+  font-weight: normal;
 }
 
 .editorial {
-	@each $tag, $config in $editorial-headings {
-		#{$tag} {
-			@include rr-heading($tag,$editorial-headings);
-			margin-top: 0;
-			margin-bottom: rr-gridbase(2);
-		}
+  @each $tag, $config in $editorial-headings {
+    #{$tag} {
+      @include rr-heading($tag, $editorial-headings);
+      margin-top: 0;
+      margin-bottom: rr-gridbase(2);
+    }
 
-		aside h2 {
-			font-family: $font-avenirnext;
-		}
-	}
+    aside h2 {
+      font-family: $font-avenirnext;
+    }
+  }
 }
 

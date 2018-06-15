@@ -2,45 +2,43 @@
 // ul defaults can go here
 // but please don't make any
 // it causes much rage
-ul {
-	li {
-
-	}
-}
-
-ul, ol {
-	&.no-decoration {
-		@include no-decoration;
-	}
+ul,
+ol {
+  &.no-decoration {
+    @include no-decoration;
+  }
 }
 
 dl {
-	dt {
-		font-weight: 500;		
-		@include rr-font-compute(l, medium);
-		margin-bottom: rr-gridbase(1);
-	}
-	dd {
-		@include rr-font-compute(r, medium);
-		margin-left: 0;
-		margin-bottom: rr-gridbase(2);
-	}
+  dt {
+    @include rr-font-compute(l, medium);
+    margin-bottom: rr-gridbase(1);
+    font-weight: 500;
+  }
 
-	&.described-links {
-		dt {
-			margin-bottom: 0;
-		}
-		dd {
-			margin-left: .75rem; // matches padding on fancy links
-		}
-	}
+  dd {
+    @include rr-font-compute(r, medium);
+    margin-bottom: rr-gridbase(2);
+    margin-left: 0;
+  }
 
-	&.invisible-labels {
-		dt {
-			display: none;
-		}
-		dd {
-			margin-bottom: 0;
-		}
-	}
+  &.described-links {
+    dt {
+      margin-bottom: 0;
+    }
+
+    dd {
+      margin-left: .75rem; // matches padding on fancy links
+    }
+  }
+
+  &.invisible-labels {
+    dt {
+      display: none;
+    }
+
+    dd {
+      margin-bottom: 0;
+    }
+  }
 }

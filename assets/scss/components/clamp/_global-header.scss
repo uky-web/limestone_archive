@@ -1,50 +1,50 @@
 .global-header {
-	.slab.mobile-nav {
-		padding: 0;
-		
-		@include rr-break-directive(l) {
-			display: none;
-		}	
-	}
+  .slab.mobile-nav {
+    padding: 0;
+    
+    @include rr-break-directive(l) {
+      display: none;
+    }  
+  }
 }
 
 .global-header__banner {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;	
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;  
 
-	.uky-logo-main {
-		width: 23.118rem;
-		height: rr-gridbase(12);
-	}
+  .uky-logo-main {
+    width: 23.118rem;
+    height: rr-gridbase(12);
+  }
 
-	.utility-nav {
-		display: none;
-	}
+  .utility-nav {
+    display: none;
+  }
 
-	.menu-button {
-		align-self: center;
-	}
+  .menu-button {
+    align-self: center;
+  }
 
-	@each $name,$color in $colors { 
+  @each $name,$color in $colors { 
         @at-root .slab--#{$name} #{&} {
-            @if (contrast($color,color(wildcat-black)) < 4.5) {
-				.lockup__logo {
-					color: color(wildcat-white);
-				}
+            @if (contrast($color, color(wildcat-black)) < 4.5) {
+        .lockup__logo {
+          color: color(wildcat-white);
+        }
             } 
         }
-	}
-	
-	@include rr-break-directive(l) {
-		
-		.utility-nav {
-			display: block;
-		}
-		
-		.toggle-button {
-			display: none;
-		}
-	}
+  }
+  
+  @include rr-break-directive(l) {
+    
+    .utility-nav {
+      display: block;
+    }
+    
+    .toggle-button {
+      display: none;
+    }
+  }
 }

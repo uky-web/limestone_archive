@@ -1,39 +1,41 @@
 .teaser {
-	.headline-group {
-		.headline-group__sub,
-		.headline-group__super {
-			text-transform: uppercase;
-			font-weight: 500;
-			@include rr-font-compute(xl,medium);
-		}
-		.headline-group__head {
-			@include rr-font-compute(3xl, medium);
-		}
-	}
+  .headline-group {
+    .headline-group__sub,
+    .headline-group__super {
+      @include rr-font-compute(xl, medium);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .headline-group__head {
+      @include rr-font-compute(3xl, medium);
+    }
+  }
 }
 
 .teaser__media {
-	margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .teaser__content {
-	.editorial {
-		margin-top: 1rem;
-		@include rr-font-compute(l, medium);
-	}
-	.editorial + .button {
-		margin-top: 1rem;
-	}
+  .editorial {
+    @include rr-font-compute(l, medium);
+    margin-top: 1rem;
+  }
+
+  .editorial + .button {
+    margin-top: 1rem;
+  }
 }
 
-@each $name,$color in $colors {
-    .teaser--#{$name} {
-        @include block-spacing;
-        background-color: $color;
-        border-color: $color;
-        @if (contrast($color,color(wildcat-black)) < 4.5) {
-            @include usescheme($text-colors-dark);
-        }
+@each $name, $color in $colors {
+  .teaser--#{$name} {
+    @include block-spacing;
+    background-color: $color;
+    border-color: $color;
+    @if (contrast($color, color(wildcat-black)) < 4.5) {
+      @include usescheme($text-colors-dark);
     }
+  }
 }
 

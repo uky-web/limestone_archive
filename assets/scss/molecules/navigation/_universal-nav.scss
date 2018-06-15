@@ -26,7 +26,7 @@
         color: color(medium-blue);
         border-width: 0;
         font-family: $font-avenirnext;
-        @include rr-font-compute(s,tight);
+        @include rr-font-compute(s, tight);
 
         &:hover, &:active {
             background-color: color(light-blue-tint);

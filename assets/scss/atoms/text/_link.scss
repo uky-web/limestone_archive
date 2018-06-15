@@ -1,33 +1,32 @@
 @mixin underline-link {
-    font-weight: 500;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
-    transition: .2s background-position ease-out;
+  @include faux-underline;
+  @include link-colors;
+  position: relative;
+  transition: .2s background-position ease-out;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 1;
 
-    @include faux-underline();
+  &.link--fancy {
+    background-image: none;
+  }
 
-    @include link-colors();
-
-    &.link--fancy {
-        background-image: none;
-    }
-    
-    // Shift the layered gradients around 
-    // to give the impression the dark inactive
-    // underline is changing color and growing.
-    // The huge offset value for the inactive state
-    // makes sure the whole underline disappears in
-    // one animation frame, otherwise you get an 
-    // unsettling flicker.
-    &:active, 
-    &:hover {
-        background-position: 0 0, 1000px 2px;
-    }
+  // Shift the layered gradients around 
+  // to give the impression the dark inactive
+  // underline is changing color and growing.
+  // The huge offset value for the inactive state
+  // makes sure the whole underline disappears in
+  // one animation frame, otherwise you get an 
+  // unsettling flicker.
+  &:active,
+  &:hover {
+    background-position: 0 0, 1000px 2px;
+  }
 }
 
-.underline-link, .editorial a {
-    @include underline-link;
+.underline-link,
+.editorial a {
+  @include underline-link;
 }
 
 // We include the editorial link styles here
@@ -37,47 +36,50 @@
 .link--fancy-reverse,
 .editorial .link--fancy,
 .editorial .link--fancy-reverse {
-    @include rr-font-compute(xl, tight);
-    @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
-    display: inline-block;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color .2s ease-in-out;
-    position: relative;
-    padding-left: rr-gridbase(3);
+  @include rr-font-compute(xl, tight);
+  @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
+  display: inline-block;
+  position: relative;
+  padding-left: rr-gridbase(3);
+  transition: color .2s ease-in-out;
+  font-weight: 500;
+  text-decoration: none;
 
+  &::before {
+    position: absolute;
+    left: .25em;
+    transition: left .3s ease-in-out;
+    color: color(light-blue);
+    font-family: iconfont;
+    font-size: .7em;
+    content: $icon-angle-right;
+  }
+
+  &:hover,
+  &:active {
     &::before {
-        content: $icon-angle-right;
-        font-family: iconfont;
-        color: color(light-blue);
-        font-size: .7em;
-        position: absolute;    
-        transition: left .3s ease-in-out;    
-        left: .25em;
+      left: .5em;
     }
-
-    &:hover, &:active {
-        &::before {
-            left: .5em;
-        }
-    }
+  }
 }
 
 .link--fancy-reverse,
 .editorial a.link--fancy-reverse {
+  &::before {
+    left: .25em;
+    content: $icon-angle-left;
+  }
+
+  &:hover,
+  &:active {
     &::before {
-        content: $icon-angle-left;
-        left: .25em;
+      left: 0;
     }
-    &:hover, &:active {
-        &::before {
-            left: 0;
-        }
-    }    
+  }
 }
 
 // Tweak the font size
 .editorial .link--fancy,
 .editorial .link--fancy-reverse {
-    @include rr-font-compute(l,tight);
+  @include rr-font-compute(l, tight);
 }

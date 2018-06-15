@@ -25,7 +25,7 @@
 .sg-colors {
   margin-left: 0;
   list-style: none;
-  @include css-grid-columns(map-get($rr-grids,6-up));
+  @include css-grid-columns(map-get($rr-grids, 6-up));
 }
 
 .sg-colors__column {
@@ -42,7 +42,7 @@
 }
 
 .sg-colors pre {
-  @include rr-font-compute(xs,tight);
+  @include rr-font-compute(xs, tight);
   margin-bottom: rr-gridbase();
 }
 
@@ -55,7 +55,7 @@
 }
 
 .sg-pattern-example {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .sg-pattern {

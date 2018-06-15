@@ -1,5 +1,5 @@
 .accordion__header {
-    @include rr-font-compute(2xl,medium);
+    @include rr-font-compute(2xl, medium);
     border: 1px color(light-gray) solid;
     border-width: 1px 0 0 0;
     background-color: transparent;
@@ -9,7 +9,7 @@
     width: 100%;
     text-transform: none;
     padding: {
-        top: rr-grid-remainder(1px,2);
+        top: rr-grid-remainder(1px, 2);
         bottom: rr-gridbase(2);
         left: 0;
         right: 0;

@@ -1,105 +1,109 @@
 .contact-info {
-    &__heading {
-        margin-bottom: rr-gridbase(2);
-        p {
-            @include rr-font-compute(r,medium);
-        }
-    }
-    
-    &__content {
-        position: relative;
-        @include rr-break-directive('m') {
-            margin-top: rr-gridbase(4.5);
-        }
-    }
+  &__heading {
+    margin-bottom: rr-gridbase(2);
 
-    &__identity {
-        @include rr-break-directive('m') {
-            border-top: 1px transparent solid;
-            position: relative;
-            top: -1px;
-            margin-top: rr-gridbase(4.5);
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 4px;
-                width: 50px;
-                background-color: color(wildcat-blue);
-            }            
-        }        
+    p {
+      @include rr-font-compute(r, medium);
     }
+  }
 
-    &__photo {
-        width: 66vw;
-        height: auto;
-        margin: 0 auto #{rr-grid-remainder(3px, 2)};
+  &__content {
+    position: relative;
 
-        @include rr-break-directive('m') {
-            width: 6.25rem;
-            float: right;
-            position: relative;
-            margin-left: rr-gridbase(2);
-            margin-bottom: rr-gridbase(2);
-            margin-right: calc(#{rr-gridbase(-3)} + 6px);
-        }
-        @include rr-break-directive('l') {
-            margin-left: rr-gridbase(2);
-            margin-bottom: rr-gridbase(2);
-            margin-right: calc(#{rr-gridbase(-6)} + 8px);
-        }
+    @include rr-break-directive('m') {
+      margin-top: rr-gridbase(4.5);
+    }
+  }
+
+  &__identity {
+    @include rr-break-directive('m') {
+      position: relative;
+      top: -1px;
+      margin-top: rr-gridbase(4.5);
+      border-top: 1px transparent solid;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background-color: color(wildcat-blue);
+        content: '';
+      }
+    }
+  }
+
+  &__photo {
+    width: 66vw;
+    height: auto;
+    margin: 0 auto #{rr-grid-remainder(3px, 2)};
+
+    @include rr-break-directive('m') {
+      position: relative;
+      width: 6.25rem;
+      margin-right: calc(#{rr-gridbase(-3)} + 6px);
+      margin-bottom: rr-gridbase(2);
+      margin-left: rr-gridbase(2);
+      float: right;
     }
 
-    &__name {
-        @include rr-font-compute(l,medium);
-        display: block;
-        font-weight: 500;
+    @include rr-break-directive('l') {
+      margin-right: calc(#{rr-gridbase(-6)} + 8px);
+      margin-bottom: rr-gridbase(2);
+      margin-left: rr-gridbase(2);
+    }
+  }
 
-        @include rr-break-directive('m') {
-            margin-top: rr-gridbase(4.5);
-        }
+  &__name {
+    @include rr-font-compute(l, medium);
+    display: block;
+    font-weight: 500;
+    @include rr-break-directive('m') {
+      margin-top: rr-gridbase(4.5);
+    }
+  }
+
+  &__title {
+    @include rr-font-compute(r, medium);
+    display: block;
+  }
+
+  dd {
+    @include rr-font-compute(l, medium);
+    padding-left: rr-gridbase(3);
+
+    .link--fancy {
+      @include rr-font-compute(l, medium);
+      margin-left: rr-gridbase(-3);
+    }
+  }
+
+  $base: #{&};
+
+  &#{$base}--sheet {
+    margin-bottom: rr-gridbase(4);
+    padding: 0;
+    border-width: 0;
+    background-color: color(wildcat-white);
+
+    #{$base}__content {
+      display: flex;
+      align-items: center;
+      margin: 0;
     }
 
-    &__title {
-        @include rr-font-compute(r, medium);
-        display: block;
+    #{$base}__photo {
+      flex: 0 1 37%;
+      align-self: flex-start;
+      width: auto;
+      margin: 0;
+      margin-right: rr-gridbase(2);
+      float: none;
     }
 
-    dd {
-        @include rr-font-compute(l, medium);
-        padding-left: rr-gridbase(3);
-        .link--fancy {
-            @include rr-font-compute(l, medium);
-            margin-left: rr-gridbase(-3);
-        }
+    .invisible-labels {
+      flex: 1 1 63%;
     }
-
-    $base: #{&};
-
-    &#{$base}--sheet {
-        background-color: color(wildcat-white);
-        border-width: 0;
-        padding: 0;
-        margin-bottom: rr-gridbase(4);
-
-        #{$base}__content {
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
-
-        #{$base}__photo {
-            align-self: flex-start;
-            margin: 0;
-            width: auto;
-            float: none;
-            flex: 0 1 37%;
-            margin-right: rr-gridbase(2);
-        }
-
-        .invisible-labels {
-            flex: 1 1 63%;
-        }
-    }
+  }
 }

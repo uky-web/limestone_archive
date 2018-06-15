@@ -1,11 +1,12 @@
 .nc-placeholder {
-    box-shadow: goldenrod 0 0 0 6px inset;
-    text-align: center;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding-top: rr-gridbase(4);
-    padding-bottom: rr-gridbase(4);
-    p {
-        @include rr-font-compute(l,wide);
-    }
+  padding-top: rr-gridbase(4);
+  padding-bottom: rr-gridbase(4);
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: color(wildcat-blue) 0 0 0 6px inset;
+
+  p {
+    @include rr-font-compute(l, wide);
+  }
 }

@@ -1,9 +1,5 @@
-.teaser-aside {
-
-}
-
 .teaser-aside--dark {
-	@include ondark;
-	background-color: $black;
-	padding: 1rem;
+  @include ondark;
+  padding: 1rem;
+  background-color: $black;
 }

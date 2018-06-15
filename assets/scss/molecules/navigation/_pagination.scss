@@ -5,7 +5,7 @@
         margin: 0;
         text-align: center;
         li {
-            @include rr-font-compute(l,tight);
+            @include rr-font-compute(l, tight);
             display: none;
             margin: 0;
             a {

@@ -25,6 +25,7 @@ var
 	sourcemaps = require('gulp-sourcemaps'),
 	svgmin = require('gulp-svgmin'),
 	svgsprite = require('gulp-svg-sprite'),
+	sassLint = require('gulp-sass-lint'),
 	iconfont = require('gulp-iconfont');
   
 // within the container,
@@ -72,7 +73,17 @@ gulp.task('styles', ['iconfont'], function() {
 		}
 	}
 
+	var sassLintOptions = {
+		options: {
+			configFile: '.sass-lint.yml',
+			cacheConfig: false
+		}
+	}
+
 	return gulp.src( paths.sass )
+		.pipe(sassLint(sassLintOptions))
+		.pipe(sassLint.format())
+		.pipe(sassLint.failOnError())
 		.pipe( plumber({ errorHandler: plumber_error }) )
 
 		// If not in production mode, generate a sourcemap
