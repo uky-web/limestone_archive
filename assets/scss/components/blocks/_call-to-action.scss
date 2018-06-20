@@ -1,19 +1,18 @@
 .cta {
-    @include block-header-font;
-    @include block-spacing;
+  @include block-header-font;
+  @include block-spacing;
 
-    .editorial {
-        margin-bottom: rr-gridbase(3);
-    }
+  .editorial {
+    margin-bottom: rr-gridbase(3);
+  }
 
-    &.cta--dark {
-        @include usescheme($text-colors-dark);
-        background-color: color(wildcat-blue);
-    }
+  &.cta--dark {
+    @include usescheme($text-colors-dark);
+    background-color: color(wildcat-blue);
+  }
 
-    &.cta--light {
-        background-color: color(blue-gray);
-        border-color: color(blue-gray);
-    }
+  &.cta--light {
+    border-color: color(blue-gray);
+    background-color: color(blue-gray);
+  }
 }
-

@@ -12,14 +12,6 @@
     font-size: 3rem;
   }
 
-  @at-root #{&}__sub-stat {
-
-  }
-
-  @at-root #{&}__description {
-
-  }
-
   @at-root #{&}--reversed {
     flex-direction: column-reverse;
   }

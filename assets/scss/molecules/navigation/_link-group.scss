@@ -2,7 +2,7 @@
   display: none;
 }
 
-@include breakpoint(medium) {
+@include rr-break-directive(medium) {
   .link-group--collapsed {
     display: block;
   }

@@ -1,42 +1,40 @@
 .grid {
-    @include rr-slab-wrapper($margins: true);
+  @include rr-slab-wrapper($margins: true);
 }
 
-/* The divided style separates blocks with a vertical border between
-   the elements. This exists in the gap space between grid items, though,
-   so we need to do a little finagling. 
- */
+// The divided style separates blocks with a vertical border between
+// the elements. This exists in the gap space between grid items, though,
+// so we need to do a little finagling. 
+
 .grid--divided {
-    .grid__column {
-        position: relative;
+  .grid__column {
+    position: relative; // The border is drawn with a pseudoelement so we can move it around.
 
-        // The border is drawn with a pseudoelement so we can move it around.
-        // The mobile-first treatment is to have the border at the bottom.
-        &:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 2px;
-            bottom: -1px;
-            background-color: color(subtle-gray);
-        }
+    // The mobile-first treatment is to have the border at the bottom.
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background-color: color(subtle-gray);
+      content: '';
     }
+  }
 
-    // The last child does not need a border because duh
-    .grid__column:last-child:after {
-        display: none;
-    }
+  // The last child does not need a border because duh
+  .grid__column:last-child::after {
+    display: none;
+  }
 }
 
 .grid--two-tone {
-    
-    .grid__column {
-        margin: rr-gridbase(1);
-        padding: rr-gridbase(3);
-        background-color: color(wildcat-blue);
-        @include usescheme($text-colors-dark);
-    }
+  .grid__column {
+    margin: rr-gridbase(1);
+    padding: rr-gridbase(3);
+    background-color: color(wildcat-blue);
+    @include usescheme($text-colors-dark);
+  }
 }
 
 // This is where things get tricky -- managing border position for all defined grid layouts
@@ -45,150 +43,152 @@
 // 
 // And also we need to be aware of grid-gap configuration changes based on the baseline grid 
 // config. 
- 
 @include rr-break-directive(m) {
-    @each $name, $template in $rr-grids {
-        .grid--#{$name} {
-    
-            @include css-grid-columns($template, $class-prefix: 'grid');
-    
-            &.grid--divided {
-                $breaks: rr-breakpoint-list();
-                $moved-borders: false;
-                $last-columns: null;
-                $last-grid-gap: null;
-               
-                @each $break in $breaks {                
-                    $num_columns: rr-columns-for-template($template, $break);
-                    $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
-       
-                    @include rr-break-directive($break) {
-                        .grid__column:after {
-                            // Border position (bottom or right side) depend on the first breakpoint where columns are defined
-                            // and we are loading those from a config hash where we can't be certain which breakpoint will be used
-                            // or even what that breakpoint will be called.
-                            @if $num_columns and not($moved-borders) {
-                                height: auto;
-                                top: 0;
-                                bottom: 0;
-                                left: auto;
-                                width: 3px;
-                                $moved-borders: true;
-                                $last-columns: $num_columns;
-                            }
-    
-                            // If the grid gap has changed, we need to adjust that too
-                            // Assuming the borders moved.
-                            @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
-                                right: calc(-#{$grid-gap}/2 - 1px);
-                                $last-grid-gap: $grid-gap;
-                            }
-                        }
-    
-                        @if ($num_columns) {
-                            // If we are changing the number of columns in 
-                            @if ($last-columns) and ($last-columns != $num_columns) {
-                                .grid__column:nth-child(#{$last-columns}n):after {
-                                    display: block;
-                                }
-                            }
-                            .grid__column:nth-child(#{$num_columns}n):after {
-                                display: none;
-                            }
-                            $last-columns: $num_columns;
-                        }
-                    }
-                }
+  @each $name,
+  $template in $rr-grids {
+    .grid--#{$name} {
+      @include css-grid-columns($template, $class-prefix: 'grid');
+
+      &.grid--divided {
+        $breaks: rr-breakpoint-list;
+        $moved-borders: false;
+        $last-columns: null;
+        $last-grid-gap: null;
+        @each $break in $breaks {
+          $num-columns: rr-columns-for-template($template, $break);
+          $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
+          @include rr-break-directive($break) {
+            .grid__column::after {
+              // Border position (bottom or right side) depend on the first breakpoint where columns are defined
+              // and we are loading those from a config hash where we can't be certain which breakpoint will be used
+              // or even what that breakpoint will be called.
+              @if $num-columns and not($moved-borders) {
+                top: 0;
+                bottom: 0;
+                left: auto;
+                width: 3px;
+                height: auto;
+                $moved-borders: true;
+                $last-columns: $num-columns;
+              }
+
+              // If the grid gap has changed, we need to adjust that too
+              // Assuming the borders moved.
+              @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
+                right: calc(-#{$grid-gap}/2 - 1px);
+                $last-grid-gap: $grid-gap;
+              }
             }
+
+            @if ($num-columns) {
+              // If we are changing the number of columns in 
+              @if ($last-columns) and ($last-columns != $num-columns) {
+                .grid__column:nth-child(#{$last-columns}n)::after {
+                  display: block;
+                }
+              }
+
+              .grid__column:nth-child(#{$num-columns}n)::after {
+                display: none;
+              }
+              $last-columns: $num-columns;
+            }
+          }
         }
-    }    
+      }
+    }
+  }
 }
 
 .grid__column {
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
 
-    > div {
-        width: 100%;
-    }
+  >div {
+    width: 100%;
+  }
 }
 
 @include rr-break-directive(m) {
-    .grid--major-left,
-    .grid--major-right {
-        .editorial .editorial__aside.align-right,
-        .editorial .editorial__aside.align-left {
-            max-width: 100%;
-            float: none;
-            margin: 1rem 0;
-        }
+  .grid--major-left,
+  .grid--major-right {
+    .editorial .editorial__aside.align-right,
+    .editorial .editorial__aside.align-left {
+      max-width: 100%;
+      margin: 1rem 0;
+      float: none;
     }
-    .grid--major-left {
-        .editorial .editorial__aside.align-left {
-            margin-left: -2vw;
-        }
+  }
+
+  .grid--major-left {
+    .editorial .editorial__aside.align-left {
+      margin-left: -2vw;
     }
-    .grid--major-right {
-        .editorial .editorial__aside.align-right {
-            margin-right: -2vw;
-        }
-    }        
+  }
+
+  .grid--major-right {
+    .editorial .editorial__aside.align-right {
+      margin-right: -2vw;
+    }
+  }
 }
 
-
 @include rr-break-directive(l) {
-    .grid--major-left,
-    .grid--major-right {
-        .editorial .editorial__aside.align-right,
-        .editorial .editorial__aside.align-left {
-            margin-top: 0;
-            max-width: 50%;
-        }
+  .grid--major-left,
+  .grid--major-right {
+    .editorial .editorial__aside.align-right,
+    .editorial .editorial__aside.align-left {
+      max-width: 50%;
+      margin-top: 0;
     }
-    .grid--major-left {
-        .editorial .editorial__aside.align-left {
-            margin-left: -2vw;
-            margin-right: rr-gridbase(4);
-            float: left;
-        }
-        .editorial .editorial__aside.align-right {
-            float: right;
-            margin-left: rr-gridbase(4);
-        }
+  }
+
+  .grid--major-left {
+    .editorial .editorial__aside.align-left {
+      margin-right: rr-gridbase(4);
+      margin-left: -2vw;
+      float: left;
     }
-    .grid--major-right {
-        .editorial .editorial__aside.align-right {
-            margin-right: -2vw;
-            margin-left: rr-gridbase(4);
-            float: right;
-        }
-        .editorial .editorial__aside.align-left {
-            float: left;
-            margin-right: rr-gridbase(4);
-        }        
-    }        
+
+    .editorial .editorial__aside.align-right {
+      margin-left: rr-gridbase(4);
+      float: right;
+    }
+  }
+
+  .grid--major-right {
+    .editorial .editorial__aside.align-right {
+      margin-right: -2vw;
+      margin-left: rr-gridbase(4);
+      float: right;
+    }
+
+    .editorial .editorial__aside.align-left {
+      margin-right: rr-gridbase(4);
+      float: left;
+    }
+  }
 }
 
 .grid__column--major {
-    grid-area: major;
-    display: block;
+  display: block;
+  grid-area: major;
 }
 
 .grid__column--minor {
-    grid-area: minor;
-    display: block;
-    
-    > * {
-        margin-bottom: rr-gridbase(4);
-    }
+  display: block;
+  grid-area: minor;
+
+  >* {
+    margin-bottom: rr-gridbase(4);
+  }
 }
 
 .grid__column--article {
-    grid-area: main;
+  grid-area: main;
 }
 
 .grid__column--sidebar {
-    grid-area: side;
+  grid-area: side;
 }
-

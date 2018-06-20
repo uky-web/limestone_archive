@@ -1,32 +1,30 @@
 .banner-alert {
-    padding: rr-gridbase(2);
-    background-color: color(info);
+  padding: rr-gridbase(2);
+  background-color: color(info);
+  @include rr-break-directive(l) {
+    padding: rr-gridbase(4);
+  }
 
-    @include rr-break-directive(l) {
-        padding: rr-gridbase(4);
-    } 
+  a,
+  p {
+    @include rr-font-compute(l, medium);
+  }
 
-    li { 
+  &--emergency {
+    background-color: color(alert);
+    @include usescheme($text-colors-dark);
 
+    a {
+      @include faux-underline($d: color(wildcat-white), $h: color(wildcat-white));
     }
+  }
 
-    a, p {
-        @include rr-font-compute(l, medium);
-    } 
+  &--brand {
+    background-color: color(wildcat-blue);
+    @include usescheme($text-colors-dark);
 
-    &--emergency {
-        background-color: color(alert);
-        @include usescheme($text-colors-dark);
-        a {
-            @include faux-underline($d: color(wildcat-white), $h:color(wildcat-white));
-        }
+    a {
+      @include faux-underline($d: color(wildcat-white), $h: color(wildcat-white));
     }
-
-    &--brand {
-        background-color: color(wildcat-blue);
-        @include usescheme($text-colors-dark);
-        a {
-            @include faux-underline($d: color(wildcat-white), $h:color(wildcat-white));
-        }
-    }
+  }
 }

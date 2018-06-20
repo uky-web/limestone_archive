@@ -1,18 +1,18 @@
 .global-header {
   .slab.mobile-nav {
     padding: 0;
-    
+
     @include rr-break-directive(l) {
       display: none;
-    }  
+    }
   }
 }
 
 .global-header__banner {
-  position: relative;
   display: flex;
+  position: relative;
+  align-items: flex-end;
   justify-content: space-between;
-  align-items: flex-end;  
 
   .uky-logo-main {
     width: 23.118rem;
@@ -27,22 +27,21 @@
     align-self: center;
   }
 
-  @each $name,$color in $colors { 
-        @at-root .slab--#{$name} #{&} {
-            @if (contrast($color, color(wildcat-black)) < 4.5) {
+  @each $name, $color in $colors {
+    @at-root .slab--#{$name} #{&} {
+      @if (contrast($color, color(wildcat-black)) < 4.5) {
         .lockup__logo {
           color: color(wildcat-white);
         }
-            } 
-        }
+      }
+    }
   }
-  
+
   @include rr-break-directive(l) {
-    
     .utility-nav {
       display: block;
     }
-    
+
     .toggle-button {
       display: none;
     }

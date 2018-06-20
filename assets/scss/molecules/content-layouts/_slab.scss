@@ -1,68 +1,63 @@
 .slab {
-    @include rr-slab;
+  @include rr-slab;
 
-    &.slab--thin {
-        padding-top: rr-gridbase(3);
-        padding-bottom: rr-gridbase(3);
-    }
+  &.slab--thin {
+    padding-top: rr-gridbase(3);
+    padding-bottom: rr-gridbase(3);
+  }
 }
 
 .slab__wrapper {
-    @include rr-slab-wrapper;
+  @include rr-slab-wrapper;
 
-    .heading--display {
-        @include rr-font-compute(3xl, tight);
-        font-family: $font-mercury;
-        margin-bottom: 2rem;
-        position: relative;
+  .heading--display {
+    @include rr-font-compute(3xl, tight);
+    position: relative;
+    margin-bottom: 2rem;
+    font-family: $font-mercury;
 
-        .heading__text {
-            display: inline-block;
-            position: relative;
-            background-color: color(wildcat-white);
-            padding-right: 2rem;
-            z-index: 1;
-        }
-        
-        &:after {
-            content: '';
-            position: absolute;
-            right: 0;
-            left: 0;
-            bottom: .15em;
-            height: 2px;
-            z-index: 0;
-            background-image: repeating-linear-gradient(to right, #{color(light-gray)},#{color(light-gray)} 3px, transparent 3px, transparent 7px);
-        }
+    .heading__text {
+      display: inline-block;
+      position: relative;
+      padding-right: 2rem;
+      background-color: color(wildcat-white);
+      z-index: 1;
+    }
 
-        @include rr-break-directive('m') {
-            margin-bottom: 3rem;
-        }
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: .15em;
+      left: 0;
+      height: 2px;
+      background-image: repeating-linear-gradient(to right, #{color(light-gray)}, #{color(light-gray)} 3px, transparent 3px, transparent 7px);
+      content: '';
+      z-index: 0;
+    }
 
-        @include rr-break-directive('l') {
-            margin-bottom: 5.5rem;
-        }
-    } 
-    
-    
+    @include rr-break-directive('m') {
+      margin-bottom: 3rem;
+    }
+
+    @include rr-break-directive('l') {
+      margin-bottom: 5.5rem;
+    }
+  }
 }
 
 $skins: transparent;
-
-@each $name,$color in $colors {
-    .slab--#{$name} {
-        background-color: $color;
-        @if (contrast($color, color(wildcat-black)) < 4.5) {
-            @include usescheme($text-colors-dark);
-        }
-
-        .heading--display .heading__text {
-            background-color: $color;
-        }
+@each $name, $color in $colors {
+  .slab--#{$name} {
+    background-color: $color;
+    @if (contrast($color, color(wildcat-black)) < 4.5) {
+      @include usescheme($text-colors-dark);
     }
-    $skins: append($skins, slab--#{$name});
+
+    .heading--display .heading__text {
+      background-color: $color;
+    }
+  }
+  $skins: append($skins, slab--#{$name});
 }
 
-
 @include rr-slab-adjacency($style-list: $skins);
-

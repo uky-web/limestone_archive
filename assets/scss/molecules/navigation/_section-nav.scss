@@ -1,51 +1,55 @@
 .section-nav {
-    h2, h3, h4 {
-        margin: 0;
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+  }
+
+  ol {
+    margin: rr-gridbase() 0;
+    padding-left: rr-gridbase(3);
+    list-style: none;
+
+    li {
+      padding-bottom: rr-gridbase(1);
+      @include rr-font-compute(r, medium);
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      a {
+        text-decoration: none;
+
+        &:hover,
+        &:active {
+          color: color(wildcat-blue);
+        }
+      }
     }
+  }
 
-    ol {
-        margin: rr-gridbase() 0;
-        list-style: none;
-        padding-left: rr-gridbase(3);   
-        li {
-            padding-bottom: rr-gridbase(1);
-            @include rr-font-compute(r, medium);
-            &:last-child {
-                padding-bottom: 0;
-            }
-
-            a {
-                text-decoration: none;
-
-                &:hover, &:active {
-                    color: color(wildcat-blue);
-                }
-            }
-        }            
-    }
-
-    @at-root .js-tabcontent #{&} {
-        margin: rr-gridbase(2) rr-gridbase(4);
-    }
+  @at-root .js-tabcontent #{&} {
+    margin: rr-gridbase(2) rr-gridbase(4);
+  }
 }
 
 .section-nav--bordered {
+  @include block-spacing;
+}
+
+@each $name, $color in $colors {
+  .section-nav--#{$name} {
     @include block-spacing;
-}
+    border-color: $color;
+    background-color: $color;
 
-
-@each $name,$color in $colors {
-    .section-nav--#{$name} {
-        @include block-spacing;
-        background-color: $color;
-        border-color: $color;
-        @if (contrast($color, color(wildcat-black)) < 4.5) {
-            @include usescheme($text-colors-dark);
-        }
-
-        nav {
-            margin-left: rr-gridbase(-3);
-        }
+    @if (contrast($color, color(wildcat-black)) < 4.5) {
+      @include usescheme($text-colors-dark);
     }
-}
 
+    nav {
+      margin-left: rr-gridbase(-3);
+    }
+  }
+}

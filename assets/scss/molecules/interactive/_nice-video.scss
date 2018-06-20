@@ -14,21 +14,21 @@
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  text-decoration: none;
-  color: color(wildcat-blue);
   transition: .2s color ease-in-out, .2s background-color ease-in-out;
+  color: color(wildcat-blue);
+  text-decoration: none;
 
-  /* Special tuning for this icon position */
+  // Special tuning for this icon position 
   .ic--play-triangle {
     display: block;
-    line-height: 1;
-    font-size: 3rem;    
     width: 3.1rem;
     height: 3.1rem;
-    border-radius: 100%;
+    padding-right: 0;
     border: 1px transparent solid;
-    padding-right: 0;  
-    background-color: white;      
+    border-radius: 100%;
+    background-color: color(wildcat-white);
+    font-size: 3rem;
+    line-height: 1;
   }
 
   .label {
@@ -39,9 +39,8 @@
   &:hover {
     .ic--play-triangle {
       background-color: color(light-blue);
-      color: color(wildcat-white);  
+      color: color(wildcat-white);
     }
   }
-  
 }
 

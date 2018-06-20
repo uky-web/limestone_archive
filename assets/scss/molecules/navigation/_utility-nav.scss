@@ -1,39 +1,44 @@
 .utility-nav {
   a {
     @include rr-font-compute(r, medium);
-    font-weight: 500;
     transition: color .3s ease-in-out;
+    font-weight: 500;
 
-    &:link, &:visited {
+    &:link,
+    &:visited {
       text-decoration: none;
     }
-    &:hover, &:active {
+
+    &:hover,
+    &:active {
       text-decoration: underline;
     }
   }
-    
+
   @media screen and (max-width: #{rr-prop-for-breakpoint(l, size)}) {
+    $mobile-nav-border: rgba(0, 0, 0, .1);
+
     a {
+      display: block;
       padding: rr-gridbase(1);
-            border-top: 1px rgba(0, 0,0,.1) solid;
-            display: block;
+      border-top: 1px $mobile-nav-border solid;
+
       .show-for-sr {
-        position: static;
         display: inline;
+        position: static;
         margin-left: .55em;
       }
     }
-  }    
+  }
 
+  @include rr-break-directive(l) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: rr-gridbase(2);
 
-    @include rr-break-directive(l) {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;               
-        margin-top: rr-gridbase(2);
-        
-        a {
-            margin-left: rr-gridbase(6);
-        }
+    a {
+      margin-left: rr-gridbase(6);
     }
+  }
 }

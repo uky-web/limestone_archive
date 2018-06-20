@@ -1,34 +1,34 @@
 .statistic {
-    text-align: center;
-    // We need about 16px padding from the top and bottom
-    // but the headline has < 1em line height, so we need
-    // 1 grid row extra padding for the ascenders.
+  // We need about 16px padding from the top and bottom
+  // but the headline has < 1em line height, so we need
+  // 1 grid row extra padding for the ascenders.
+  padding-top: rr-gridbase(2);
+  padding-bottom: rr-gridbase;
+  text-align: center;
+  overflow: hidden;
+
+  .headline-group__head {
+    @include rr-font-compute(5xl, squeeze);
+    display: inline-block;
+    color: color(wildcat-blue);
+    font-weight: 500;
+  }
+
+  .headline-group__super,
+  .headline-group__sub {
+    @include rr-font-compute(xl, tight);
+    color: color(light-blue);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .editorial {
+    @include divider($centered: true);
+    position: relative;
     padding-top: rr-gridbase(2);
-    padding-bottom: rr-gridbase();
-    overflow: hidden;
 
-    .headline-group__head {
-        @include rr-font-compute(5xl, squeeze);
-        color: color(wildcat-blue);
-        font-weight: 500;
-        display: inline-block;
+    p {
+      @include rr-font-compute(l, medium);
     }
-    .headline-group__super,
-    .headline-group__sub {
-        @include rr-font-compute(xl, tight);
-        color: color(light-blue);
-        font-weight: 500;
-        text-transform: uppercase;
-    }
-
-    .editorial {
-        padding-top: rr-gridbase(2);
-        position: relative; 
-
-        p {
-            @include rr-font-compute(l, medium); 
-        }
-
-        @include divider($centered: true);
-    }
+  }
 }

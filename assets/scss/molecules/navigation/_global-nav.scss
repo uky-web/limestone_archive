@@ -1,35 +1,44 @@
-.global-nav {           
-    a {
+.global-nav {
+
+  a {
     @include rr-font-compute(r, medium);
-    font-weight: 500;
     transition: opacity .3s ease-in-out;
+    font-weight: 500;
 
     &:last-child {
       border-bottom-width: 0;
     }
-        &:link, &:visited {
+
+    &:link,
+    &:visited {
       //color: color(wildcat-white);
       text-decoration: none;
-            opacity: 0.85;
-        }
-        &:hover, &:active {
+      opacity: .85;
+    }
+
+    &:hover,
+    &:active {
       //color: color(wildcat-white);
-      opacity: 1;            
-            text-decoration: underline;
-    }    
+      text-decoration: underline;
+      opacity: 1;
+    }
   }
 
   @media screen and (max-width: #{rr-prop-for-breakpoint(l, size)}) {
-    .ic:before {
+    $border-tint: rgba(0, 0, 0, .1);
+
+    .ic::before {
       font-size: .9em;
     }
+
     a {
-      padding: rr-gridbase(1);
-      border-bottom: 1px rgba(0, 0,0,.1) solid;
       display: block;
+      padding: rr-gridbase(1);
+      border-bottom: 1px $border-tint solid;
+
       .show-for-sr {
-        position: static;
         display: inline;
+        position: static;
         margin-left: .55em;
       }
     }
@@ -37,13 +46,14 @@
 
   @include rr-break-directive(l) {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
+
     a {
       margin-right: rr-gridbase(4);
-    }  
+    }
   }
-  
+
   @include rr-break-directive(xl) {
     a {
       margin-right: rr-gridbase(6);
@@ -54,7 +64,6 @@
 
 .global-nav-bar {
   display: none;
-
   @include rr-break-directive(l) {
     display: block;
   }

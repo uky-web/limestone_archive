@@ -1,77 +1,76 @@
 .page-header.page-header--hero {
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
 
-    img {
-        display: block;
-        margin: 0;
+  img {
+    display: block;
+    margin: 0;
+  }
+
+  $altcolors: wildcat-blue dark-blue;
+
+  @each $color in $altcolors {
+    &.slab--#{$color} {
+      border-width: 0;
+      background-color: transparent;
+
+      .slab__wrapper {
+        border-width: 4px;
+        border-color: color(light-blue);
+        background-color: color($color);
+      }
     }
+  }
 
-    $altcolors: wildcat-blue dark-blue;
+  .slab__wrapper {
+    position: relative;
+    margin-top: rr-gridbase(-2);
+    padding: 0 rr-prop-for-breakpoint(s, offset);
+    border-color: color(light-gray);
+    background-color: color(blue-gray);
+  }
 
-    @each $color in $altcolors {
-        &.slab--#{$color} {
-            background-color: transparent;
-            border-width: 0;
+  .page-header__content {
+    width: 100%;
+    padding-top: rr-gridbase(2);
+    padding-right: rr-gridbase(2);
+  }
 
-            .slab__wrapper {
-                border-width: 4px;
-                border-color: color(light-blue);
-                background-color: color($color);
-            }
-        }
-    }
+  .page-header__secondary-img {
+    margin-right: rr-prop-for-breakpoint(s, offset) * -1;
+    margin-left: rr-prop-for-breakpoint(s, offset) * -1;
+  }
 
+  @include rr-break-directive(m) {
     .slab__wrapper {
-        position: relative;
-        margin-top: rr-gridbase(-2);
-        background-color: color(blue-gray);
-        padding: 0 rr-prop-for-breakpoint(s, offset);
-        border-color: color(light-gray);
-    }
-
-    .page-header__content {
-        width: 100%;
-        padding-top: rr-gridbase(2);
-        padding-right: rr-gridbase(2);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0 rr-prop-for-breakpoint(m, offset);
     }
 
     .page-header__secondary-img {
-        margin-left: rr-prop-for-breakpoint(s, offset) * -1;
-        margin-right: rr-prop-for-breakpoint(s, offset) * -1;
+      margin-right: rr-prop-for-breakpoint(m, offset) * -1;
+      margin-left: 0;
+    }
+  }
+
+  @include rr-break-directive(l) {
+    .slab__wrapper {
+      align-items: center;
+      margin-top: rr-gridbase(-15);
+      padding: 0;
     }
 
-    @include rr-break-directive(m) {
-        .slab__wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 0 rr-prop-for-breakpoint(m, offset);
-        }
-
-        .page-header__secondary-img {
-            margin-left: 0;
-            margin-right: rr-prop-for-breakpoint(m, offset) * -1;
-        }
-        
+    .page-header__content {
+      padding: rr-gridbase(4) rr-gridbase(9);
     }
 
-    @include rr-break-directive(l) {
-        .slab__wrapper {
-            margin-top: rr-gridbase(-15);
-            align-items: center;
-            padding: 0;
-        }
-
-        .page-header__content {
-            padding: rr-gridbase(4) rr-gridbase(9);
-        }
-
-        .page-header__secondary-img {
-            margin-right: 0;
-            align-self: stretch;
-            max-width: 355px;
-        }        
+    .page-header__secondary-img {
+      align-self: stretch;
+      max-width: 355px;
+      margin-right: 0;
     }
+  }
 }

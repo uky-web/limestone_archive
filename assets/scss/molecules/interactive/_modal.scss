@@ -1,83 +1,79 @@
-
-/* removes scroll when modal is opened */
+// removes scroll when modal is opened 
 
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
-/* overlay covers everything */
+// overlay covers everything 
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 666;
-    background-color: color(wildcat-blue);
-    opacity: .89;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: color(wildcat-blue);
+  opacity: .89;
+  z-index: 666;
 }
 
-/* modal */
+// modal 
 
 .mfp-inline-holder,
 .mfp-image-holder {
-    .mfp-close {
-        color: color(wildcat-blue);
+  .mfp-close {
+    color: color(wildcat-blue);
 
-        &:hover {
-            color: color(wildcat-white);
-        }
+    &:hover {
+      color: color(wildcat-white);
     }
+  }
 }
 
 .modal-display {
-    background: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: $global-width;
+  margin: 0;
+  padding: rr-gridbase(2);
+  border-width: 0;
+  background: color(wildcat-white);
+  z-index: 667;
+  overflow-x: none;
+  overflow-y: auto;
+
+  @include rr-break-directive(l) {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 667;
-    border-width: 0;
-    margin: 0;
-    max-width: $global-width;
-    overflow-x: none;
-    overflow-y: auto;
-    padding: rr-gridbase(2);
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    max-height: 95vh;
+    padding: rr-gridbase(4);
+    transform: translateX(-50%) translateY(-50%);
+  }
 
-    @include rr-break-directive(m) {
-    }
-
-    @include rr-break-directive(l) {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        bottom: auto;
-        right: auto;
-        transform: translateX(-50%) translateY(-50%);
-        max-height: 95vh;
-        padding: rr-gridbase(4);
-    }
-
-    @include rr-break-directive(xl) {
-        padding: rr-gridbase(8);
-    }
+  @include rr-break-directive(xl) {
+    padding: rr-gridbase(8);
+  }
 }
 
 .modal-close {
-    position: absolute;
-    top: rr-gridbase(2);
-    right: rr-gridbase(2);
-    border: 0;
-    padding: 0;
+  position: absolute;
+  top: rr-gridbase(2);
+  right: rr-gridbase(2);
+  padding: 0;
+  border: 0;
 
-    &::after {
-        content: $icon-close;
-        font-family: 'iconfont';
-        font-size: 2em;
-        margin-left: .3em;
-        display: inline-block;
-        vertical-align: middle;
-    }
+  &::after {
+    display: inline-block;
+    margin-left: .3em;
+    font-family: 'iconfont';
+    font-size: 2em;
+    content: $icon-close;
+    vertical-align: middle;
+  }
 }

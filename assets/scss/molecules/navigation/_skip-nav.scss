@@ -1,12 +1,12 @@
 .skip-nav {
-  position: absolute;
   display: flex;
+  position: absolute;
+  top: -5rem;
   justify-content: center;
   width: 100%;
-  top: -5rem;
 
   &:focus {
     top: 0;
-    transition: top 0.5s;
+    transition: top .5s;
   }
 }

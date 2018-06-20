@@ -1,35 +1,37 @@
 .pullquote {
-
-  @include block-spacing($borderColor: transparent);
+  @include block-spacing($border-color: transparent);
 
   &__quote {
     p {
       @include rr-font-compute(4xl, medium);
-      font-family: $font-mercury;
-      font-weight: 500;
-      font-style: italic;
       margin-top: 0;
+      font-family: $font-mercury;
+      font-style: italic;
+      font-weight: 500;
+
       &::before,
       &::after {
+        display: inline-block;
         position: relative;
         top: -.3em;
+        color: color(wildcat-blue);
         font-family: iconfont;
         font-size: .5em;
         font-style: normal;
-        color: color(wildcat-blue);
-        display: inline-block;
         vertical-align: top;
       }
+
       &::before {
-        content: $icon-quote-open;
         margin-right: .5em;
+        content: $icon-quote-open;
       }
+
       &::after {
-        content: $icon-quote-close;
         position: relative;
-        margin-left: -1.6em;
         right: -2.1em;
         width: 0;
+        margin-left: -1.6em;
+        content: $icon-quote-close;
       }
     }
   }
@@ -38,29 +40,30 @@
     position: relative;
     margin-top: rr-gridbase(4);
     padding-left: 7.8627rem;
+
     img {
       position: absolute;
-      width: 6.25rem;
-      height: auto;
       top: 0;
       left: 0;
+      width: 6.25rem;
+      height: auto;
     }
   }
 
   &__attribution {
     @include divider($color: light-blue);
-    position: relative;
     display: block;
-    padding-top: rr-gridbase(3);
+    position: relative;
     min-height: 6.25rem;
+    padding-top: rr-gridbase(3);
   }
 
   &__first-line {
     @include rr-font-compute(2xl, tight);
+    display: block;
     color: color(wildcat-blue);
     font-style: normal;
     font-weight: 500;
-    display: block;
   }
 
   &__second-line {
@@ -73,8 +76,8 @@
   &--dark {
     @include usescheme($text-colors-dark);
     padding: rr-gridbase(4);
+    border-color: color(wildcat-blue);
     background-color: color(wildcat-blue);
-    border-color: color(wildcat-blue);  
 
     #{$root}__first-line {
       color: color(light-blue-tint);
@@ -90,20 +93,22 @@
     #{$root}__quote p {
       @include rr-font-compute(2xl, medium);
     }
+
     #{$root}__meta {
       margin-top: rr-gridbase(2);
       padding-left: 0;
+
       img {
         display: none;
       }
     }
 
     #{$root}__attribution {
-      position: relative;
-      display: block;
-      padding-top: rr-gridbase(2);
       @include divider($color: light-blue);
+      display: block;
+      position: relative;
       min-height: auto;
+      padding-top: rr-gridbase(2);
     }
 
     #{$root}__first-line {
@@ -113,7 +118,5 @@
     #{$root}__second-line {
       @include rr-font-compute(l, medium);
     }
-    
   }
-  
 }

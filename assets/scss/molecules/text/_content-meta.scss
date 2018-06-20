@@ -1,26 +1,27 @@
 .content-meta {
-    
-    margin-bottom: rr-gridbase(1);
+  margin-bottom: rr-gridbase(1);
 
-    .byline {
-        @include rr-font-compute(l, medium);
-        font-weight: 400;
-    }
+  .byline {
+    @include rr-font-compute(l, medium);
+    font-weight: 400;
+  }
 
-    .date {
-        @include rr-font-compute(r, medium);
+  .date {
+    @include rr-font-compute(r, medium);
+  }
+
+  .who-when {
+    font-weight: 500;
+  }
+
+  .taxonomy-list {
+    display: block;
+    font-style: italic;
+  }
+
+  span + span {
+    &::before {
+      content: ' | ';
     }
-    
-    .who-when {
-        font-weight: 500;
-    }
-    .taxonomy-list {
-        font-style: italic;
-        display: block;
-    }
-    span + span {
-        &::before {
-            content: ' | '
-        }
-    }
+  }
 }

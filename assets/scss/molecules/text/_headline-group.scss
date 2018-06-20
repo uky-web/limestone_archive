@@ -2,43 +2,47 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 
 .headline-group {
   // Since the meaning of & changes depending on nesting.
-  $bem_root: &;
-  
+  $bem-root: #{&};
+  display: block;
   margin-top: 0;
   margin-bottom: rr-gridbase(2);
-  display: block;
   line-height: auto;
 
-  #{$bem_root}__super,
-  #{$bem_root}__sub {
+  #{$bem-root}__super,
+  #{$bem-root}__sub {
     display: block;
   }
 
   // Default non-semantic headline group
-  @at-root #{$bem_root} {
-    #{$bem_root}__super,
-    #{$bem_root}__sub {
+  @at-root #{$bem-root} {
+    #{$bem-root}__super,
+    #{$bem-root}__sub {
       @include rr-font-compute(l, tight);
     }
-    #{$bem_root}__head {
+
+    #{$bem-root}__head {
       @include rr-font-compute(2xl, tight);
     }
   }
 
   // Headline groups in teasers
-  @at-root .teaser, .link-collection, .image-gallery-block, .editorial aside  {
-    #{$bem_root} {
-      #{$bem_root}__super,
-      #{$bem_root}__sub {
-        text-transform: uppercase;
-        font-weight: 500;
-        color: color(dark-gray);
+  @at-root .teaser,
+  .link-collection,
+  .image-gallery-block,
+  .editorial aside {
+    #{$bem-root} {
+      #{$bem-root}__super,
+      #{$bem-root}__sub {
         @include rr-font-compute(xl, tight);
+        color: color(dark-gray);
+        font-weight: 500;
+        text-transform: uppercase;
       }
 
-      #{$bem_root}__head {
+      #{$bem-root}__head {
         font-weight: 500;
         @include rr-font-compute(3xl, tight);
+
         .underline-link {
           &:link,
           &:visited {
@@ -54,17 +58,15 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   @for $pos from 1 through 6 {
     $size: nth($sizelist, $pos);
     $subsize: map-offset-from($font-sizes, $size, -2);
-
     @at-root h#{$pos}#{&} {
-      #{$bem_root}__super,
-      #{$bem_root}__sub {
+      #{$bem-root}__super,
+      #{$bem-root}__sub {
         @include rr-font-compute($subsize, tight);
       }
-      #{$bem_root}__head {
+
+      #{$bem-root}__head {
         @include rr-font-compute($size, tight);
       }
     }
   }
 }
-
-

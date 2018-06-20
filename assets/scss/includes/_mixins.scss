@@ -1,65 +1,53 @@
-@import "mixins/m_layout";
-@import "mixins/m_typography";
-@import "mixins/m_third";
-
-/*------------------------------------*\
-    $MIXINS
-\*------------------------------------*/
+@import 'mixins/m_layout';
+@import 'mixins/m_typography';
 
 // Strip decorations from unordered, ordered lists
 @mixin no-decoration {
-  margin: 0 0 0 0;
+  margin: 0;
+  padding: 0;
   list-style: none;
-  padding: 0 0 0 0;
+
   &>li {
-    text-indent: 0;
     margin-left: 0;
-    &:before {
+    text-indent: 0;
+
+    &::before {
       display: none;
     }
   }
 }
 
-@mixin faux-underline($d: color(light-blue-tint), $h:color(wildcat-blue) ) {
-  background:
-        linear-gradient(to top,
-            #{rgba($d,.4)} 0,
-            #{rgba($d,.4)} 50%,
-            transparent 2px,
-            transparent 100%
-        ) scroll repeat-x 0 .5em,
-        transparent linear-gradient(to top,
-            #{rgba($h,.4)} 0,
-            #{rgba($h,.4)} 2px,
-            transparent 2px,
-            transparent 100%
-        ) scroll repeat-x 0 0; 
+@mixin faux-underline($d: color(light-blue-tint), $h: color(wildcat-blue)) {
+  $default: rgba($d, .4);
+  $hover: rgba($h, .4);
+  background: linear-gradient(to top, $default 0, $default 50%, transparent 2px, transparent 100%) scroll repeat-x 0 .5em, transparent linear-gradient(to top, $hover 0, $hover 2px, transparent 2px, transparent 100%) scroll repeat-x 0 0;
 }
 
 @mixin block-header-font {
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     @include rr-font-compute(3xl, tight);
     font-weight: 500;
   }
 }
 
 // TODO: Document
-@mixin block-spacing($borderColor:wildcat-blue) {
-  border: 3px color($borderColor) solid;
-  padding: rr-grid-remainder(3px, 2);
-  margin-left: rr-gridbase(-2);
+@mixin block-spacing($border-color: wildcat-blue) {
   margin-right: rr-gridbase(-2);
-  
-  
+  margin-left: rr-gridbase(-2);
+  padding: rr-grid-remainder(3px, 2);
+  border: 3px color($border-color) solid;
+
   @include rr-break-directive('m') {
+    margin-right: 0;
     margin-left: 0;
-    margin-right: 0;      
     padding: rr-grid-remainder(3px, 3);
   }
 
   @include rr-break-directive('l') {
-    border-width: 6px;
     padding: rr-grid-remainder(6px, 5);
+    border-width: 6px;
   }
 }
 
@@ -68,11 +56,14 @@
 // Use inside an anchor tag.
 //
 // It's not necessary to use this.
-@mixin link-colors($d: color(wildcat-black),$h: color(wildcat-blue)) {
-  &:link,&:visited {
+@mixin link-colors($d: color(wildcat-black), $h: color(wildcat-blue)) {
+  &:link,
+  &:visited {
     color: $d;
   }
-  &:hover, &:active {
+
+  &:hover,
+  &:active {
     color: $h;
   }
 }
@@ -86,24 +77,23 @@
     }
 
     .label {
-      margin-left: 0.5em;
+      margin-left: .5em;
     }
   }
 }
 
 @mixin divider($centered: false, $color: wildcat-blue) {
-  &:before {
-    content: '';
-    background-color: color($color);
-    width: 50px;
-    height: 4px;
+  &::before {
     position: absolute;
     top: 0;
+    width: 50px;
+    height: 4px;
+    background-color: color($color);
+    content: '';
     @if $centered {
       left: 50%;
       transform: translateX(-50%);
-    }
-    @else {
+    } @else {
       left: 0;
     }
   }
@@ -111,126 +101,6 @@
 
 // generate the image url by prefixing the layout image path
 @function image-url($url) {
-  @return url("#{$image-url-path}#{$url}");
-}
-
-// style input placeholders
-@mixin placeholder {
-  &::-webkit-input-placeholder {@content}
-  &:-moz-placeholder           {@content}
-  &::-moz-placeholder           {@content}
-  &:-ms-input-placeholder      {@content}
-}
-
-@mixin ornament-above {
-  margin-top: $ornament-size / 2;
-  padding-top: $ornament-size / 2;
-  position: relative;
-
-  .ornament {
-    left: 50%;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%) translateY(-50%);
-  }
-}
-
-@mixin ornament-below {
-  margin-bottom: $ornament-size / 2;
-  padding-bottom: $ornament-size / 2;
-  position: relative;
-
-  .ornament {
-    bottom: 0;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%) translateY(50%);
-  }
-}
-
-
-// Stretch an element (usually a <figure>) and its child image to fill the
-// element's parent container
-//
-// Options:
-//    $beneath[true|false] default: false
-//        If true, places the stretched element underneath its siblings. Useful
-//        for image backgrounds.
-//
-//    $fill['width'|'height'|'both']
-//      'width'    :  Image stretches to fill parent width, height scales proportionally
-//      'height'  :  Image stretches to fill parent height, width scales proportionally
-//      'both'    :  Image stretches to fill the shorter of width or height, cropping the
-//                  longer dimension
-//
-//    $pin['left'|'right'|'center' 'top'|'bottom'|'center'] default: 'top' 'center'
-//      When the image must be cropped to fit, this determines which vertical and
-//      horizontal side will remain unchanged. If 'center', then both sides are cropped
-//      equally.
-
-
-@mixin pseudo-cover ($beneath:false, $fill: 'both', $pin:'center' 'top') {
-  width: 100%;
-  max-width: none;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
-  display: block;
-
-  margin: 0;
-
-  @if $beneath {
-    z-index: 0;
-  }
-
-  > img {
-    position: absolute;
-
-    max-width: none;
-    max-height: none;
-
-    @if ($fill == 'width') {
-      width: 100%;
-      height: auto;
-      min-height: none;
-    } @else if ($fill == 'height') {
-      width: auto;
-      min-width: none;
-      height: 100%;
-    } @else {
-      width: auto;
-      min-width: 100%;
-      height: auto;
-      min-height: 100%;
-    }
-
-
-    @if( nth($pin, 1) == 'center' ) {
-      right: auto;
-      left: 50%;
-      transform: translateX(-50%);
-    } @else if( nth($pin, 1) == 'right' ) {
-      right: 0;
-      left: auto;
-    } @else {
-      right: auto;
-      left: 0;
-    }
-
-
-    @if( nth($pin, 2) == 'center' ) {
-      top: 50%;
-      @if( nth($pin, 1) == 'center' ) {
-        transform: translate(-50%, -50%);
-      } @else {
-        transform: translateY(-50%);
-      }
-    } @else {
-      top: 0;
-      bottom: 0;
-    }
-  }
+  @return url('#{$image-url-path}#{$url}');
 }
 

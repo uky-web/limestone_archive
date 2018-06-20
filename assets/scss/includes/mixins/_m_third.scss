@@ -1,8 +1,0 @@
-@mixin responsive-embed($ratio: '16 by 9') {}
-@mixin grid-row($foo:0, $bar:0) {}
-@mixin grid-column($foo:0) {}
-@mixin grid-row-size($foo:0,$bar:0) {}
-
-@mixin breakpoint($criteria) {
-    @media screen and ($criteria) { @content }
-}

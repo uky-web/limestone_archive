@@ -1,82 +1,96 @@
 .pagination {
-    margin: rr-gridbase(4) 0;
+  margin: rr-gridbase(4) 0;
 
-    ul {
-        margin: 0;
-        text-align: center;
-        li {
-            @include rr-font-compute(l, tight);
-            display: none;
-            margin: 0;
-            a {
-                padding: rr-gridbase(1);
-                color: color(wildcat-white);
-                text-decoration: none;
-                text-align: center;
-                background-color: color(wildcat-blue);
-                &:hover,
-                &:active {
-                    background-color: color(light-blue);
-                }
-                &:focus {
-                    text-decoration: underline;
-                }
-            }
-            &.current {
-                display: inline-block;
-                // foundation override
-                a {
-                    color: color(wildcat-black);
-                    background-color: color(wildcat-white); 
-                    pointer-events: none;                    
-                }
-            }
-            &.first,
-            &.previous,
-            &.next,
-            &.last {
-                display: inline-block;
-                a:before,
-                a:after {
-                    position: relative;
-                    bottom: .1em;
-                    display: inline-block;
-                }
-            }
-            &.first a {
-                &:before {
-                    display: inline-block;
-                    margin-right: .3em;
-                    content: '\00ab'
-                }
-            }
-            &.previous a {
-                &:before {
-                    display: inline-block;
-                    margin-right: .3em;
-                    content: '\2039'
-                }
-            }
-            &.next a {
-                &:after {
-                    display: inline-block;
-                    margin-left: .3em;
-                    content: '\203a'
-                }
-            }
-            &.last a {
-                &:after {
-                    display: inline-block;
-                    margin-left: .3em;
-                    content: '\00bb'
-                }
-            }
+  a {
+    padding: rr-gridbase(1);
+    background-color: color(wildcat-blue);
+    color: color(wildcat-white);
+    text-align: center;
+    text-decoration: none;
 
-            @include rr-break-directive(m) {
-                li {
-                    display: inline-block;
-                }
-            }
-        }
+    &:hover,
+    &:active {
+      background-color: color(light-blue);
     }
+
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+
+  ul {
+    margin: 0;
+    text-align: center;
+
+    li {
+      @include rr-font-compute(l, tight);
+      display: none;
+      margin: 0;
+
+
+      @include rr-break-directive(m) {
+        li {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &.current {
+    display: inline-block; // foundation override
+
+    a {
+      background-color: color(wildcat-white);
+      color: color(wildcat-black);
+      pointer-events: none;
+    }
+  }
+
+  .first,
+  .previous,
+  .next,
+  .last {
+    display: inline-block;
+
+    ::before,
+    ::after {
+      display: inline-block;
+      position: relative;
+      bottom: .1em;
+    }
+  }
+
+  .first a {
+
+    ::before {
+      display: inline-block;
+      margin-right: .3em;
+      content: '\00ab';
+    }
+  }
+
+  .previous a {
+    &::before {
+      display: inline-block;
+      margin-right: .3em;
+      content: '\2039';
+    }
+  }
+
+  .next a {
+    &::after {
+      display: inline-block;
+      margin-left: .3em;
+      content: '\203a';
+    }
+  }
+
+  .last a {
+    &::after {
+      display: inline-block;
+      margin-left: .3em;
+      content: '\00bb';
+    }
+  }
 }

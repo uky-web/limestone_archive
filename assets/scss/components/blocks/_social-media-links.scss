@@ -1,44 +1,44 @@
 .social-media-links {
-    padding: rr-gridbase(4);
-    background-color: color(blue-gray);
+  padding: rr-gridbase(4);
+  background-color: color(blue-gray);
 
-    &__linkset {
-        // The margin around each link 
-        $cm: rr-gridbase(2);
-        @include rr-font-compute(4xl, tight);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        margin: ($cm * 2) ($cm * -1) ($cm * -1);
+  &__linkset {
+    // The margin around each link 
+    $cm: rr-gridbase(2);
+    @include rr-font-compute(4xl, tight);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: ($cm * 2) ($cm * -1) ($cm * -1);
 
-        a {
-            width: 2.8rem;
-            text-align: center;
-            margin: 0 $cm $cm;
-            @include link-colors($d:color(medium-blue),$h:color(light-blue))
-        }
+    a {
+      @include link-colors($d: color(medium-blue), $h: color(light-blue));
+      width: 2.8rem;
+      margin: 0 $cm $cm;
+      text-align: center;
     }
+  }
 
-    $root: &;
+  $root: &;
 
-    &--dark {
-        @include usescheme($text-colors-dark);
-        background-color: color(wildcat-blue);
+  &--dark {
+    @include usescheme($text-colors-dark);
+    background-color: color(wildcat-blue);
 
-        #{$root}__linkset {
-            a {
-                @include link-colors($d:color(wildcat-white), $h:color(light-blue-tint))
-            }
-        }
+    #{$root}__linkset {
+      a {
+        @include link-colors($d: color(wildcat-white), $h: color(light-blue-tint))
+      }
     }
+  }
 
-    &--blocks {
-        #{$root}__linkset {
-            @include rr-font-compute(5xl, tight);
-            a {
-                text-align: left;
-            }
-        }
+  &--blocks {
+    #{$root}__linkset {
+      @include rr-font-compute(5xl, tight);
+
+      a {
+        text-align: left;
+      }
     }
+  }
 }
-

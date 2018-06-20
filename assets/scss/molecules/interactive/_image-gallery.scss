@@ -1,168 +1,174 @@
 .image-gallery {
-    // -1 gridblock in all directions to make up for gutter
-    // around each of the image grid items
-    margin: rr-gridbase(-1.5);
+  // -1 gridblock in all directions to make up for gutter
+  // around each of the image grid items
+  margin: rr-gridbase(-1.5);
 }
 
 .modal {
-    .modal__wrapper {
-        max-height: 80vh;
-        max-width: 80vw;
+  .modal__wrapper {
+    max-width: 80vw;
+    max-height: 80vh;
 
-        img {
-            max-width: 80vw;
-            max-height: 80vw;
-        }
+    img {
+      max-width: 80vw;
+      max-height: 80vw;
     }
+  }
 }
 
 .image-gallery__block {
-    a {
-        overflow: hidden;
-        display: block;
-        
-        figure {
-            position: relative;  
-            overflow: hidden;
-            
-            img {
-                transition: transform .6s ease-in-out;
-            }     
-            
-            &::after {
-                content: $icon-popup;
-                opacity: 0;
-                transition: opacity .3s ease-in-out;
-                font-family: 'iconfont';
-                font-size: 2.2em;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%);
-                line-height: 1.2;
-                color: color(wildcat-white);
-                z-index: 10;         
-            }
-            &::before {
-                content: '';
-                opacity: 0;
-                background-color: rgba(color(wildcat-blue),.7);
-                transition: opacity .3s ease-in-out;
-                box-shadow: inset 0 0 0 .5rem color(wildcat-blue);
-                position: absolute;
-                top: 0; right: 0; left: 0; bottom: 0;
-                z-index: 10;        
-            }            
+  a {
+    display: block;
+    overflow: hidden;
+
+    &:hover,
+    &:focus {
+      figure {
+        img {
+          transform: scale(1.1);
         }
 
-        &:hover,
-        &:focus {
-            figure {
-                img {
-                    transform: scale(1.1);
-                }
-                &::before,
-                &::after {
-                    opacity: 1;
-                }                    
-            }
-        }        
+        &::before,
+        &::after {
+          opacity: 1;
+        }
+      }
     }
+  }
+
+  figure {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      transition: transform .6s ease-in-out;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      transition: opacity .3s ease-in-out;
+      color: color(wildcat-white);
+      font-family: 'iconfont';
+      font-size: 2.2em;
+      line-height: 1.2;
+      content: $icon-popup;
+      opacity: 0;
+      z-index: 10;
+    }
+
+    &::before {
+      $overlay-color: rgba(color(wildcat-blue), .7);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: opacity .3s ease-in-out;
+      background-color: $overlay-color;
+      box-shadow: inset 0 0 0 .5rem color(wildcat-blue);
+      content: '';
+      opacity: 0;
+      z-index: 10;
+    }
+  }
+
+  figcaption {
+    display: none;
+  }
 }
 
 .image-gallery__slide__title {
-    @include rr-font-compute(l, tight);
-    font-weight: 500;
+  @include rr-font-compute(l, tight);
+  font-weight: 500;
 }
 
 .image-gallery__block-sizer,
 .image-gallery__block {
-    width: 33.3333%;
-    padding: rr-gridbase(1.5);
-}
-.image-gallery__block--width2 {
-    width: 66.6666%;
+  width: 33.3333%;
+  padding: rr-gridbase(1.5);
 }
 
-.image-gallery__block {
-    figcaption {
-        display: none;
-    }
+.image-gallery__block--width2 {
+  width: 66.6666%;
 }
 
 // magnific popup 
-
 .mfp-bg {
-    background-color: color(wildcat-blue);
+  background-color: color(wildcat-blue);
 }
 
 button.mfp-close {
-    right: 0;
-    width: 1.4em !important;
-    padding: 0;
-    line-height: 1;
-    text-align: center;
-}    
+  right: 0;
+  width: 1.4em !important; // sass-lint:disable-line no-important
+  padding: 0;
+  line-height: 1;
+  text-align: center;
+}
 
 .mfp-image-holder {
+  .mfp-bottom-bar {
+    position: relative;
+    top: auto;
+    margin-top: 0;
+  }
 
-    .mfp-bottom-bar {
-        position: relative;
-        margin-top: 0;
-        top: auto;
+  .mfp-figure {
+    padding: 3rem;
+    background-color: color(wildcat-white);
+  }
+
+  .mfp-figure::after {
+    display: none;
+  }
+
+  .mfp-title {
+    padding-right: 0;
+  }
+
+  .mfp-counter {
+    top: auto;
+    bottom: 100%;
+  }
+
+  .mfp-img {
+    padding: 0 0 1rem;
+  }
+
+  figure img {
+    max-width: 70vw;
+    height: auto;
+  }
+
+  @include rr-break-directive(l) {
+    .mfp-landscape figure {
+      figcaption {
+        margin: 2rem;
+      }
     }
 
-    .mfp-figure {
-        padding: 3rem;
-        background-color: color(wildcat-white);
-    }
+    .mfp-portrait figure {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 70vw;
 
-    .mfp-figure::after {
-        display: none;
-    }
-    
-    .mfp-title {
-        padding-right: 0;
-    }
+      img {
+        flex: 1 1 50%;
+        max-width: 30vw;
+        margin-right: 2rem;
+      }
 
-    .mfp-counter {
-        bottom: 100%;
-        top: auto;
-    }
+      figcaption {
+        flex: 1 1 50%;
+        margin-right: 2rem;
+      }
 
-    .mfp-img {
-        padding: 0 0 1rem 0;
+      .mfp-bottom-bar {
+        margin-top: 56px;
+      }
     }
-
-    figure img {
-        max-width: 70vw;
-        height: auto;
-    }
-
-    @include rr-break-directive(l) {
-        .mfp-landscape figure {
-            figcaption {
-                margin: 2rem 2rem;
-            }
-        }
-
-        .mfp-portrait figure {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            max-width: 70vw;
-            img {
-                margin-right: 2rem;
-                max-width: 30vw;
-                flex: 1 1 50%;
-            }
-            figcaption {
-                margin-right: 2rem;
-                flex: 1 1 50%;
-            }
-            .mfp-bottom-bar {
-                margin-top: 56px;
-            }
-        }
-    }
+  }
 }

@@ -1,17 +1,18 @@
 .editorial {
   margin-bottom: 1rem;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
-  
+
   .editorial__aside {
-    margin: 0 auto rr-gridbase(2) auto;
-    transition: .3s max-width ease-in-out;
     max-width: 100%;
+    margin: 0 auto rr-gridbase(2);
+    transition: .3s max-width ease-in-out;
   }
 
-  strong, b {
+  strong,
+  b {
     font-weight: 500;
   }
 
@@ -30,6 +31,7 @@
         margin: 0 rr-gridbase(2) rr-gridbase(2) 0;
         float: left;
       }
+
       &.align-right {
         max-width: 50%;
         margin: 0 0 rr-gridbase(2) rr-gridbase(2);
@@ -44,11 +46,12 @@
         max-width: 40%;
         margin: 0 rr-gridbase(3) rr-gridbase(3) 0;
       }
+
       &.align-right {
         max-width: 40%;
         margin: 0 0 rr-gridbase(3) rr-gridbase(3);
       }
-    }  
+    }
   }
 
   @include rr-break-directive(xl) {
@@ -57,11 +60,12 @@
         max-width: 40%;
         margin: 0 rr-gridbase(3) rr-gridbase(3) 0;
       }
+
       &.align-right {
         max-width: 40%;
         margin: 0 0 rr-gridbase(4) rr-gridbase(4);
       }
     }
-  }  
+  }
 }
 

@@ -1,22 +1,22 @@
 @mixin content-container {
-  padding-left: 1em;
-  padding-right: 1em;
   width: 100%;
+  padding-right: 1em;
+  padding-left: 1em;
 
   @include breakpoint(large) {
-    max-width: $global-width;
     width: 100%;
+    max-width: $global-width;
     margin: 0 auto;
   }
 
   @include breakpoint(74em) {
     width: 100%;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
-@mixin spread_layout {
+@mixin spread-layout {
   .left,
   .right {
     display: block;
@@ -29,8 +29,8 @@
 
     .left,
     .right {
-      width: 100%;
       flex: 1 1 auto;
+      width: 100%;
     }
 
     .left {
