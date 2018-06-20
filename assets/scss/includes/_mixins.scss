@@ -34,14 +34,12 @@
 
 // TODO: Document
 @mixin block-spacing($border-color: wildcat-blue) {
-  margin-right: rr-gridbase(-2);
-  margin-left: rr-gridbase(-2);
+  margin-right: 0;
+  margin-left: 0;
   padding: rr-grid-remainder(3px, 2);
   border: 3px color($border-color) solid;
 
   @include rr-break-directive('m') {
-    margin-right: 0;
-    margin-left: 0;
     padding: rr-grid-remainder(3px, 3);
   }
 

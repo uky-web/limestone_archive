@@ -7,7 +7,7 @@
 
   ol {
     margin: rr-gridbase() 0;
-    padding-left: rr-gridbase(3);
+    padding-left: rr-gridbase(0);
     list-style: none;
 
     li {
@@ -26,6 +26,10 @@
           color: color(wildcat-blue);
         }
       }
+    }
+
+    @include rr-break-directive(m) {
+      padding-left: rr-gridbase(3);
     }
   }
 
@@ -48,8 +52,10 @@
       @include usescheme($text-colors-dark);
     }
 
-    nav {
-      margin-left: rr-gridbase(-3);
+    @include rr-break-directive(m) {
+      nav {
+        margin-left: rr-gridbase(-3);
+      }
     }
   }
 }
