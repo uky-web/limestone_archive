@@ -231,8 +231,18 @@ button.slick-next {
       z-index: -1;
     }
 
+    .slick-list {
+      overflow-x: hidden;
+    }
+
+    .slick-track {
+      padding-top: 39px; // Provide a bit of overflow room for the center image scaling
+    }
+
     .slick-slide {
+      position: relative;
       transition: 500ms ease;
+      z-index: 200;
 
       img {
         transition: 300ms ease;
@@ -243,7 +253,7 @@ button.slick-next {
     .slick-current {
       padding-bottom: 3rem;
       transform: scale(1.105);
-      z-index: 10;
+      z-index: 1000;
 
       img {
         opacity: 1;
@@ -266,7 +276,7 @@ button.slick-next {
       }
     }
 
-    @at-root #{&}__list {
+    .slick-slider {
       transition: opacity .3s ease-out;
       opacity: 0;
 
@@ -275,44 +285,13 @@ button.slick-next {
       }
     }
 
-    @at-root #{&}__advance {
-      position: absolute;
-      top: 50%;
-      width: rem-calc(60);
-      height: rem-calc(60);
-      transform: translateY(-50%);
-      color: color(wildcat-white);
-      z-index: 99;
-
-      svg {
-        width: rem-calc(40);
-        height: auto;
-      }
-
-      span {
-        font-size: 0;
-      }
-    }
-
-    .xslick-next,
+    .slick-next,
     .slick-prev {
       background-color: transparent;
 
       &::before {
         color: color(wildcat-white);
       }
-    }
-
-    @at-root #{&}__prev {
-      left: rem-calc(75);
-    }
-
-    @at-root #{&}__next {
-      right: rem-calc(75);
-    }
-
-    @at-root #{&}__wrapper {
-      position: relative;
     }
   }
 }

@@ -43,11 +43,16 @@ const carousel = () => {
 
     const positionArrowsCentered = (slick) => {
         const $currentSlide = $(slick.$slides[slick.currentSlide]);
-        const imgHeight = $currentSlide.find('img').height();
+        const $currentImage = $currentSlide.find('img');
+        const $currentTrack = slick.$slideTrack;
+        const imgHeight = $currentImage.height();
+        const imgNatHeight = $currentImage.prop('naturalHeight');
         if (imgHeight > 0) {
-            const buttonTop = imgHeight * .5;
+            const padding = (imgHeight - imgNatHeight) / 2;
+            const buttonTop = (imgHeight * .5) + padding;
             const buttons = slick.$nextArrow.add(slick.$prevArrow);
             buttons.css({ top: buttonTop });
+            $currentTrack.css({ paddingTop: padding });
         }
     }
 
