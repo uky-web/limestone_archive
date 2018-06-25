@@ -1,0 +1,54 @@
+.universal-footer {
+  padding-top: rr-gridbase(4);
+  padding-bottom: rr-gridbase(4);
+}
+
+.universal-footer__ribbon {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
+  > * {
+    position: relative;
+    margin-right: -1px;
+    padding: 0 rr-gridbase(2);
+    border-right: 1px #898fa8 solid;
+    border-width: 0 1px;
+    line-height: rr-gridbase(2);
+
+    &::after {
+  
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      margin-right: 0;
+      border-width: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    
+    &.underline-link {
+      @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint));
+      @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
+      text-decoration: none;
+    }
+
+    .icon-label .label {
+      @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
+      text-decoration: none;
+    }
+  }
+
+  .ic--pin {
+    position: relative;
+    top: .125rem;
+    font-size: .93em;
+  }
+}

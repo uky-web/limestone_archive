@@ -51,6 +51,11 @@
   }
 }
 
+a .icon-label .label { 
+  @include underline-link;
+  text-decoration: none;
+}
+
 // Just to let you know this is an option.
 // This tweaks the icon-label styles so the
 // label and the icons line up

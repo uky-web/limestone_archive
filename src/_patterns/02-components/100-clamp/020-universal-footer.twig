@@ -1,13 +1,14 @@
-{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-blue' } %}
+{% set footernavid = 'universal-links'|uniqid %}
+{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-blue universal-footer' } %}
     {% block slab_content %}
         <div class="universal-footer__ribbon">
-            <span>&copy; University of Kentucky</span>
-            <a href="#">{% include 'atoms-icon-label' with { icon: 'pin', 'label': 'Lexington, Kentucky 40506' } %}</a>
-            <span>An Equal Opportunity University</span>
-            <a href="#">Accreditation</a>
-            <a href="#">Diretory</a>
-            <a href="#">Email</a>
-            <a href="#">Accessibility</a>
+            <div>&copy; University of Kentucky</span></div>
+            <div><a href="#">{% include 'atoms-icon-label' with { icon: 'pin', 'label': 'Lexington, Kentucky 40506' } %}</a></div>
+            <div>An Equal Opportunity University</span></div>
+            <div><a href="#" class="underline-link">Accreditation</a></div>
+            <div><a href="#" class="underline-link">Directory</a></div>
+            <div><a href="#" class="underline-link">Email</a></div>
+            <div><a href="#" class="underline-link">Accessibility</a></div>
         </div>
     {% endblock %}
 {% endembed %}

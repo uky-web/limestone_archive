@@ -23,6 +23,32 @@
   background: linear-gradient(to top, $default 0, $default 50%, transparent 2px, transparent 100%) scroll repeat-x 0 .5em, transparent linear-gradient(to top, $hover 0, $hover 2px, transparent 2px, transparent 100%) scroll repeat-x 0 0;
 }
 
+@mixin underline-link($d: color(light-blue-tint), $h: color(wildcat-blue)) {
+  @include faux-underline($d, $h);
+  @include link-colors;
+  position: relative;
+  transition: .2s background-position ease-out;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 1;
+
+  &.link--fancy {
+    background-image: none;
+  }
+
+  // Shift the layered gradients around 
+  // to give the impression the dark inactive
+  // underline is changing color and growing.
+  // The huge offset value for the inactive state
+  // makes sure the whole underline disappears in
+  // one animation frame, otherwise you get an 
+  // unsettling flicker.
+  &:active,
+  &:hover {
+    background-position: 0 0, 1000px 2px;
+  }
+}
+
 @mixin block-header-font {
   h2,
   h3,
