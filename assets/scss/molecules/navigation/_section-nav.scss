@@ -1,4 +1,5 @@
 .section-nav {
+
   h2,
   h3,
   h4 {
@@ -35,6 +36,17 @@
 
   @at-root .js-tabcontent #{&} {
     margin: rr-gridbase(2) rr-gridbase(4);
+  }
+
+  // We need to hide the sidebar navigation
+  // in the sidebar on screens where it's 
+  // injected into the mobile navigation
+  @at-root .grid__column--minor #{&} {
+    display: none;
+
+    @include rr-break-directive(l) {
+      display: block;
+    }
   }
 }
 
