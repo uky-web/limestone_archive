@@ -1,48 +1,70 @@
 .universal-footer {
   padding-top: rr-gridbase(4);
   padding-bottom: rr-gridbase(4);
+  background-color: color(wildcat-blue);
+
+  .uk-wordmark {
+    display: block;
+    width: 70vw;
+    height: 7.14vw;
+    margin: 0 auto rr-gridbase(2);
+
+    @include rr-break-directive(l) {
+      width: 20rem;
+      height: 2.04rem;
+    }
+  }
 }
 
 .universal-footer__ribbon {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: center;
 
   > * {
     position: relative;
     margin-right: -1px;
     padding: 0 rr-gridbase(2);
-    border-right: 1px #898fa8 solid;
+    border-right: 1px color(light-blue-tint) solid;
     border-width: 0 1px;
-    line-height: rr-gridbase(2);
-
-    &::after {
-  
-    }
 
     &:first-child {
       padding-left: 0;
     }
 
     &:last-child {
-      padding-right: 0;
       margin-right: 0;
+      padding-right: 0;
       border-width: 0;
     }
   }
 
   a {
+    display: inline-block;
+    line-height: 17px;
     text-decoration: none;
-    
+    // Text-shadow serves as a knockout of the underline around the text
+    text-shadow: 1px 0 1px color(wildcat-blue), 2px 0 1px color(wildcat-blue), -1px 0 1px color(wildcat-blue), -2px 0 1px color(wildcat-blue);
+
     &.underline-link {
-      @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint));
+      @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint), $w: 1px, $alpha: .6);
       @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
+      font-weight: normal;
       text-decoration: none;
     }
 
-    .icon-label .label {
-      @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
-      text-decoration: none;
+    &:hover,
+    &:active {
+      text-shadow: none;
+    }
+
+    .icon-label {
+      .label {
+        @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint), $w: 1px, $alpha: .6);
+        @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
+        font-weight: normal;
+        text-decoration: none;
+      }
     }
   }
 

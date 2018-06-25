@@ -17,14 +17,22 @@
   }
 }
 
-@mixin faux-underline($d: color(light-blue-tint), $h: color(wildcat-blue)) {
-  $default: rgba($d, .4);
-  $hover: rgba($h, .4);
-  background: linear-gradient(to top, $default 0, $default 50%, transparent 2px, transparent 100%) scroll repeat-x 0 .5em, transparent linear-gradient(to top, $hover 0, $hover 2px, transparent 2px, transparent 100%) scroll repeat-x 0 0;
+@mixin faux-underline($d: color(light-blue-tint), $h: color(wildcat-blue), $w: 2px, $alpha: .4) {
+  $default: rgba($d, $alpha);
+  $hover: rgba($h, $alpha);
+  background-attachment: scroll;
+  background-image: linear-gradient(to top, $default 0, $default 50%, transparent $w, transparent 100%), linear-gradient(to top, $hover 0, $hover $w, transparent $w, transparent 100%);
+  background-repeat: repeat-x;
+  background-position: 0 .5em, 0 0;
+
+  /*
+  background: linear-gradient(to top, $default 0, $default 50%, transparent $w, transparent 100%) scroll repeat-x 0 .5em,
+    transparent linear-gradient(to top, $hover 0, $hover $w, transparent $w, transparent 100%) scroll repeat-x 0 0;
+  */
 }
 
-@mixin underline-link($d: color(light-blue-tint), $h: color(wildcat-blue)) {
-  @include faux-underline($d, $h);
+@mixin underline-link($d: color(light-blue-tint), $h: color(wildcat-blue), $w: 2px, $alpha: .4) {
+  @include faux-underline($d, $h, $w, $alpha);
   @include link-colors;
   position: relative;
   transition: .2s background-position ease-out;
@@ -45,7 +53,7 @@
   // unsettling flicker.
   &:active,
   &:hover {
-    background-position: 0 0, 1000px 2px;
+    background-position: 0 0, 1000px $w;
   }
 }
 
