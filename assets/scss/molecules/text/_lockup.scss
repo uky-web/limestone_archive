@@ -58,7 +58,8 @@
       vertical-align: baseline;
 
       svg {
-        width: 3.71875rem; // (80% of full size)           
+        width: 3.71875rem; // (80% of full size)      
+        height: 3.01875rem;
         margin-right: .7875rem;
       }
     }
@@ -79,9 +80,10 @@
     &__main {
       min-height: rr-gridbase(9);
     }
-
+//0.811764706
     &__logo svg {
-      width: 4.25rem; // (80% of full size)      
+      width: 4.25rem; // (80% of full size)   
+      height: 3.45rem;
       margin-right: .9rem;
     }
 
@@ -101,6 +103,7 @@
 
     &__logo svg {
       width: 5.3125rem;
+      height: 4.312500001rem;
       margin-right: 1.125rem;
     }
 
