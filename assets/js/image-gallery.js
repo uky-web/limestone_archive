@@ -40,7 +40,7 @@ const image_gallery = () => {
 
       
   const $modals = $gallery.magnificPopup({
-      delegate: 'a',
+      delegate: '.image-gallery__popup-launcher',
       type: 'image',
       mainClass: 'mfp-fade',
       tLoading: 'Loading image #%curr%...',
