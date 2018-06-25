@@ -3,6 +3,8 @@
 @import 'page-headers/split';
 
 .page-header {
+  position: relative;
+
   .slab__wrapper {
     padding-bottom: rr-grid-remainder(4px, 5);
     border-bottom: 4px color(almost-wildcat-blue) solid;
