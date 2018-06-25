@@ -16,7 +16,7 @@
     margin-bottom: 2rem;
     font-family: $font-mercury;
 
-    .heading__text {
+    span {
       display: inline-block;
       position: relative;
       padding-right: 2rem;
@@ -53,7 +53,7 @@ $skins: transparent;
       @include usescheme($text-colors-dark);
     }
 
-    .heading--display .heading__text {
+    .heading--display span {
       background-color: $color;
     }
   }
