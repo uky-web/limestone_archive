@@ -3,10 +3,20 @@
 @import 'global/placeholder';
 @import 'global/uky-logo-main';
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   @include usescheme($text-colors);
   margin: 0;
   padding: 0;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
 }
 
 .default-colors {
