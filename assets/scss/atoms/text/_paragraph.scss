@@ -3,6 +3,15 @@ p {
   margin-bottom: rr-gridbase(2);
 }
 
+// Fix this style so it can be set on a wrapping container or the paragraph itself.
+.intro {
+  @include rr-font-compute(xl, medium);
+
+  p {
+    @include rr-font-compute(xl, medium);
+  }
+}
+
 code {
   // have to make this text slightly smaller than the surround to keep from
   // interfering with the line height.

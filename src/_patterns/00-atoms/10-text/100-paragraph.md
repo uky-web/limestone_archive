@@ -7,7 +7,7 @@ Simple text wrapped with a paragraph.
 Variables:
 
 * _content_ : Text inside the paragraph. Default: `fake(paragraph)`
-* _style_modifier_ : Additional class styles. Provide examples of these in Patternlab by creating a matching json file.
+* _paragraph_variant_ : Additional class styles. Provide examples of these in Patternlab by creating a matching json file.
 * _numParagraphs_ : Convenience variable to create several paragraphs. Works poorly in combination with _content_ or _content_paragraph_. Default: 1.
 
 Blocks:

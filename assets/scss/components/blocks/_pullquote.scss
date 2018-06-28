@@ -51,7 +51,7 @@
   }
 
   &__attribution {
-    @include divider($color: light-blue);
+    @include divider;
     display: block;
     position: relative;
     min-height: 6.25rem;
@@ -61,9 +61,8 @@
   &__first-line {
     @include rr-font-compute(2xl, tight);
     display: block;
-    color: color(wildcat-blue);
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   &__second-line {
@@ -78,10 +77,6 @@
     padding: rr-gridbase(4);
     border-color: color(wildcat-blue);
     background-color: color(wildcat-blue);
-
-    #{$root}__first-line {
-      color: color(light-blue-tint);
-    }
 
     p::before,
     p::after {
@@ -104,7 +99,6 @@
     }
 
     #{$root}__attribution {
-      @include divider($color: light-blue);
       display: block;
       position: relative;
       min-height: auto;

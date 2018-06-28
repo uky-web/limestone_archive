@@ -191,6 +191,17 @@ $black: #2c2a29;
       }
     }
   }
+
+  .pullquote__attribution {
+    &::before {
+      background-color: color(statistic-head-color, $textscheme);
+    }
+
+    .pullquote__first-line {
+      color: color(statistic-subhead-color, $textscheme);
+    }
+  }
+
 }
 
 @mixin ondark {
