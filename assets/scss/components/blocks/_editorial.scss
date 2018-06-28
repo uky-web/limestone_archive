@@ -32,6 +32,11 @@
     }
   }
 
+  a.button,
+  button {
+    background-image: none;
+  }
+
   @include rr-break-directive(m) {
     .editorial__aside {
       &.align-left {
