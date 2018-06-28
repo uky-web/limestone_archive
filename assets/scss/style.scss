@@ -8,59 +8,53 @@
 
 // mq is a sass/media-query library
 // https://github.com/sass-mq/sass-mq
-@import 'sass-mq'; 
+@import 'sass-mq';
 
 @import 'root-rhythm';
-// Config for root-rhythm
+@import 'includes/rem';
+@import 'includes/math';
+@import 'includes/colors';
+@import 'includes/variables';
+@import 'includes/mixins';
 
-@import "includes/rem";
-@import "includes/math";
-@import "includes/colors";
-@import "includes/variables";
-@import "includes/mixins";
-
-@import "includes/design-variables";
+@import 'includes/design-variables';
 
 :root {
-    @include rr-font-compute(r, tight);
-    position: relative;
+  @include rr-font-compute(r, tight);
+  position: relative;
 }
 
-/* Slick */
+@import 'includes/fonts';
+@import '../../intermediate/iconfont';
 
-@import "includes/fonts.scss";
-@import "../../intermediate/iconfont";
+@import 'includes/slick-settings';
+@import 'includes/slick';
+@import 'includes/slick-theme';
+@import 'includes/magnific-popup';
 
-@import "includes/slick-settings";
-@import "includes/slick";
-@import "includes/slick-theme";
-@import "includes/magnific-popup";
+// Patterlab styles
+@import 'atoms/global';
+@import 'atoms/icons';
+@import 'atoms/text';
+@import 'atoms/buttons';
+@import 'atoms/lists';
+@import 'atoms/media';
 
-/*
- * Patterlab styles
- */
-@import "atoms/global";
-@import "atoms/icons";
-@import "atoms/text";
-@import "atoms/buttons";
-@import "atoms/lists";
-@import "atoms/media";
+@import 'molecules/text';
+@import 'molecules/content-layouts';
+@import 'molecules/page-layouts';
+@import 'molecules/navigation';
+@import 'molecules/interactive';
+@import 'molecules/data';
+@import 'molecules/media';
 
-@import "molecules/text";
-@import "molecules/content-layouts";
-@import "molecules/page-layouts";
-@import "molecules/navigation";
-@import "molecules/interactive";
-@import "molecules/data";
-@import "molecules/media";
-
-@import "components/clamp";
-@import "components/page-headers";
-@import "components/alerts";
-@import "components/asides";
-@import "components/blocks";
-@import "components/teasers";
-@import "components/collections";
+@import 'components/clamp';
+@import 'components/page-headers';
+@import 'components/alerts';
+@import 'components/asides';
+@import 'components/blocks';
+@import 'components/teasers';
+@import 'components/collections';
 
 // Grid overlay
 

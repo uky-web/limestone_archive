@@ -9,40 +9,6 @@
 
 .slab__wrapper {
   @include rr-slab-wrapper;
-
-  .heading--display {
-    @include rr-font-compute(3xl, tight);
-    position: relative;
-    margin-bottom: 2rem;
-    font-family: $font-mercury;
-
-    span {
-      display: inline-block;
-      position: relative;
-      padding-right: 2rem;
-      background-color: color(wildcat-white);
-      z-index: 1;
-    }
-
-    &::after {
-      position: absolute;
-      right: 0;
-      bottom: .15em;
-      left: 0;
-      height: 2px;
-      background-image: repeating-linear-gradient(to right, #{color(light-gray)}, #{color(light-gray)} 3px, transparent 3px, transparent 7px);
-      content: '';
-      z-index: 0;
-    }
-
-    @include rr-break-directive('m') {
-      margin-bottom: 3rem;
-    }
-
-    @include rr-break-directive('l') {
-      margin-bottom: 5.5rem;
-    }
-  }
 }
 
 $skins: transparent;
