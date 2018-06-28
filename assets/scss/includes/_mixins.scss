@@ -114,13 +114,12 @@
   }
 }
 
-@mixin divider($centered: false, $color: wildcat-blue) {
+@mixin divider($centered: false) {
   &::before {
     position: absolute;
     top: 0;
     width: 50px;
     height: 4px;
-    background-color: color($color);
     content: '';
     @if $centered {
       left: 50%;

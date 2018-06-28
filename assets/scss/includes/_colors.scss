@@ -1,8 +1,4 @@
-/* Colors
-/* remember to turn off any unused swatches in atoms>global>colors.twig
-/* _______________________________________________________________ */
-
-$color-undefined: #aaaaaa;
+$color-undefined: #aaa;
 $white: #fff;
 $black: #2c2a29;
 
@@ -12,171 +8,193 @@ $black: #2c2a29;
 /// @return {Number}
 /// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
 @function luminance($color) {
-    $colors: ( 'red': red($color), 'green': green($color), 'blue': blue($color));
-    @each $name,
-    $value in $colors {
-        $adjusted: 0;
-        $value: $value / 255;
-        @if $value < 0.03928 {
-            $value: $value / 12.92;
-        }
-        @else {
-            $value: ($value + .055) / 1.055;
-            $value: pow($value, 2.4);
-        }
-        $colors: map-merge($colors, ($name: $value));
+  $colors: ( 'red': red($color), 'green': green($color), 'blue': blue($color));
+  @each $name, $value in $colors {
+    $adjusted: 0;
+    $value: $value / 255;
+    @if $value < .03928 {
+      $value: $value / 12.92;
+    } @else {
+      $value: ($value + .055) / 1.055;
+      $value: pow($value, 2.4);
     }
-    @return (map-get($colors, 'red') * .2126)+(map-get($colors, 'green') * .7152)+(map-get($colors, 'blue') * .0722);
+    $colors: map-merge($colors, ($name: $value));
+  }
+  @return (map-get($colors, 'red') * .2126) + (map-get($colors, 'green') * .7152) + (map-get($colors, 'blue') * .0722);
 }
 
-@function contrast($c1,$c2) {
-    $l1: luminance($c1);
-    $l2: luminance($c2);
-    @if $l1 > $l2 {
-        @return ($l1 + 0.05) / ($l2 + 0.05);
-    }
-    @return ($l2 + 0.05) / ($l1 + 0.05);
+@function contrast($c1, $c2) {
+  $l1: luminance($c1);
+  $l2: luminance($c2);
+  @if $l1 > $l2 {
+    @return ($l1 + .05) / ($l2 + .05);
+  }
+  @return ($l2 + .05) / ($l1 + .05);
 }
 
 @function color($name: wildcat-blue, $scheme: $colors) {
-    @if map-has-key($scheme, $name) {
-        @return map-get($scheme, $name);
-    }
-    @return $color-undefined;
+  @if map-has-key($scheme, $name) {
+    @return map-get($scheme, $name);
+  }
+  @return $color-undefined;
 }
 
 @mixin usescheme($textscheme) {
-    color: color(text,$textscheme);
+  color: color(text, $textscheme);
 
-    .cite-media .icon-label {
-        color: color(media-citation,$textscheme);
+  .cite-media .icon-label {
+    color: color(media-citation, $textscheme);
+  }
+
+  a {
+    @include link-colors($d: color(link, $textscheme), $h: color(link-active, $textscheme));
+  }
+
+  .image-with-caption__media {
+    background-color: color(media-background, $textscheme);
+  }
+
+  button,
+  a.button,
+  input.button {
+    border-color: color(button-border, $textscheme);
+    background-color: color(button-background, $textscheme);
+    color: color(button-text, $textscheme);
+
+    // attach default colors to the anchor-as-button version
+    &:link {
+      border-color: color(button-border, $textscheme);
+      background-color: color(button-background, $textscheme);
+      color: color(button-text, $textscheme);
     }
 
-    a {
-        @include link-colors($d: color(link, $textscheme), $h:color(link-active, $textscheme));
+    &.button--ghost {
+      background-color: transparent;
+      color: color(button-border, $textscheme);
     }
 
-    .image-with-caption__media {
-        background-color: color(media-background, $textscheme);
+    &.button--transparent {
+      border-color: transparent;
+      background-color: transparent;
+      color: color(button-border, $textscheme);
     }
 
-    button, a.button, input.button {
-        border-color: color(button-border,$textscheme);
-        background-color: color(button-background,$textscheme);
-        color: color(button-text,$textscheme);
+    &[disabled] {
+      // sass-lint:disable-block no-important
+      border-color: color(button-disabled-border, $textscheme) !important;
+      background-color: color(button-disabled-background, $textscheme) !important;
+      color: color(button-disabled-text, $textscheme) !important;
 
-        // attach default colors to the anchor-as-button version
-        &:link {
-            border-color: color(button-border, $textscheme);
-            background-color: color(button-background, $textscheme);
-            color: color(button-text, $textscheme);
+      &.button--ghost {
+        background-color: transparent !important;
+        // The ghost disabled text is a weird case; we have to 
+        // tune it for specific text schemes
+        @if $textscheme == $text-colors-dark {
+          color: color(wildcat-white) !important;
+        } @else {
+          color: color(button-disabled-text, $textscheme) !important;
         }
-        
-
-        &.button--ghost {
-            background-color: transparent;
-            color: color(button-border,$textscheme);
-        }
-
-        &.button--transparent {
-            background-color: transparent;
-            border-color: transparent;
-            color: color(button-border,$textscheme);
-        }
-
-        &[disabled] {
-            border-color: color(button-disabled-border, $textscheme) !important;
-            background-color: color(button-disabled-background, $textscheme) !important;
-            color: color(button-disabled-text, $textscheme) !important;
-
-            &.button--ghost {
-                background-color: transparent !important;
-                // The ghost disabled text is a weird case; we have to 
-                // tune it for specific text schemes
-                @if $textscheme == $text-colors-dark {
-                    color: color(wildcat-white) !important;
-                } @else {
-                    color: color(button-disabled-text, $textscheme) !important;
-                }                
-            }
-        }
-
-        &:hover {
-            border-color: color(button-hover-border, $textscheme);
-            background-color: color(button-hover-background, $textscheme);
-            color: color(button-hover-text, $textscheme);
-        }
-
-        &:active,
-        &[aria-pressed=true] {
-            border-color: color(button-active-border, $textscheme);
-            background-color: color(button-active-background, $textscheme);
-            color: color(button-active-text, $textscheme);
-            &.button--ghost {
-                color: color(button-active-text,$textscheme);
-            }
-            &.button--transparent {
-                color: color(button-active-border,$textscheme);
-                background-color: transparent;
-                border-color: transparent;
-            }            
-        }
-
-        &:focus {
-            background-color: color(button-focus-background, $textscheme);
-            border-color: color(button-focus-border, $textscheme);
-            color: color(button-focus-text, $textscheme);
-            outline: none;
-
-            &.button--ghost {
-                background-color: transparent;
-                // Like disabled ghost, the focus state is quite different
-                // and we need some extra tuning                
-                @if $textscheme == $text-colors-dark {
-                    color: color(wildcat-white);
-                }
-                @else {
-                    color: color(button-focus-text, $textscheme);
-                }
-            }
-        }
+      }
     }
 
-    .headline-group .headline-group__super {
-        color: color(headline-group-super, $textscheme);
+    &:hover {
+      border-color: color(button-hover-border, $textscheme);
+      background-color: color(button-hover-background, $textscheme);
+      color: color(button-hover-text, $textscheme);
     }
 
-    .headline-group .headline-group__sub {
-        color: color(headline-group-sub, $textscheme);
+    &:active,
+    &[aria-pressed='true'] {
+      border-color: color(button-active-border, $textscheme);
+      background-color: color(button-active-background, $textscheme);
+      color: color(button-active-text, $textscheme);
+
+      &.button--ghost {
+        color: color(button-active-text, $textscheme);
+      }
+
+      &.button--transparent {
+        border-color: transparent;
+        background-color: transparent;
+        color: color(button-active-border, $textscheme);
+      }
     }
 
-    .slick-prev,
-    .slick-next {
-        background-color: color(carousel-single-button,$textscheme);
-        color: transparent; // Content in the button should not be visible
-        &:hover, &:focus {
-            color: transparent; // Content in the button should not be visible
-            background-color: color(carousel-single-button,$textscheme);
+    &:focus {
+      border-color: color(button-focus-border, $textscheme);
+      outline: none;
+      background-color: color(button-focus-background, $textscheme);
+      color: color(button-focus-text, $textscheme);
+
+      &.button--ghost {
+        background-color: transparent;
+        // Like disabled ghost, the focus state is quite different
+        // and we need some extra tuning        
+        @if $textscheme == $text-colors-dark {
+          color: color(wildcat-white);
+        } @else {
+          color: color(button-focus-text, $textscheme);
         }
-        &:before {
-            color: color(carousel-single-button-art,$textscheme);
-        }
+      }
+    }
+  }
+
+  .headline-group .headline-group__super {
+    color: color(headline-group-super, $textscheme);
+  }
+
+  .headline-group .headline-group__sub {
+    color: color(headline-group-sub, $textscheme);
+  }
+
+  .slick-prev,
+  .slick-next {
+    background-color: color(carousel-single-button, $textscheme);
+    color: transparent; // Content in the button should not be visible
+
+    &:hover,
+    &:focus {
+      background-color: color(carousel-single-button, $textscheme);
+      color: transparent; // Content in the button should not be visible
     }
 
+    &::before {
+      color: color(carousel-single-button-art, $textscheme);
+    }
+  }
 
-    .slick-dots li {
-        button:before {
-            color: color(carousel-dot,$textscheme);
-        }
-        &.slick-active button:before {
-            color: color(carousel-dot-active, $textscheme);
-        }
-    }    
+  .slick-dots li {
+    button::before {
+      color: color(carousel-dot, $textscheme);
+    }
+
+    &.slick-active button::before {
+      color: color(carousel-dot-active, $textscheme);
+    }
+  }
+
+  .statistic {
+    .editorial {
+      &::before {
+        background-color: color(statistic-head-color, $textscheme);
+      }
+    }
+
+    .headline-group {
+      .headline-group__head {
+        color: color(statistic-head-color, $textscheme);
+      }
+
+      .headline-group__super,
+      .headline-group__sub {
+        color: color(statistic-subhead-color, $textscheme);
+      }
+    }
+  }
 }
 
-@mixin ondark() {
-    warning: "ondark-depricated";
-    @include usescheme($text-colors-dark);
+@mixin ondark {
+  @include usescheme($text-colors-dark);
 }
 
 

@@ -7,19 +7,23 @@
   text-align: center;
   overflow: hidden;
 
-  .headline-group__head {
-    @include rr-font-compute(5xl, squeeze);
-    display: inline-block;
-    color: color(wildcat-blue);
-    font-weight: 500;
-  }
+  .headline-group {
+    .headline-group__head {
+      @include rr-font-compute(5xl, squeeze);
+      display: inline-block;
+      font-weight: 500;
+    }
 
-  .headline-group__super,
-  .headline-group__sub {
-    @include rr-font-compute(xl, tight);
-    color: color(light-blue);
-    font-weight: 500;
-    text-transform: uppercase;
+    .headline-group__super,
+    .headline-group__sub {
+      @include rr-font-compute(xl, tight);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .headline-group__sub {
+      padding-top: rr-gridbase();
+    }
   }
 
   .editorial {
@@ -28,7 +32,7 @@
     padding-top: rr-gridbase(2);
 
     p {
-      @include rr-font-compute(l, medium);
+      @include rr-font-compute(l, tight);
     }
   }
 }
