@@ -1,9 +1,10 @@
-
-// ul defaults can go here
-// but please don't make any
-// it causes much rage
 ul,
 ol {
+  li {
+    @include rr-font-compute(r,medium);
+    margin-bottom: rr-gridbase();
+  }
+
   &.no-decoration {
     @include no-decoration;
   }

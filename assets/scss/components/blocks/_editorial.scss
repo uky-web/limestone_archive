@@ -24,6 +24,14 @@
     margin-bottom: 0;
   }
 
+  ol,
+  ul {
+    li {
+      @include rr-font-compute(r, medium);
+      margin-bottom: rr-gridbase();
+    }
+  }
+
   @include rr-break-directive(m) {
     .editorial__aside {
       &.align-left {
