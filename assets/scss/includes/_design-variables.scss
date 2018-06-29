@@ -28,13 +28,13 @@ $rr-grid-settings: (
     offset: 2rem,
     vspace: 3, //  21px / 42px
     column_color: rgba(255, 200, 200, .2),
-    baseline_color: rgba(128, 128, 200, .2)    
+    baseline_color: rgba(128, 128, 200, .2)
   ),
   l: (
     size: 58rem,
     columns: 12,
     column_color: rgba(128, 255, 200, .2),
-    baseline_color: rgba(128, 128, 200, .2)    
+    baseline_color: rgba(128, 128, 200, .2)
   ),
   xl: (
     size: $global-width + 4rem,
@@ -42,7 +42,7 @@ $rr-grid-settings: (
     gutter: 2rem, //36px 
     vspace: 5, // (36px / 72px)
     column_color: rgba(200, 128, 255, .2),
-    baseline_color: rgba(128, 128, 200, .2)    
+    baseline_color: rgba(128, 128, 200, .2)
   ),
   xlp: (
     size: $global-width + 8rem
@@ -52,51 +52,51 @@ $rr-grid-settings: (
 
 $rr-grids: (
   2-up: (
-    m : (
+    m: (
       columns: 2,
     )
   ),
   3-up: (
-    m : (
+    m: (
       columns: 2,
     ),
-    l : (
+    l: (
       columns: 3,
     )
   ),
   4-up: (
-    m : (
+    m: (
       columns: 2,
     ),
-    l : (
+    l: (
       columns: 4,
     )
   ),
   5-up: (
-    m : (
+    m: (
       columns: 3,
     ),
-    l : (
+    l: (
       columns: 5,
-    )    
+    )
   ),
   6-up: (
-    m : (
+    m: (
       columns: 3,
     ),
-    l : (
+    l: (
       columns: 4,
     ),
-    xl : (
+    xl: (
       columns: 6
     )
   ),
   sidebar-left: (
     m: (
       columns: 3,
-      areas : side main main
+      areas: side main main
     ),
-    l : (
+    l: (
       columns: 4,
       areas: side main main main
     )
@@ -107,7 +107,7 @@ $rr-grids: (
       areas: main main side,
       flex-columns: 2
     ),
-    l : (
+    l: (
       columns: 4,
       areas: main main main side
     )
@@ -118,10 +118,10 @@ $rr-grids: (
       areas: major minor,
       flex-columns: 2
     ),
-    l : (
+    l: (
       columns: 3,
       areas: major major minor,
-    )    
+    )
   ),
   major-right: (
     m: (
@@ -129,7 +129,7 @@ $rr-grids: (
       areas: minor major,
       flex-columns: 2
     ),
-    l : (
+    l: (
       columns: 3,
       areas: minor major major,
     )
@@ -147,7 +147,7 @@ $lineheights: (
 );
 
 $fonts: (
-  s : (
+  s: (
     xs: .75rem, //12  xxs
     s: .875rem, //14  xs
     r: 1rem, //16 s
@@ -155,10 +155,10 @@ $fonts: (
     xl: 1.25rem, // l 
     2xl: 1.5rem,
     3xl: 1.775rem,
-    4xl: 2.0rem,
+    4xl: 2rem,
     5xl: 2.4286rem
   ),
-  xl : (
+  xl: (
     xs: .75rem,
     s: .875rem,
     r: 1rem,
@@ -174,29 +174,29 @@ $fonts: (
 $font-sizes: rr-font-sizes();
 
 $editorial-headings: (
-  h2 : (
+  h2: (
     size: 4xl,
     lineheight: tight,
-    font: $font-mercury,    
+    font: $font-mercury,
     weight: normal,
   ),
-  h3 : (
+  h3: (
     size: 3xl,
     lineheight: tight,
     weight: normal,
   ),
-  h4 : (
+  h4: (
     size: xl,
     lineheight: tight,
     weight: normal,
   ),
-  h5 : (
+  h5: (
     size: xl,
     lineheight: tight,
     weight: normal,
     style: italic
   ),
-  h6 : (
+  h6: (
     size: l,
     lineheight: tight,
     weight: normal
@@ -218,8 +218,8 @@ $colors: (
   subtle-gray: #ebebeb,
   dark-gray: #515664,
   blue-gray: #eff4fd,
-  success: lawngreen,
-  warning: darkorange,
+  success: #7cfc00,
+  warning: #ff8c00,
   alert: #c12c2b,
   info: #a1d3ed,
 );
@@ -267,7 +267,7 @@ $text-colors-dark: (
   button-border: color(wildcat-white),
   button-background: color(wildcat-white),
   button-text: color(wildcat-blue),
-  button-disabled-border: rgba(#ededed,.66),
+  button-disabled-border: rgba(#ededed, .66),
   button-disabled-background: rgba(#ededed, .66),
   button-disabled-text: color(wildcat-blue),
   button-hover-border: color(light-blue),

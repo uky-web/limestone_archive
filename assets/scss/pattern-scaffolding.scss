@@ -1,24 +1,27 @@
-/**
- * This stylesheet is for styles you want to include only when displaying demo
- * styles for grids, animations, color swatches, etc.
- * These styles will not be your production CSS.
- */
+//
+// This stylesheet is for styles you want to include only when displaying demo
+// styles for grids, animations, color swatches, etc.
+// These styles will not be your production CSS.
+//
+
 @import 'root-rhythm';
 @import 'includes/design-variables';
 @import 'includes/mixins/m_typography';
 @import 'includes/colors';
 @import 'includes/fonts';
 
+//sass-lint:disable no-ids
 #sg-patterns {
   max-width: 100%;
 }
+//sass-lint:enable no-ids
 
 .demo-animate {
-  background: #ddd;
-  padding: 1em;
   margin-bottom: 1em;
-  text-align: center;
+  padding: 1em;
   border-radius: 8px;
+  background: color(dark-gray);
+  text-align: center;
   cursor: pointer;
 }
 
@@ -29,16 +32,16 @@
 }
 
 .sg-colors__column {
+  padding: rr-grid-remainder(2px);
   border: 2px solid color(light-gray);
   border-radius: 8px;
-  padding: rr-grid-remainder(2px);
   overflow: hidden;
   @include rr-font-compute(r, tight);
 
   margin {
     top: rr-gridbase(2);
     bottom: rr-gridbase(2);
-  }  
+  }
 }
 
 .sg-colors pre {
@@ -50,8 +53,8 @@
   display: block;
   height: rr-gridbase(10);
   margin-bottom: rr-gridbase();
-  border-radius: 5px;
   padding: rr-grid-remainder(5px);
+  border-radius: 5px;
 }
 
 .sg-pattern-example {
@@ -72,6 +75,7 @@
     top: rr-gridbase(2);
     bottom: rr-gridbase(2);
   }
+
   a {
     padding: 0;
     border-bottom-width: 0;
@@ -89,13 +93,13 @@
 
   @media screen and ( min-width: 44rem ) {
     display: flex;
-    margin-left: -1rem;
     margin-right: -1rem;
+    margin-left: -1rem;
 
     .sg-image-grid-tile {
-      margin-left: 1rem;
       margin-right: 1rem;
       margin-bottom: 0;
+      margin-left: 1rem;
     }
   }
 }
@@ -106,20 +110,20 @@ body.layout-grid--on {
 
 .toggleGroup {
   position: absolute;
-  right: 1rem;
   top: 1rem;
+  right: 1rem;
   z-index: 999;
 
   button {
     display: inline-block;
 
-    background-color: black;
-    border-color: black;
+    padding: 2px 8px;
+    border-radius: 8px;
+    border-color: color(wildcat-black);
+    background-color: color(wildcat-black);
     font-size: 12px;
     font-weight: bold;
-    padding: 2px 8px;
     line-height: 1;
-    border-radius: 8px;
   }
 }
 
@@ -131,16 +135,17 @@ body.layout-grid--on {
   display: none;
 
   position: absolute;
+  top: 0;
   right: 1rem;
-  top: 0rem;
-  color: red;
+  color: color(alert);
   z-index: 998;
 }
 
 body.twig-includes--on {
   .twig-include {
-    border: 2px solid red;
+    border: 2px solid color(alert);
   }
+
   .twig-include__label {
     display: block;
   }

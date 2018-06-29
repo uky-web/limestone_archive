@@ -24,11 +24,6 @@
   background-image: linear-gradient(to top, $default 0, $default 50%, transparent $w, transparent 100%), linear-gradient(to top, $hover 0, $hover $w, transparent $w, transparent 100%);
   background-repeat: repeat-x;
   background-position: 0 .5em, 0 0;
-
-  /*
-  background: linear-gradient(to top, $default 0, $default 50%, transparent $w, transparent 100%) scroll repeat-x 0 .5em,
-    transparent linear-gradient(to top, $hover 0, $hover $w, transparent $w, transparent 100%) scroll repeat-x 0 0;
-  */
 }
 
 @mixin underline-link($d: color(light-blue-tint), $h: color(wildcat-blue), $w: 2px, $alpha: .4) {

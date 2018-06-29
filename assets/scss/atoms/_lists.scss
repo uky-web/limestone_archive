@@ -1,7 +1,7 @@
 ul,
 ol {
   li {
-    @include rr-font-compute(r,medium);
+    @include rr-font-compute(r, medium);
     margin-bottom: rr-gridbase();
   }
 
