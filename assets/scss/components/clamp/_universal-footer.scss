@@ -17,32 +17,10 @@
 }
 
 .universal-footer__ribbon {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-
-  > * {
-    position: relative;
-    margin-right: -1px;
-    padding: 0 rr-gridbase(2);
-    border-right: 1px color(light-blue-tint) solid;
-    border-width: 0 1px;
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-      padding-right: 0;
-      border-width: 0;
-    }
-  }
-
   a {
-    display: inline-block;
     line-height: 17px;
     text-decoration: none;
+
     // Text-shadow serves as a knockout of the underline around the text
     text-shadow: 1px 0 1px color(wildcat-blue), 2px 0 1px color(wildcat-blue), -1px 0 1px color(wildcat-blue), -2px 0 1px color(wildcat-blue);
 
@@ -61,7 +39,7 @@
     .icon-label {
       .label {
         @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint), $w: 1px, $alpha: .6);
-        @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
+        @include link-colors($d: color(wildcat-white), $h: color(light-blue-tint));
         font-weight: normal;
         text-decoration: none;
       }
@@ -72,5 +50,33 @@
     position: relative;
     top: .125rem;
     font-size: .93em;
+  }
+
+  > * {
+    margin-bottom: rr-gridbase(2);
+  }
+
+  @include rr-break-directive(l) {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    > * {
+      margin-right: -1px;
+      margin-bottom: 0;
+      padding: 0 rr-gridbase(2);
+      border-right: 1px color(light-blue-tint) solid;
+      border-width: 0 1px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-width: 0;
+      }
+    }
   }
 }

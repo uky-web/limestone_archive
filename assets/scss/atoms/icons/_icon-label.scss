@@ -53,6 +53,7 @@
 
 a .icon-label .label {
   @include underline-link;
+  display: inline;
   text-decoration: none;
 }
 
