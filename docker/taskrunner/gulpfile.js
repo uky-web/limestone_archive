@@ -45,7 +45,7 @@ var paths = {
 	fonts: ['assets/fonts/**/*'],
 	svgstore: ['assets/svgstore/**/*.svg'],
 	font_svg: ['assets/font-svg/**/*.svg'],
-	font_sass_tpl: ['assets/font-svg/_iconfont.scss'],
+	font_sass_tpl: ['assets/font-svg/*.scss'],
 	intermediate: 'intermediate',
 	dist_css: 'dist/css',
 	dist_js: 'dist/js',

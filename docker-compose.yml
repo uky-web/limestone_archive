@@ -41,6 +41,7 @@ services:
       # config overrides
       - ./docker/pl/gulpfile.js:/gulpfile.js:ro
       - ./docker/pl/config.yml:/pl/config/config.yml:ro
+      - ./docker/pl/libraries.yml:/pl/config/libraries.yml:ro
     ports:
       # main webserver
       - "3000:3000"

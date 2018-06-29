@@ -1,0 +1,95 @@
+patternlab:
+  css:
+    - "../../css/pattern-scaffolding.css"
+  js:
+    - "../../js/patternlab.js"
+
+base:
+  css:
+    - "../../css/style.css"
+  js:
+    - "../../js/lib/baseline.js"
+    - "../../js/toggle-button.js"
+    - "../../js/ambient-video.js"
+  dependencies:
+    - fitvids
+    - patternlab
+
+fitvids:
+  js:
+    - "../../js/lib/jquery.fitvids.js"
+  dependencies:
+    - jquery
+
+slick:
+  js:
+    - "../../js/lib/slick/slick.min.js"
+  css:
+    - "../../css/standalone/slick.css"
+  dependencies:
+    - jquery
+
+carousel:
+  js:
+    - "../../js/carousel.js"
+    - "../../js/trigger/carousel.js"
+  dependencies:
+    - slick
+
+accessible-tabs:
+  js:
+    - "../../js/lib/jquery-accessible-tabs-aria.js"
+
+accessible-accordions:
+  js:
+    - "../../js/lib/jquery-accessible-accordion.js"
+
+tabs:
+  js: 
+    - "../../js/tabs.js"
+  dependencies:
+    - accessible-tabs
+
+accordion:
+  css:
+    - "../../css/standalone/accordion.css"
+  js:
+    - "../../js/accordion.js"
+    - "../../js/trigger/accordion.js"
+  dependencies:
+    - accessible-accordions
+
+magnific:
+  js:
+    - "../../js/lib/jquery.magnific-popup.min.js"
+
+masonry:
+  js:
+    - "../../js/lib/masonry.pkgd.min.js"
+
+imagesloaded:
+  js:
+    - "../../js/lib/imagesloaded.pkgd.min.js"
+
+modal:
+  css:
+    - "../../css/standalone/modal.css"
+  js:
+    - "../../js/modals.js"
+  dependencies:
+    - magnific
+
+gallery:
+  css:
+    - "../../css/standalone/gallery.css"
+  js:
+    - "../../js/image-gallery.js"
+    - "../../js/trigger/gallery.js"
+  dependencies:
+    - imagesloaded
+    - masonry
+    - modal
+
+statistics:
+  css:
+    - "../../css/standalone/statistics.css"

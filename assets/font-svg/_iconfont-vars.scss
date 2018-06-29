@@ -1,0 +1,17 @@
+/* This file has been generated from a template. Do not edit it directly, your edits will 
+   be ignored like a ten-year-old's dad. Instead, edit the source template in 
+   /assets/font-svg/_iconfont.scss. 
+
+   This is a lodash template.
+*/
+
+
+<% _.each(glyphs,
+function(glyph) {
+    %>
+$icon-<%=glyph.name %>: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
+    <%
+}
+
+);
+%>

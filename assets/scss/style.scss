@@ -18,6 +18,7 @@
 @import 'includes/mixins';
 
 @import 'includes/design-variables';
+@import '../../intermediate/iconfont-vars';
 
 :root {
   @include rr-font-compute(r, tight);
@@ -25,11 +26,8 @@
 }
 
 @import 'includes/fonts';
-@import '../../intermediate/iconfont';
+@import '../../intermediate/iconfont-css';
 
-@import 'includes/slick-settings';
-@import 'includes/slick';
-@import 'includes/slick-theme';
 @import 'includes/magnific-popup';
 
 // Patterlab styles
