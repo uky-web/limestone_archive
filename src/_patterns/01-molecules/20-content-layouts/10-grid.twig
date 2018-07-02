@@ -1,24 +1,15 @@
-{% embed 'molecules-slab' with { slab_variant: slab_variant } %}
-    {% block slab_outer %}
-        {% if head %}
-        <div class="slab__wrapper">
-            {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, headline:head|default("Grid Headline") } %}
+<div class="grid {{ grid_type|default('grid--2-up') }} {{ grid_style }}">
+    {% if grid_columns %}                
+        {% for col in grid_columns %}
+        <div class="grid__column">
+            {% include col %}
         </div>
-        {% endif %}
-        <div class="grid {{ grid_type|default('grid--2-up') }} {{ grid_style }}">
-            {% if grid_columns %}                
-                {% for col in grid_columns %}
-                <div class="grid__column">
-                    {% include col %}
-                </div>
-                {% endfor %}
-            {% else %}
-                {% for i in 1..grid_cols|default(2) %}
-                <div class="grid__column">
-                    {% include 'atoms-placeholder' %}
-                </div>
-                {% endfor %}
-            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for i in 1..grid_cols|default(2) %}
+        <div class="grid__column">
+            {% include 'atoms-placeholder' %}
         </div>
-    {% endblock %}
-{% endembed %}
+        {% endfor %}
+    {% endif %}
+</div>

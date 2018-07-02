@@ -1,5 +1,23 @@
 .grid {
   @include rr-slab-wrapper($margins: true);
+
+  //nested grids
+  .grid {
+    max-width: none;
+    margin: rr-gridbase(1) 0;
+  }
+  
+  @include rr-break-directive(m) {
+    .grid {
+      margin: rr-gridbase(2) 0;
+    }
+  }
+
+  @include rr-break-directive(l) {
+    .grid {
+      margin: rr-gridbase(4) 0;
+    }
+  }
 }
 
 // The divided style separates blocks with a vertical border between

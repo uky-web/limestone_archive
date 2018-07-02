@@ -14,7 +14,8 @@ h6 {
 
 .editorial {
   @each $tag, $config in $editorial-headings {
-    #{$tag} {
+    #{$tag},
+    #{$tag}.headline-group .headline-group__head {
       @include rr-heading($tag, $editorial-headings);
       margin-top: 0;
       margin-bottom: rr-gridbase(2);
@@ -52,6 +53,11 @@ h6 {
   }
 
   @at-root .slab #{&}:last-child {
+    margin-bottom: 2rem;
+  }
+
+  @at-root .grid__column--major #{&} {
+    margin-top: 2rem;
     margin-bottom: 2rem;
   }
 

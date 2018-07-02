@@ -5,7 +5,7 @@
 
 {% embed 'molecules-slab-2x1'  %}
     {% block slab_content %}
-        {% for i in 0..4 %}
+        {% for i in 0..1 %}
             {% include 'components-editorial' with { 
                     aside : content_aside[i], 
                     aside_position: aside_positions[i],
@@ -15,6 +15,30 @@
                 } only 
             %}        
         {% endfor %}
+        {% set grid_columns = ["components-call-to-action","components-call-to-action","components-call-to-action","components-call-to-action"] %}
+        {% set columns = 4 %}
+        {% set cta_variant = "cta--light" %}
+        {# Note: Grids nested in 2x1 containers should be set to 2-columns only #}
+        {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, headline:"Call to four actions" } %}
+        {% include 'molecules-grid' with { grid_type: "grid--2-up" } %}
+        {% embed 'components-editorial' %}
+            {% block editorial_content %}
+                {% include 'molecules-headline-group' with { head: "Zipper", sub: "Embedded in the content column", level: 3 } %}
+                {% include 'molecules-zipper' %}
+            {% endblock %}
+        {% endembed %}
+        {% embed 'components-editorial' %}
+            {% block editorial_content %}
+                {% include 'molecules-headline-group' with { head: "Carousel", sub: "Embedded in the content column", level: 2 } %}
+                {% include 'molecules-carousel' with { level: 3 } %}
+            {% endblock %}
+        {% endembed %}
+        {% embed 'components-editorial' %}
+            {% block editorial_content %}
+                {% include 'molecules-headline-group' with { head: "Image Gallery", sub: "Embedded in the content column", super: "Click function misbehaves in Pattern Lab frame", level: 3 } %}
+                {% include 'molecules-image-gallery' with { level: 4 } %}
+            {% endblock %}
+        {% endembed %}
     {% endblock %}
     {% block slab_sidebar %}
         {% for comp in sidebar_aside %}
