@@ -5,6 +5,12 @@
 
 {% embed 'molecules-slab-2x1'  %}
     {% block slab_content %}
+        {% embed 'components-editorial' %}
+            {% block editorial_content %}
+                {% include 'molecules-headline-group' with { head: "Carousel", sub: "Embedded in the content column", level: 2 } %}
+                {% include 'molecules-carousel' with { level: 3 } %}
+            {% endblock %}
+        {% endembed %}
         {% for i in 0..1 %}
             {% include 'components-editorial' with { 
                     aside : content_aside[i], 
@@ -25,12 +31,6 @@
             {% block editorial_content %}
                 {% include 'molecules-headline-group' with { head: "Zipper", sub: "Embedded in the content column", level: 3 } %}
                 {% include 'molecules-zipper' %}
-            {% endblock %}
-        {% endembed %}
-        {% embed 'components-editorial' %}
-            {% block editorial_content %}
-                {% include 'molecules-headline-group' with { head: "Carousel", sub: "Embedded in the content column", level: 2 } %}
-                {% include 'molecules-carousel' with { level: 3 } %}
             {% endblock %}
         {% endembed %}
         {% embed 'components-editorial' %}

@@ -56,9 +56,12 @@ const carousel = () => {
         }
     }
 
+    /*
     $carousels.on('lazyLoaded', (e, slick,image,imageSource) => {
         
     });
+    */
+
     $carousels.on('init setPosition afterChange', (e,slick) => {
         if ($(e.currentTarget).has('.carousel--single')) {
             positionArrowsSingle(slick);
@@ -67,10 +70,13 @@ const carousel = () => {
             positionArrowsCentered(slick);
         }
     });
+
     $carousels.map((index,elem) => {
         // override configuration based on class name
         if (elem.classList.contains('carousel--center')) {
             config = carousel_center;
+        } else {
+            config = carousel_single;
         }
         $(elem).slick(config);
     });
