@@ -6,7 +6,7 @@
     max-width: none;
     margin: rr-gridbase(1) 0;
   }
-  
+
   @include rr-break-directive(m) {
     .grid {
       margin: rr-gridbase(2) 0;
