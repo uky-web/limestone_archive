@@ -12,12 +12,19 @@
 
   .universal-header__breadcrumb {
     display: none;
+
     @include rr-break-directive(m) {
       display: block;
     }
 
     a {
       text-decoration: none;
+    }
+
+    .link--fancy-reverse {
+      &::before {
+        content: $icon-triangle-left;
+      }
     }
 
     sub {
@@ -31,11 +38,9 @@
       @include rr-font-compute(s, tight);
       margin: 0;
       padding: 0;
-      padding-left: 1.531em;
       font-family: $font-mercury;
       font-weight: normal;
       list-style: none;
-      text-indent: -1.531em;
 
       @include rr-break-directive(m) {
         @include rr-font-compute(r, tight);

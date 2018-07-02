@@ -6,9 +6,10 @@
                 {% set current = "" %}
                 {% if i is sameas(2) %}
                     {% set current = 'aria-current="page"' %}
+                    {% set current_trail = 'class="current-item"' %}
                 {% endif %}
                 {% spaceless %}
-                <li><a href="#" {{ current }}>{{ fake('words',{ nb: 2 + random(10), asText: true})|titleize }}</a>
+                <li {{ current_trail }}><a href="#" {{ current }}>{{ fake('words',{ nb: 2 + random(10), asText: true})|titleize }}</a>
                     {% if current is not sameas("") %}
                         <h3 class="show-for-sr">Child pages:</h3>
                         <ol>

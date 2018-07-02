@@ -7,42 +7,56 @@
 
 .js-tablist__item {
   flex: 1 1 100%;
+  margin-bottom: 0;
 
   a {
-    @include rr-font-compute(l, tight);
+    @include rr-font-compute(s, tight);
     display: block;
-    padding: rr-gridbase(2);
-    background-color: color(dark-blue);
-    color: color(wildcat-white);
+    margin: 0 auto;
+    padding: rr-gridbase(2) 0;
+    background-color: color(blue-gray);
+    color: color(dark-blue);
+
+    text-align: center;
+    text-transform: uppercase;
 
     &:hover,
     &:active {
-      color: color(light-blue-tint);
-    }
-
-    &:focus {
-      outline: 0;
-      text-decoration: underline;
+      color: color(dark-blue);
     }
 
     &[aria-selected='true'] {
-      background-color: color(blue-gray);
-      color: color(wildcat-black);
+      background-color: color(wildcat-blue);
+      color: color(wildcat-white);
+      font-weight: 600;
 
       &:hover,
       &:active {
-        color: color(wildcat-blue);
+        color: color(light-blue-tint);
       }
     }
   }
+
+  // "In this section" has a different backgrond color of course
+  &:nth-child(2n) {
+    [aria-selected='true'] {
+      background-color: color(dark-blue);
+    }
+  }
+
 }
 
 .js-tabcontent {
   padding: rr-gridbase(2);
-  background-color: color(blue-gray);
+  background-color: color(wildcat-blue);
+  @include usescheme($text-colors-dark);
 
   &[aria-hidden='true'] {
     display: none;
+  }
+
+  &:nth-child(2n + 1) {
+    background-color: color(dark-blue);
   }
 
   @include rr-break-directive(m) {
@@ -51,5 +65,16 @@
 
   @include rr-break-directive(l) {
     padding: rr-gridbase(4);
+  }
+
+  .section-nav {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-width: 0;
+  }
+
+  .universal-header {
+    display: block;
   }
 }

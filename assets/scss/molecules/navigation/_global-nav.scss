@@ -1,9 +1,15 @@
 .global-nav {
 
   a {
-    @include rr-font-compute(r, medium);
+    @include rr-font-compute(l, tight);
+    display: block;
+    margin-bottom: rr-gridbase(2);
     transition: opacity .3s ease-in-out;
     font-weight: 500;
+
+    &.ic--home {
+      display: none;
+    }
 
     &:last-child {
       border-bottom-width: 0;
@@ -13,7 +19,7 @@
     &:visited {
       //color: color(wildcat-white);
       text-decoration: none;
-      opacity: .85;
+      opacity: 1;
     }
 
     &:hover,
@@ -24,26 +30,6 @@
     }
   }
 
-  @media screen and (max-width: #{rr-prop-for-breakpoint(l, size)}) {
-    $border-tint: rgba(0, 0, 0, .1);
-
-    .ic::before {
-      font-size: .9em;
-    }
-
-    a {
-      display: block;
-      padding: rr-gridbase(1);
-      border-bottom: 1px $border-tint solid;
-
-      .show-for-sr {
-        display: inline;
-        position: static;
-        margin-left: .55em;
-      }
-    }
-  }
-
   @include rr-break-directive(l) {
     display: flex;
     align-items: center;
@@ -51,6 +37,7 @@
 
     a {
       margin-right: rr-gridbase(4);
+      margin-bottom: 0;
     }
   }
 
@@ -58,6 +45,13 @@
     a {
       margin-right: rr-gridbase(6);
       @include rr-font-compute(l, medium);
+
+      &:link,
+      &:visited {
+        //color: color(wildcat-white);
+        text-decoration: none;
+        opacity: .85;
+      }
     }
   }
 }
