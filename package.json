@@ -1,0 +1,15 @@
+{
+  "name": "patternlab",
+  "version": "1.0.0",
+  "description": "This project builds automatically to https://newcity.gitlab.io/monolith/ when commits are made to the master branch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:newcity/uk-d8/patternlab.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

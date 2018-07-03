@@ -19,6 +19,7 @@ services:
       - ./docker/taskrunner/package.json:/app/package.json:ro
       - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
       - ./.sass-lint.yml:/app/.sass-lint.yml:ro
+      - ./.eslintrc.yml:/app/.eslintrc.yml:ro
     working_dir: /app
 
   # pattern lab compilation

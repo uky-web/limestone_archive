@@ -3,19 +3,19 @@
  */
 
 const ambient_video = () => {
-	const $av = $('.ambient-video video');
-	if ($av.length < 1) return; // Bail if we have no matching components
+  const $av = $('.ambient-video video');
+  if ($av.length < 1) return; // Bail if we have no matching components
     
   const $sources = $av.find('source');
 
-	if (window.matchMedia("(min-width: 64rem)").matches) {
-		$av.attr('autoplay', true);
-		$av[0].play();
+  if (window.matchMedia('(min-width: 64rem)').matches) {
+    $av.attr('autoplay', true);
+    $av[0].play();
 
-		// Since the video is working, enable the play / pause control
-		const $control = $('.ambient-video button');
-		$control.show();
-		$control.click( e => {
+    // Since the video is working, enable the play / pause control
+    const $control = $('.ambient-video button');
+    $control.show();
+    $control.click( e => {
       const $button = $(e.currentTarget);
       const video = $button.siblings('video')[0];
       $button.toggleClass('video-button--paused');
@@ -28,6 +28,6 @@ const ambient_video = () => {
       }
     });
   } else {
-      $av[0].stop();
+    $av[0].stop();
   }
-}
+};

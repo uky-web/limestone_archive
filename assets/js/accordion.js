@@ -1,3 +1,3 @@
 const accordion = () => {
-    $('.js-accordion').accordion();
-}
+  $('.js-accordion').accordion();
+};
