@@ -7,9 +7,22 @@
     padding: 0;
   }
 
+  .utility-nav {
+    display: none;
+
+    a {
+      font-weight: 600;
+    }
+  }
+
+  &.clamp--wildcat {
+    background-color: color(wildcat-blue);
+    @include usescheme($text-colors-dark);
+  }
+
   @include rr-break-directive(l) {
     .slab.masthead {
-      padding: rr-gridbase(3) 0 rr-gridbase;
+      padding: rr-gridbase(3) 0 rr-gridbase(1);
     }
 
     .slab.mobile-nav {
@@ -23,6 +36,10 @@
         padding: rr-grid-remainder(1px, 2) 0 rr-gridbase(2);
         border-top: 1px color(light-gray) solid;
       }
+    }
+
+    .utility-nav {
+      display: block;
     }
   }
 }
@@ -38,24 +55,12 @@
     height: rr-gridbase(12);
   }
 
-  .utility-nav {
-    display: none;
-
-    a {
-      @include link-colors($d: color(wildcat-blue), $h: color(light-blue));
-      font-weight: 600;
-    }
-  }
 
   .toggle-button {
     align-self: center;
   }
 
   @include rr-break-directive(l) {
-    .utility-nav {
-      display: block;
-    }
-
     .toggle-button {
       display: none;
     }

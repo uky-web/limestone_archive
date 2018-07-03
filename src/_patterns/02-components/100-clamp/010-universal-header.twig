@@ -1,4 +1,4 @@
-{% embed 'molecules-slab' with { slab_variant: 'universal-header' } %}
+{% embed 'molecules-slab' with { slab_variant: 'universal-header ' ~ universal_header_variant } %}
     {% block slab_content %}
         <div class="universal-header__layout">
             {% if not hide_breadcrumb %}

@@ -228,7 +228,17 @@ $black: #2c2a29;
       background-color: transparent;
       color: color(menu-icon-color-active, $textscheme);
     }
-  }  
+  }
+
+  .uky-logo-main {
+    .uky-logo-main__logo {
+      fill: color(logo-color, $textscheme);
+    }
+
+    .uky-logo-main__wordmark {
+      fill: color(wordmark-color, $textscheme);
+    }
+  }
 
 }
 

@@ -258,7 +258,9 @@ $text-colors: (
   carousel-center-caption: color(wildcat-black),
   media-background: color(wildcat-blue),
   statistic-head-color: color(wildcat-blue),
-  statistic-subhead-color: color(light-blue)
+  statistic-subhead-color: color(light-blue),
+  logo-color: color(wildcat-blue),
+  wordmark-color: color(wildcat-black)
 );
 
 $text-colors-dark: (
@@ -293,7 +295,9 @@ $text-colors-dark: (
   carousel-center-caption: color(wildcat-black),
   media-background: color(wildcat-black),
   statistic-head-color: color(wildcat-white),
-  statistic-subhead-color: color(light-blue-tint)
+  statistic-subhead-color: color(light-blue-tint),
+  logo-color: color(wildcat-white),
+  wordmark-color: color(wildcat-white)
 );
 
 

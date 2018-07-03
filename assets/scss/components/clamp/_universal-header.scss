@@ -12,7 +12,12 @@
     }
   }
 
+  &.clamp--wildcat {
+    background-color: color(dark-blue);
+  }
+
   @include rr-break-directive(l) {
     display: block;
   }
 }
+
