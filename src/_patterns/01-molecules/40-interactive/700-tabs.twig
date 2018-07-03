@@ -1,4 +1,5 @@
-<div class="{{ tabs_variant }} js-tabs">    
+{% set js_tabs_classes = [ 'js-tabs', tabs_variant ] %}
+<div class="{{ js_tabs_classes|join(' ') }}">
     <ul class="js-tablist">
         {% block tabs_tabs %}
             {% for i in 1..3 %}

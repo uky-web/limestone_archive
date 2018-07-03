@@ -227,6 +227,8 @@ $colors: (
 $text-colors: (
   link: color(wildcat-black),
   link-active: color(medium-blue),
+  menu-icon-color: color(medium-blue),
+  menu-icon-color-active: color(wildcat-blue),
   text: color(wildcat-black),
   accent: color(alert),
   button-border: color(wildcat-blue),
@@ -261,7 +263,7 @@ $text-colors: (
 
 $text-colors-dark: (
   link: color(wildcat-white),
-  link-active: color(wildcat-white),
+  link-active: color(light-blue-tint),
   text: color(wildcat-white),
   accent: color(success),
   button-border: color(wildcat-white),

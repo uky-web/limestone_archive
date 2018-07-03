@@ -1,0 +1,16 @@
+.search-control {
+  @include rr-font-compute(s, tight);
+  padding: rr-gridbase(1);
+  transition: color .3s ease-in-out;
+  border-width: 0;
+  background-color: transparent;
+  font-family: $font-avenirnext;
+
+  &::before {
+    margin-right: .3em;
+    font-family: iconfont;
+    font-weight: normal;
+    content: $icon-magnify;
+    vertical-align: text-bottom;
+  }
+}

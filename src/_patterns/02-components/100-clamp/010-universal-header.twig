@@ -1,16 +1,10 @@
-{% embed 'molecules-slab' with { slab_variant: 'universal-header ' ~  ribbon_color|default('slab--blue-gray') } %}
+{% embed 'molecules-slab' with { slab_variant: 'universal-header' } %}
     {% block slab_content %}
         <div class="universal-header__layout">
             {% if not hide_breadcrumb %}
-            <div class="universal-header__breadcrumb">
-                {# Breadcrumb should be university, parent of current site only #}
-                <ul>
-                    <li><a class="link--fancy-reverse" href="https://www.uky.edu" title="Back to University of Kentucky home page">University of Kentucky<sub>&reg;</sub></a></li>
-                    <li><a href="#">College of {{ fake('bs')|titleize }}</a></li>
-                </ul>
-            </div>
+            {% include 'molecules-universal-breadcrumb' %}
             {% endif %}
-            {% include 'molecules-universal-nav' %}
+            {% include 'molecules-universal-nav' with { extra_links: ['#UKY4Y','Resources'] } %}
         </div>
     {% endblock %}
 {% endembed %}

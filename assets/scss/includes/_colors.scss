@@ -46,12 +46,18 @@ $black: #2c2a29;
     color: color(media-citation, $textscheme);
   }
 
-  a {
-    @include link-colors($d: color(link, $textscheme), $h: color(link-active, $textscheme));
-  }
-
   .image-with-caption__media {
     background-color: color(media-background, $textscheme);
+  }
+
+  .icon-label--stacked {
+    .label {
+      color: color(text, $textscheme);
+    }
+  }
+
+  a {
+    @include link-colors($d: color(link, $textscheme), $h: color(link-active, $textscheme));
   }
 
   button,
@@ -201,6 +207,28 @@ $black: #2c2a29;
       color: color(statistic-subhead-color, $textscheme);
     }
   }
+
+  .search-control {
+    background-color: transparent;
+    color: color(link, $textscheme);
+
+    &:hover,
+    &:active {
+      background-color: transparent;
+      color: color(link-active, $textscheme);
+    }
+  }
+
+  .menu-button {
+    background-color: transparent;
+    color: color(menu-icon-color, $textscheme);
+
+    &:hover,
+    &:active {
+      background-color: transparent;
+      color: color(menu-icon-color-active, $textscheme);
+    }
+  }  
 
 }
 

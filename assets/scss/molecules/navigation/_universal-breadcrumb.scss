@@ -1,0 +1,55 @@
+.universal-breadcrumb {
+  display: none;
+
+  @include rr-break-directive(m) {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .link--fancy-reverse {
+    &::before {
+      content: $icon-triangle-left;
+    }
+  }
+
+  sub {
+    position: relative;
+    top: .1875rem;
+    left: -.05rem;
+    font-size: inherit;
+  }
+
+  ul {
+    @include rr-font-compute(s, tight);
+    margin: 0;
+    padding: 0;
+    font-family: $font-mercury;
+    font-weight: normal;
+    list-style: none;
+
+    @include rr-break-directive(m) {
+      @include rr-font-compute(r, tight);
+    }
+
+    @include rr-break-directive(l) {
+      @include rr-font-compute(l, tight);
+    }
+
+    li {
+      display: inline;
+
+      &::after {
+        padding-right: rr-gridbase(1);
+        padding-left: rr-gridbase(1);
+        content: '|';
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+}

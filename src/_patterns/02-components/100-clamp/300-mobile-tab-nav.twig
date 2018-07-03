@@ -1,4 +1,6 @@
-{% embed 'molecules-tabs' with { tab_variant: 'mobile-tab-nav'} %}
+{% set tabs_variant = [ 'mobile-tab-nav', 'mobile-tab-nav--' ~ header_style|default('main') ] %}
+
+{% embed 'molecules-tabs' with { tabs_variant: 'mobile-tab-nav'} %}
     {% block tabs_tabs %}
         {% include 'molecules-tab-tab' with { tab_target : "mobile_mainmenu", tab_label : "Main Menu" } %}
         {% include 'molecules-tab-tab' with { tab_target : "mobile_section", tab_label : "In This Section" } %}
@@ -22,20 +24,3 @@
         {% endembed %}
     {% endblock %}
 {% endembed %}
-{#
-<div class="mobile-tab-nav js-tabs">
-    <ul class="js-tablist">
-        <li class="js-tablist__item">
-            <a href="#mobile_mainmenu" id="label_mobile_mainmenu" class="js-tablist__link">Main Menu / Search</a>
-        </li>
-        <li class="js-tablist__item">
-            <a href="#mobile_section" id="label_mobile_section" class="js-tablist__link">In This Section</a>
-        </li>
-    </ul>
-    <div id="mobile_mainmenu" data-selected="1" class="js-tabcontent">
-    </div>
-    <div id="mobile_section" class="js-tabcontent">
-        {% include 'molecules-section-nav' %}
-    </div>
-</div>
-#}

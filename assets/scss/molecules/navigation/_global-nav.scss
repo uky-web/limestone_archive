@@ -4,7 +4,6 @@
     @include rr-font-compute(l, tight);
     display: block;
     margin-bottom: rr-gridbase(2);
-    transition: opacity .3s ease-in-out;
     font-weight: 500;
 
     &.ic--home {
@@ -17,16 +16,12 @@
 
     &:link,
     &:visited {
-      //color: color(wildcat-white);
       text-decoration: none;
-      opacity: 1;
     }
 
     &:hover,
     &:active {
-      //color: color(wildcat-white);
       text-decoration: underline;
-      opacity: 1;
     }
   }
 
@@ -48,9 +43,7 @@
 
       &:link,
       &:visited {
-        //color: color(wildcat-white);
         text-decoration: none;
-        opacity: .85;
       }
     }
   }

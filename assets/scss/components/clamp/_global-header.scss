@@ -1,9 +1,28 @@
 .global-header {
   .slab.mobile-nav {
     padding: 0;
+  }
 
-    @include rr-break-directive(l) {
+  .slab.global-nav-bar {
+    padding: 0;
+  }
+
+  @include rr-break-directive(l) {
+    .slab.masthead {
+      padding: rr-gridbase(3) 0 rr-gridbase;
+    }
+
+    .slab.mobile-nav {
       display: none;
+    }
+
+    .slab.global-nav-bar {
+      padding: 0;
+
+      .slab__wrapper {
+        padding: rr-grid-remainder(1px, 2) 0 rr-gridbase(2);
+        border-top: 1px color(light-gray) solid;
+      }
     }
   }
 }
@@ -21,20 +40,15 @@
 
   .utility-nav {
     display: none;
-  }
 
-  .menu-button {
-    align-self: center;
-  }
-
-  @each $name, $color in $colors {
-    @at-root .slab--#{$name} #{&} {
-      @if (contrast($color, color(wildcat-black)) < 4.5) {
-        .lockup__logo {
-          color: color(wildcat-white);
-        }
-      }
+    a {
+      @include link-colors($d: color(wildcat-blue), $h: color(light-blue));
+      font-weight: 600;
     }
+  }
+
+  .toggle-button {
+    align-self: center;
   }
 
   @include rr-break-directive(l) {
@@ -45,5 +59,11 @@
     .toggle-button {
       display: none;
     }
+
+    .menu-button {
+      display: none;
+    }
   }
 }
+
+

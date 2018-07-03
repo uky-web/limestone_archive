@@ -27,8 +27,8 @@
     text-transform: none;
 
     a {
-      margin-bottom: 0;
       display: inline;
+      margin-bottom: 0;
       @include rr-font-compute(r, tight);
       margin-left: rr-gridbase(6);
     }

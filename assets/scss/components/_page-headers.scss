@@ -4,6 +4,33 @@
 
 .page-header {
   position: relative;
+  padding-top: rr-grid-remainder(2px, 6);
+  border-top: 2px color(light-gray) solid;
+
+  @each $color in $colors {
+    &.slab--#{$color} {
+      @if ($color ne 'wildcat-white') {
+        padding-top: rr-gridbase(6);
+        border-width: 0;
+      }
+    }
+  }
+
+  &.slab--blue-gray,
+  &.slab--dark-blue,
+  &.slab--wildcat-blue {
+    padding-bottom: rr-grid-remainder(4px, 6);
+
+    .slab__wrapper {
+      padding-bottom: 0;
+      border-width: 0;
+    }
+  }
+
+  &.slab--dark-blue,
+  &.slab--wildcat-blue {
+    border-bottom-color: color(light-blue);
+  }
 
   .slab__wrapper {
     padding-bottom: rr-grid-remainder(4px, 5);
@@ -35,22 +62,6 @@
     .headline-group__super {
       margin-bottom: rr-gridbase(0);
     }
-  }
-
-  &.slab--blue-gray,
-  &.slab--dark-blue,
-  &.slab--wildcat-blue {
-    padding-bottom: rr-grid-remainder(4px, 6);
-
-    .slab__wrapper {
-      padding-bottom: 0;
-      border-width: 0;
-    }
-  }
-
-  &.slab--dark-blue,
-  &.slab--wildcat-blue {
-    border-bottom-color: color(light-blue);
   }
 
   .cta-group {

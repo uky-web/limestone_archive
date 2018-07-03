@@ -8,25 +8,20 @@ var
   async = require('async'),
   autoprefixer = require('autoprefixer'),
   babel = require('gulp-babel'),
-  coffee = require('gulp-coffee'),
   colors = require('ansi-colors'),
   consolidate = require('gulp-consolidate'),
   eyeglass = require('eyeglass'),
   eslint = require('gulp-eslint'),
-  exec = require('child_process').exec,
   flexbugs = require('postcss-flexbugs-fixes'),
   gulp = require('gulp'),
   gulpif = require('gulp-if'),
   log = require('fancy-log'),
-  modernizr = require('gulp-modernizr'),
   plumber = require('gulp-plumber'),
   postcss = require('gulp-postcss'),
   sanewatch = require('gulp-sane-watch'),
   sass = require('gulp-sass'),
   save = require('gulp-save'),
   sourcemaps = require('gulp-sourcemaps'),
-  svgmin = require('gulp-svgmin'),
-  svgsprite = require('gulp-svg-sprite'),
   sassLint = require('gulp-sass-lint'),
   iconfont = require('gulp-iconfont');
 
@@ -40,19 +35,16 @@ var runTimestamp = Math.round(Date.now() / 1000);
 
 var paths = {
   sass: ['assets/scss/**/*.scss'],
-  coffee: ['assets/coffee/*.coffee'],
   lib: ['assets/lib/**/*.js'],
   js: ['assets/js/**/*.js'],
   images: ['assets/images/**/*'],
   fonts: ['assets/fonts/**/*'],
-  svgstore: ['assets/svgstore/**/*.svg'],
   font_svg: ['assets/font-svg/**/*.svg'],
   font_sass_tpl: ['assets/font-svg/_iconfont.scss'],
   intermediate: 'intermediate',
   dist_css: 'dist/css',
   dist_js: 'dist/js',
   dist_lib: 'dist/js/lib',
-  dist_svg: 'dist/images/sprites/',
   dist_images: 'dist/images',
   dist_fonts: 'dist/fonts'
 };
@@ -98,13 +90,16 @@ gulp.task('styles', ['iconfont'], function() {
       flexbugs()
     ]))
     .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.dist_css));
 
     // Destination for the processed CSS file and sourcemap
     // cache it so as not to trigger downstream watchers
+    /*
     .pipe(save('css'))
 
     // Script to configure modernizr based on flags
     // that are actually used in the stylesheets
+    /*
     .pipe(modernizr('modernizr-custom.js', {
       'options': [
         'setClasses',
@@ -117,8 +112,10 @@ gulp.task('styles', ['iconfont'], function() {
     // Destinations for the custom modernizr
     .pipe(gulp.dest(paths.dist_lib))
     // and dump out the original css
+    
     .pipe(save.restore('css'))
     .pipe(gulp.dest(paths.dist_css));
+    */
 });
 
 // Copy images from src to PL source destination
@@ -219,54 +216,6 @@ gulp.task('iconfont', function() {
   });
 
   return iconStream;
-});
-
-
-// Build the SVG spritesheet. This pulls everything
-// out of the svgstore directory, combines them into
-// one SVG element with the filename as an ID, then
-// stores these in the images/sprites directory 
-// as svg-sprite-custom-symbol.svg.
-gulp.task('svgstore', function() {
-  svgsprite_config = {
-    'shape': {
-      'transform': [
-        {
-          'svgo': 
-          {
-            'plugins': [
-              {
-                'removeTitle': true
-              },
-              {
-                'removeUnknownsAndDefaults': false
-              },
-              {
-                'cleanupIDs': false
-              },
-              {
-                'cleanupNumericValues': false
-              }
-            ]
-          }
-        }
-      ]
-    },
-    'svg': {
-      'xmlDeclaration': false,
-      'doctypeDeclaration': false
-    },
-    'mode': {
-      'symbol': {
-        'dest': '.',
-        'sprite': 'standard_icons.svg'
-      }
-    }
-  };
-  return gulp.src(paths.svgstore)
-    .pipe(plumber())
-    .pipe(svgsprite(svgsprite_config))
-    .pipe(gulp.dest(paths.dist_svg));
 });
 
 // build-all builds everything in one go.
