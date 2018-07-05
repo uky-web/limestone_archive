@@ -1,9 +1,12 @@
 .universal-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 
   > * {
+    flex: 1 1 auto;
+    min-width: 33%;
     margin-left: rr-gridbase(2);
   }
 

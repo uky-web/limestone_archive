@@ -8,13 +8,14 @@
     {% block tabs_panels %}
         {% embed 'molecules-tab-panel' with { tab_panel_id : "mobile_mainmenu" } %}
             {% block tab_panel_content %}
-                {% embed 'molecules-slab' %}
-                    {% block slab_content %}
-                        {% include 'molecules-global-nav' %}
-                        {% include 'molecules-utility-nav' %}
-                    {% endblock %}
-                {% endembed %}
-                {% include 'components-universal-header' with { ribbon_color: 'wildcat-blue' } %}
+                {% include 'molecules-global-nav' %}
+                <hr>
+                {% include 'molecules-utility-nav' %}
+                <hr>
+                {% if not hide_breadcrumb %}
+                    {% include 'molecules-universal-breadcrumb' %}
+                {% endif %}
+                {% include 'molecules-universal-nav' with { extra_links: ['#UKY4Y','Resources'] } %}
             {% endblock %}
         {% endembed %}
         {% embed 'molecules-tab-panel' with { tab_panel_id : "mobile_section" } %}
