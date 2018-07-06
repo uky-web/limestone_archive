@@ -31,27 +31,17 @@
     justify-content: flex-start;
 
     a {
-      margin-right: rr-gridbase(4);
+      @include rr-font-compute(l, medium);
+      margin-right: rr-gridbase(3.5);
       margin-bottom: 0;
+      transition: margin-right .3s ease-in-out;
     }
   }
 
   @include rr-break-directive(xl) {
     a {
       margin-right: rr-gridbase(6);
-      @include rr-font-compute(l, medium);
-
-      &:link,
-      &:visited {
-        text-decoration: none;
-      }
     }
   }
 }
 
-.global-nav-bar {
-  display: none;
-  @include rr-break-directive(l) {
-    display: block;
-  }
-}

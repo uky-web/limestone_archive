@@ -10,7 +10,12 @@
   }
 
   .link--fancy-reverse {
+    @include rr-font-compute(r, tight);
+    margin-left: -1rem;
+    padding-left: 1rem;
+
     &::before {
+      top: .05em;
       content: $icon-triangle-left;
     }
   }
@@ -24,7 +29,7 @@
 
   ul {
     @include rr-font-compute(s, tight);
-    margin: 0;
+    margin-left: 1rem;
     padding: 0;
     font-family: $font-mercury;
     font-weight: normal;
@@ -36,15 +41,24 @@
 
     @include rr-break-directive(l) {
       @include rr-font-compute(l, tight);
+      margin: 0 0 0 1rem;
     }
 
     li {
       display: inline;
+      position: relative;
+      margin-right: calc(2rem + 1px);
 
       &::after {
-        padding-right: rr-gridbase(1);
-        padding-left: rr-gridbase(1);
-        content: '|';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -1rem;
+        width: 1px;
+        height: 1rem;
+        transform: translateY(-50%);
+        background-color: color(wildcat-white);
+        content: '';
       }
 
       &:last-child::after {

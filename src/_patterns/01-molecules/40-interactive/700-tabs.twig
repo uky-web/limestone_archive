@@ -1,5 +1,6 @@
 {% set js_tabs_classes = [ 'js-tabs', tabs_variant ] %}
-<div class="{{ js_tabs_classes|join(' ') }}">
+{% set js_tabs_id = "TabGroup-"|uniqid %}
+<div class="{{ js_tabs_classes|join(' ') }}" id="{{ js_tabs_id }}">
     <ul class="js-tablist">
         {% block tabs_tabs %}
             {% for i in 1..3 %}
@@ -12,4 +13,5 @@
             {% include 'molecules-tab-panel' with { tab_panel_id : "tab_" ~ i } %}
         {% endfor %}
     {% endblock %}
+    <a class="back-to-top ic ic--angle-up" href="#{{ js_tabs_id }}"><span class="show-for-sr">Back to Tabs</span></a>
 </div>

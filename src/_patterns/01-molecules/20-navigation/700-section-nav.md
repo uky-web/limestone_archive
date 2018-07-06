@@ -2,34 +2,11 @@
 Title: Section Nav
 ---
 
-Section navigation is a menu structure. It mutates based on context and breakpoint. It can display a parent page, current page, sibling pages, and child pages.
+Section navigation is a menu structure. It can display a parent page, current page, sibling pages, and child pages.
 
-If the current page has a section navigation and the display is desktop-sized:
+For all pages with section navigation:
 
-* Section navigation appears *in the sidebar*
-
-If the current page has section navigation and the display is mobile-sized:
-
-* Section navigation appears *in the mobile navigation* and is *hidden from the sidebar*
-
-If the current page's is not in the first rank of its menu structure
-
-* Parent page ("Home") is hidden
-* Current page is hidden
-* Sibling pages are hidden
-* Child pages show
-
-If the current page is in the second rank or greater of its menu structure and *on desktop only*
-
-* Parent page shows (as a back link)
-* Current page shows (as plain text)
-* Sibling pages show
-* Child pages show
-
-If the current page is in the second rank or greater of its menu structure and *in mobile view only*
-
-* Parent page shows (as a back link)
-* Current page shows (as plain text)
-* Sibling pages are hidden
-* Child pages show
-
+* Backlink to parent page shows. If this is the home page it should read "Home."
+* The current page is shown. 
+* Sibling pages are shown on desktop only. They are hidden in the mobile section navigation. This is handled with CSS.
+* Child pages are shown indented under the current page.

@@ -1,3 +1,18 @@
+.js-tabs {
+  position: relative;
+
+  .back-to-top {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    padding: 0 rr-gridbase(1);
+    background-color: color(light-blue);
+    color: color(wildcat-white);
+    font-size: 1rem;
+    line-height: rr-gridbase(4);
+  }
+}
+
 .js-tablist {
   display: flex;
   margin: 0;
@@ -6,6 +21,7 @@
 }
 
 .js-tablist__item {
+  position: relative;
   flex: 1 1 100%;
   margin-bottom: 0;
 
@@ -14,6 +30,7 @@
     display: block;
     margin: 0 auto;
     padding: rr-gridbase(2) 0;
+    outline: 0;
     background-color: color(blue-gray);
     color: color(dark-blue);
 
@@ -25,10 +42,28 @@
       color: color(dark-blue);
     }
 
+    &[aria-selected='true'],
+    &:focus {
+      &::after {
+        position: absolute;
+        right: rr-gridbase(3);
+        bottom: 0;
+        left: rr-gridbase(3);
+        height: 4px;
+        background-color: color(light-blue-tint);
+        content: '';
+      }
+    }
+
     &[aria-selected='true'] {
-      background-color: color(wildcat-blue);
+      background-color: color(dark-blue);
       color: color(wildcat-white);
       font-weight: 600;
+      pointer-events: none;
+
+      &::after {
+        background-color: color(light-blue);
+      }
 
       &:hover,
       &:active {
@@ -36,35 +71,17 @@
       }
     }
   }
-
-  // "In this section" has a different backgrond color of course
-  &:nth-child(2n) {
-    [aria-selected='true'] {
-      background-color: color(dark-blue);
-    }
-  }
-
 }
 
 .js-tabcontent {
-  padding: rr-gridbase(2);
-  background-color: color(wildcat-blue);
   @include usescheme($text-colors-dark);
+  margin-bottom: rr-grid-remainder(4px);
+  padding-bottom: rr-gridbase(5);
+  border-bottom: 4px color(light-blue) solid;
+  background-color: color(dark-blue);
 
   &[aria-hidden='true'] {
     display: none;
-  }
-
-  &:nth-child(2n + 1) {
-    background-color: color(dark-blue);
-  }
-
-  @include rr-break-directive(m) {
-    padding: rr-gridbase(3);
-  }
-
-  @include rr-break-directive(l) {
-    padding: rr-gridbase(4);
   }
 
   .section-nav {

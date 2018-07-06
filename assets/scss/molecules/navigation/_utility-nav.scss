@@ -16,6 +16,10 @@
     &:active {
       text-decoration: underline;
     }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   @include rr-break-directive(l) {

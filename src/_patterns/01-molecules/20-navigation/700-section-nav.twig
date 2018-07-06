@@ -4,13 +4,11 @@
         <ol>
             {% for i in 1 .. 5 %}
                 {% set current = "" %}
-                {% if i is sameas(2) %}
-                    {% set current = 'aria-current="page"' %}
-                    {% set current_trail = 'class="current-item"' %}
-                {% endif %}
+                {% set current = (i is sameas(2)) ? 'aria-current=page' : '' %}
+                {% set current_trail = (i is sameas(2)) ? 'class=current-item' : '' %}
                 {% spaceless %}
                 <li {{ current_trail }}><a href="#" {{ current }}>{{ fake('words',{ nb: 2 + random(10), asText: true})|titleize }}</a>
-                    {% if current is not sameas("") %}
+                    {% if current is not sameas("") and not simulate_no_children %}
                         <h3 class="show-for-sr">Child pages:</h3>
                         <ol>
                         {% for i in 1 .. 3 %}

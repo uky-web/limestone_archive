@@ -6,7 +6,8 @@
     margin: 0;
   }
 
-  ol {
+  ol,
+  ul {
     margin: rr-gridbase() 0;
     padding-left: rr-gridbase(0);
     list-style: none;
@@ -21,11 +22,6 @@
 
       a {
         text-decoration: none;
-
-        &:hover,
-        &:active {
-          color: color(wildcat-blue);
-        }
       }
     }
 

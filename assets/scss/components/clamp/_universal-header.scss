@@ -1,8 +1,8 @@
 .universal-header {
   @include usescheme($text-colors-dark);
   display: none;
-  padding-top: rr-gridbase(1);
-  padding-bottom: rr-gridbase(1);
+  padding-top: rr-gridbase(1.5);
+  padding-bottom: rr-gridbase(1.5);
   background-color: color(wildcat-blue);
 
   .universal-header__layout {

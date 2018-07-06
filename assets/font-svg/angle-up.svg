@@ -1,3 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13">
-  <polygon fill-rule="evenodd" points="98.152 199 88 209.143 90.121 211.264 98.147 203.238 106.173 211.264 108.295 209.143" transform="translate(-88 -199)"/>
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="1000px" height="1000px" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <polygon fill-rule="evenodd" points="500.223 197.856 0 697.635 104.509 802.144 499.975 406.676 895.443 802.144 1000 697.635" bx:origin="0.5 0.496452"/>
 </svg>

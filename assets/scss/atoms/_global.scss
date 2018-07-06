@@ -34,8 +34,14 @@ img {
   height: auto;
 }
 
+// Between the top and bottom margins, this should
+// take up exactly 3 vertical grid units. The HR
+// itself should display in the middle of, not the top or 
+// bottom of, one of those grid spaces.
 hr {
-  padding-bottom: rr-grid-remainder(1px);
+  margin-top: calc(#{rr-gridbase(2.5)} - 1px);
+  margin-bottom: rr-gridbase(2.5);
+  border: 1px dashed color(light-gray);
   border-width: 0 0 1px;
 }
 
