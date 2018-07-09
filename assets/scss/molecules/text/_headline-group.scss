@@ -15,9 +15,19 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 
   // Default non-semantic headline group
   @at-root #{$bem-root} {
-    #{$bem-root}__super,
+    #{$bem-root}__super {
+      @include rr-font-compute(r, tight);
+      text-transform: uppercase;
+    }
+
     #{$bem-root}__sub {
       @include rr-font-compute(l, tight);
+      font-style: italic;
+
+      i,
+      em {
+        font-style: normal;
+      }
     }
 
     #{$bem-root}__head {
@@ -31,12 +41,16 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   .image-gallery-block,
   .editorial aside {
     #{$bem-root} {
-      #{$bem-root}__super,
+      #{$bem-root}__super, {
+        @include rr-font-compute(l, tight);
+        color: color(dark-gray);
+        font-weight: 500;
+      }
+
       #{$bem-root}__sub {
         @include rr-font-compute(xl, tight);
         color: color(dark-gray);
         font-weight: 500;
-        text-transform: uppercase;
       }
 
       #{$bem-root}__head {
@@ -57,9 +71,12 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   // eg h1.headline-group, h2.headline-group
   @for $pos from 1 through 6 {
     $size: nth($sizelist, $pos);
-    $subsize: map-offset-from($font-sizes, $size, -2);
+    $supersize: map-offset-from($font-sizes, $size, -2);
+    $subsize: map-offset-from($font-sizes, $size, -1);
     @at-root h#{$pos}#{&} {
-      #{$bem-root}__super,
+      #{$bem-root}__super {
+        @include rr-font-compute($supersize, tight);
+      }
       #{$bem-root}__sub {
         @include rr-font-compute($subsize, tight);
       }
