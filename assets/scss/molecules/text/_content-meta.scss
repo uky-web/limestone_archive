@@ -1,7 +1,8 @@
 .content-meta {
   margin-bottom: rr-gridbase(1);
 
-  .byline {
+  .byline,
+  .location {    
     @include rr-font-compute(l, medium);
     font-weight: 500;
   }
@@ -17,6 +18,10 @@
   .taxonomy-list {
     display: block;
     font-style: italic;
+  }
+
+  a {
+    @include underline-link;
   }
 
   span + span {
