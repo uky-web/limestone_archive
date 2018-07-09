@@ -61,62 +61,63 @@
 // 
 // And also we need to be aware of grid-gap configuration changes based on the baseline grid 
 // config. 
-@include rr-break-directive(m) {
-  @each $name,
-  $template in $rr-grids {
-    .grid--#{$name} {
-      @include css-grid-columns($template, $class-prefix: 'grid');
 
-      &.grid--divided {
-        $breaks: rr-breakpoint-list;
-        $moved-borders: false;
-        $last-columns: null;
-        $last-grid-gap: null;
-        @each $break in $breaks {
-          $num-columns: rr-columns-for-template($template, $break);
-          $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
-          @include rr-break-directive($break) {
-            .grid__column::after {
-              // Border position (bottom or right side) depend on the first breakpoint where columns are defined
-              // and we are loading those from a config hash where we can't be certain which breakpoint will be used
-              // or even what that breakpoint will be called.
-              @if $num-columns and not($moved-borders) {
-                top: 0;
-                bottom: 0;
-                left: auto;
-                width: 3px;
-                height: auto;
-                $moved-borders: true;
-                $last-columns: $num-columns;
-              }
+@each $name, $template in $rr-grids {
+  .grid--#{$name} {
+    @include css-grid-columns($template, $class-prefix: 'grid');
 
-              // If the grid gap has changed, we need to adjust that too
-              // Assuming the borders moved.
-              @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
-                right: calc(-#{$grid-gap}/2 - 1px);
-                $last-grid-gap: $grid-gap;
-              }
-            }
+    &.grid--divided {
+      $breaks: rr-breakpoint-list();
+      $moved-borders: false;
+      $last-columns: null;
+      $last-grid-gap: null;
 
-            @if ($num-columns) {
-              // If we are changing the number of columns in 
-              @if ($last-columns) and ($last-columns != $num-columns) {
-                .grid__column:nth-child(#{$last-columns}n)::after {
-                  display: block;
-                }
-              }
+      @each $break in $breaks {
+        $num-columns: rr-columns-for-template($template, $break);
+        $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
 
-              .grid__column:nth-child(#{$num-columns}n)::after {
-                display: none;
-              }
+        @include rr-break-directive($break) {
+          .grid__column::after {
+            // Border position (bottom or right side) depend on the first breakpoint where columns are defined
+            // and we are loading those from a config hash where we can't be certain which breakpoint will be used
+            // or even what that breakpoint will be called.
+            @if $num-columns and not($moved-borders) {
+              top: 0;
+              bottom: 0;
+              left: auto;
+              width: 3px;
+              height: auto;
+              $moved-borders: true;
               $last-columns: $num-columns;
             }
+
+            // If the grid gap has changed, we need to adjust that too
+            // Assuming the borders moved.
+            @if $moved-borders and $grid-gap and ($last-grid-gap != $grid-gap) {
+              right: calc(-#{$grid-gap}/2 - 1px);
+              $last-grid-gap: $grid-gap;
+            }
+          }
+
+          @if ($num-columns) {
+            // If we are changing the number of columns in 
+            @if ($last-columns) and ($last-columns != $num-columns) {
+              .grid__column:nth-child(#{$last-columns}n)::after {
+                display: block;
+              }
+            }
+
+            .grid__column:nth-child(#{$num-columns}n)::after {
+              display: none;
+            }
+            $last-columns: $num-columns;
           }
         }
       }
     }
   }
 }
+
 
 .grid__column {
   display: flex;
