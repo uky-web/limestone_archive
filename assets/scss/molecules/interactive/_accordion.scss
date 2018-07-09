@@ -15,16 +15,19 @@
   text-align: left;
   text-transform: none;
 
+
   &:focus {
+    outline: none;
     background-color: color(subtle-gray);
   }
 
   &:active {
+    outline: none;
     background-color: color(light-gray);
   }
 
   &:hover {
-    background-color: color(light-gray);
+    background-color: color(blue-gray);
     color: color(wildcat-black);
   }
 }

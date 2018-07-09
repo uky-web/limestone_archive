@@ -91,3 +91,7 @@ form {
     }
   }
 }
+
+button::-moz-focus-inner { //sas-lint:disable-line no-vendor-prefixes
+  border: 0;
+}
