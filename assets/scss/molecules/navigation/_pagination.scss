@@ -2,16 +2,10 @@
   margin: rr-gridbase(4) 0;
 
   a {
-    padding: rr-gridbase(1);
-    background-color: color(wildcat-blue);
-    color: color(wildcat-white);
+    @include underline-link();
+    margin: rr-gridbase(1);
     text-align: center;
     text-decoration: none;
-
-    &:hover,
-    &:active {
-      background-color: color(light-blue);
-    }
 
     &:focus {
       text-decoration: underline;
@@ -30,21 +24,15 @@
 
 
       @include rr-break-directive(m) {
-        li {
-          display: inline-block;
-        }
+        display: inline-block;
       }
     }
   }
 
-  &.current {
+  .current a {
     display: inline-block; // foundation override
-
-    a {
-      background-color: color(wildcat-white);
-      color: color(wildcat-black);
-      pointer-events: none;
-    }
+    background-image: none;
+    pointer-events: none;
   }
 
   .first,
@@ -53,8 +41,8 @@
   .last {
     display: inline-block;
 
-    ::before,
-    ::after {
+    &::before,
+    &::after {
       display: inline-block;
       position: relative;
       bottom: .1em;
@@ -62,8 +50,7 @@
   }
 
   .first a {
-
-    ::before {
+    &::before {
       display: inline-block;
       margin-right: .3em;
       content: '\00ab';
