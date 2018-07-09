@@ -16,7 +16,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   // Default non-semantic headline group
   @at-root #{$bem-root} {
     #{$bem-root}__super {
-      @include rr-font-compute(r, tight);
+      @include rr-font-compute(s, tight);
       text-transform: uppercase;
     }
 
@@ -42,7 +42,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   .editorial aside {
     #{$bem-root} {
       #{$bem-root}__super, {
-        @include rr-font-compute(l, tight);
+        @include rr-font-compute(r, tight);
         color: color(dark-gray);
         font-weight: 500;
       }
@@ -71,7 +71,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   // eg h1.headline-group, h2.headline-group
   @for $pos from 1 through 6 {
     $size: nth($sizelist, $pos);
-    $supersize: map-offset-from($font-sizes, $size, -2);
+    $supersize: map-offset-from($font-sizes, $size, -3);
     $subsize: map-offset-from($font-sizes, $size, -1);
     @at-root h#{$pos}#{&} {
       #{$bem-root}__super {
