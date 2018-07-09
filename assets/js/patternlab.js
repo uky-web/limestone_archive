@@ -20,4 +20,5 @@ $(document).ready(() => {
   carousel();
   modals();
   togglebutton();
+  responsive_grid_table();
 });
