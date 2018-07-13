@@ -1,6 +1,6 @@
 # UK Style Guide in Pattern Lab
 
-This project builds automatically to https://newcity.gitlab.io/coi-styleguide/ when commits are made to the master branch.
+This project builds automatically to https://uk-d8.github.io/patternlab/ when commits are made to the master branch.
 
 ## Requirements:
 
