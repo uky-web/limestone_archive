@@ -1,0 +1,40 @@
+.global-footer {
+  @include usescheme($text-colors-dark);
+  background-color: color(dark-blue);
+
+  .slab__wrapper {
+    @include rr-break-directive(m) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+  }
+
+  .global-footer__column {
+    margin-bottom: rr-gridbase(3);
+
+    @include rr-break-directive(m) {
+      flex: 0 1 30%;
+      width: 30%;
+      margin-bottom: 0;
+
+      &:nth-child(3n + 1) {
+        padding-right: rr-gridbase(2);
+      }
+
+      &:nth-child(3n + 2) {
+        flex: 0 1 40%;
+        width: 40%;
+        padding: 0 rr-gridbase(2);
+      }
+
+      &:nth-child(3n) {
+        padding-left: rr-gridbase(2);
+      }
+    }
+  }
+}
+
+
+

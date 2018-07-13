@@ -1,5 +1,20 @@
-{% embed 'molecules-slab' with { slab_variant: 'slab--wildcat-blue' } %}
-    {% block slab_content %}
-        {% include 'atoms-placeholder' with { title: "Global Footer" } %}
+{% embed 'molecules-slab' with { slab_variant: 'global-footer' } %}
+    {% block slab_content %}  
+        {# this is designed for three columns of content #}
+        <div class="global-footer__column">
+            {% block footer_left %}
+                {% include 'atoms-placeholder' %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_mid %}
+                {% include 'atoms-placeholder' %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_right %}
+                {% include 'atoms-placeholder' %}
+            {% endblock %}
+        </div>
     {% endblock %}
 {% endembed %}

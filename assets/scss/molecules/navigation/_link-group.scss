@@ -1,9 +1,0 @@
-.link-group--collapsed {
-  display: none;
-}
-
-@include rr-break-directive(medium) {
-  .link-group--collapsed {
-    display: block;
-  }
-}
