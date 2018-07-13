@@ -240,6 +240,13 @@ $black: #2c2a29;
     }
   }
 
+  .contact-table {
+    th,
+    td {
+      border-color: color(dashed-border-color, $textscheme);
+    }
+  }
+
 }
 
 @mixin ondark {

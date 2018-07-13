@@ -241,7 +241,7 @@ gulp.task('watcher', ['build-all'], function() {
 
   //var watcherOptions = { debounce:300,watchman:true };
   var watcherOptions = {
-    debounce: 300,
+    debounce: 1000,
     watchman: false
   };
 

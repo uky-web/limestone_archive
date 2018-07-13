@@ -3,7 +3,7 @@
         {# this is designed for three columns of content #}
         <div class="global-footer__column">
             {% block footer_left %}
-                {% include 'atoms-placeholder' %}
+                {% include 'molecules-link-group' with { hide_heading: true } %}
             {% endblock %}
         </div>
         <div class="global-footer__column">

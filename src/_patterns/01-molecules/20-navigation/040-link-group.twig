@@ -1,6 +1,6 @@
 <div class="link-group">
-  {% set heading_variant = (hide_heading) ? "show-for-sr" : "" %}
-  {% include 'atoms-heading' with { headline:label|default(fake('words',{nb: 2, asText: true}))} %}
+  {% set heading_variant = (hide_heading) ? "show-for-sr" : "link-group__heading" %}
+  {% include 'atoms-heading' with { heading_variant: heading_variant, headline:label|default(fake('words',{nb: 2, asText: true}))} %}
   <ul class="no-decoration">
     {% for i in 0..5 %}
       {% set label = fake('words', {nb: 1 + random(5), asText: true} )|capitalize %}

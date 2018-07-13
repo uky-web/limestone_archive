@@ -1,0 +1,36 @@
+.link-group {
+  a {
+    @include rr-font-compute(l, tight);
+    font-weight: 500;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.link-group__heading {
+  @include rr-font-compute(xl, tight);
+  position: relative;
+  margin-bottom: rr-gridbase(3);
+  padding-bottom: rr-gridbase(2);
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    width:  3.125rem;
+    height: .25rem;
+    background-color: color(light-blue);
+    content: '';
+  }
+}

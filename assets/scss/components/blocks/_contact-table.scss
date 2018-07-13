@@ -1,0 +1,28 @@
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    @include rr-font-compute(l, tight);
+    width: 50%;
+    padding: rr-gridbase(1) 0;
+    border-bottom: 1px color(wildcat-black) dashed;
+    text-align: left;
+  }
+
+  tr:last-child {
+    th,
+    td {
+      border-width: 0;
+    }
+  }
+
+  th {
+    font-weight: 400;
+  }
+
+  td {
+    font-weight: 600;
+  }
+}
