@@ -2,6 +2,7 @@
 
 {% block main_content %}
     {% include 'components-' ~ page_header|default('text-page-header') with { head: "Directory", slab_variant : header_slab|default('slab--wildcat-white') } %}
+    {% include 'components-breadcrumb-slab' %}
     {% embed 'molecules-slab-2x1' with { slab_variant : slab_variant|default('slab--wildcat-white') }  %} 
         {% block slab_content %}
             {% include 'components-people-list' with { slab_variant : slab_variant|default('slab--wildcat-white') }  %} 

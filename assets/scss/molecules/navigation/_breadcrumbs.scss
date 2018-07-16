@@ -7,14 +7,23 @@
   li {
     display: inline-block;
 
-    span.icon {
-      display: inline-block;
+    &::after {
+      margin-right: .3em;
+      margin-left: .5em;
+      content: '/';
     }
 
-    &:last-child {
-      span.icon {
-        display: none;
-      }
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  a {
+    @include underline-link;
+
+    &:link,
+    &:visited {
+      color: color(dark-blue);
     }
   }
 }
