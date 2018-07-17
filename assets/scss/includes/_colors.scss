@@ -247,6 +247,39 @@ $black: #2c2a29;
     }
   }
 
+  .social-media-links {
+    a {
+      &:link,
+      &:visited {
+        color: color(button-background, $textscheme);
+      }
+
+      &:hover,
+      &:active {
+        color: color(button-hover-background, $textscheme);
+      }
+    }
+  }
+
+  form {
+    input[type='text'],
+    input[type='password'],
+    input[type='color'],
+    input[type='date'],
+    input[type='datetime'],
+    input[type='email'],
+    input[type='month'],
+    input[type='number'],
+    input[type='range'],
+    input[type='search'],
+    input[type='tel'],
+    input[type='time'],
+    input[type='ur'],
+    input[type='week'],
+    textarea {
+      border-color: color(form-borders, $textscheme);
+    }
+  }
 }
 
 @mixin ondark {

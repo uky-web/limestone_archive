@@ -62,3 +62,57 @@ a {
 .editorial .link--fancy-reverse {
   @include rr-font-compute(l, tight);
 }
+
+.art-link {
+  display: inline-block;
+  max-width: 18rem;
+  padding: 0;
+  background-color: color(wildcat-black);
+  text-decoration: none;
+
+  .icon-label {
+    align-items: stretch;
+
+    .ic {
+      margin: 0;
+      padding: .5rem .3rem;
+      background-color: color(light-blue);
+      color: color(wildcat-white);
+      font-size: 2.6rem;
+    }
+
+    .label {
+      align-self: center;
+      margin: 0;
+      padding: .5rem 1em;
+      background-image: none;
+      font-size: 1.167rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+  }
+
+  &:link,
+  &:visited {
+    .icon-label {
+      .ic,
+      .label {
+        color: color(wildcat-white);
+      }
+    }
+  }
+
+  &:hover,
+  &:active {
+    .icon-label {
+      .label {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.campus-map {
+    background-image: url('../../images/campus-map-texture.jpg');
+    background-size: cover;
+  }
+}

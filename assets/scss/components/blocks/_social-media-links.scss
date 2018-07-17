@@ -12,7 +12,6 @@
     margin: ($cm * 2) ($cm * -1) ($cm * -1);
 
     a {
-      @include link-colors($d: color(medium-blue), $h: color(light-blue));
       width: 2.8rem;
       margin: 0 $cm $cm;
       text-align: center;
@@ -21,23 +20,46 @@
 
   $root: &;
 
-  &--dark {
+  &#{&}--dark {
     @include usescheme($text-colors-dark);
     background-color: color(wildcat-blue);
-
-    #{$root}__linkset {
-      a {
-        @include link-colors($d: color(wildcat-white), $h: color(light-blue-tint))
-      }
-    }
   }
 
-  &--blocks {
+  &#{&}--blocks {
     #{$root}__linkset {
       @include rr-font-compute(5xl, tight);
 
       a {
         text-align: left;
+      }
+    }
+  }
+
+  &#{&}--row {
+    background-color: transparent;
+
+    #{$root}__linkset {
+      @include rr-font-compute(3xl, tight);
+      display: block;
+
+      a {
+        display: inline-block;
+        margin: 0 .3em .3em 0;
+        .icon-label {
+          justify-content: center;
+          .ic {
+            margin: 0;
+          }
+          .show-for-sr {
+            position: absolute;
+          }
+        }
+      }
+
+      @supports (display: grid) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1.5em, 1fr));
+        grid-gap: .3em;
       }
     }
   }

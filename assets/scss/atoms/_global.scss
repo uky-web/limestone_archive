@@ -17,6 +17,10 @@ body {
   *::after {
     box-sizing: inherit;
   }
+
+  b {
+    font-weight: 600;
+  }
 }
 
 .default-colors {

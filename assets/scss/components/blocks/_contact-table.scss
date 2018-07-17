@@ -2,13 +2,20 @@
   width: 100%;
   border-collapse: collapse;
 
-  th,
+  th {
+    @include rr-font-compute(l, tight);
+    display: block;
+    padding: rr-gridbase(1) 0 0;
+    font-weight: 400;
+    text-align: left;
+  }
+
   td {
     @include rr-font-compute(l, tight);
-    width: 50%;
-    padding: rr-gridbase(1) 0;
+    display: block;
+    padding: 0 0 rr-gridbase(1);
     border-bottom: 1px color(wildcat-black) dashed;
-    text-align: left;
+    font-weight: 500;
   }
 
   tr:last-child {
@@ -18,11 +25,16 @@
     }
   }
 
-  th {
-    font-weight: 400;
-  }
+  @include rr-break-directive(l) {
+    th,
+    td {
+      display: table-cell;
+      padding: rr-gridbase(1) 0;
+      border-bottom: 1px color(wildcat-black) dashed;
+    }
 
-  td {
-    font-weight: 600;
+    td {
+      padding-left: .3em;
+    }
   }
 }

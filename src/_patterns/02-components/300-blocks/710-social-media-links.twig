@@ -1,4 +1,5 @@
 <div class="social-media-links {{ social_media_links_variant }}">
+    {% set headline_group_variant = (hide_heading) ? "show-for-sr" : "" %}
     {% include 'molecules-headline-group' with { head: 'Connect With Us' } %}
     <div class="social-media-links__linkset">
         {% set icons = ['twitter','facebook','linkedin','instagram','pinterest','snapchat','youtube'] %}

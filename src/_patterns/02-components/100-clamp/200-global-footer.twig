@@ -1,19 +1,21 @@
+{% set hide_heading = true %}
 {% embed 'molecules-slab' with { slab_variant: 'global-footer' } %}
     {% block slab_content %}  
         {# this is designed for three columns of content #}
         <div class="global-footer__column">
             {% block footer_left %}
-                {% include 'molecules-link-group' with { hide_heading: true } %}
+                {% include first_col|default('molecules-link-group') %}
             {% endblock %}
         </div>
         <div class="global-footer__column">
             {% block footer_mid %}
-                {% include 'atoms-placeholder' %}
+                {% include second_col|default('components-contact-table') %}
             {% endblock %}
         </div>
         <div class="global-footer__column">
             {% block footer_right %}
-                {% include 'atoms-placeholder' %}
+                {% include 'atoms-art-link' %}
+                {% include 'components-social-media-links' with { social_media_links_variant : "social-media-links--row", social_icons_block: true } %}
             {% endblock %}
         </div>
     {% endblock %}
