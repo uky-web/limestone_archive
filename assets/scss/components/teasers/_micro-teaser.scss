@@ -12,6 +12,22 @@
 
   .micro-teaser__media {
     margin-bottom: rr-gridbase(2);
+
+    a {
+      display: block;
+      background-color: color(wildcat-blue);
+  
+      img {
+        transition: .3s opacity ease-in-out;
+      }
+  
+      &:hover,
+      &:visited {
+        img {
+          opacity: .7;
+        }
+      }
+    }
   }
 
   .editorial {
