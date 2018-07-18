@@ -1,1 +1,20 @@
-{% include 'atoms-placeholder' with { title: "Login Form" } %}
+{# This code is cleaned up somewhat from Drupal's standard code for forms. Leaning on it because form layout logic can be a real PITA to theme in Drupal. #}
+<form class="user-login-form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-name js-form-item-name">
+    <label for="edit-name" class="js-form-required form-required">Username</label>
+    <input aria-describedby="edit-name--description" type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required" required="required" aria-required="true" autocomplete="off" >
+    <div id="edit-name--description" class="description">
+      Enter your UK D8 username.
+    </div>
+  </div>
+  <div class ="js-form-item form-item js-form-type-password form-item-pass js-form-item-pass">
+    <label for="edit-pass" class="js-form-required form-required">Password</label>
+    <input aria-describedby="edit-pass--description" type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required" required="required" aria-required="true" autocomplete="off">
+    <div id="edit-pass--description" class="description">
+      Enter the password that accompanies your username.
+    </div>
+  </div>
+  <div class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+    <input type="submit" id="edit-submit" name="op" value="Log in" class="button js-form-submit form-submit">
+  </div>
+</form>

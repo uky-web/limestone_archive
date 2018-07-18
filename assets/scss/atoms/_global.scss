@@ -65,37 +65,6 @@ hr {
   display: none;
 }
 
-form {
-  label,
-  input,
-  select,
-  textarea {
-    @include rr-font-compute(l, medium);
-    font-weight: 500;
-  }
-
-  input[type='text'],
-  select {
-    border: 1px color(wildcat-blue) solid;
-    border-radius: 0;
-    background-color: color(wildcat-white);
-  }
-
-  input[type='submit'],
-  button[type='submit'] {
-    margin: .5rem 0 .5rem .5rem;
-    text-align: right;
-  }
-
-  .form-item {
-    margin-bottom: rr-gridbase(2);
-
-    label {
-      margin-right: 1rem;
-    }
-  }
-}
-
 //sass-lint:disable-block no-vendor-prefixes
 button::-moz-focus-inner {
   border: 0;

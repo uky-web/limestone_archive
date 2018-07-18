@@ -38,4 +38,50 @@ form {
       }
     }
   }
+
+  label,
+  select {
+    @include rr-font-compute(l, tight);
+    font-weight: 500;
+    display: block;
+
+    &.form-required {
+      &::after {
+        color: color(alert);
+        content: '*';
+      }
+    }
+  }
+
+  .description {
+    margin-top: rr-gridbase(1);
+    @include rr-font-compute(s, medium);
+  }
+
+  input[type='text'],
+  input[type='password'],
+  input[type='color'],
+  input[type='date'],
+  input[type='datetime'],
+  input[type='email'],
+  input[type='month'],
+  input[type='number'],
+  input[type='range'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='time'],
+  input[type='ur'],
+  input[type='week'],
+  textarea {
+    @include rr-font-compute(r, medium);
+    background-color: color(wildcat-white);
+    padding: rr-grid-remainder(1px) rr-gridbase(1);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+  }
+
+  .form-item {
+    margin-bottom: rr-gridbase(2);
+  }
 }
