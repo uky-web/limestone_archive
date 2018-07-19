@@ -94,45 +94,77 @@ $rr-grids: (
   sidebar-left: (
     m: (
       columns: 3,
-      areas: side main main
+      areas: side main main,
+      flex-areas: (
+        side: 33.3%,
+        main: 66.6%
+      )
     ),
     l: (
       columns: 4,
-      areas: side main main main
+      areas: side main main main,
+      flex-areas: (
+        side: 25%,
+        main: 75%
+      )
     )
   ),
   sidebar-right: (
     m: (
       columns: 3,
       areas: main main side,
-      flex-columns: 2
+      flex-columns: 2,
+      flex-areas: (
+        side: 33.3%,
+        main: 66.6%
+      )
     ),
     l: (
       columns: 4,
-      areas: main main main side
+      areas: main main main side,
+      flex-areas: (
+        side: 25%,
+        main: 75%
+      )      
     )
   ),
   major-left: (
     m: (
       columns: 2,
       areas: major minor,
-      flex-columns: 2
+      flex-columns: 2,
+      flex-areas: (
+        minor: 33.3%,
+        major: 66.6%
+      )
     ),
     l: (
       columns: 3,
       areas: major major minor,
+      flex-areas: (
+        minor: 33.3%,
+        major: 66.6%
+      )
     )
   ),
   major-right: (
     m: (
       columns: 2,
       areas: minor major,
-      flex-columns: 2
+      flex-columns: 2,
+      flex-areas: (
+        minor: 33.3%,
+        major: 66.6%
+      )
     ),
     l: (
       columns: 3,
       areas: minor major major,
-    )
+      flex-areas: (
+        minor: 33.3%,
+        major: 66.6%
+      )  
+    ),
   )
 );
 

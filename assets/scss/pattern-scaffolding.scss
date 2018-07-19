@@ -28,7 +28,7 @@
 .sg-colors {
   margin-left: 0;
   list-style: none;
-  @include css-grid-columns(map-get($rr-grids, 6-up));
+  @include css-grid-columns(map-get($rr-grids, 4-up));
 }
 
 .sg-colors__column {
