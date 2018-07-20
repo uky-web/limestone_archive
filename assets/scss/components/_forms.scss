@@ -42,8 +42,8 @@ form {
   label,
   select {
     @include rr-font-compute(l, tight);
-    font-weight: 500;
     display: block;
+    font-weight: 500;
 
     &.form-required {
       &::after {
@@ -74,11 +74,11 @@ form {
   input[type='week'],
   textarea {
     @include rr-font-compute(r, medium);
-    background-color: color(wildcat-white);
     padding: rr-grid-remainder(1px) rr-gridbase(1);
     border-width: 1px;
     border-style: solid;
     border-radius: 0;
+    background-color: color(wildcat-white);
   }
   
   input, textarea, select {
