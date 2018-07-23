@@ -80,6 +80,10 @@ form {
     border-style: solid;
     border-radius: 0;
   }
+  
+  input, textarea, select {
+    max-width: 100%;
+  }
 
   .form-item {
     margin-bottom: rr-gridbase(2);
