@@ -22,7 +22,7 @@ cacheBusterOn: 'false'
 exportDir: export
 publicDir: public
 sourceDir: source
-defaultPattern: all
+defaultPattern: templates-page
 defaultShowPatternInfo: false
 ishMinimum: '240'
 ishMaximum: '2600'
