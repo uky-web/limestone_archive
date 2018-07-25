@@ -2,7 +2,11 @@
   @include block-header-font;
 
   figcaption {
-    margin-top: 2rem;
+    margin-top: 1.25rem;
+
+    p {
+      font-size: .875rem;
+    }
   }
 
   @at-root .layout-grid--on #{&} {
