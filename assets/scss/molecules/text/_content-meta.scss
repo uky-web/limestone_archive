@@ -2,15 +2,13 @@
   margin-bottom: rr-gridbase(1);
 
   .byline,
-  .location {
-    @include rr-font-compute(l, medium);
-    font-weight: 500;
-  }
-
+  .location,
   .date {
     @include rr-font-compute(l, medium);
   }
 
+  .byline, 
+  .date,
   .who-when {
     font-weight: 500;
   }
