@@ -65,7 +65,8 @@
 				'width' => 640,
 				'height' => 480,
 				'imgTag' => '*',
-				'imgProvider' => 'https://magicyeti.us',
+				'imgProvider' => 'https://via.placeholder.com',
+				'imgText' => 'Media',
 				'imgFilter' => '',
 				'indexSize' => 2,
 				'chanceOfGettingTrue' => 50,
@@ -206,8 +207,13 @@
 					$w = $o['width'];
 					$h = $o['height'];
 				}
+
+				$imgText = '';
+				if (!empty($o['imgText'])) {
+					$imgText = "?text=" . urlencode($o['imgText']);
+				}
 				// Stomp Faker's generation of image urls in favor of our own
-				$returnable = "{$o['imgProvider']}/{$w}/{$h}/{$o['imgTag']}/{$o['imgFilter']}";
+				$returnable = "{$o['imgProvider']}/{$w}x{$h}/" . $imgText;
 			break;
 			case 'file':
 			case 'image':

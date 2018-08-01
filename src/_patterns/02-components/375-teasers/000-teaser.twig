@@ -5,7 +5,7 @@
 	<div class="teaser__content">
 		{% block teaser_content %}
 			{% include 'molecules-teaser-headline-group' with {level:level|default(3), sub:"Optional Subhead", super:"Optional Superhead", headline_group_linked: true, super: "Optional Superhead", sub:"Optional Subhead" } %}
-			{% include 'molecules-content-meta' %}
+			{% if show_meta %}{% include 'molecules-content-meta' %}{% endif %}
 			{% include 'atoms-formatted-text' %} 
 		{% endblock %}
 	</div>

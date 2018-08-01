@@ -3,5 +3,6 @@
     "content_date" : true,
     "teaser_byline" : true,
     "content_date_format" : "M d, Y",
-    "content_taxonomy" : true
+    "content_taxonomy" : true,
+    "show_meta" : true
 }
