@@ -18,10 +18,14 @@
 
   {% set block = 'teaser' %}
   {% include 'components-block-columns' with { columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
-  {% include 'components-block-columns' with { show_meta: true, teaser_variant: 'teaser--news', columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
 
-  {% set block = 'person-teaser' %}
-  {% include 'components-block-columns' with { columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
+  {% embed 'molecules-slab' %}
+    {% block slab_content %}
+    {% set num = 3 %}
+      {% include 'components-content-list' %}
+      {% include 'components-people-list' %}
+    {% endblock %}
+  {% endembed %}  
 
   {% include 'components-image-gallery-slab' with { numImages: 7, level: 2 } %}
 

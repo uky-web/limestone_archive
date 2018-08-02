@@ -1,32 +1,36 @@
-    {% set labelid = "PeopleListLabel"|uniqid %}
-    <!-- region labeling for accessibility -->
-    <div role="region" aria-labeledby="{{ labelid }}">
-        <table class="people-list">
-            <!-- 
-                Caption required to label the table for the region; this should either
-                be CMS-configurable or a sensible value hard-codeded.
-            -->
-            <caption id="{{ "PeopleListLabel"|uniqid }}">Faculty / Staff Directory</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Contact Information</th>
-                </tr>
-            </thead>
-            <tbody>
-                {# Names should be alphabetical, won't be in the demonstration. #}
-                {% for i in 1 .. 20 %}
-                <tr>
-                    {# Link image to profile page #}
-                    <td><a href="http://www.example.com/">{% include 'atoms-image' with { aspect:"1:1", width: 200 } %}</a></td>
-                    <td>
-                        <span class="people-list--name"><a class="underline-link" href="http://www.example.com/">{{ fake('lastName') }}, {{ fake('firstName') }}</a></span><br />
-                        <span class="people-list--title">{{ fake('jobTitle') }}</span>
-                        {% include 'components-contact-info' with { hide_image:true, contact_info_variant: 'contact-info--sheet' } %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% include 'molecules-pagination' %}
-    </div>
+{% if num is empty %}
+    {% set num = 10 %}
+{% endif %}
+
+{% set labelid = "PeopleListLabel"|uniqid %}
+<!-- region labeling for accessibility -->
+<div role="region" aria-labeledby="{{ labelid }}">
+    <table class="people-list">
+        <!-- 
+            Caption required to label the table for the region; this should either
+            be CMS-configurable or a sensible value hard-codeded.
+        -->
+        <caption id="{{ "PeopleListLabel"|uniqid }}">Faculty / Staff Directory</caption>
+        <thead>
+            <tr>
+                <th scope="col">Photo</th>
+                <th scope="col">Contact Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Names should be alphabetical, won't be in the demonstration. #}
+            {% for i in 1 .. num %}
+            <tr>
+                {# Link image to profile page #}
+                <td><a href="http://www.example.com/">{% include 'atoms-image' with { aspect:"1:1", width: 200 } %}</a></td>
+                <td>
+                    <span class="people-list--name"><a class="underline-link" href="http://www.example.com/">{{ fake('lastName') }}, {{ fake('firstName') }}</a></span><br />
+                    <span class="people-list--title">{{ fake('jobTitle') }}</span>
+                    {% include 'components-contact-info' with { hide_image:true, contact_info_variant: 'contact-info--sheet' } %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if num >= 10 %}{% include 'molecules-pagination' %}{% endif %}
+</div>
