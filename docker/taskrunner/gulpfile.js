@@ -91,31 +91,6 @@ gulp.task('styles', ['iconfont'], function() {
     ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist_css));
-
-    // Destination for the processed CSS file and sourcemap
-    // cache it so as not to trigger downstream watchers
-    /*
-    .pipe(save('css'))
-
-    // Script to configure modernizr based on flags
-    // that are actually used in the stylesheets
-    /*
-    .pipe(modernizr('modernizr-custom.js', {
-      'options': [
-        'setClasses',
-        'addTest',
-        'html5printshiv',
-        'testProp',
-        'fnBind'
-      ]
-    }))
-    // Destinations for the custom modernizr
-    .pipe(gulp.dest(paths.dist_lib))
-    // and dump out the original css
-    
-    .pipe(save.restore('css'))
-    .pipe(gulp.dest(paths.dist_css));
-    */
 });
 
 // Copy images from src to PL source destination
