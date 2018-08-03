@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  @include usescheme($text-colors);
+  @include usescheme($scheme-light);
   margin: 0;
   padding: 0;
 
@@ -24,11 +24,11 @@ body {
 }
 
 .default-colors {
-  @include usescheme($text-colors);
+  @include usescheme($scheme-light);
 }
 
 .dark-colors {
-  @include usescheme($text-colors);
+  @include usescheme($scheme-light);
 }
 
 // Prep images to be responsive

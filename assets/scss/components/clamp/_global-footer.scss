@@ -1,5 +1,5 @@
 .global-footer {
-  @include usescheme($text-colors-dark);
+  @include usescheme($scheme-dark);
   background-color: color(dark-blue);
 
   .slab__wrapper {

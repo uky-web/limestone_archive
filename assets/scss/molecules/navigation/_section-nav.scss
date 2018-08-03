@@ -57,7 +57,7 @@
     background-color: $color;
 
     @if (contrast($color, color(wildcat-black)) < 4.5) {
-      @include usescheme($text-colors-dark);
+      @include usescheme($scheme-dark);
     }
 
     @include rr-break-directive(m) {

@@ -7,7 +7,7 @@
   }
 
   &.cta--dark {
-    @include usescheme($text-colors-dark);
+    @include usescheme($scheme-dark);
     background-color: color(wildcat-blue);
   }
 
@@ -15,4 +15,16 @@
     border-color: color(blue-gray);
     background-color: color(blue-gray);
   }
+
+  /* 
+  @at-root .grid__column > #{&} {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    :last-child {
+      margin-top: auto; 
+    }
+  }
+  */
 }

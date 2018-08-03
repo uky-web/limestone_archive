@@ -51,7 +51,7 @@
     margin: rr-gridbase(1);
     padding: rr-gridbase(3);
     background-color: color(wildcat-blue);
-    @include usescheme($text-colors-dark);
+    @include usescheme($scheme-dark);
   }
 }
 

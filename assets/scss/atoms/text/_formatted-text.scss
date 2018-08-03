@@ -1,4 +1,4 @@
 .formatted-text--dark {
-  @include ondark;
+  @include usescheme($scheme-dark);
   background-color: $black;
 }

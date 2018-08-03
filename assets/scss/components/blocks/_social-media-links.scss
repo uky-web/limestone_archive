@@ -21,7 +21,7 @@
   $root: &;
 
   &#{&}--dark {
-    @include usescheme($text-colors-dark);
+    @include usescheme($scheme-dark);
     background-color: color(wildcat-blue);
   }
 

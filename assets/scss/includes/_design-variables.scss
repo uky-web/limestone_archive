@@ -1,14 +1,33 @@
+// Font Shortcuts
 $font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
-
 $font-avenirnext: 'AvenirNextLT', sans-serif;
 
+// Width of the central column
 $global-width: 72rem;
+
+// All variables prefixed with "rr" are used to 
+// set defaults for the root-rhythm sass module.
 $rr-max-width: $global-width;
 
+// 1 rem is divided into this many segments to 
+// make a grid square. at 2, that means each 
+// grid is .5rem x .5rem.
 $rr-grid-divisions: 2;
 
-$rr-blend-mode: multiply;
-
+// These grid settings configure the grid at 
+// different breakpoints and also specify the
+// breaks used by rr-break-directive() -- the
+// sass mixin that creates media queries.
+//
+// "Grid" here means a typographic / layout
+// grid, not CSS3 Grids.
+// 
+// rr-break-directive is the preferred method
+// for making breakpoints; a close alternative
+// is looking the breakpoint values up here.
+// If necessary you can write one manually,
+// but then those will need to be found and 
+// tweaked by hand if there are revisions.
 $rr-grid-settings: (
   s: (
     mq: max-width,
@@ -47,9 +66,19 @@ $rr-grid-settings: (
   xlp: (
     size: $global-width + 8rem
   )
-
 );
 
+// This configures the CSS3 grid layout as well
+// as the flex fallbacks for IE11. Configuration
+// is provided through 6-up, but 3-up is the most
+// content-friendly maxium.
+//
+// The m/l/xl breakpoints match the breakpoints
+// in rr-grid-settings above, and control
+// layout at those breakpoints.
+//
+// You can add new configurations just by following
+// the pattern below.
 $rr-grids: (
   2-up: (
     m: (
@@ -168,6 +197,19 @@ $rr-grids: (
   )
 );
 
+// Line heights in grid units. These are all
+// relative to the font size, so "tight" has a line
+// height that represents just enough space
+// to contain a line of font text, whereas "redic"
+// is pretty massive. 
+// 
+// rr-font-compute(size,lineheight) will provide
+// a font-size, line-height combination in rem,
+// along with the required media queries to ensure
+// font sizes change in a standardized fashion. 
+// 
+// It is preferable to using font size and line
+// height directly in the code.
 $lineheights: (
   hpc: -2,
   squeeze: -1,
@@ -178,13 +220,25 @@ $lineheights: (
   redic: 4
 );
 
+// This map lets us specify font sizes by a name
+// rather than a specific value. You can create
+// new sizes by adding a new name. The font sizes
+// change based on breakpoint. 
+
+// rr-font-compute(size,lineheight) will provide
+// a font-size, line-height combination in rem,
+// along with the required media queries to ensure
+// font sizes change in a standardized fashion. 
+// 
+// It is preferable to using font size and line
+// height directly in the code.
 $fonts: (
   s: (
-    xs: .75rem, //12  xxs
-    s: .875rem, //14  xs
-    r: 1rem, //16 s
-    l: 1.1667rem, // r
-    xl: 1.25rem, // l 
+    xs: .75rem,
+    s: .875rem,
+    r: 1rem,
+    l: 1.1667rem,
+    xl: 1.25rem,
     2xl: 1.5rem,
     3xl: 1.775rem,
     4xl: 2rem,
@@ -205,6 +259,8 @@ $fonts: (
 
 $font-sizes: rr-font-sizes();
 
+// Establish header sizes for the editorial 
+// headings. 
 $editorial-headings: (
   h2: (
     size: 4xl,
@@ -235,6 +291,12 @@ $editorial-headings: (
   )
 );
 
+// This is the color pallet. Colors should never be
+// referenced with literals. These names are preferred.
+//
+// color(key) will return the hex value here.
+// 
+// Seriously, do not pollute the sass with color literals.
 $colors: (
   wildcat-blue: #0033a0,
   wildcat-white: #fff,
@@ -257,7 +319,22 @@ $colors: (
   info: #a1d3ed,
 );
 
-$text-colors: (
+// These are color schemes that map the colors above
+// to specific elements. In general we try to keep
+// css rules that specify color in the "usescheme" 
+// mixin; this makes it easy to ensure that color
+// schemes remain consistent. 
+//
+// $scheme-light is the default.
+// 
+// You can create a new scheme by copying this
+// map and giving it a new name.
+// 
+// color(key,scheme) will return the hex value
+// of the color in that space; typically you
+// do not use color(key,scheme) except in the
+// usescheme() mixin below.
+$scheme-light: (
   link: color(wildcat-black),
   link-active: color(medium-blue),
   menu-icon-color: color(medium-blue),
@@ -298,7 +375,8 @@ $text-colors: (
   form-borders: color(light-gray)
 );
 
-$text-colors-dark: (
+// This scheme is for the darker colors.
+$scheme-dark: (
   link: color(wildcat-white),
   link-active: color(light-blue-tint),
   text: color(wildcat-white),
@@ -348,3 +426,254 @@ $color-link: color(link);
 
 $rr-fonts: $fonts;
 $rr-lineheights: $lineheights;
+
+// This mixin generates all of the color CSS that 
+// marries the color schemes above with CSS selectors.
+// This can generate a considerable amount of CSS,
+// so it's probably a good place for some reengineering
+// and refactoring. When I went down this road, I was
+// really only expecting to change colors for a handful
+// of items -- but by the end it had become pretty 
+// elaborate.
+@mixin usescheme($textscheme) {
+  color: color(text, $textscheme);
+
+  .cite-media .icon-label {
+    color: color(media-citation, $textscheme);
+  }
+
+  .image-with-caption__media {
+    background-color: color(media-background, $textscheme);
+  }
+
+  .icon-label--stacked {
+    .label {
+      color: color(text, $textscheme);
+    }
+  }
+
+  a {
+    @include link-colors($d: color(link, $textscheme), $h: color(link-active, $textscheme));
+  }
+
+  button,
+  a.button,
+  input.button {
+    border-color: color(button-border, $textscheme);
+    background-color: color(button-background, $textscheme);
+    color: color(button-text, $textscheme);
+
+    // attach default colors to the anchor-as-button version
+    &:link {
+      border-color: color(button-border, $textscheme);
+      background-color: color(button-background, $textscheme);
+      color: color(button-text, $textscheme);
+    }
+
+    &.button--ghost {
+      background-color: transparent;
+      color: color(button-border, $textscheme);
+    }
+
+    &.button--transparent {
+      border-color: transparent;
+      background-color: transparent;
+      color: color(button-border, $textscheme);
+    }
+
+    &[disabled] {
+      // sass-lint:disable-block no-important
+      border-color: color(button-disabled-border, $textscheme) !important;
+      background-color: color(button-disabled-background, $textscheme) !important;
+      color: color(button-disabled-text, $textscheme) !important;
+
+      &.button--ghost {
+        background-color: transparent !important;
+        // The ghost disabled text is a weird case; we have to 
+        // tune it for specific text schemes
+        @if $textscheme == $scheme-dark {
+          color: color(wildcat-white) !important;
+        } @else {
+          color: color(button-disabled-text, $textscheme) !important;
+        }
+      }
+    }
+
+    &:hover {
+      border-color: color(button-hover-border, $textscheme);
+      background-color: color(button-hover-background, $textscheme);
+      color: color(button-hover-text, $textscheme);
+    }
+
+    &:active,
+    &[aria-pressed='true'] {
+      border-color: color(button-active-border, $textscheme);
+      background-color: color(button-active-background, $textscheme);
+      color: color(button-active-text, $textscheme);
+
+      &.button--ghost {
+        color: color(button-active-text, $textscheme);
+      }
+
+      &.button--transparent {
+        border-color: transparent;
+        background-color: transparent;
+        color: color(button-active-border, $textscheme);
+      }
+    }
+
+    &:focus {
+      border-color: color(button-focus-border, $textscheme);
+      outline: none;
+      background-color: color(button-focus-background, $textscheme);
+      color: color(button-focus-text, $textscheme);
+
+      &.button--ghost {
+        background-color: transparent;
+        // Like disabled ghost, the focus state is quite different
+        // and we need some extra tuning        
+        @if $textscheme == $scheme-dark {
+          color: color(wildcat-white);
+        } @else {
+          color: color(button-focus-text, $textscheme);
+        }
+      }
+    }
+  }
+
+  .headline-group .headline-group__super {
+    color: color(headline-group-super, $textscheme);
+  }
+
+  .headline-group .headline-group__sub {
+    color: color(headline-group-sub, $textscheme);
+  }
+
+  .slick-prev,
+  .slick-next {
+    background-color: color(carousel-single-button, $textscheme);
+    color: transparent; // Content in the button should not be visible
+
+    &:hover,
+    &:focus {
+      background-color: color(carousel-single-button, $textscheme);
+      color: transparent; // Content in the button should not be visible
+    }
+
+    &::before {
+      color: color(carousel-single-button-art, $textscheme);
+    }
+  }
+
+  .slick-dots li {
+    button::before {
+      color: color(carousel-dot, $textscheme);
+    }
+
+    &.slick-active button::before {
+      color: color(carousel-dot-active, $textscheme);
+    }
+  }
+
+  .statistic {
+    .editorial {
+      &::before {
+        background-color: color(statistic-head-color, $textscheme);
+      }
+    }
+
+    .headline-group {
+      .headline-group__head {
+        color: color(statistic-head-color, $textscheme);
+      }
+
+      .headline-group__super,
+      .headline-group__sub {
+        color: color(statistic-subhead-color, $textscheme);
+      }
+    }
+  }
+
+  .pullquote__attribution {
+    &::before {
+      background-color: color(statistic-head-color, $textscheme);
+    }
+
+    .pullquote__first-line {
+      color: color(statistic-subhead-color, $textscheme);
+    }
+  }
+
+  .search-control {
+    background-color: transparent;
+    color: color(link, $textscheme);
+
+    &:hover,
+    &:active {
+      background-color: transparent;
+      color: color(link-active, $textscheme);
+    }
+  }
+
+  .menu-button {
+    background-color: transparent;
+    color: color(menu-icon-color, $textscheme);
+
+    &:hover,
+    &:active {
+      background-color: transparent;
+      color: color(menu-icon-color-active, $textscheme);
+    }
+  }
+
+  .uky-logo-main {
+    .uky-logo-main__logo {
+      fill: color(logo-color, $textscheme);
+    }
+
+    .uky-logo-main__wordmark {
+      fill: color(wordmark-color, $textscheme);
+    }
+  }
+
+  .contact-table {
+    th,
+    td {
+      border-color: color(dashed-border-color, $textscheme);
+    }
+  }
+
+  .social-media-links {
+    a {
+      &:link,
+      &:visited {
+        color: color(button-background, $textscheme);
+      }
+
+      &:hover,
+      &:active {
+        color: color(button-hover-background, $textscheme);
+      }
+    }
+  }
+
+  form {
+    input[type='text'],
+    input[type='password'],
+    input[type='color'],
+    input[type='date'],
+    input[type='datetime'],
+    input[type='email'],
+    input[type='month'],
+    input[type='number'],
+    input[type='range'],
+    input[type='search'],
+    input[type='tel'],
+    input[type='time'],
+    input[type='url'],
+    input[type='week'],
+    textarea {
+      border-color: color(form-borders, $textscheme);
+    }
+  }
+}

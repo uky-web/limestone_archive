@@ -1,5 +1,5 @@
 .teaser-aside--dark {
-  @include ondark;
+  @include usescheme($scheme-dark);
   padding: 1rem;
   background-color: $black;
 }

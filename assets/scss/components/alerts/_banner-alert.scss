@@ -12,7 +12,7 @@
 
   &--emergency {
     background-color: color(alert);
-    @include usescheme($text-colors-dark);
+    @include usescheme($scheme-dark);
 
     a {
       @include faux-underline($d: color(wildcat-white), $h: color(wildcat-white));
@@ -21,7 +21,7 @@
 
   &--brand {
     background-color: color(wildcat-blue);
-    @include usescheme($text-colors-dark);
+    @include usescheme($scheme-dark);
 
     a {
       @include faux-underline($d: color(wildcat-white), $h: color(wildcat-white));

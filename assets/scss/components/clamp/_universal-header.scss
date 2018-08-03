@@ -1,5 +1,5 @@
 .universal-header {
-  @include usescheme($text-colors-dark);
+  @include usescheme($scheme-dark);
   display: none;
   padding-top: rr-gridbase(1.5);
   padding-bottom: rr-gridbase(1.5);

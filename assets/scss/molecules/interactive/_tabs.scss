@@ -74,7 +74,7 @@
 }
 
 .js-tabcontent {
-  @include usescheme($text-colors-dark);
+  @include usescheme($scheme-dark);
   margin-bottom: rr-grid-remainder(4px);
   padding-bottom: rr-gridbase(5);
   border-bottom: 4px color(light-blue) solid;

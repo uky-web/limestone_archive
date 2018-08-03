@@ -14,7 +14,7 @@
   $root: &;
 
   &--dark {
-    @include usescheme($text-colors-dark);
+    @include usescheme($scheme-dark);
     padding: rr-gridbase(4);
     border-color: color(wildcat-blue);
     background-color: color(wildcat-blue);
