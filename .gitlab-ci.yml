@@ -37,7 +37,7 @@ generate:patternlab:
     - ls -alH pl/source
     - cp -R src/* pl/source/
     - cd pl && php core/console --generate
-    - ls -alH pl/public
+    - pwd && ls -alH public
   artifacts:
     paths:
       - dist
