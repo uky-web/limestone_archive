@@ -51,6 +51,9 @@ push:
     - make init
     - make clone
     - make replay
-    - make push
+    # make push
+  artifacts:
+    paths:
+      - pl/public
   only:
      - master

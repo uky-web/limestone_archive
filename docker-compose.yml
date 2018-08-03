@@ -5,7 +5,7 @@ services:
   taskrunner:
     environment:
       NPM_INSTALL: 1
-    image: newcity/taskrunner:latest
+    image: newcity/taskrunner:ukd8
     volumes:
       # map assets in and persistent storage containers out
       - ./assets:/app/assets:ro
@@ -16,15 +16,15 @@ services:
       - sprites:/app/dist/sprites
       - intermediate:/app/intermediate
       # config overrides
-      - ./docker/taskrunner/package.json:/app/package.json:ro
-      - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
+      # - ./docker/taskrunner/package.json:/app/package.json:ro
+      # - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
       - ./.sass-lint.yml:/app/.sass-lint.yml:ro
       - ./.eslintrc.yml:/app/.eslintrc.yml:ro
     working_dir: /app
 
   # pattern lab compilation
   pl:
-    image: newcity/pl:latest
+    image: newcity/pl:ukd8
     volumes:
       # bring in persistent storage assets and patterns
       - css:/pl/public/css:ro
@@ -40,8 +40,8 @@ services:
       - ./src/_patterns:/pl/source/_patterns:ro
       - ./src/_twig-components:/pl/source/_twig-components:ro
       # config overrides
-      - ./docker/pl/gulpfile.js:/gulpfile.js:ro
-      - ./docker/pl/config.yml:/pl/config/config.yml:ro
+      # - ./docker/pl/gulpfile.js:/gulpfile.js:ro
+      # - ./docker/pl/config.yml:/pl/config/config.yml:ro
     ports:
       # main webserver
       - "3000:3000"
