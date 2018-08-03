@@ -35,8 +35,7 @@ generate:patternlab:
     - rm -rf pl/source/*
     - cp -R src/* pl/source/
     - cd pl && php core/console --generate
-    - cd .. && rsync -rva dist/* pl/public/
-    - pwd && ls -alH pl/public
+    - cd .. && rsync -ra dist/* pl/public/
   artifacts:
     paths:
       - dist
@@ -52,7 +51,7 @@ push:
     - make init
     - make clone
     - make replay
-    # make push
+    - make push
   artifacts:
     paths:
       - pl/public
