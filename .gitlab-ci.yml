@@ -33,11 +33,10 @@ generate:patternlab:
   script:
     - mv /pl pl
     - rm -rf pl/source/*
-    - rsync -rva dist/* pl/source/
-    - ls -alH pl/source
     - cp -R src/* pl/source/
     - cd pl && php core/console --generate
-    - pwd && ls -alH public
+    - cd .. && rsync -rva dist/* pl/public/
+    - pwd && ls -alH pl/public
   artifacts:
     paths:
       - dist
