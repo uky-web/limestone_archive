@@ -64,7 +64,10 @@
 
 @each $name, $template in $rr-grids {
   .grid--#{$name} {
-    @include css-grid-columns($template, $class-prefix: '.grid');
+
+    @include rr-break-directive(m) {
+      @include css-grid-columns($template, $class-prefix: '.grid');
+    }
 
     &.grid--divided {
       $breaks: rr-breakpoint-list();
