@@ -5,7 +5,6 @@
 .page-header {
   position: relative;
   padding-top: rr-grid-remainder(2px, 6);
-  border-top: 2px color(light-gray) solid;
 
   @each $color in $colors {
     &.slab--#{$color} {
