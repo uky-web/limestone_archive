@@ -48,11 +48,13 @@
       font-weight: 600;
     }
 
+    .headline-group__super {
+      @include rr-font-compute(1xl, tight);
+    }
+
     .headline-group__sub,
     .headline-group__super {
-      @include rr-font-compute(2xl, tight);
       font-weight: 600;
-      text-transform: uppercase;
     }
 
     .headline-group__sub {
