@@ -5,6 +5,8 @@ extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 2018
 rules:
+  no-console:
+    - off
   no-undef:
     - off
   no-unused-vars:

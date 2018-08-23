@@ -215,7 +215,7 @@ button.slick-next {
     right: auto;
     left: 0;
   }
-}
+ }
 
 .carousel.carousel--center {
   @include rr-break-directive(l) {
@@ -236,7 +236,7 @@ button.slick-next {
     }
 
     .slick-track {
-      padding-top: 39px; // Provide a bit of overflow room for the center image scaling
+      //padding-top: 39px; // Provide a bit of overflow room for the center image scaling
     }
 
     .slick-slide {
@@ -259,19 +259,11 @@ button.slick-next {
         opacity: 1;
       }
 
-      // We'd rather the font sizes not scale
-      // with the slide, but if we just reverse
-      // the scale factor on the figcaption we
-      // will end up with undesirable padding
-      // around the caption. Instead, we use 
-      // ems to adjust the typeface.
-
       figcaption {
         max-height: 500px;
 
-        h3,
-        p {
-          font-size: .905em;
+        h3 {
+          font-size: 1.696rem;
         }
       }
     }

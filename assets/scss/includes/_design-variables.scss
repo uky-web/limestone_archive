@@ -456,6 +456,11 @@ $rr-lineheights: $lineheights;
     @include link-colors($d: color(link, $textscheme), $h: color(link-active, $textscheme));
   }
 
+  .carousel figcaption a {
+    @include underline-link($d: color(link, $textscheme), $h: color(link-active, $textscheme), $w: 1px, $alpha: .6);
+    @include link-colors($d: color(link, $textscheme), $h: color(link, $textscheme));
+  }
+
   button,
   a.button,
   input.button {

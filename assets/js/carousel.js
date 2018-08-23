@@ -33,25 +33,30 @@ const carousel_center = {
 const carousel = () => {
   const $carousels = $('.carousel');
   let config = carousel_single; // default configuration
-  if ($carousels.length < 1) return;
+  if ($carousels.length < 1) return; 
 
   const positionArrowsSingle = (slick) => {
-    let buttonTop = slick.slideWidth * .4;
-    let buttons = slick.$nextArrow.add(slick.$prevArrow);
+    const $currentSlide = $(slick.$slides[slick.currentSlide]);
+    const $currentImage = $currentSlide.find('img');
+    const imgHeight = $currentImage.height();
+    const buttonTop = imgHeight / 2;
+    const buttons = slick.$nextArrow.add(slick.$prevArrow);
     buttons.css({
       top: buttonTop
     });
   };
 
   const positionArrowsCentered = (slick) => {
+    console.log("PosArrowCenter");
     const $currentSlide = $(slick.$slides[slick.currentSlide]);
     const $currentImage = $currentSlide.find('img');
     const $currentTrack = slick.$slideTrack;
     const imgHeight = $currentImage.height();
-    const imgNatHeight = $currentImage.prop('naturalHeight');
+    const containerHeight = imgHeight * 1.105; // magic number matches the scale factor from the scss
+
     if (imgHeight > 0) {
-      const padding = (imgHeight - imgNatHeight) / 2;
-      const buttonTop = (imgHeight * .5) + padding;
+      const padding = (containerHeight - imgHeight) / 2;
+      const buttonTop = (containerHeight * .5);
       const buttons = slick.$nextArrow.add(slick.$prevArrow);
       buttons.css({
         top: buttonTop
@@ -59,20 +64,21 @@ const carousel = () => {
       $currentTrack.css({
         paddingTop: padding
       });
+      
     }
   };
+  
 
   $carousels.on('init setPosition afterChange', (e, slick) => {
-    if ($(e.currentTarget).has('.carousel--single')) {
+    const cl = e.currentTarget.classList;
+    if (cl.contains('carousel--single')) {
       positionArrowsSingle(slick);
-    }
-    if ($(e.currentTarget).has('.carousel--center')) {
+    } else if (cl.contains('carousel--center')) {
       positionArrowsCentered(slick);
     }
   });
 
   $carousels.map((index, elem) => {
-    // override configuration based on class name
     if (elem.classList.contains('carousel--center')) {
       config = carousel_center;
     } else {
