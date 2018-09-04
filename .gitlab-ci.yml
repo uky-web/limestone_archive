@@ -13,6 +13,7 @@ stages:
   - build
   - combine
   - deploy
+  - accessibility
 
 compile:assets:
   stage: build
@@ -57,3 +58,15 @@ push:
       - pl/public
   only:
      - master
+
+pa11y:
+  before_script:
+    - echo "Did you know the 'a11y' abbreviation is considered inaccessable? It's true."
+  stage: accessibility
+  image: newcity/pa11y-sh:jhw-config
+  script:
+    - pwd
+    - ls -alh /home/chrome
+    - pa11y-ci --config /home/chrome/.pa11yci -s https://uk-d8.github.io/patternlab/xml/sitemap.xml
+  only:
+    - master
