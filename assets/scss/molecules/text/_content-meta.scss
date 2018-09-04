@@ -14,6 +14,7 @@
   }
 
   .taxonomy-list {
+    @include rr-font-compute(r, medium);
     display: block;
     font-style: italic;
   }

@@ -1,7 +1,7 @@
 {% embed 'molecules-content-meta' %}
     {% block meta_fields %}
-        <span class="location"><a class="modal-control mfp-iframe" href="https://maps.google.com/maps?q=201+Ave+of+Champions,+Lexington,+KY">Memorial Coliseum</a></span>
         <span class="date">{{ "now"|date(content_date_format|default("M d, Y - g:i a")) }} — {{ "now + 3 hours"|date(content_date_format|default("M d, Y - g:i a")) }}</span>
+        <div class="location">Memorial Coliseum: <a class="modal-control mfp-iframe" href="https://maps.google.com/maps?q=201+Ave+of+Champions,+Lexington,+KY">Map</a> - <a href="http://www.example.com/">Details</a></div>
     {% endblock %}
 {% endembed %}
 
