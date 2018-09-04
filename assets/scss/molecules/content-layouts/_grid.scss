@@ -1,21 +1,50 @@
 .grid {
   @include rr-slab-wrapper($margins: true);
 
+  .grid__column {
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
   //nested grids
   .grid {
     max-width: none;
     margin: rr-gridbase(1) 0;
+
+    &.grid--2-up {
+      display: block;
+    }
   }
 
   @include rr-break-directive(m) {
+    .grid__column {
+      margin-bottom: 0;
+    }
+
     .grid {
-      margin: rr-gridbase(2) 0;
+      margin: rr-gridbase(2) 0;  
+
+      .grid__column {
+        margin-bottom: 2rem;
+      }
     }
   }
 
   @include rr-break-directive(l) {
     .grid {
       margin: rr-gridbase(4) 0;
+
+      .grid__column {
+        margin-bottom: 0;
+      }
+
+      &.grid--2-up {
+        display: grid;
+      }      
     }
   }
 }
