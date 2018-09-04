@@ -10,12 +10,13 @@ services:
       - css:/app/dist/css
       - js:/app/dist/js
       - images:/app/dist/images
+      - xml:/app/dist/xml
       - fonts:/app/dist/fonts
       - sprites:/app/dist/sprites
       - intermediate:/app/intermediate
       # config overrides
       # - ./docker/taskrunner/package.json:/app/package.json:ro
-      # - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
+      - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
       - ./.sass-lint.yml:/app/.sass-lint.yml:ro
       - ./.eslintrc.yml:/app/.eslintrc.yml:ro
     working_dir: /app
@@ -30,6 +31,7 @@ services:
       - images:/pl/public/images:ro
       - sprites:/pl/source/sprites:ro
       - fonts:/pl/public/fonts:ro
+      - xml:/pl/public/xml:ro
       - ./src/_annotations:/pl/source/_annotations:ro
       - ./src/_data:/pl/source/_data:ro
       - ./src/_layouts:/pl/source/_layouts:ro
@@ -53,3 +55,4 @@ volumes:
   sprites:
   fonts:
   intermediate:
+  xml:

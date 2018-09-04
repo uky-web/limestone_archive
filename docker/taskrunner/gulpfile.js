@@ -37,6 +37,7 @@ var paths = {
   sass: ['assets/scss/**/*.scss'],
   lib: ['assets/lib/**/*.js'],
   js: ['assets/js/**/*.js'],
+  xml: ['assets/xml/**/*.xml'],
   images: ['assets/images/**/*'],
   fonts: ['assets/fonts/**/*'],
   font_svg: ['assets/font-svg/**/*.svg'],
@@ -44,6 +45,7 @@ var paths = {
   intermediate: 'intermediate',
   dist_css: 'dist/css',
   dist_js: 'dist/js',
+  dist_xml: 'dist/xml',
   dist_lib: 'dist/js/lib',
   dist_images: 'dist/images',
   dist_fonts: 'dist/fonts'
@@ -148,6 +150,12 @@ gulp.task('lib', function() {
     .pipe(gulp.dest(paths.dist_lib));
 });
 
+gulp.task('xml', function() {
+  return gulp.src(paths.xml)
+    .pipe(gulp.dest(paths.dist_xml));
+});
+
+
 gulp.task('iconfont', function() {
   // Get a nonce for the font name for this build
   // The font file name will change, but since gulp
@@ -194,7 +202,7 @@ gulp.task('iconfont', function() {
 });
 
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles', 'lib', 'js', 'images', 'fonts']);
+gulp.task('build-all', ['styles', 'lib', 'js', 'xml', 'images', 'fonts']);
 
 // all the watchy stuff
 gulp.task('watcher', ['build-all'], function() {
@@ -249,6 +257,12 @@ gulp.task('watcher', ['build-all'], function() {
       gulp.start('fonts');
     }
   );
+
+  sanewatch(paths.xml, watcherOptions,
+    function() {
+      gulp.start('xml');
+    }
+  );  
 });
 
 // Default build task
