@@ -25,8 +25,7 @@
         {% set columns = 4 %}
         {% set cta_variant = "cta--light" %}
         {# Note: Grids nested in 2x1 containers should be set to 2-columns only #}
-        {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, headline:"Call to four actions" } %}
-        {% include 'molecules-grid' with { grid_type: "grid--2-up" } %}
+        {% include 'molecules-grid' with { grid_type: "grid--2-up", include_headline: true, head: 'Call to Four Actions' } %}
         {% embed 'components-editorial' %}
             {% block editorial_content %}
                 {% include 'molecules-headline-group' with { head: "Zipper", sub: "Embedded in the content column", level: 3 } %}

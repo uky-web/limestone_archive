@@ -37,6 +37,10 @@
     background-image: none;
   }
 
+  + .editorial {
+    margin-top: 2rem;
+  }
+
   @include rr-break-directive(m) {
     .editorial__aside {
       &.align-left {
@@ -65,6 +69,10 @@
         margin: 0 0 rr-gridbase(3) rr-gridbase(3);
       }
     }
+    
+    + .editorial {
+      margin-top: 4rem;
+    }    
   }
 
   @include rr-break-directive(xl) {
