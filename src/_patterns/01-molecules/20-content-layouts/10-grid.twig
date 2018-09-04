@@ -1,7 +1,7 @@
 {% embed 'molecules-slab' %}
-    {% block slab_outer %}
+    {% block slab_content %}
         {% if include_headline %}
-        <div class="slab__wrapper editorial">
+        <div class="editorial">
             {% include 'molecules-headline-group' with { level: 2, head: head|default('Grid Headline') } only %}        
         </div>
         {% endif %}
