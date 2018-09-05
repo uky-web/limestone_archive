@@ -1,12 +1,25 @@
 .skip-nav {
+  @include rr-font-compute(l, wide);
   display: flex;
   position: absolute;
   top: -5rem;
   justify-content: center;
   width: 100%;
+  padding: rr-gridbase(2);
+  transition: top .5s;
+  background-color: color(wildcat-black);
+  font-weight: bold;
+  z-index: 99999;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: color(wildcat-white);
+  }
 
   &:focus {
     top: 0;
-    transition: top .5s;
+    
   }
 }

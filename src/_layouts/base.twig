@@ -1,10 +1,10 @@
 {% include 'molecules-skip-nav' %}
 {% include 'components-global-header' %}
-<main class="main">
+<main class="main" id="main-content">
 	{% block main_content %}
 		{% include 'organisms-page-header' with { page_header_show_hero : true } %}
 
-		<div class="page-section" id="main-content">
+		<div class="page-section">
 			{% embed 'molecules-one-column' %}
 				{% block one_column_col %}
 					{% include 'atoms-heading' with {level: 2, headline: 'Default Content Warning'} %}
