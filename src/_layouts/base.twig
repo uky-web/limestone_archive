@@ -4,7 +4,7 @@
 	{% block main_content %}
 		{% include 'organisms-page-header' with { page_header_show_hero : true } %}
 
-		<div class="page-section">
+		<div class="page-section" id="main-content">
 			{% embed 'molecules-one-column' %}
 				{% block one_column_col %}
 					{% include 'atoms-heading' with {level: 2, headline: 'Default Content Warning'} %}

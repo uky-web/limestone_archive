@@ -1,8 +1,8 @@
 {% set searchid = "search-keywords"|uniqid %}
 <form class="search" method="post">
-  <label for="searchid">Search our Site</label>
+  <label for="{{ searchid }}">Search our Site</label>
   <div class="control-group">
-    <input type="text" id="search-keywords|" />
+    <input type="text" id="{{ searchid }}" />
     <button class="icon-only">
       {% include 'atoms-icon-label' with { icon: 'magnify', label: 'search' } %}
     </button>

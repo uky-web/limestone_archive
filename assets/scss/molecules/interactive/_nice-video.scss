@@ -3,6 +3,7 @@
 .nice-video {
   position: relative;
   background-color: color(wildcat-blue);
+  color: color(wildcat-white);
 
   img {
     opacity: .57;
@@ -27,10 +28,11 @@
     line-height: 1.2;
   }
 
-  .label {
+  .icon-label .label {
     display: block;
     position: absolute;
     left: -99999em;
+    color: color(wildcat-white);
   }
 
   &:hover {

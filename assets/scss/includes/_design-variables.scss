@@ -361,7 +361,7 @@ $scheme-light: (
   media-citation: color(dark-gray),
   carousel-single-button: color(dark-gray),
   carousel-single-button-art: color(wildcat-white),
-  carousel-center-button: transparent,
+  carousel-center-button: color(dark-gray),
   carousel-center-button-art: color(wildcat-white),
   carousel-dot: color(light-blue),
   carousel-dot-active: color(wildcat-black),
@@ -557,12 +557,12 @@ $rr-lineheights: $lineheights;
   .slick-prev,
   .slick-next {
     background-color: color(carousel-single-button, $textscheme);
-    color: transparent; // Content in the button should not be visible
+    color: #fff;
 
     &:hover,
     &:focus {
       background-color: color(carousel-single-button, $textscheme);
-      color: transparent; // Content in the button should not be visible
+      color: #fff;
     }
 
     &::before {
@@ -571,8 +571,13 @@ $rr-lineheights: $lineheights;
   }
 
   .slick-dots li {
-    button::before {
-      color: color(carousel-dot, $textscheme);
+    button {
+      background-color: transparent;
+      color: color(wildcat-black);
+
+      &::before {
+        color: color(carousel-dot, $textscheme);
+      }
     }
 
     &.slick-active button::before {

@@ -14,9 +14,9 @@ $slick-prev-character: '\2190' !default;
 $slick-next-character: '\2192' !default;
 $slick-dot-character: '\2022' !default;
 $slick-dot-size: 6px !default;
-$slick-opacity-default: .75 !default;
+$slick-opacity-default: 1 !default;
 $slick-opacity-on-hover: 1 !default;
-$slick-opacity-not-active: .75 !default;
+$slick-opacity-not-active: 1 !default;
 
 @function slick-image-url($url) {
   @if function-exists(image-url) {
@@ -169,8 +169,6 @@ button.slick-next {
       padding: 5px;
       border: 0;
       outline: none;
-      background: transparent;
-      color: transparent;
       font-size: 0;
       line-height: 0;
       cursor: pointer;
@@ -274,15 +272,6 @@ button.slick-next {
 
       &.slick-initialized {
         opacity: 1;
-      }
-    }
-
-    .slick-next,
-    .slick-prev {
-      background-color: transparent;
-
-      &::before {
-        color: color(wildcat-white);
       }
     }
   }
