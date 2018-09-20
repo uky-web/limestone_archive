@@ -5,6 +5,7 @@
   }
 
   li {
+    @include rr-font-compute(s, medium);
     display: inline-block;
 
     &::after {
@@ -20,6 +21,7 @@
 
   a {
     @include underline-link;
+    font-weight: 300;
 
     &:link,
     &:visited {
