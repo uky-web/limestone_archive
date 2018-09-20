@@ -5,6 +5,12 @@
     margin-bottom: 0;
   }
 
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+
   .editorial__aside {
     max-width: 100%;
     margin: 0 auto rr-gridbase(2);
