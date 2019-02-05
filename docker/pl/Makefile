@@ -1,5 +1,5 @@
 COMMIT_MESSAGE=BUILD: $(shell git log -1 --pretty=%B | cat | tr -d "\'")
-REMOTE_REPO=git@github.com:uk-d8/patternlab.git
+REMOTE_REPO=git@gitlab.com:newcity/uk-d8-patternlab-artifact.git
 BUILD_REPO=/tmp/pl
 
 init:
@@ -15,6 +15,7 @@ clone:
 
 replay:
 	rsync -av --delete --exclude .git pl/public/ $(BUILD_REPO)
+	cp docker/pl/gitlab-ci.yml $(BUILD_REPO)/.gitlab-ci.yml
 
 push:
 	cd $(BUILD_REPO) && git add . && git commit -m "$(COMMIT_MESSAGE)" && git push origin master

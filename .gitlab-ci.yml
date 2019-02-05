@@ -7,7 +7,7 @@ before_script:
   #- git submodule sync --recursive
   #- git submodule update --init --recursive
   - eval $(ssh-agent -s)
-  - ssh-add <(echo "$GITHUB_PATTERNLAB_PRIVATE_KEY")
+  - ssh-add <(echo "$GITLAB_BUILD_KEY")
 
 stages:
   - build
