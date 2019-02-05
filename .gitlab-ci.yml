@@ -67,6 +67,6 @@ pa11y:
   script:
     - pwd
     - ls -alh /home/chrome
-    - pa11y-ci --config /home/chrome/.pa11yci -s https://uk-d8.github.io/patternlab/xml/sitemap.xml
+    - pa11y-ci --config /home/chrome/.pa11yci -s https://newcity.gitlab.io/uk-d8-patternlab-artifact/xml/sitemap.xml
   only:
     - master
