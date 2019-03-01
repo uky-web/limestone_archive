@@ -6,8 +6,8 @@ before_script:
   #- sed -i 's/git@gitlab.com:newcity/..\/../g' .gitmodules
   #- git submodule sync --recursive
   #- git submodule update --init --recursive
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$GITLAB_BUILD_KEY")
+  #- eval $(ssh-agent -s)
+  #- ssh-add <(echo "$GITLAB_BUILD_KEY")
 
 stages:
   - build

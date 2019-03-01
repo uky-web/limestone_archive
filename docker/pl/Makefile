@@ -18,4 +18,5 @@ replay:
 	cp docker/pl/gitlab-ci.yml $(BUILD_REPO)/.gitlab-ci.yml
 
 push:
-	cd $(BUILD_REPO) && git add . && git commit -m "$(COMMIT_MESSAGE)" && git push origin master
+	cd $(BUILD_REPO) && git add . && git com
+	mit -m "$(COMMIT_MESSAGE)" && git push origin master
