@@ -1,5 +1,5 @@
 COMMIT_MESSAGE=BUILD: $(shell git log -1 --pretty=%B | cat | tr -d "\'")
-REMOTE_REPO=git@gitlab.com:newcity/uk-d8-patternlab-artifact.git
+REMOTE_REPO=git@gitlab.com:uky-web/patternlab-artifact.git
 BUILD_REPO=/tmp/pl
 
 init:
@@ -10,7 +10,7 @@ init:
 
 clone:
 	git clone $(REMOTE_REPO) $(BUILD_REPO)
-	git config --global user.email "geeks@insidenewcity.com"
+	git config --global user.email "ci-bot@uky.edu"
 	git config --global user.name "CI Bot"
 
 replay:
