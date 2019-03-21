@@ -18,7 +18,7 @@ before_script:
 #- chmod 700 ~/.ssh
 #- mkdir -pvm 0700 .ssh
 
-#- chmod 0400 .ssh/id_rsa-gitlab-ci
+- chmod 0400 .ssh/id_rsa-gitlab-ci
 
 stages:
 - build
