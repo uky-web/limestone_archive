@@ -9,7 +9,13 @@ variables:
   BUILD_REPO: /tmp/pl-artifact
 
 before_script:
-
+- eval $(ssh-agent -s)
+- echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+- mkdir -p ~/.ssh
+- chmod 700 ~/.ssh
+#- mkdir -pvm 0700 .ssh
+#- echo "$SSH_PRIVATE_KEY" > .ssh/id_rsa-gitlab-ci
+#- chmod 0400 .ssh/id_rsa-gitlab-ci
 
 stages:
 - build
@@ -32,9 +38,6 @@ push:artifact:
   stage: deploy
   script:
   # Prepare git for pushing back to repository.
-  - mkdir -pvm 0700 .ssh
-  - echo "$ssh_deploy_secret_key" > .ssh/id_rsa-gitlab-ci
-  - chmod 0400 .ssh/id_rsa-gitlab-ci
   - git clone $REMOTE_REPO $BUILD_REPO
   - cd $BUILD_REPO
   - git checkout -b "$temporary_branch"
