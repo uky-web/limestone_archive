@@ -43,7 +43,7 @@ push:artifact:
   # Prepare git for pushing back to repository.
   - git clone $REMOTE_REPO $BUILD_REPO
 #  - cd $BUILD_REPO
-  - git checkout -b "$temporary_branch" $BUILD_REPO
+  - git checkout -b "$temporary_branch"
   - git config --global user.email "uky-web-ci@uky.edu"
   - git config --global user.name "UKY Web CI Bot"
   #- git remote set-url --push origin $(perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#' <<< $REMOTE_REPO)
