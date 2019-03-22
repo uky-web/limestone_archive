@@ -47,17 +47,18 @@ push:artifact:
 #  - cd $BUILD_REPO
   # - git checkout -b "$temporary_branch"
   # - git checkout $CI_COMMIT_REF_NAME 2>/dev/null || git checkout -b $CI_COMMIT_REF_NAME
+
+  #- git remote set-url --push origin $(perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#' <<< $REMOTE_REPO)
+
+  # Add changes from build
+  - rm -Rf dist/.git
+  - rsync -av --delete --exclude '.git/' dist/* $BUILD_REPO
+  - cd $BUILD_REPO
+  - ls -la
   - git checkout -b $CI_COMMIT_REF_NAME
   - git status
   - git config --global user.email "$GITLAB_USER_EMAIL"
   - git config --global user.name "$GITLAB_USER_NAME"
-  #- git remote set-url --push origin $(perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#' <<< $REMOTE_REPO)
-
-  # Add changes from build
-  - rsync -av --delete --exclude '.git/' dist/* $BUILD_REPO
-  - cd $BUILD_REPO
-  - rm -Rf .git
-  - ls -la
   - git add *
   - git status
   - git commit -am "CI BUILD  $CI_COMMIT_MESSAGE"  || true
