@@ -37,7 +37,8 @@ push:artifact:
   script:
   # Setup ssh
   - mkdir -pvm 0700 .ssh
-  - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa-gitlab-ci
+  - ls -la .
+  - echo "$SSH_PRIVATE_KEY" > .ssh/id_rsa-gitlab-ci
   - chmod 0400 .ssh/id_rsa-gitlab-ci
 
   # Prepare git for pushing back to repository.
