@@ -55,7 +55,7 @@ push:artifact:
   - rsync -av --delete --exclude .git dist/* $BUILD_REPO
   - cd $BUILD_REPO
   - git add *
-  - git commit -am "CI BUILD: $CI_COMMIT_MESSAGE"  || true
+  - git commit -am "CI BUILD  $CI_COMMIT_MESSAGE"  || true
 
   #push back to the repository
   - git push -u origin  $CI_COMMIT_REF_NAME || true
