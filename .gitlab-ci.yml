@@ -59,6 +59,7 @@ push:artifact:
   - git commit -am "CI BUILD  $CI_COMMIT_MESSAGE"  || true
 
   #push back to the repository
+  - git status
   - git push -u origin  origin/$CI_COMMIT_REF_NAME || true
 #
 #  artifacts:
