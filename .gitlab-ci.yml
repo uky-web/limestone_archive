@@ -56,6 +56,7 @@ push:artifact:
   # Add changes from build
   - rsync -av --delete --exclude '.git/' dist/* $BUILD_REPO
   - cd $BUILD_REPO
+  - rm -Rf .git
   - ls -la
   - git add *
   - git status
