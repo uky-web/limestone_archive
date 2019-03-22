@@ -29,8 +29,8 @@ compile:assets:
     paths:
     - dist
     expire_in: 1 week
-#  only:
-#  - master
+ only:
+ - master
 
 push:artifact:
   stage: deploy
@@ -56,6 +56,7 @@ push:artifact:
   - rsync -av --delete --exclude .git dist/* $BUILD_REPO
   - cd $BUILD_REPO
   - git add *
+  - git status
   - git commit -am "CI BUILD  $CI_COMMIT_MESSAGE"  || true
 
   #push back to the repository
