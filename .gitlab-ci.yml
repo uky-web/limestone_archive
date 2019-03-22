@@ -49,9 +49,10 @@ push:artifact:
 
   # Add changes from build
   - rm -Rf dist/.git
+  - git checkout -b $CI_COMMIT_REF_NAME
+  - git pull origin $CI_COMMIT_REF_NAME
   - rsync -av --delete --exclude '.git/' dist/* $BUILD_REPO
   - cd $BUILD_REPO
-  - git checkout -b $CI_COMMIT_REF_NAME
   - git config --global user.email "$GITLAB_USER_EMAIL"
   - git config --global user.name "$GITLAB_USER_NAME"
   - git add *
