@@ -2,7 +2,7 @@ image: newcity/builder:latest
 
 #from: https://nicolaw.uk/GitLabCiPushingWrites
 variables:
-  GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i ${HOME}/.ssh/id_rsa-gitlab-ci"
+  GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa-gitlab-ci"
   GIT_STRATEGY: clone
   temporary_branch: "gitlab-ci"
   REMOTE_REPO: git@gitlab.com:uky-web/patternlab-artifact.git
