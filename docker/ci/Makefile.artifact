@@ -10,7 +10,7 @@ clone:
 	git config --global user.email "$(GITLAB_USER_EMAIL)"
 	git config --global user.name "$(GITLAB_USER_NAME)"
 
-	ifeq  (git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null, 1)
+	if (git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null, 1)
 		echo "found branch"
 	else
 	     echo "no branch"
