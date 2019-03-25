@@ -10,7 +10,7 @@ clone:
 	git config --global user.email "$(GITLAB_USER_EMAIL)"
 	git config --global user.name "$(GITLAB_USER_NAME)"
 	cd $(BUILD_REPO) && git checkout -b $(CI_COMMIT_REF_NAME) 
-	cd $(BUILD_REPO) && git pull $(CI_COMMIT_REF_NAME)
+	cd $(BUILD_REPO) && git pull origin $(CI_COMMIT_REF_NAME)
 	
 replay:
 	rsync -av --delete --exclude '.git/' dist/* $(BUILD_REPO)
