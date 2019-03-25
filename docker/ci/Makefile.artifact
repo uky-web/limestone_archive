@@ -1,0 +1,24 @@
+GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa-gitlab-ci"
+GIT_STRATEGY=clone
+REMOTE_REPO=git@gitlab.com:uky-web/patternlab-artifact.git
+BUILD_REPO=/tmp/pl-artifact
+
+init:
+    mkdir -pvm 0700 ${HOME}/.ssh
+    echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
+    chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci
+
+clone:
+    git clone $(REMOTE_REPO) $(BUILD_REPO)
+    rm -Rf dist/.git
+    git config --global user.email "$(GITLAB_USER_EMAIL)"
+    git config --global user.name "$(GITLAB_USER_NAME)"
+
+    git checkout -b $(CI_COMMIT_REF_NAME)
+
+replay:
+    rsync -av --delete --exclude '.git/' dist/* $(BUILD_REPO)
+
+push:
+    cd $(BUILD_REPO) &&  git add . && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
+    git push origin $(CI_COMMIT_REF_NAME)
