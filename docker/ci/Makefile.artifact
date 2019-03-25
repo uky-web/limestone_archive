@@ -17,5 +17,5 @@ replay:
 
 
 push:
-	cd $(BUILD_REPO) && git status && git add . && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
+	cd $(BUILD_REPO) && git status && git add * && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
 	cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME)
