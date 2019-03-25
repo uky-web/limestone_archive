@@ -39,7 +39,9 @@ push:artifact:
   - mkdir -pvm 0700 ${HOME}/.ssh
   - echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
   - chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci
-
+  - ls -la
+  - cd ${HOME}
+  - ls -la
   # Prepare git for pushing back to repository.
   - git clone $REMOTE_REPO $BUILD_REPO
  #- cd $BUILD_REPO
@@ -54,7 +56,7 @@ push:artifact:
   - git pull origin $CI_COMMIT_REF_NAME
   #- git checkout $CI_COMMIT_REF_NAME
   - git status
-  - rsync -av --delete --exclude '.git/' /dist/* .
+  - rsync -av --delete --exclude '.git/' ${HOME}/dist/* $BUILD_REPO
   - git status
   - git config --global user.email "$GITLAB_USER_EMAIL"
   - git config --global user.name "$GITLAB_USER_NAME"
