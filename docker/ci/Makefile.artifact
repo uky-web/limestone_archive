@@ -9,8 +9,9 @@ clone:
 	rm -Rf dist/.git
 	git config --global user.email "$(GITLAB_USER_EMAIL)"
 	git config --global user.name "$(GITLAB_USER_NAME)"
-	git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null
-	git -C $(BUILD_REPO) config remote.foo.url > /dev/null
+	if  git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null; then
+		echo "found branch"
+	endif
 
 	#if  git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null; then
 		echo "Checking out existing branch $(CI_COMMIT_REF_NAME)"
