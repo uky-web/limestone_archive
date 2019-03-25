@@ -13,6 +13,7 @@ clone:
 replay:
 	rsync -av --delete --exclude '.git/' dist/* $(BUILD_REPO)
 	cd $(BUILD_REPO)
+	git status
 	git checkout -b $(CI_COMMIT_REF_NAME)
 
 push:
