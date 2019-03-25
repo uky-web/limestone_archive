@@ -56,7 +56,7 @@ push:artifact:
   - git pull origin $CI_COMMIT_REF_NAME
   #- git checkout $CI_COMMIT_REF_NAME
   - git status
-  - rsync -av --delete --exclude '.git/' ${HOME}/dist/* $BUILD_REPO
+  - rsync -av --delete --exclude '.git/' /builds/uky-web/patternlab/dist/* $BUILD_REPO
   - git status
   - git config --global user.email "$GITLAB_USER_EMAIL"
   - git config --global user.name "$GITLAB_USER_NAME"
