@@ -9,14 +9,12 @@ clone:
 	rm -Rf dist/.git
 	git config --global user.email "$(GITLAB_USER_EMAIL)"
 	git config --global user.name "$(GITLAB_USER_NAME)"
-
+    cd $(BUILD_REPO) && git checkout -b $(CI_COMMIT_REF_NAME) 
+	
 replay:
 	rsync -av --delete --exclude '.git/' dist/* $(BUILD_REPO)
-	cd $(BUILD_REPO)
-	ls -la $(BUILD_REPO)
-	git status
-	git checkout -b $(CI_COMMIT_REF_NAME)
+
 
 push:
-	cd $(BUILD_REPO) &&  git add . && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
-	git push origin $(CI_COMMIT_REF_NAME)
+	cd $(BUILD_REPO) && git status && git add . && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
+	cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME)
