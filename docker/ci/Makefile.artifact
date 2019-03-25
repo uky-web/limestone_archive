@@ -3,13 +3,10 @@ GIT_STRATEGY=clone
 REMOTE_REPO=git@gitlab.com:uky-web/patternlab-artifact.git
 BUILD_REPO=/tmp/pl-artifact
 
-define SSH_PRIVATE_KEY_VAR
-$(SSH_PRIVATE_KEY)
-endef
 
 init:
 	mkdir -pvm 0700 $(HOME)/.ssh
-	echo "$$SSH_PRIVATE_KEY_VAR" > $(HOME)/.ssh/id_rsa-gitlab-ci
+	echo "$(SSH_PRIVATE_KEY)" > $(HOME)/.ssh/id_rsa-gitlab-ci
 	chmod 0600 $(HOME)/.ssh/id_rsa-gitlab-ci
 
 clone:
