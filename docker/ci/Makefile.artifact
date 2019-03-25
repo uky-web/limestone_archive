@@ -9,15 +9,17 @@ clone:
 	rm -Rf dist/.git
 	git config --global user.email "$(GITLAB_USER_EMAIL)"
 	git config --global user.name "$(GITLAB_USER_NAME)"
+	git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null
+	git -C $(BUILD_REPO) config remote.foo.url > /dev/null
 
-	if  git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null; then
+	#if  git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null; then
 		echo "Checking out existing branch $(CI_COMMIT_REF_NAME)"
 		cd $(BUILD_REPO) && git checkout $(CI_COMMIT_REF_NAME) 
 		cd $(BUILD_REPO) && git pull origin $(CI_COMMIT_REF_NAME)
- 	else
-	    echo "Creating new branch $(CI_COMMIT_REF_NAME)"
-		cd $(BUILD_REPO) && git checkout -b $(CI_COMMIT_REF_NAME) 
-    fi
+ 	#else
+	 #   echo "Creating new branch $(CI_COMMIT_REF_NAME)"
+	#	cd $(BUILD_REPO) && git checkout -b $(CI_COMMIT_REF_NAME) 
+    #endif
 	
 replay:
 	rsync -av --delete --exclude '.git/' dist/* $(BUILD_REPO)
@@ -25,11 +27,11 @@ replay:
 push:
 	cd $(BUILD_REPO) && git add * && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
 
-	if  git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null; then
+	#if  git -C $(BUILD_REPO) config remote.$(CI_COMMIT_REF_NAME).url > /dev/null; then
 		echo "Pushing to existing remote branch $(CI_COMMIT_REF_NAME)"
 		cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME)
- 	else
-	    echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote"
-	    cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME)
-    fi
+ 	#else
+	 #   echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote"
+	 #   cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME)
+    #endif
 
