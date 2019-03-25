@@ -4,7 +4,6 @@ image: newcity/builder:latest
 variables:
   GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa-gitlab-ci"
   GIT_STRATEGY: clone
-  temporary_branch: "gitlab-ci"
   REMOTE_REPO: git@gitlab.com:uky-web/patternlab-artifact.git
   BUILD_REPO: /tmp/pl-artifact
 
@@ -35,37 +34,43 @@ compile:assets:
 push:artifact:
   stage: deploy
   script:
+  - cp docker/ci/Makefile.artifact ./Makefile
+  - make init
+  - make clone
+  - make replay
+  - make push
+
   # Setup ssh
-  - mkdir -pvm 0700 ${HOME}/.ssh
-  - echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
-  - chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci
-  - ls -la
-  - cd ${HOME}
-  - ls -la
+  # - mkdir -pvm 0700 ${HOME}/.ssh
+  # - echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
+  # - chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci
+  # - ls -la
+  # - cd ${HOME}
+  # - ls -la
   # Prepare git for pushing back to repository.
-  - git clone $REMOTE_REPO $BUILD_REPO
+  # - git clone $REMOTE_REPO $BUILD_REPO
  #- cd $BUILD_REPO
   # - git checkout -b "$temporary_branch"
   # - git checkout $CI_COMMIT_REF_NAME 2>/dev/null || git checkout -b $CI_COMMIT_REF_NAME
-  #- git remote set-url --push origin $(perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#' <<< $REMOTE_REPO)
+  # - git remote set-url --push origin $(perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#' <<< $REMOTE_REPO)
 
   # Add changes from build
-  - rm -Rf dist/.git
-  - cd $BUILD_REPO
-  - git checkout -b $CI_COMMIT_REF_NAME
-  - git pull origin $CI_COMMIT_REF_NAME
+  # - rm -Rf dist/.git
+  # - cd $BUILD_REPO
+  # - git checkout -b $CI_COMMIT_REF_NAME
+  # - git pull origin $CI_COMMIT_REF_NAME
   #- git checkout $CI_COMMIT_REF_NAME
-  - git status
-  - rsync -av --delete --exclude '.git/' /builds/uky-web/patternlab/dist/* $BUILD_REPO
-  - git status
-  - git config --global user.email "$GITLAB_USER_EMAIL"
-  - git config --global user.name "$GITLAB_USER_NAME"
-  - git add *
-  - git commit -am "CI BUILD  $CI_COMMIT_MESSAGE"  || true
+  # - git status
+  # - rsync -av --delete --exclude '.git/' /builds/uky-web/patternlab/dist/* $BUILD_REPO
+  # - git status
+  # - git config --global user.email "$GITLAB_USER_EMAIL"
+  # - git config --global user.name "$GITLAB_USER_NAME"
+  # - git add *
+  # - git commit -am "CI BUILD $CI_COMMIT_MESSAGE"  || true
 
-  #push back to the repository
-  - git status
-  - git push -u origin  origin/$CI_COMMIT_REF_NAME || true
+  # #push back to the repository
+  # - git status
+  # - git push -u origin  origin/$CI_COMMIT_REF_NAME || true
 #
 #  artifacts:
 #    paths:
