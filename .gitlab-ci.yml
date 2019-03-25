@@ -36,7 +36,7 @@ push:artifact:
   script:
   - cp docker/ci/Makefile.artifact ./Makefile
   - mkdir -pvm 0700 $(HOME)/.ssh
-	- echo "$(SSH_PRIVATE_KEY)" > $(HOME)/.ssh/id_rsa-gitlab-ci
+  - echo "$(SSH_PRIVATE_KEY)" > $(HOME)/.ssh/id_rsa-gitlab-ci
 	- chmod 0600 $(HOME)/.ssh/id_rsa-gitlab-ci
   #- make init
   - make clone
