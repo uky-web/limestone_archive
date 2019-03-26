@@ -28,7 +28,7 @@ push:
 		echo "Pushing to existing remote branch $(CI_COMMIT_REF_NAME)" \
 		cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME) \
  	else \
-		echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote"
-		cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME)
+		echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote" \
+		cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME) \
     fi
 
