@@ -8,11 +8,6 @@ variables:
   BUILD_REPO: /tmp/pl-artifact
 
 before_script:
-#- eval $(ssh-agent -s)
-#- echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-##- mkdir -p ~/.ssh
-##- chmod 700 ~/.ssh
-
 
 stages:
 - build
