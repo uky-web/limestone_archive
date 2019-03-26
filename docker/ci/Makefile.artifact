@@ -11,12 +11,12 @@ clone:
 	git config --global user.name "$(GITLAB_USER_NAME)"
 
 	if [ `git -C $(BUILD_REPO) ls-remote --heads origin $(CI_COMMIT_REF_NAME) | wc -l` = 1 ]; then \
-		echo Checking out existing branch $(CI_COMMIT_REF_NAME) \
-		cd $(BUILD_REPO) && git checkout $(CI_COMMIT_REF_NAME) \
-		cd $(BUILD_REPO) && git pull origin $(CI_COMMIT_REF_NAME) \
+		echo Checking out existing branch $(CI_COMMIT_REF_NAME); \
+		cd $(BUILD_REPO) && git checkout $(CI_COMMIT_REF_NAME); \
+		cd $(BUILD_REPO) && git pull origin $(CI_COMMIT_REF_NAME); \
 	else \
-		echo "Creating new branch $(CI_COMMIT_REF_NAME)" \
-		cd $(BUILD_REPO) && git checkout -b $(CI_COMMIT_REF_NAME) \
+		echo "Creating new branch $(CI_COMMIT_REF_NAME)"; \
+		cd $(BUILD_REPO) && git checkout -b $(CI_COMMIT_REF_NAME); \
 	fi
 	
 replay:
@@ -25,10 +25,10 @@ replay:
 push:
 	cd $(BUILD_REPO) && git add * && git commit -am "CI BUILD  $(CI_COMMIT_MESSAGE)"
 	if [ `git -C $(BUILD_REPO) ls-remote --heads origin $(CI_COMMIT_REF_NAME) | wc -l` = 1 ]; then \
-		echo "Pushing to existing remote branch $(CI_COMMIT_REF_NAME)" \
-		cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME) \
+		echo "Pushing to existing remote branch $(CI_COMMIT_REF_NAME)"; \
+		cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME); \
  	else \
-		echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote" \
-		cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME) \
+		echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote"; \
+		cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME); \
 	fi
 
