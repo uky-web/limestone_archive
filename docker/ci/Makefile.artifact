@@ -30,5 +30,5 @@ push:
  	else \
 		echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote"
 		cd $(BUILD_REPO) && git push -u origin $(CI_COMMIT_REF_NAME)
-    endif
+    fi
 
