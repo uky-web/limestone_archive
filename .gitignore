@@ -1,1 +1,3 @@
 docker/taskrunner/node_modules/
+.vscode
+.idea
