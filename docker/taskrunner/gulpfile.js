@@ -201,8 +201,17 @@ gulp.task('iconfont', function() {
   return iconStream;
 });
 
+
+gulp.task('npm-artifact', function(){
+    return gulp.src(['dist/*'], {
+        base: 'dist'
+    }).pipe(gulp.dest('npm-artifact'));
+});
+
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles', 'lib', 'js', 'xml', 'images', 'fonts']);
+gulp.task('build-all', ['styles', 'lib', 'js', 'xml', 'images', 'fonts', 'npm-artifact']);
+
+
 
 // all the watchy stuff
 gulp.task('watcher', ['build-all'], function() {
