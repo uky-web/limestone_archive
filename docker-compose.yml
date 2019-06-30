@@ -15,7 +15,7 @@ services:
       - sprites:/app/dist/sprites
       - intermediate:/app/intermediate
       # - ./dist:/app/dist
-      # - ./npm-artifact:/app/npm-artifact
+      # - ./npm-dist:/app/npm-dist
       # config overrides
       # - ./docker/taskrunner/package.json:/app/package.json:ro
       - ./docker/taskrunner/gulpfile.js:/app/gulpfile.js:ro
