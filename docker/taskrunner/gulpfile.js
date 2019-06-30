@@ -202,14 +202,19 @@ gulp.task('iconfont', function() {
 });
 
 
-gulp.task('npm-artifact', function(){
-    return gulp.src(['dist/*'], {
+gulp.task('build-npm',['styles', 'lib', 'js', 'xml', 'images', 'fonts'],  function(){
+    gulp.src(['dist/**/*'], {
         base: 'dist'
-    }).pipe(gulp.dest('npm-artifact'));
+    }).pipe(gulp.dest('npm-dist'));
+
+    return gulp.src(['assets/npm-package/*'], {
+        base: 'assets/npm-package'
+    }).pipe(gulp.dest('npm-dist'));
+
 });
 
 // build-all builds everything in one go.
-gulp.task('build-all', ['styles', 'lib', 'js', 'xml', 'images', 'fonts', 'npm-artifact']);
+gulp.task('build-all', ['build-npm']);
 
 
 
