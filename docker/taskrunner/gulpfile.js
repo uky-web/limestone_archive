@@ -202,7 +202,7 @@ gulp.task('iconfont', function() {
 });
 
 
-gulp.task('build-npm',['styles', 'lib', 'js', 'xml', 'images', 'fonts'],  function(){
+gulp.task('build-npm',  function(){
     gulp.src(['dist/**/*'], {
         base: 'dist'
     }).pipe(gulp.dest('npm-dist'));
@@ -214,7 +214,7 @@ gulp.task('build-npm',['styles', 'lib', 'js', 'xml', 'images', 'fonts'],  functi
 });
 
 // build-all builds everything in one go.
-gulp.task('build-all', ['build-npm']);
+gulp.task('build-all', ['styles', 'lib', 'js', 'xml', 'images', 'fonts','build-npm']);
 
 
 
@@ -276,7 +276,13 @@ gulp.task('watcher', ['build-all'], function() {
     function() {
       gulp.start('xml');
     }
-  );  
+  );
+
+  sanewatch('dist/**/*', watcherOptions,
+      function() {
+            gulp.start('build-npm');
+        }
+   );
 });
 
 // Default build task
