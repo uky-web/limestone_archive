@@ -25,6 +25,21 @@ input.button {
   text-decoration: none;
   text-transform: uppercase;
 
+  $skins: transparent;
+  @each $name, $color in $colors {
+    .button--#{$name} {
+      background-color: $color;
+      @if (contrast($color, color(wildcat-black)) < 4.5) {
+        @include usescheme($scheme-dark);
+      }
+
+      .heading--display span {
+        background-color: $color;
+      }
+    }
+    $skins: append($skins, button--#{$name});
+  }
+
   &.button--ghost {
     background-color: transparent;
     color: color(wildcat-blue);

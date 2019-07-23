@@ -1,0 +1,20 @@
+.calendar-preview {
+  color: color(wildcat-blue);
+  height: 6rem;
+  padding: 15px;
+  .stacked-date {
+    @include rr-font-compute(4xl, squeeze);
+    border-right: solid 2px color(wildcat-blue);
+    display: inline-block;
+    font-weight: 600;
+    height: 100%;
+    width: 33%;
+  }
+  .calendar-heading {
+    display: inline-block;
+    height: 100%;
+    padding: rr-gridbase(2);
+    vertical-align: top;
+    width: 60%;
+  }
+}

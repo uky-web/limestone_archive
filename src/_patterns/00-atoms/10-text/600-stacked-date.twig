@@ -1,0 +1,6 @@
+{% spaceless %}
+<div {% if heading_variant is not empty %} class="stacked-date {{ heading_variant }}"{% endif %}>
+    {{ day|default(random(['15','25','28','31','01','09'])) }}<br>
+    {{ month|default(random(['Jan.','Feb.','Mar.','Sept.','Oct.','July'])) }}
+</div>
+{% endspaceless %}

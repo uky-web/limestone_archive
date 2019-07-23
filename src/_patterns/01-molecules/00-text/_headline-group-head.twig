@@ -1,6 +1,6 @@
 
 {% spaceless %}
-<span class="headline-group__head">
+<span class="headline-group__head {{ headline_variant }}">
     {% if linked %}
         {% include 'atoms-link' with {label: text, link_variant: "underline-link"} %}
     {% else %}

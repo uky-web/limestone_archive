@@ -16,15 +16,31 @@
     background-color: color(blue-gray);
   }
 
-  
+  $skins: transparent;
+  @each $name, $color in $colors {
+    &.cta--#{$name} {
+      background-color: $color;
+      border: none;
+      @if (contrast($color, color(wildcat-black)) < 4.5) {
+        @include usescheme($scheme-dark);
+      }
+
+      .heading--display span {
+        background-color: $color;
+      }
+    }
+    $skins: append($skins, cta--#{$name});
+  }
+
+
   @at-root .grid__column > #{&} {
     display: flex;
     flex-direction: column;
     height: 100%;
 
     :last-child {
-      margin-top: auto; 
+      margin-top: auto;
     }
   }
-  
+
 }

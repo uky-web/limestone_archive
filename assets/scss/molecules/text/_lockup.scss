@@ -6,13 +6,13 @@
 
   &:link,
   &:visited {
-    color: color(wildcat-black);
+    color: color(light-gray);
     text-decoration: none;
   }
 
   &:active,
   &:hover {
-    color: color(wildcat-blue);
+    color: color(wildcat-white);
     text-decoration: none;
   }
 
@@ -22,7 +22,7 @@
 
   &__logo {
     display: inline-block;
-    color: color(wildcat-blue);
+    color: color(wildcat-white);
     vertical-align: middle;
     word-wrap: none;
 
@@ -39,6 +39,7 @@
     font-weight: 500;
     line-height: 1; // Line-height is proportional already
     vertical-align: middle;
+    color: color(wildcat-white)
   }
 
   &__wordmark__row {
@@ -58,7 +59,7 @@
       vertical-align: baseline;
 
       svg {
-        width: 3.71875rem; // (80% of full size)      
+        width: 3.71875rem; // (80% of full size)
         height: 3.01875rem;
         margin-right: .7875rem;
       }
@@ -72,7 +73,7 @@
     }
 
     &__unit {
-      margin-left: 4.50625rem; // logo width + logo right margin             
+      margin-left: 4.50625rem; // logo width + logo right margin
     }
   }
 
@@ -82,7 +83,7 @@
     }
 
     &__logo svg {
-      width: 4.25rem; // (80% of full size)   
+      width: 4.25rem; // (80% of full size)
       height: 3.45rem;
       margin-right: .9rem;
     }

@@ -1,14 +1,14 @@
 {# COLORS #}
 {# comment out any swatches not needed by your palette #}
 
-{% set colorset = ['wildcat-blue','wildcat-white','wildcat-black'] %}
-{% set secondarycolors = ['blue-black','dark-blue','almost-wildcat-blue','medium-blue','light-blue-shade','light-blue','light-blue-tint','blue-gray','dark-gray','light-gray','subtle-gray','barely-gray'] %}
-{% set othercolors = ['success','info','warning','alert'] %}
+{% set primarycolors = [ 'wildcat-blue', 'wildcat-white' ] %}
+{% set secondarycolors = [ 'bluegrass', 'sky', 'midnight', 'goldenrod', 'sunset', 'river-green' ] %}
+{% set neutralpalette = [ 'cool-neutral', 'warm-neutral-20', 'warm-neutral-60', 'warm-neutral', 'wildcat-black' ] %}
 {% embed 'molecules-slab' %}
 	{% block slab_content %}
 		<h2>Primary Colors</h2>
 		<div class="sg-colors">
-			{% for i in colorset %}
+			{% for i in primarycolors %}
 			<div class="sg-colors__column">
 				{{ i|titleize }} <pre>color({{ i }})</pre>
 				<span class="sg-swatch bg-{{ i }}"></span>
@@ -35,9 +35,9 @@
 
 {% embed 'molecules-slab' %}
 	{% block slab_content %}
-		<h2>Utility Colors</h2>
+		<h2>Neutral Palette</h2>
 		<div class="sg-colors">
-			{% for i in othercolors %}
+			{% for i in neutralpalette %}
 			<div class="sg-colors__column">
 				{{ i|titleize }} <pre>color({{ i }})</pre>
 				<span class="sg-swatch bg-{{ i }}"></span>

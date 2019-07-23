@@ -1,0 +1,66 @@
+{% extends 'base.twig' %}
+
+{% set media_grid_columns = [ "components-news-preview-with-media", "components-news-preview-with-media", "components-news-preview-with-media"] %}
+{% set call_to_action_columns = [ "components-calendar-preview", "components-calendar-preview", "components-calendar-preview"] %}
+{% set statistics = [ "components-statistic", "components-statistic", "components-statistic"] %}
+
+{% block main_content %}
+    {% include 'components-' ~ page_header|default('hero-page-header')
+        with {
+            heading_line_1: 'PERSERVERANCE',
+            heading_line_2: 'PAYS OFF'
+        }
+    %}
+    {% include 'components-block-columns'
+        with {
+            columns: 3,
+            grid_columns: media_grid_columns,
+            slab_variant: 'slab--medium-blue',
+            aspect: '3:2',
+            button_label: 'Read More',
+            include_headline: true,
+            head: 'IN THE NEWS',
+            button_variant: 'button--bluegrass'
+        } %}
+    {% include 'components-block-columns'
+        with {
+            aspect: '16:9',
+            columns: 3,
+            grid_columns: call_to_action_columns,
+            slab_variant: 'slab--bluegrass',
+            calendar_date_color: 'goldenrod',
+            include_headline: true,
+            head: "CALENDAR",
+            calendar_preview: true
+        } %}
+    {% include 'atoms-checkered-divider'
+        with {
+            color: '#0033a0',
+            squareWidth: 15,
+            padding: 13,
+            lineWidth: 1000
+        } %}
+    {% include 'molecules-headline-group'
+        with {
+            level: 1,
+            head: "Explore Your Wildest Ambitions",
+            super: "Come take the University of Kentucky",
+            sub: "Virtual Tour",
+            headline_group_variant: "text-center"
+        } %}
+    {# {% include 'atoms-checkered-divider'
+        with {
+            color: '#0033a0',
+            squareWidth: 15,
+            padding: 13,
+            lineWidth: 1000
+        } %} #}
+    {% include 'components-block-columns'
+        with {
+            columns: 3,
+            grid_columns: statistics,
+            slab_variant: 'slab--wildcat-white',
+            grid_style: "grid--divided"
+        } %}
+{% endblock %}
+

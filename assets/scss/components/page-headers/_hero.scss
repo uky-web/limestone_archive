@@ -8,6 +8,10 @@
     margin: 0;
   }
 
+  &.popout {
+    padding-bottom: 0;
+  }
+
   $altcolors: wildcat-blue dark-blue;
 
   @each $color in $altcolors {

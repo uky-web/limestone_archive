@@ -1,5 +1,5 @@
-// Normalize heading sizes; headings in a 
-// display context should have an additional 
+// Normalize heading sizes; headings in a
+// display context should have an additional
 // font style applied to them.
 
 h1,
@@ -31,7 +31,7 @@ h6 {
   @include rr-font-compute(3xl, tight);
   position: relative;
   margin-bottom: 2rem;
-  font-family: $font-mercury;
+  // font-family: $font-mercury;
 
   span {
     display: inline-block;

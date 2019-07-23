@@ -2,7 +2,7 @@
 	{% block figure_media %}
 		{% include 'atoms-image' with { aspect: aspect|default("4:3"), width: width|default(600) } %}
 	{% endblock %}
-	<figcaption>
+	<figcaption {% if calendar_preview %}style="margin: 0;"{% endif %}>
 		{% block figure_caption %}
 			{% include 'atoms-paragraph' %}
 			{% include 'atoms-cite' %}

@@ -1,7 +1,10 @@
 .global-header {
+  @include usescheme($scheme-dark);
+  background-color: color(wildcat-blue);
+
   .slab.global-header__nav-bar {
     display: none;
-    padding: rr-gridbase(1);
+    padding: rr-gridbase(2);
   }
 
   .slab.mobile-nav {
@@ -14,7 +17,7 @@
 
   @include rr-break-directive(l) {
     .slab.global-header__masthead {
-      padding: rr-gridbase(3) rr-gridbase(1) rr-gridbase(1);
+      padding: rr-gridbase(3) rr-gridbase(2) rr-gridbase(1);
     }
 
     .slab.global-header__nav-bar {

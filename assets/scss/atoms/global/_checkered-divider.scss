@@ -1,0 +1,7 @@
+.checkered-divider {
+  position: relative;
+  z-index: 1000;
+  &__border {
+    z-index: 1001;
+  }
+}
