@@ -1,6 +1,7 @@
 .cta {
   @include block-header-font;
   @include block-spacing;
+  height: 100%;
 
   .editorial {
     margin-bottom: rr-gridbase(3);
@@ -11,9 +12,40 @@
     background-color: color(wildcat-blue);
   }
 
+  &.cta--ghost {
+    @include usescheme($scheme-light);
+    background-color: color(wildcat-white);
+    border-width: 2px;
+  }
+
   &.cta--light {
     border-color: color(blue-gray);
     background-color: color(blue-gray);
+  }
+
+  &.large-cta {
+    align-items: center;
+    height: 300px;
+    .headline-group {
+      margin: auto;
+      color: color(wildcat-blue);
+      .headline-group__head {
+        @include rr-font-compute(5xl, squeeze);
+        display: inline-block;
+        font-weight: 500;
+      }
+
+      .headline-group__super,
+      .headline-group__sub {
+        @include rr-font-compute(xl, tight);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .headline-group__sub {
+        padding-top: rr-gridbase();
+      }
+    }
   }
 
   $skins: transparent;
@@ -36,7 +68,6 @@
   @at-root .grid__column > #{&} {
     display: flex;
     flex-direction: column;
-    height: 100%;
 
     :last-child {
       margin-top: auto;

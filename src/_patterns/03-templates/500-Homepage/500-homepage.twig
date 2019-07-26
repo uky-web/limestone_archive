@@ -1,8 +1,9 @@
 {% extends 'base.twig' %}
 
 {% set media_grid_columns = [ "components-news-preview-with-media", "components-news-preview-with-media", "components-news-preview-with-media"] %}
-{% set call_to_action_columns = [ "components-calendar-preview", "components-calendar-preview", "components-calendar-preview"] %}
+{% set calendar_columns = [ "components-calendar-preview", "components-calendar-preview", "components-calendar-preview"] %}
 {% set statistics = [ "components-statistic", "components-statistic", "components-statistic"] %}
+{% set call_to_actions = [ "components-large-call-to-action", "components-large-call-to-action" ] %}
 
 {% block main_content %}
     {% include 'components-' ~ page_header|default('hero-page-header')
@@ -26,7 +27,7 @@
         with {
             aspect: '16:9',
             columns: 3,
-            grid_columns: call_to_action_columns,
+            grid_columns: calendar_columns,
             slab_variant: 'slab--bluegrass',
             calendar_date_color: 'goldenrod',
             include_headline: true,
@@ -48,13 +49,13 @@
             sub: "Virtual Tour",
             headline_group_variant: "text-center"
         } %}
-    {# {% include 'atoms-checkered-divider'
+    {% include 'components-block-columns'
         with {
-            color: '#0033a0',
-            squareWidth: 15,
-            padding: 13,
-            lineWidth: 1000
-        } %} #}
+            columns: 2,
+            grid_columns: call_to_actions,
+            cta_variant: 'cta--ghost',
+            slab_variant: 'slab--wildcat-white',
+        } %}
     {% include 'components-block-columns'
         with {
             columns: 3,
