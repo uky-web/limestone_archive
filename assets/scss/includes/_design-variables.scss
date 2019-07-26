@@ -1,6 +1,16 @@
 // Font Shortcuts
 $font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
-$font-avenirnext: 'AvenirNextLT', sans-serif;
+
+// Avenir Next styles (from fonts.com)
+$font-avenirnext: 'AvenirNextLTW01-Regular', sans-serif;
+$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
+$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
+$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
+$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
+
+// Trade Gothic styles (from fonts.com)
+$font-tradegothic: 'Trade Gothic Next LT W01 Cond', sans-serif;
+$font-tradegothic__bold: 'Trade Gothic Next LT W01 Bd Cn', sans-serif;
 
 // Width of the central column
 $global-width: 72rem;

@@ -1,7 +1,5 @@
 docker/taskrunner/node_modules/
 .vscode
 .idea
-<<<<<<< HEAD
-=======
 .npm-dist/*
->>>>>>> refactor npm package assets
+.DS_Store
