@@ -1,0 +1,5 @@
+{% spaceless %}
+  <a class="{{ classes }}"role="button" aria-haspopup="true" aria-expanded="true">
+    {% block link_content %}{{ label|default(fake('bs')) }}{% endblock %}
+  </a>
+{% endspaceless %}

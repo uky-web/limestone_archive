@@ -1,0 +1,22 @@
+.mega-menu {
+  position: relative;
+  .mega-menu-nav-item {
+    cursor: pointer;
+  }
+  .mega-menu__slab {
+    overflow: hidden;
+    position: absolute;
+    top: 60px;
+    z-index: 100;
+    left: 0;
+    width: 100vw;
+    background-color: color(wildcat-blue);
+    &:not(.open) {
+      max-height: 0px;
+    }
+    &.open {
+      max-height: fit-content;
+      padding: rr-gridbase(3);
+    }
+  }
+}

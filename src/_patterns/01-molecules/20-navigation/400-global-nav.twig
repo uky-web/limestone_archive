@@ -1,8 +1,131 @@
 {% set uniqid = "MainNavLabel"|uniqid %}
-<nav id="MainNav" class="global-nav" aria-labelledby="{{ uniqid }}">
+
+{# mimic the Drupal menu structure for testing #}
+{% set menus =
+{
+    "0": {
+        "is_expanded": true,
+        "is_collapsed": false,
+        "in_active_trail": false,
+        "attributes": {},
+        "title": "Patients & Visitors",
+        "url": "www.uky.edu",
+        "below": {
+            "0": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "Appointment",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "1": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "General Information",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "2": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "New Patients",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "3": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "Privacy Policy",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "4": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "Your Visit",
+                "url": "www.uky.edu",
+                "below": {}
+            }
+        }
+    },
+    "1": {
+        "is_expanded": true,
+        "is_collapsed": false,
+        "in_active_trail": false,
+        "attributes": {},
+        "title": "UK Physicians",
+        "url": "www.uky.edu",
+        "below": {
+            "0": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "Advanced Practice Providers",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "1": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "Physicians Liaisons",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "2": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "UK-MDs",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "3": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "UK Nursing",
+                "url": "www.uky.edu",
+                "below": {}
+            },
+            "4": {
+                "is_expanded": false,
+                "is_collapsed": false,
+                "in_active_trail": false,
+                "attributes": {},
+                "title": "Bioethics Program",
+                "url": "www.uky.edu",
+                "below": {}
+            }
+        }
+    }
+}
+%}
+
+{% set labels = ['About','Students','Alumni & Friends','Faculty & Staff Resources','Giving','News & Media','Visit'] %}
+
+<nav id="MainNav" class="global-nav {{ mega_menu ? 'mega-menu' }}" aria-labelledby="{{ uniqid }}">
     <div class="show-for-sr" id="{{ uniqid }}">Main Navigation</div>
     <a href="/patternlab/" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
-    {% for label in ['About','Students','Alumni & Friends','Faculty & Staff Resources','Giving','News & Media','Visit'] %}
-        {% include 'atoms-link' with { label: label } %}
-    {% endfor %}
+    {% if mega_menu %}
+        {% include 'components-mega-menu' with { items: menus } %}
+    {% else %}
+        {% for label in labels %}
+            {% include 'atoms-link' with { label: label } %}
+        {% endfor %}
+    {% endif %}
 </nav>

@@ -4,5 +4,6 @@
   "secondary_image" : false,
   "page_header" : "hero-page-header",
   "is_main": false,
-  "no_popout": true
+  "no_popout": true,
+  "mega_menu" : true
 }

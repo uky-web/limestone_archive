@@ -13,7 +13,7 @@
 {% endembed %}
 {% embed 'molecules-slab' with { slab_variant: 'global-header__nav-bar' } %}
     {% block slab_content %}
-        {% include 'molecules-global-nav' %}
+        {% include 'molecules-global-nav' with { mega_menu: mega_menu } %}
     {% endblock %}
 {% endembed %}
 {% embed 'molecules-slab' with { slab_variant: 'mobile-nav', props: ['hidden'], attrs: { id : 'MobileNav' } } %}
