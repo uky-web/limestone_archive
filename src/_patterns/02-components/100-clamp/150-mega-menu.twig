@@ -20,16 +20,26 @@
         %}
           {% include 'atoms-link-expand-menu' with { label: item.title, classes: classes|join(' ') } %}
           {% if item.below %}
-            {{ _self.submenu_links(item.below, menu_level + 1) }}
+            {{ _self.submenu_links(item.below, menu_level + 1, item.title) }}
           {% endif %}
       {% endfor %}
   {% endif %}
 {% endmacro %}
 
-{% macro submenu_links(items, menu_level) %}
+{% macro submenu_links(items, menu_level, title) %}
   <div class="mega-menu__slab">
-    {% for item in items %}
-        {% include 'atoms-link' with { label: item.title, url: item.url } %}
+    <div class="mega-menu__description">
+      {% include "atoms-heading" with { headline: title } %}
+      {% include "atoms-paragraph" %}
+    </div>
+    <div class="mega-menu__submenus">
+    {% for column in items|batch(7) %}
+      <div class="mega-menu__submenu_column">
+          {% for item in column %}
+            {% include 'atoms-link' with { label: item.title, url: item.url } %}
+          {% endfor %}
+      </div>
     {% endfor %}
+    </div>
   </div>
 {% endmacro %}
