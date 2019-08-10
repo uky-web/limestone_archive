@@ -27,19 +27,28 @@
 {% endmacro %}
 
 {% macro submenu_links(items, menu_level, title) %}
-  <div class="mega-menu__slab">
-    <div class="mega-menu__description">
-      {% include "atoms-heading" with { headline: title } %}
-      {% include "atoms-paragraph" %}
-    </div>
-    <div class="mega-menu__submenus">
-    {% for column in items|batch(7) %}
-      <div class="mega-menu__submenu_column">
-          {% for item in column %}
-            {% include 'atoms-link' with { label: item.title, url: item.url } %}
-          {% endfor %}
+  <div class="slab mega-menu__slab">
+    <div class="grid grid--major-right">
+
+      <div class="grid__column grid__column--minor">
+        <div class="mega-menu__description">
+          {% include "atoms-heading" with { headline: title } %}
+          {% include "atoms-paragraph" %}
+        </div>
       </div>
-    {% endfor %}
+
+      <div class="grid__column grid__column--major">
+        <div class="grid grid--3-up">
+        {% for column in items|batch((items|length/3)) %}
+          <div class="grid__column">
+              {% for item in column %}
+                {% include 'atoms-link' with { label: item.title, url: item.url } %}
+              {% endfor %}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+
     </div>
   </div>
 {% endmacro %}

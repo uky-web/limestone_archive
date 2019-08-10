@@ -30,7 +30,6 @@ $('.mega-menu-nav-item').each(function() {
   });
 });
 
-
 $(window).on('click', function(e) {
   if (!$(e.target).hasClass('mega-menu-nav-item')) {
     $('.mega-menu__slab').each(function() {
