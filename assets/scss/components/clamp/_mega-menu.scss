@@ -25,9 +25,15 @@
       padding: rr-gridbase(1);
     }
     .mega-menu__submenus {
-      display: flex;
-      flex-wrap: wrap;
+      //display: flex;
+      //flex-wrap: wrap;
+      a {
+        @include rr-font-compute(r, medium);
+        padding-bottom: rr-gridbase(1);
+      }
     }
+
+
   }
   @include rr-break-directive(l) {
     .mega-menu__slab {
@@ -42,8 +48,7 @@
       }
       .mega-menu__description,
       .mega-menu__submenus {
-        flex: 1 0 50%;
-        padding: rr-gridbase(3);
+        @include rr-font-compute(r, medium);
       }
     }
   }

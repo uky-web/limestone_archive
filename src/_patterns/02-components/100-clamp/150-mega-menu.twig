@@ -40,7 +40,7 @@
       <div class="grid__column grid__column--major">
         <div class="grid grid--3-up">
         {% for column in items|batch((items|length/3)) %}
-          <div class="grid__column">
+          <div class="grid__column mega-menu__submenus">
               {% for item in column %}
                 {% include 'atoms-link' with { label: item.title, url: item.url } %}
               {% endfor %}
