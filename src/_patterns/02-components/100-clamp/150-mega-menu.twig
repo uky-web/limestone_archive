@@ -4,30 +4,35 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 
-{{ _self.menu_links(items, 0) }}
+{{ _self.menu_links(items, 0, mobile) }}
 
-{% macro menu_links(items, menu_level) %}
+{% macro menu_links(items, menu_level, mobile) %}
   {% if items %}
       {% for item in items %}
         {%
           set classes = [
-            'mega-menu-nav-item',
+            'mega-menu__nav-item',
             'mega-menu__level_1',
             'js-nav-item',
             item.in_active_trail ? 'active-trail',
             item.below ? 'has-submenu'
           ]
         %}
+
           {% include 'atoms-link-expand-menu' with { label: item.title, classes: classes|join(' ') } %}
-          {% if item.below %}
-            {{ _self.submenu_links(item.below, menu_level + 1, item.title) }}
+            {% if item.below %}
+              {% if mobile %}
+                {{ _self.mobile_submenu_links(item.below, menu_level + 1, item.title) }}
+              {% else %}
+                {{ _self.submenu_links(item.below, menu_level + 1, item.title) }}
+            {% endif %}
           {% endif %}
       {% endfor %}
   {% endif %}
 {% endmacro %}
 
 {% macro submenu_links(items, menu_level, title) %}
-  <div class="slab mega-menu__slab">
+  <div class="mega-menu__slab">
     <div class="grid grid--major-right">
 
       <div class="grid__column grid__column--minor">
@@ -50,5 +55,21 @@
       </div>
 
     </div>
+  </div>
+{% endmacro %}
+
+{% macro mobile_submenu_links(items, menu_level, title) %}
+  <div class="mega-menu__mobile-slab">
+      {% include 'atoms-link' with { url:"#", link_variant: 'link--fancy-reverse', label: 'Back' } %}
+    <h3>{{ title }}</h3>
+        <div class="grid grid--2-up">
+            {% for column in items|batch((items|length/2)) %}
+              <div class="grid__column mega-menu__submenus">
+                  {% for item in items %}
+                      {% include 'atoms-link' with { label: item.title, url: item.url } %}
+                  {% endfor %}
+              </div>
+            {% endfor %}
+        </div>
   </div>
 {% endmacro %}

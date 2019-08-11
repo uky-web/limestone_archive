@@ -378,11 +378,11 @@
 
 {% set labels = ['About','Students','Alumni & Friends','Faculty & Staff Resources','Giving','News & Media','Visit'] %}
 
-<nav id="MainNav" class="global-nav {{ mega_menu ? 'mega-menu' }}" aria-labelledby="{{ uniqid }}">
+<nav id="MainNav" class="global-nav {{ mega_menu ? ('mega-menu')}} {{(mega_menu and mobile) ? 'mega-menu--mobile'}}" aria-labelledby="{{ uniqid }}">
     <div class="show-for-sr" id="{{ uniqid }}">Main Navigation</div>
     <a href="/patternlab/" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
     {% if mega_menu %}
-        {% include 'components-mega-menu' with { items: menus } %}
+        {% include 'components-mega-menu' with { items: menus, mobile:mobile } %}
     {% else %}
         {% for label in labels %}
             {% include 'atoms-link' with { label: label } %}

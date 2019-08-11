@@ -14,6 +14,7 @@ $(document).ready(() => {
 
   // Initialize RIA components; 
   // this is handled differently in Drupal
+    apax_megamenu();
   image_gallery();
   accordion();
   ambient_video();
