@@ -9,8 +9,10 @@ const apax_megamenu = () => {
                 $slabEl.removeClass('open');
 
             } else {
+                $(this).parents('.mega-menu').children('.mega-menu__slab').removeClass('open');
                 $slabEl.addClass('open');
             }
+
         });
 
         $(this).on('keydown', function() {
