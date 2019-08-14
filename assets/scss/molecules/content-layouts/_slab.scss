@@ -31,4 +31,11 @@ $skins: transparent;
   $skins: append($skins, slab--#{$name});
 }
 
+.slab--speckled {
+  background-image: url('../../images/speckled-texture.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
 @include rr-slab-adjacency($style-list: $skins);
+
