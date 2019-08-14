@@ -22,4 +22,5 @@ $(document).ready(() => {
   modals();
   togglebutton();
   responsive_grid_table();
+  link_group_dropdown();
 });

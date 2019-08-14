@@ -1,6 +1,7 @@
 {% set navid = "UniversalNavLabel"|uniqid %}
 <nav class="universal-nav" aria-labelledby="{{ navid }}">
     <div class="show-for-sr" id="{{ navid }}">University-wide Navigation</div>
+    {%  include 'molecules-link-group-dropdown' %}
     {% for link in extra_links %}
         {% include 'atoms-link' with { label: link } %}
     {% endfor %}

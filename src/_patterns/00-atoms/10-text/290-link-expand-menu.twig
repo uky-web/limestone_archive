@@ -1,5 +1,5 @@
 {% spaceless %}
-  <a class="{{ classes }}"role="button" aria-haspopup="true" aria-expanded="false" tabindex="0">
+  <a class="link-expand-menu {{ classes }}"role="button" aria-haspopup="true" aria-expanded="false" tabindex="0">
     {% block link_content %}{{ label|default(fake('bs')) }}{% endblock %}
   </a>
 {% endspaceless %}

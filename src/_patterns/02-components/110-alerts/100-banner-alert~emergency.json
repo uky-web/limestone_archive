@@ -1,5 +1,6 @@
 {
     "banner_alert_variant": "banner-alert--emergency",
     "alert_headline": "This is the emergency alert style, used for time critical, safety-related information. (Do not use for academic deadlines, etc.)",
+    "alert_mid": "This is secondary content placed below the primary alert content. This is optional and not as important.",
     "icon": "alert"
 }

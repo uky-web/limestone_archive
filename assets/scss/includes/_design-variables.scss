@@ -1,12 +1,20 @@
 // Font Shortcuts
+// Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
 $font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
 
+// Surveyor Display (from typography.com)  NB: limited weights and styles provided, see typography.com project dashboard
+$font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
+
+
 // Avenir Next styles (from fonts.com)
-$font-avenirnext: 'AvenirNextLTW01-Regular', sans-serif;
-$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
-$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
-$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
-$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
+$font-avenirnext: 'AvenirNextLT', sans-serif;
+
+//TODO: Thes do not appear to be implemented. If needed as separate fonts
+//they should be correctly named in _fonts.scss
+//$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
+//$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
+//$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
+//$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
 
 // Trade Gothic styles (from fonts.com)
 $font-tradegothic: 'Trade Gothic Next LT W01 Cond', sans-serif;
