@@ -21,4 +21,14 @@ const link_group_dropdown = () => {
 
     });
 
+
+    $(window).on('click', function(e) {
+
+        // if the target was not within the expanded dropdown
+        console.log($(e.target).parents('.link-group-dropdown'));
+        if ($(e.target).parents('.link-group-dropdown').length < 1){
+            $('.link-group-dropdown[aria-expanded="true"]').attr('aria-expanded', 'false');
+        }
+    });
+
 }

@@ -49,12 +49,6 @@ $(window).on('click', function(e) {
     $('.mega-menu__slab').each(function() {
       if ($(this).hasClass('open')) {
         $(this).removeClass('open');
-        // if (window.innerWidth > largeScreenSize) {
-        //   $(this).css({
-        //     'padding': '0',
-        //     'left': "0"
-        //   });
-        // }
       };
     });
   };
