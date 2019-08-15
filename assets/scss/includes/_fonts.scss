@@ -65,6 +65,23 @@
   src: url('../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot?#iefix') format('eot'), url('../fonts/eaafcb26-9296-4a57-83e4-4243abc03db7.woff2') format('woff2'), url('../fonts/25e83bf5-47e3-4da7-98b1-755efffb0089.woff') format('woff'), url('../fonts/4112ec87-6ded-438b-83cf-aaff98f7e987.ttf') format('truetype'), url('../fonts/ab1835cb-df6f-4d8d-b8ee-3075f5ba758d.svg#ab1835cb-df6f-4d8d-b8ee-3075f5ba758d') format('svg');
 }
 
+
+@font-face{
+  font-family:"TradeGothicCond";
+  font-style: normal;
+  font-weight: normal;
+  src:url("../fonts/bfb75240-a1a5-48e9-a762-7783ab69fe01.eot?#iefix");
+  src:url("../fonts/bfb75240-a1a5-48e9-a762-7783ab69fe01.eot?#iefix") format("eot"),url("../fonts/ee3d290f-f853-4ff3-913e-7bae693a43ec.woff2") format("woff2"),url("../fonts/13f010e4-8178-40a5-a790-11a6532a964c.woff") format("woff"),url("../fonts/bbf9164f-cec8-4c93-bf8d-94be44354842.ttf") format("truetype");
+}
+
+@font-face{
+  font-family:"TradeGothicCond";
+  font-style: normal;
+  font-weight: bold;
+  src:url("../fonts/227de6ba-fef9-435d-8693-a53a76aa1add.eot?#iefix");
+  src:url("../fonts/227de6ba-fef9-435d-8693-a53a76aa1add.eot?#iefix") format("eot"),url("../fonts/dae937ec-159f-4710-9b2d-9470e24807ba.woff2") format("woff2"),url("../fonts/c8856bf2-4d23-4e30-9fb1-eede15b787b6.woff") format("woff"),url("../fonts/376f433f-1486-4168-932f-06352c8291f8.ttf") format("truetype");
+}
+
 body {
   font-family: $font-avenirnext;
 }

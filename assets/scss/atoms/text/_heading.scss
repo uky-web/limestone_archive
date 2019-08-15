@@ -19,7 +19,10 @@ h6 {
       @include rr-heading($tag, $editorial-headings);
       margin-top: 0;
       margin-bottom: rr-gridbase(2);
+      font-family: $font-avenirnext;
+      font-weight: bold;
     }
+
 
     aside h2 {
       font-family: $font-avenirnext;

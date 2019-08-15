@@ -9,7 +9,7 @@ $font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
 // Avenir Next styles (from fonts.com)
 $font-avenirnext: 'AvenirNextLT', sans-serif;
 
-//TODO: Thes do not appear to be implemented. If needed as separate fonts
+//TODO: These do not appear to be implemented. If needed as separate fonts
 //they should be correctly named in _fonts.scss
 //$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
 //$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
@@ -17,8 +17,8 @@ $font-avenirnext: 'AvenirNextLT', sans-serif;
 //$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
 
 // Trade Gothic styles (from fonts.com)
-$font-tradegothic: 'Trade Gothic Next LT W01 Cond', sans-serif;
-$font-tradegothic__bold: 'Trade Gothic Next LT W01 Bd Cn', sans-serif;
+$font-tradegothic: 'TradeGothicCond', sans-serif;
+//$font-tradegothic__bold: 'TradeGothic Next LT W01 Bd Cn', sans-serif;
 
 // Width of the central column
 $global-width: 72rem;
@@ -320,7 +320,7 @@ $colors: (
   wildcat-blue: #0033a0,
   wildcat-white: #fff,
   // secondary
-  bluegrass: #1E8AFF,
+  bluegrass: #0071eb,
   sky: #B1C9E8,
   midnight: #041E42,
   goldenrod: #FFDC00,
@@ -351,6 +351,9 @@ $colors: (
   info: #a1d3ed,
 );
 
+$gradients: (
+  dark-wildcat:(color(dark-blue), color(whildcat-blue))
+);
 // These are color schemes that map the colors above
 // to specific elements. In general we try to keep
 // css rules that specify color in the "usescheme"

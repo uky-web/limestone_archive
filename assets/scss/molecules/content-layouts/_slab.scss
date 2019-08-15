@@ -31,10 +31,17 @@ $skins: transparent;
   $skins: append($skins, slab--#{$name});
 }
 
+
+.slab--dark-wildcat {
+  background: linear-gradient(#{color(dark-blue)},#{color(wildcat-blue)});
+  @include usescheme($scheme-dark);
+}
+
 .slab--speckled {
   background-image: url('../../images/speckled-texture.png');
   background-repeat: repeat;
   background-attachment: fixed;
+  @include usescheme($scheme-light);
 }
 
 @include rr-slab-adjacency($style-list: $skins);
