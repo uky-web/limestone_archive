@@ -42,8 +42,10 @@ $skins: transparent;
   background-repeat: repeat;
   background-attachment: fixed;
   @include usescheme($scheme-light);
-  .headling-group__head {
-    color: color(wildcat-blue)
+
+  //FIXME: Should containers be targeting child elements like this? -AS
+  .headline-group__head {
+    color: color(wildcat-blue);
   }
 
 }

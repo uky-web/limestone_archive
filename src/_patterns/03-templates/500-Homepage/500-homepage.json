@@ -5,5 +5,11 @@
   "page_header" : "hero-page-header",
   "is_main": false,
   "no_popout": true,
-  "mega_menu" : true
+  "mega_menu" : true,
+
+  "in-the-news": {
+    "component": "components-teaser",
+    "component-variant" : "components-teaser",
+    "teaser-headline" : "Some Great News Headline"
+  }
 }

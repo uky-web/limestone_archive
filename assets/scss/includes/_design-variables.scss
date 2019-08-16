@@ -260,7 +260,8 @@ $fonts: (
     2xl: 1.5rem,
     3xl: 1.775rem,
     4xl: 2rem,
-    5xl: 2.4286rem
+    5xl: 2.4286rem,
+    6xl: 4.5rem
   ),
   xl: (
     xs: .75rem,
@@ -271,7 +272,8 @@ $fonts: (
     2xl: 1.5rem,
     3xl: 1.875rem,
     4xl: 2.375rem,
-    5xl: 3.4286rem
+    5xl: 3.4286rem,
+    6xl: 6.3rem
   )
 );
 
@@ -392,6 +394,7 @@ $scheme-light: (
   button-focus-background: color(wildcat-white),
   button-focus-text: color(wildcat-blue),
   headline-group-super: color(dark-gray),
+  headline-group-head: color(wildcat-black),
   headline-group-sub: color(dark-gray),
   media-citation: color(dark-gray),
   carousel-single-button: color(dark-gray),
@@ -410,7 +413,8 @@ $scheme-light: (
   form-borders: color(cool-neutral)
 );
 
-// This scheme is for the darker colors.
+// This scheme applies lighter colors to child elements,
+// and should be invoked by darker-background containing elements
 $scheme-dark: (
   link: color(wildcat-white),
   link-active: color(sky),
@@ -432,6 +436,7 @@ $scheme-dark: (
   button-focus-background: color(cool-neutral),
   button-focus-text: color(wildcat-blue),
   headline-group-super: color(cool-neutral),
+  headline-group-head: color(wildcat-white),
   headline-group-sub: color(cool-neutral),
   media-citation: color(wildcat-white),
   carousel-single-button: color(dark-gray),
@@ -590,6 +595,10 @@ $rr-lineheights: $lineheights;
 
   .headline-group .headline-group__sub {
     color: color(headline-group-sub, $textscheme);
+  }
+
+  .headline-group .headline-group__head a {
+    color: color(headline-group-head, $textscheme);
   }
 
   .slick-prev,

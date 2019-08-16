@@ -27,7 +27,7 @@ input.button {
 
   $skins: transparent;
   @each $name, $color in $colors {
-    .button--#{$name} {
+    &.button--#{$name} {
       background-color: $color;
       @if (contrast($color, color(wildcat-black)) < 4.5) {
         @include usescheme($scheme-dark);

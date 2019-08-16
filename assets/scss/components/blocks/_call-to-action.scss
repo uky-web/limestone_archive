@@ -29,7 +29,7 @@
       margin: auto;
       color: color(wildcat-blue);
       .headline-group__head {
-        @include rr-font-compute(5xl, squeeze);
+        @include rr-font-compute(6xl, squeeze);
         display: inline-block;
         font-weight: 500;
         font-family: $font-surveyor;

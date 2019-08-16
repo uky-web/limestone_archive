@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+.underline-link--light {
+  @include underline-link(color(wildcat-white));
+}
+
 // We include the editorial link styles here
 // because ".editorial a" has styles that implement
 // the underline. 

@@ -1,5 +1,6 @@
 {% extends 'base.twig' %}
 
+{% set news_grid_columns = [ "components-teaser", "components-teaser", "components-teaser"] %}
 {% set media_grid_columns = [ "components-news-preview-with-media", "components-news-preview-with-media", "components-news-preview-with-media"] %}
 {% set calendar_columns = [ "components-calendar-preview", "components-calendar-preview", "components-calendar-preview"] %}
 {% set statistics = [ "components-statistic", "components-statistic", "components-statistic"] %}
@@ -15,12 +16,13 @@
     {% include 'components-block-columns'
         with {
             columns: 3,
-            grid_columns: media_grid_columns,
+            grid_columns: news_grid_columns,
             slab_variant: 'slab--dark-wildcat',
             aspect: '3:2',
             button_label: 'Read More',
             include_headline: true,
             head: 'IN THE NEWS',
+            column_items: {head:"Item Head"},
             button_variant: 'button--bluegrass'
         } %}
     {% include 'components-block-columns'
