@@ -2,6 +2,20 @@
   //position: relative;
   .mega-menu__nav-item {
     cursor: pointer;
+    position: relative;
+    &[aria-expanded=true]::after{
+      //border-bottom: .25rem solid;
+      //border-color: color(wildcat-white);
+
+        display: block;
+        position: absolute;
+        bottom: -.25rem;
+        left: 0;
+        width:  3.125rem;
+        height: .25rem;
+        background-color: color(wildcat-white);
+        content: '';
+    }
   }
   .mega-menu__slab {
     background-color: color(dark-blue);

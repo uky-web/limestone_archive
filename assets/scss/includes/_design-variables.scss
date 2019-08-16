@@ -416,7 +416,7 @@ $scheme-dark: (
   link-active: color(sky),
   text: color(wildcat-white),
   accent: color(river-green),
-  button-border: color(bluegrass),
+  button-border: color(wildcat-white),
   button-background: color(bluegrass),
   button-text: color(wildcat-white),
   button-disabled-border: rgba(#ededed, .66),
@@ -512,7 +512,10 @@ $rr-lineheights: $lineheights;
 
     &.button--ghost {
       background-color: transparent;
-      color: color(button-border, $textscheme);
+    }
+
+    &.button--bluegrass {
+      border-color: color(bluegrass);
     }
 
     &.button--transparent {
