@@ -3,8 +3,17 @@ a.button,
 input.button {
   @include rr-font-compute(l, tight);
 
-  display: inline-block;
-  margin: 0;
+  //TODO: Review this, this assumes S breakpoint
+  // should never get 2-up buttons.
+  display: block;
+  width: 80%;
+  margin: rr-gridbase(1) auto;
+
+  @include rr-break-directive(m) {
+    display: inline-block;
+    width:auto;
+    margin: 0;
+  }
 
   //  Avenir is not quite centered in the lineheight
   //  because of weird font metrics, so in order to get
