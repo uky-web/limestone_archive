@@ -55,7 +55,7 @@
   //slab that explicitly removes padding
   //TODO: Should the component that is breaking the pattern (e.g. .popout)
   //Or should the style (checker-divider)?
-  &.page-header.page-header--hero.popout::after {
+  &.page-header.page-header--hero::after {
     bottom:0;
   }
 

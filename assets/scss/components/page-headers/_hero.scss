@@ -80,15 +80,19 @@
 
   &.page-header--overlay-hero {
     position:relative;
+    padding-bottom:0;
 
     .slab__wrapper {
       border:none;
+      margin-top:0;
+      margin-bottom
     }
 
     .page-header__content {
       position: absolute;
       bottom: 0;
       padding: 0;
+      margin-bottom: rr-gridbase(2);
 
 
     }
