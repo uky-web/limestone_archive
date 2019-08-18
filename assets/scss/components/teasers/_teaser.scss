@@ -54,3 +54,14 @@
     }
   }
 }
+
+.teaser--event {
+  position: relative;
+
+  .calendar-preview {
+    position: absolute;
+    width:100%;
+    bottom: 0;
+  }
+
+}

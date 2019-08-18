@@ -1,0 +1,11 @@
+{% embed 'components-teaser' with {teaser_variant : "teaser--event" } %}
+	{% block teaser_content %}
+		{% include 'molecules-headline-group' with { level:level|default(3), headline_group_linked: true, head:fake('name') } %}
+		<p>
+			<span class="title">{{ fake('jobTitle') }}</span><br />
+			{% include 'atoms-link-fancy' with { label:'College or Department' } %}
+		</p>
+		{% include 'atoms-formatted-text' %}
+	{% endblock %}
+{% endembed %}
+
