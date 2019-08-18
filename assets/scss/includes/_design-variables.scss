@@ -384,7 +384,7 @@ $scheme-light: (
   button-disabled-border: color(subtle-gray),
   button-disabled-background: color(subtle-gray),
   button-disabled-text: color(dark-gray),
-  button-hover-border: color(wildcat-white),
+  button-hover-border: color(wildcat-blue),
   button-hover-background: color(wildcat-white),
   button-hover-text: color(wildcat-blue),
   button-active-border: color(wildcat-blue),
@@ -422,12 +422,12 @@ $scheme-dark: (
   accent: color(river-green),
   button-border: color(wildcat-white),
   button-background: color(wildcat-white),
-  button-text: color(wildcat-white),
+  button-text: color(wildcat-blue),
   button-disabled-border: rgba(#ededed, .66),
   button-disabled-background: rgba(#ededed, .66),
   button-disabled-text: color(wildcat-blue),
   button-hover-border: color(wildcat-white),
-  button-hover-background: color(cool-neutral),
+  button-hover-background: color(wildcat-blue),
   button-hover-text: color(wildcat-white),
   button-active-border: color(dark-blue),
   button-active-background: color(cool-neutral),
@@ -517,6 +517,8 @@ $rr-lineheights: $lineheights;
 
     &.button--ghost {
       background-color: transparent;
+      border-color: color(button-hover-border, $textscheme); //The background should be the 'opposite' of the border and text
+      color: color(button-hover-text, $textscheme);
     }
 
     &.button--bluegrass {
@@ -551,6 +553,12 @@ $rr-lineheights: $lineheights;
       border-color: color(button-hover-border, $textscheme);
       background-color: color(button-hover-background, $textscheme);
       color: color(button-hover-text, $textscheme);
+
+      &.button--ghost {
+        background-color: color(button-background, $textscheme);
+        border-color: color(button-border, $textscheme);
+        color: color(button-text, $textscheme);
+      }
     }
 
     &:active,
