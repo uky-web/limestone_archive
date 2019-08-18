@@ -77,4 +77,26 @@
       margin-right: 0;
     }
   }
+
+  &.page-header--overlay-hero {
+    position:relative;
+
+    .slab__wrapper {
+      border:none;
+    }
+
+    .page-header__content {
+      position: absolute;
+      bottom: 0;
+      padding: 0;
+
+
+    }
+    .headline-group,
+    .headline-group .headline-group__super {
+      color:color(wildcat-white);
+      //font-family: $font-surveyor;
+    }
+
+  }
 }
