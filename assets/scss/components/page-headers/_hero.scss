@@ -92,10 +92,13 @@
       position: absolute;
       bottom: 0;
       padding: 0;
+      width: calc(100% - (2 * #{rr-prop-for-breakpoint(s, offset)}));
       margin-bottom: rr-gridbase(2);
-
-
+      @include rr-break-directive(l) {
+        width: 100%;
+      }
     }
+
     .headline-group,
     .headline-group .headline-group__super {
       color:color(wildcat-white);
