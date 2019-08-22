@@ -27,6 +27,16 @@
       display: flex;
       flex-wrap: wrap;
     }
+    .subnav {
+      position: absolute;
+    }
+
+    [data-visually-hidden="true"] {
+      display: none;
+    }
+    [data-visually-hidden="false"] {
+      display: block;
+    }
   }
   @include rr-break-directive(l) {
     .mega-menu__slab {
