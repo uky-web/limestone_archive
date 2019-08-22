@@ -15,7 +15,13 @@
             'mega-menu__level_1',
             'js-nav-item',
             item.in_active_trail ? 'active-trail',
-            item.below ? 'has-submenu'
+            item.below ? 'has-submenu',
+            'js-nav-system',
+            'js-nav-system__item',
+            'js-nav-system__link',
+            'js-nav-system__subnav',
+            'js-nav-system__subnav__item',
+            'js-nav-system__subnav__link'
           ]
         %}
           {% include 'atoms-link-expand-menu' with { label: item.title, classes: classes|join(' ') } %}
