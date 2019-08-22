@@ -10,7 +10,7 @@ clone:
 	git config --global user.name "$(GITLAB_USER_NAME)"
 
 	if [ `git -C $(BUILD_REPO) ls-remote --heads origin $(CI_COMMIT_REF_NAME) | wc -l` = 1 ]; then \
-		echo Checking out existing branch $(CI_COMMIT_REF_NAME); \
+		echo Checking out the existing branch $(CI_COMMIT_REF_NAME); \
 		cd $(BUILD_REPO) && git checkout $(CI_COMMIT_REF_NAME); \
 		cd $(BUILD_REPO) && git pull origin $(CI_COMMIT_REF_NAME); \
 	else \
