@@ -14,14 +14,8 @@
             'mega-menu__nav-item',
             'mega-menu__level_1',
             'js-nav-item',
-            item.in_active_trail ? 'active-trail',
-            item.below ? 'has-submenu',
-            'js-nav-system',
-            'js-nav-system__item',
-            'js-nav-system__link',
-            'js-nav-system__subnav',
-            'js-nav-system__subnav__item',
-            'js-nav-system__subnav__link'
+            item.in_active_trail ? 'active-trail' 'js-nav-system__item' 'js-nav-system__link',
+            item.below ? 'has-submenu' 'js-nav-system__subnav__item' 'js-nav-system__subnav__link'
           ]
         %}
 
@@ -38,7 +32,8 @@
 {% endmacro %}
 
 {% macro submenu_links(items, menu_level, title) %}
-  <div class="mega-menu__slab">
+
+  <div class="mega-menu__slab  js-nav-system">
     <div class="grid grid--major-right">
 
       <div class="grid__column grid__column--minor">
@@ -51,7 +46,7 @@
       <div class="grid__column grid__column--major">
         <div class="grid grid--3-up">
         {% for column in items|batch((items|length/3)) %}
-          <div class="grid__column mega-menu__submenus">
+          <div class="grid__column mega-menu__submenus  js-nav-system__subnav">
               {% for item in column %}
                 {% include 'atoms-link' with { label: item.title, url: item.url } %}
               {% endfor %}
