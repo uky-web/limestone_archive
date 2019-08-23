@@ -9,24 +9,8 @@ $('.mega-menu__nav-item').each(function() {
 
         if ($slabEl.hasClass('open')) {
             $slabEl.removeClass('open');
-            // if (window.innerWidth > largeScreenSize) {
-            //     $slabEl.css({
-            //         'padding': '0',
-            //         'left': `-${submenuMargin}px`
-            //     });
-            // }
         } else {
             $slabEl.addClass('open');
-            // if (window.innerWidth > largeScreenSize) {
-            //     $('.mega-menu__slab').not($slabEl).removeClass('open').css({
-            //         'padding': '0',
-            //         'left': `-${submenuMargin}px`
-            //     });
-            //     $slabEl.css({
-            //         'padding': `1.5rem ${submenuMargin}px`,
-            //         'left': `-${submenuMargin}px`
-            //     });
-            // }
         }
     });
 
