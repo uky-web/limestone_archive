@@ -37,7 +37,7 @@
       <div class="mega-menu__submenu_column js-nav-system__subnav">
           {% for item in column %}
               <div class = "js-nav-system__subnav__item">
-            {% include 'atoms-link' with { label: item.title, url: item.url } %}
+            {% include 'atoms-link' with { label: item.title, url: item.url, link_variant: 'js-nav-system__subnav__link' } %}
               </div>
           {% endfor %}
       </div>
