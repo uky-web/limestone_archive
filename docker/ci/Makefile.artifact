@@ -24,7 +24,7 @@ replay:
 push:
 	cd $(BUILD_REPO) && git add * && git commit -am "CI BUILD";
 	if [ `git -C $(BUILD_REPO) ls-remote --heads origin $(CI_COMMIT_REF_NAME) | wc -l` = 1 ]; then \
-		echo "Pushing to existing remote branch $(CI_COMMIT_REF_NAME)"; \
+		echo "Pushing to the existing remote branch $(CI_COMMIT_REF_NAME)"; \
 		cd $(BUILD_REPO) && git push origin $(CI_COMMIT_REF_NAME); \
  	else \
 		echo "Pushing new branch $(CI_COMMIT_REF_NAME) to remote"; \
