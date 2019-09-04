@@ -1,5 +1,5 @@
 # Component name
-- Follow standard Limestone Design System naming convention
+Follow standard the Limestone design system naming convention.
 
 # Description of component
 
