@@ -15,7 +15,7 @@
         {% embed 'molecules-tab-panel' with { tab_panel_variant: 'mobile-tab-nav__main-menu-panel', tab_panel_id : "mobile_mainmenu" } %}
             {% block tab_panel_content %}
                 <div class="mobile-tab-nav__menus">
-                    {% include 'molecules-global-nav' with {mobile: true} %}
+                    {% include nav_molecule with {menus:menus, mobile: true} %}
                     <hr>
                     {% include 'molecules-utility-nav' %}
                 </div>

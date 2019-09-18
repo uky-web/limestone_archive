@@ -1,6 +1,6 @@
-.mega-menu {
+.global-megamenu {
   //position: relative;
-  .mega-menu__nav-item {
+  .global-megamenu__nav-item {
     cursor: pointer;
     position: relative;
     &[aria-expanded=true]::after{
@@ -17,33 +17,40 @@
         content: '';
     }
   }
-  .mega-menu__slab {
+
+
+  .global-megamenu__menu-button[aria-expanded="false"] + .global-megamenu__slab {
+    display:none;
+  }
+
+  .global-megamenu .menu__menu-button[aria-expanded="true"] + .global-megamenu__slab {
+    display:block;
+    position: absolute;
+    border:1px solid blue;
+    top:100%;
+  }
+
+  .global-megamenu__slab {
     background-color: color(dark-blue);
-    //position: relative;
     overflow: hidden;
     top: 0;
     width: 100%;
-    &:not(.open) {
-      max-height: 0px;
-      left:-9999px;
-    }
-    &.open {
-      display: flex;
-      flex-wrap: wrap;
-      max-height: fit-content;
-      padding: 0 rr-gridbase(1) rr-gridbase(1);
-    }
-    .mega-menu__description,
-    .mega-menu__submenus {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: fit-content;
+    padding: 0 rr-gridbase(1) rr-gridbase(1);
+
+    .global-megamenu__description,
+    .global-megamenu__submenus {
       flex: 1 0 100%;
       //padding: rr-gridbase(1);
     }
 
-    .mega-menu__description {
+    .global-megamenu__description {
       display:none;
     }
 
-    .mega-menu__submenus {
+    .global-megamenu__submenus {
       //display: flex;
       //flex-wrap: wrap;
       a {
@@ -55,37 +62,36 @@
 
   }
   @include rr-break-directive(l) {
-    .mega-menu__slab {
+    .global-megamenu__slab {
       background-color: color(wildcat-blue);
       left: 0;
       position: absolute;
       top: 100%;
-      width: 100vw;
       z-index: 100;
-      &.open{
-        padding: 0 rr-gridbase(3) rr-gridbase(3);
-      }
-      .mega-menu__description,
-      .mega-menu__submenus {
+      padding: 0 rr-gridbase(3) rr-gridbase(3);
+
+      .global-megamenu__description,
+      .global-megamenu__submenus {
         @include rr-font-compute(r, medium);
       }
-      .mega-menu__description {
+      .global-megamenu__description {
         display:block;
       }
     }
   }
 
-  &.mega-menu--mobile {
-    &.open .mega-menu__level_1 {
+  &.global-megamenu--mobile {
+    &.open .global-megamenu__level_1 {
       display:none;
     }
   }
 
-  .mega-menu__mobile-slab {
+  .global-megamenu__mobile-slab {
     display: none;
 
-    &.open {
-    display:block;
   }
+
+  .global-megamenu__menu-button[aria-expanded="true"] + .global-megamenu__mobile-slab  {
+    display:block;
   }
 }
