@@ -2,7 +2,7 @@
     {% block slab_content %}
         <h2>Common Aspect Ratios</h2>
         <div class="sg-image-grid">
-        {% for aspect in ['1:1','4:3','3:2','16:9'] %}
+        {% for aspect in ['1:1','4:3','3:2','16:9', '3:1'] %}
             <div class="sg-image-grid-tile">
                 {% include 'atoms-image' with {standalone: true, width: 400} %}
             </div>

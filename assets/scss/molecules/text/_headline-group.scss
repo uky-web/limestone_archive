@@ -55,6 +55,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 
       #{$bem-root}__head {
         font-weight: 500;
+        font-family: $font-tradegothic;
         @include rr-font-compute(3xl, tight);
 
         .underline-link {

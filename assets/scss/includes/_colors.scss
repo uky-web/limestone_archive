@@ -40,10 +40,22 @@ $black: #2c2a29;
 //
 // If you want to get the color of something from one of the
 // schemes above, you can provide the scheme name as the
-// second parameter. 
+// second parameter.
+
+//FIXME: This has a confusing function signature. $name is a
+// color if no $scheme is provided, but is a use context
+// (e.g. 'button border') if $scheme is provided.
+// This would be clearer (if less concise) as two mixins.
 @function color($name: wildcat-blue, $scheme: $colors) {
   @if map-has-key($scheme, $name) {
     @return map-get($scheme, $name);
+  }
+  @return $color-undefined;
+}
+
+@function gradient($name) {
+  @if map-has-key($gradients, $name) {
+    @return linear-gradient(map-get($gradients, $name));
   }
   @return $color-undefined;
 }

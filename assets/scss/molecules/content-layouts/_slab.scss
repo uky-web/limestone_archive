@@ -31,4 +31,29 @@ $skins: transparent;
   $skins: append($skins, slab--#{$name});
 }
 
+
+.slab--dark-wildcat {
+  background: linear-gradient(#{color(dark-blue)},#{color(wildcat-blue)});
+  @include usescheme($scheme-dark);
+}
+
+.slab--speckled {
+  background-image: url('../../images/speckled-texture.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  @include usescheme($scheme-light);
+
+  //FIXME: Should containers be targeting child elements like this? -AA
+  .headline-group__head {
+    color: color(wildcat-blue);
+  }
+
+  .grid--divided .grid__column::after {
+    background-color:color(bluegrass);
+    width:1px;
+  }
+
+}
+
 @include rr-slab-adjacency($style-list: $skins);
+

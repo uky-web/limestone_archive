@@ -1,0 +1,114 @@
+.global-megamenu {
+
+  &--dark {
+    background-color: color(dark-blue);
+    @include usescheme($scheme-dark);
+  }
+
+
+  &__nav-item {
+    cursor: pointer;
+    position: relative;
+    &[aria-expanded=true]::after{
+        display: block;
+        position: absolute;
+        bottom: -.25rem;
+        left: 0;
+        width:  3.125rem;
+        height: .25rem;
+        background-color: color(wildcat-white);
+        content: '';
+    }
+  }
+
+
+  .global-megamenu__menu-button[aria-expanded="false"] + .global-megamenu__slab {
+    display:none;
+  }
+
+  .global-megamenu .menu__menu-button[aria-expanded="true"] + .global-megamenu__slab {
+    display:block;
+    position: absolute;
+    top:100%;
+  }
+
+  .global-megamenu__slab {
+
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: fit-content;
+    padding: 0 rr-gridbase(1) rr-gridbase(1);
+
+    &--dark {
+      background-color: color(dark-blue);
+        @include usescheme($scheme-dark);
+    }
+
+    .global-megamenu__description,
+    .global-megamenu__submenus {
+      flex: 1 0 100%;
+      //padding: rr-gridbase(1);
+    }
+
+    .global-megamenu__description {
+      display:none;
+    }
+
+    .global-megamenu__submenus {
+      //display: flex;
+      //flex-wrap: wrap;
+      a {
+        @include rr-font-compute(r, medium);
+        padding-bottom: rr-gridbase(1);
+      }
+    }
+
+
+  }
+  @include rr-break-directive(l) {
+
+    &--dark {
+      background-color: color(wildcat-blue);
+    }
+
+    .global-megamenu__slab {
+      left: 0;
+      position: absolute;
+      top: 100%;
+      z-index: 100;
+      padding: 0 rr-gridbase(3) rr-gridbase(3);
+
+      &--dark {
+        background-color: color(wildcat-blue);
+        @include usescheme($scheme-dark);
+
+      }
+
+      .global-megamenu__description,
+      .global-megamenu__submenus {
+        @include rr-font-compute(r, medium);
+      }
+      .global-megamenu__description {
+        display:block;
+      }
+    }
+  }
+
+  &.global-megamenu--mobile {
+    &.open .global-megamenu__level_1 {
+      display:none;
+    }
+  }
+
+  .global-megamenu__mobile-slab {
+    display: none;
+
+  }
+
+  .global-megamenu__menu-button[aria-expanded="true"] + .global-megamenu__mobile-slab  {
+    display:block;
+  }
+}

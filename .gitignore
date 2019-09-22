@@ -1,3 +1,5 @@
+docker/taskrunner/node_modules/
 .vscode
 .idea
 .npm-dist/*
+.DS_Store

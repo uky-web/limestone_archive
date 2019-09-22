@@ -1,0 +1,20 @@
+.checker-endmark {
+
+  &::after {
+    width: 100%;
+    font-family: "iconfont";
+    content: "";
+    display: block;
+    color: color(wildcat-blue);
+    font-style: normal;
+    font-weight: normal;
+    line-height: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 2.5rem;
+    padding:2rem;
+    text-align: center;
+  }
+
+}
+

@@ -1,0 +1,64 @@
+
+
+.checker-divider {
+
+  border-bottom-color: color(wildcat-white);
+  border-bottom-style:solid;
+  border-bottom-width: 1px;
+
+
+
+  &::after {
+    @include rr-slab-wrapper;
+    display: block;
+    width: 100%;
+    font-family: "iconfont";
+    //content: "";
+    content: "";
+    color: color(wildcat-white);
+    font-style: normal;
+    font-weight: normal;
+    line-height: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 40px;
+    text-align: right;
+    position: relative;
+
+    //slab padding is defined by rr-slab,
+    //this loop recreates that bottom value
+    $breaks: rr-breakpoint-list();
+    @each $break in $breaks {
+      $vspace: rr-gridbase(rr-prop-for-breakpoint($break, vspace));
+      @if $break == nth($breaks, 1) {
+        bottom: -$vspace;
+      } @else {
+        @include rr-break-directive($break) {
+          bottom: -$vspace;
+        }
+      }
+    }
+
+    @each $break in rr-breakpoint-list() {
+      $vspace: rr-gridbase(rr-prop-for-breakpoint($break, vspace));
+      @if $break == nth($breaks, 1) {
+        padding: 0 rr-prop-for-breakpoint($break, offset);
+      } @else {
+        @include rr-break-directive($break) {
+          padding: 0 rr-prop-for-breakpoint($break, offset);
+        }
+      }
+    }
+
+  }
+
+  //slab that explicitly removes padding
+  //TODO: Should the component that is breaking the pattern (e.g. .popout)
+  //Or should the style (checker-divider)?
+  &.page-header.page-header--hero::after {
+    bottom:0;
+  }
+
+}
+
+

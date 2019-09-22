@@ -1,32 +1,50 @@
 // Font Shortcuts
+// Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
 $font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
+
+// Surveyor Display (from typography.com)  NB: limited weights and styles provided, see typography.com project dashboard
+$font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
+
+
+// Avenir Next styles (from fonts.com)
 $font-avenirnext: 'AvenirNextLT', sans-serif;
+
+//TODO: These do not appear to be implemented. If needed as separate fonts
+//they should be correctly named in _fonts.scss
+//$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
+//$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
+//$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
+//$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
+
+// Trade Gothic styles (from fonts.com)
+$font-tradegothic: 'TradeGothicCond', sans-serif;
+//$font-tradegothic__bold: 'TradeGothic Next LT W01 Bd Cn', sans-serif;
 
 // Width of the central column
 $global-width: 72rem;
 
-// All variables prefixed with "rr" are used to 
+// All variables prefixed with "rr" are used to
 // set defaults for the root-rhythm sass module.
 $rr-max-width: $global-width;
 
-// 1 rem is divided into this many segments to 
-// make a grid square. at 2, that means each 
+// 1 rem is divided into this many segments to
+// make a grid square. at 2, that means each
 // grid is .5rem x .5rem.
 $rr-grid-divisions: 2;
 
-// These grid settings configure the grid at 
+// These grid settings configure the grid at
 // different breakpoints and also specify the
 // breaks used by rr-break-directive() -- the
 // sass mixin that creates media queries.
 //
 // "Grid" here means a typographic / layout
 // grid, not CSS3 Grids.
-// 
+//
 // rr-break-directive is the preferred method
 // for making breakpoints; a close alternative
 // is looking the breakpoint values up here.
 // If necessary you can write one manually,
-// but then those will need to be found and 
+// but then those will need to be found and
 // tweaked by hand if there are revisions.
 $rr-grid-settings: (
   s: (
@@ -58,7 +76,7 @@ $rr-grid-settings: (
   xl: (
     size: $global-width + 4rem,
     offset: 0,
-    gutter: 2rem, //36px 
+    gutter: 2rem, //36px
     vspace: 5, // (36px / 72px)
     column_color: rgba(200, 128, 255, .2),
     baseline_color: rgba(128, 128, 200, .2)
@@ -86,9 +104,9 @@ $rr-grids: (
     )
   ),
   3-up: (
-    m: (
-      columns: 2,
-    ),
+    //m: (
+    //  columns: 2,
+    //),
     l: (
       columns: 3,
     )
@@ -201,13 +219,13 @@ $rr-grids: (
 // relative to the font size, so "tight" has a line
 // height that represents just enough space
 // to contain a line of font text, whereas "redic"
-// is pretty massive. 
-// 
+// is pretty massive.
+//
 // rr-font-compute(size,lineheight) will provide
 // a font-size, line-height combination in rem,
 // along with the required media queries to ensure
-// font sizes change in a standardized fashion. 
-// 
+// font sizes change in a standardized fashion.
+//
 // It is preferable to using font size and line
 // height directly in the code.
 $lineheights: (
@@ -223,13 +241,13 @@ $lineheights: (
 // This map lets us specify font sizes by a name
 // rather than a specific value. You can create
 // new sizes by adding a new name. The font sizes
-// change based on breakpoint. 
+// change based on breakpoint.
 
 // rr-font-compute(size,lineheight) will provide
 // a font-size, line-height combination in rem,
 // along with the required media queries to ensure
-// font sizes change in a standardized fashion. 
-// 
+// font sizes change in a standardized fashion.
+//
 // It is preferable to using font size and line
 // height directly in the code.
 $fonts: (
@@ -242,7 +260,8 @@ $fonts: (
     2xl: 1.5rem,
     3xl: 1.775rem,
     4xl: 2rem,
-    5xl: 2.4286rem
+    5xl: 2.4286rem,
+    6xl: 4.5rem
   ),
   xl: (
     xs: .75rem,
@@ -253,19 +272,19 @@ $fonts: (
     2xl: 1.5rem,
     3xl: 1.875rem,
     4xl: 2.375rem,
-    5xl: 3.4286rem
+    5xl: 3.4286rem,
+    6xl: 6.3rem
   )
 );
 
 $font-sizes: rr-font-sizes();
 
-// Establish header sizes for the editorial 
-// headings. 
+// Establish header sizes for the editorial
+// headings.
 $editorial-headings: (
   h2: (
     size: 4xl,
     lineheight: tight,
-    font: $font-mercury,
     weight: normal,
   ),
   h3: (
@@ -295,12 +314,27 @@ $editorial-headings: (
 // referenced with literals. These names are preferred.
 //
 // color(key) will return the hex value here.
-// 
+//
 // Seriously, do not pollute the sass with color literals.
+// new colors: July 2019
 $colors: (
+  // primary
   wildcat-blue: #0033a0,
   wildcat-white: #fff,
-  wildcat-black: #2c2a29,
+  // secondary
+  bluegrass: #0071eb,
+  sky: #B1C9E8,
+  midnight: #041E42,
+  goldenrod: #FFDC00,
+  sunset: #FFA360,
+  river-green: #4CBCC0,
+  // neutral
+  cool-neutral: #DCDDDE,
+  warm-neutral-20: #F9F9F5,
+  warm-neutral-60: #EFEBE2,
+  warm-neutral: #D6D2C4,
+  wildcat-black: #000000,
+  // old colors
   light-blue: #1897d4,
   medium-blue: #2b3a82,
   dark-blue: #1f2c5e,
@@ -319,96 +353,102 @@ $colors: (
   info: #a1d3ed,
 );
 
+$gradients: (
+  dark-wildcat:(color(dark-blue), color(wildcat-blue))
+);
 // These are color schemes that map the colors above
 // to specific elements. In general we try to keep
-// css rules that specify color in the "usescheme" 
+// css rules that specify color in the "usescheme"
 // mixin; this makes it easy to ensure that color
-// schemes remain consistent. 
+// schemes remain consistent.
 //
 // $scheme-light is the default.
-// 
+//
 // You can create a new scheme by copying this
 // map and giving it a new name.
-// 
+//
 // color(key,scheme) will return the hex value
 // of the color in that space; typically you
 // do not use color(key,scheme) except in the
 // usescheme() mixin below.
 $scheme-light: (
   link: color(wildcat-black),
-  link-active: color(medium-blue),
-  menu-icon-color: color(medium-blue),
+  link-active: color(wildcat-blue),
+  menu-icon-color: color(wildcat-blue),
   menu-icon-color-active: color(wildcat-blue),
   text: color(wildcat-black),
-  accent: color(alert),
+  accent: color(sunset),
   button-border: color(wildcat-blue),
   button-background: color(wildcat-blue),
   button-text: color(wildcat-white),
   button-disabled-border: color(subtle-gray),
   button-disabled-background: color(subtle-gray),
   button-disabled-text: color(dark-gray),
-  button-hover-border: color(light-blue),
-  button-hover-background: color(light-blue),
-  button-hover-text: color(wildcat-white),
-  button-active-border: color(medium-blue),
-  button-active-background: color(medium-blue),
+  button-hover-border: color(wildcat-blue),
+  button-hover-background: color(wildcat-white),
+  button-hover-text: color(wildcat-blue),
+  button-active-border: color(wildcat-blue),
+  button-active-background: color(wildcat-blue),
   button-active-text: color(wildcat-white),
-  button-focus-border: color(light-blue),
+  button-focus-border: color(bluegrass),
   button-focus-background: color(wildcat-white),
   button-focus-text: color(wildcat-blue),
   headline-group-super: color(dark-gray),
+  headline-group-head: color(wildcat-black),
   headline-group-sub: color(dark-gray),
   media-citation: color(dark-gray),
   carousel-single-button: color(dark-gray),
   carousel-single-button-art: color(wildcat-white),
   carousel-center-button: color(dark-gray),
   carousel-center-button-art: color(wildcat-white),
-  carousel-dot: color(light-blue),
+  carousel-dot: color(bluegrass),
   carousel-dot-active: color(wildcat-black),
   carousel-center-caption: color(wildcat-black),
   media-background: color(wildcat-blue),
   statistic-head-color: color(wildcat-blue),
-  statistic-subhead-color: color(light-blue),
+  statistic-subhead-color: color(bluegrass),
   logo-color: color(wildcat-blue),
   wordmark-color: color(wildcat-black),
   dashed-border-color: rgba(#2c2a29, .3),
-  form-borders: color(light-gray)
+  form-borders: color(cool-neutral)
 );
 
-// This scheme is for the darker colors.
+// This scheme applies lighter colors to child elements,
+// and should be invoked by darker-background containing elements
 $scheme-dark: (
   link: color(wildcat-white),
-  link-active: color(light-blue-tint),
+  link-active: color(sky),
   text: color(wildcat-white),
-  accent: color(success),
+  accent: color(river-green),
   button-border: color(wildcat-white),
   button-background: color(wildcat-white),
   button-text: color(wildcat-blue),
   button-disabled-border: rgba(#ededed, .66),
   button-disabled-background: rgba(#ededed, .66),
   button-disabled-text: color(wildcat-blue),
-  button-hover-border: color(light-blue),
-  button-hover-background: color(light-blue),
+  button-hover-border: color(wildcat-white),
+  button-hover-background: color(wildcat-blue),
   button-hover-text: color(wildcat-white),
   button-active-border: color(dark-blue),
-  button-active-background: color(dark-blue),
-  button-active-text: color(wildcat-white),
-  button-focus-border: color(light-blue),
-  button-focus-background: color(wildcat-white),
+  button-active-background: color(cool-neutral),
+  button-active-text: color(wildcat-blue),
+  button-focus-border: color(wildcat-white),
+  button-focus-background: color(cool-neutral),
   button-focus-text: color(wildcat-blue),
-  headline-group-super: color(light-gray),
-  headline-group-sub: color(light-gray),
+  headline-group-super: color(cool-neutral),
+  headline-group-head: color(wildcat-white),
+  headline-group-sub: color(cool-neutral),
   media-citation: color(wildcat-white),
   carousel-single-button: color(dark-gray),
   carousel-single-button-art: color(wildcat-white),
   carousel-center-button: transparent,
   carousel-center-button-art: color(wildcat-white),
   carousel-dot: color(subtle-gray),
-  carousel-dot-active: color(light-blue-tint),
+  carousel-dot-active: color(sky),
   carousel-center-caption: color(wildcat-black),
   media-background: color(wildcat-black),
   statistic-head-color: color(wildcat-white),
-  statistic-subhead-color: color(light-blue-tint),
+  statistic-subhead-color: color(sky),
   logo-color: color(wildcat-white),
   wordmark-color: color(wildcat-white),
   dashed-border-color: rgba(#fff, .3),
@@ -427,13 +467,13 @@ $color-link: color(link);
 $rr-fonts: $fonts;
 $rr-lineheights: $lineheights;
 
-// This mixin generates all of the color CSS that 
+// This mixin generates all of the color CSS that
 // marries the color schemes above with CSS selectors.
 // This can generate a considerable amount of CSS,
 // so it's probably a good place for some reengineering
 // and refactoring. When I went down this road, I was
 // really only expecting to change colors for a handful
-// of items -- but by the end it had become pretty 
+// of items -- but by the end it had become pretty
 // elaborate.
 @mixin usescheme($textscheme) {
   color: color(text, $textscheme);
@@ -477,7 +517,12 @@ $rr-lineheights: $lineheights;
 
     &.button--ghost {
       background-color: transparent;
-      color: color(button-border, $textscheme);
+      border-color: color(button-hover-border, $textscheme); //The background should be the 'opposite' of the border and text
+      color: color(button-hover-text, $textscheme);
+    }
+
+    &.button--bluegrass {
+      border-color: color(bluegrass);
     }
 
     &.button--transparent {
@@ -494,7 +539,7 @@ $rr-lineheights: $lineheights;
 
       &.button--ghost {
         background-color: transparent !important;
-        // The ghost disabled text is a weird case; we have to 
+        // The ghost disabled text is a weird case; we have to
         // tune it for specific text schemes
         @if $textscheme == $scheme-dark {
           color: color(wildcat-white) !important;
@@ -508,6 +553,12 @@ $rr-lineheights: $lineheights;
       border-color: color(button-hover-border, $textscheme);
       background-color: color(button-hover-background, $textscheme);
       color: color(button-hover-text, $textscheme);
+
+      &.button--ghost {
+        background-color: color(button-background, $textscheme);
+        border-color: color(button-border, $textscheme);
+        color: color(button-text, $textscheme);
+      }
     }
 
     &:active,
@@ -536,7 +587,7 @@ $rr-lineheights: $lineheights;
       &.button--ghost {
         background-color: transparent;
         // Like disabled ghost, the focus state is quite different
-        // and we need some extra tuning        
+        // and we need some extra tuning
         @if $textscheme == $scheme-dark {
           color: color(wildcat-white);
         } @else {
@@ -552,6 +603,10 @@ $rr-lineheights: $lineheights;
 
   .headline-group .headline-group__sub {
     color: color(headline-group-sub, $textscheme);
+  }
+
+  .headline-group .headline-group__head a {
+    color: color(headline-group-head, $textscheme);
   }
 
   .slick-prev,

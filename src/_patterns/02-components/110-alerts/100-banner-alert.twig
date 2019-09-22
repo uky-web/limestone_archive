@@ -4,4 +4,9 @@
     {% endif %}
     {% include 'atoms-paragraph' %}
     {% include 'atoms-link' with { link_variant : 'underline-link' } %}
+    {%  if alert_mid %}
+        <div class="banner-alert__mid">
+            {% include 'atoms-paragraph' with {content: alert_mid} %}
+        </div>
+    {% endif %}
 </div> 

@@ -41,9 +41,16 @@
       margin-bottom: 0;
     }
 
+    &.headline-group__popout {
+      color: color(wildcat-white);
+      left: 5%;
+      max-width: 100%;
+      position: absolute;
+      top: 40%;
+    }
+
     .headline-group__head {
       @include rr-font-compute(5xl, medium);
-      font-family: $font-mercury;
       font-weight: 600;
     }
 
