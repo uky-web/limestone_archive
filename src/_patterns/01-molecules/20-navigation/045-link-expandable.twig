@@ -1,6 +1,6 @@
 <div class="link-expandable">
 <a class="link-expandable__button {{ classes }}"role="button" aria-haspopup="true" aria-expanded="false" tabindex="0">
-    {% block link_expandable_link %}{{ label|default(fake('bs')) }}{% endblock %}
+    {% block link_expandable_link %}{{ label|default('Resources') }}{% endblock %}
 </a>
 <div class="link-expandable__container">
   {% block link_expandable_container %}

@@ -1,12 +1,15 @@
 .global-megamenu {
-  //position: relative;
-  .global-megamenu__nav-item {
+
+  &--dark {
+    background-color: color(dark-blue);
+    @include usescheme($scheme-dark);
+  }
+
+
+  &__nav-item {
     cursor: pointer;
     position: relative;
     &[aria-expanded=true]::after{
-      //border-bottom: .25rem solid;
-      //border-color: color(wildcat-white);
-
         display: block;
         position: absolute;
         bottom: -.25rem;
@@ -26,12 +29,11 @@
   .global-megamenu .menu__menu-button[aria-expanded="true"] + .global-megamenu__slab {
     display:block;
     position: absolute;
-    border:1px solid blue;
     top:100%;
   }
 
   .global-megamenu__slab {
-    background-color: color(dark-blue);
+
     overflow: hidden;
     top: 0;
     width: 100%;
@@ -39,6 +41,11 @@
     flex-wrap: wrap;
     max-height: fit-content;
     padding: 0 rr-gridbase(1) rr-gridbase(1);
+
+    &--dark {
+      background-color: color(dark-blue);
+        @include usescheme($scheme-dark);
+    }
 
     .global-megamenu__description,
     .global-megamenu__submenus {
@@ -62,13 +69,23 @@
 
   }
   @include rr-break-directive(l) {
-    .global-megamenu__slab {
+
+    &--dark {
       background-color: color(wildcat-blue);
+    }
+
+    .global-megamenu__slab {
       left: 0;
       position: absolute;
       top: 100%;
       z-index: 100;
       padding: 0 rr-gridbase(3) rr-gridbase(3);
+
+      &--dark {
+        background-color: color(wildcat-blue);
+        @include usescheme($scheme-dark);
+
+      }
 
       .global-megamenu__description,
       .global-megamenu__submenus {

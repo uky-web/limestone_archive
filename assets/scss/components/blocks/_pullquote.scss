@@ -5,9 +5,9 @@
     p {
       @include rr-font-compute(4xl, medium);
       margin-top: 0;
-      font-family: $font-mercury;
+      font-family: $font-surveyor;
       font-style: italic;
-      font-weight: 500;
+      font-weight: 300;
 
       &::before,
       &::after {

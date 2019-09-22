@@ -4,12 +4,11 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 
-<nav id="MainNav" class="global-megamenu global-nav {{ mobile ? 'global-megamenu--mobile' }}" aria-labelledby="{{ uniqid }}">
+<nav id="MainNav" class="global-megamenu global-megamenu--dark global-nav {{ mobile ? 'global-megamenu--mobile' }}" aria-labelledby="{{ uniqid }}">
     <div class="show-for-sr" id="{{ uniqid }}">Main Navigation</div>
     <a href="/patternlab/" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
     {{ _self.menu_links(menus, 0, mobile) }}
 </nav>
-
 
 
 {% macro menu_links(items, menu_level, mobile) %}
@@ -39,7 +38,7 @@
 {% endmacro %}
 
 {% macro submenu_links(items, menu_level, title) %}
-  <div class="global-megamenu__slab">
+  <div class="global-megamenu__slab global-megamenu__slab--dark">
     <div class="grid grid--major-right">
 
       <div class="grid__column grid__column--minor">

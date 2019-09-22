@@ -1,4 +1,11 @@
-{% set logo = (is_main) ? 'atoms-uky-logo-main' : 'molecules-lockup' %}
+{% if (is_main) %}
+    {% set logo = 'atoms-uky-logo-main'%}
+{% elseif (site-identity) %}
+    {% set logo = 'molecules-site-identity'%}
+{% else %}
+    {% set logo = 'molecules-lockup'%}
+{% endif %}
+
 {% set clamp_variant = (is_main) ? 'clamp--main' %}
 {% set nav_molecule = nav_molecule ? nav_molecule : 'molecules-global-nav' %}
 {% include 'components-universal-header' with { universal_header_variant : clamp_variant, hide_breadcrumb: is_main } %}
