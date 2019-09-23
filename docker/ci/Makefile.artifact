@@ -1,4 +1,4 @@
-COMMIT_MSG = '"CI BUILD"'
+COMMIT_MSG = 'CI BUILD'
 
 init:
 	mkdir -pvm 0700 $(HOME)/.ssh
