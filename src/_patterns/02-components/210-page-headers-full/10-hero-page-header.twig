@@ -18,12 +18,12 @@
                     {% if with_cta %}
                         {% include 'molecules-cta-group' %}
                     {% endif %}
-                    {% if secondary_image %}
-                        <div class="page-header__secondary-img">
-                            {% include 'atoms-image' with {aspect: "1:1", width: 710} %}
-                        </div>
-                    {% endif %}
                 </div>
+                {% if secondary_image %}
+                    <div class="page-header__secondary-img">
+                        {% include 'atoms-image' with {aspect: "1:1", width: 710} %}
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
     {% endblock %}
