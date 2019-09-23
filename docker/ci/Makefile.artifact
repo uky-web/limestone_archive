@@ -22,8 +22,7 @@ replay:
 	rsync -av --delete --exclude '.git/' dist/* $(BUILD_REPO)
 
 push:
-    quotestr = $(subst ','\'',$1)
-	cd $(BUILD_REPO) && git add * && git commit -am 'CI BUILD  $(call quotestr,$(CI_COMMIT_MESSAGE))';
+	cd $(BUILD_REPO) && git add * && git commit -am 'CI BUILD  $(subst ','\'',$(CI_COMMIT_MESSAGE))';
 
 	if [ `git -C $(BUILD_REPO) ls-remote --heads origin $(CI_COMMIT_REF_NAME) | wc -l` = 1 ]; then \
 		echo "Pushing to the existing remote branch $(CI_COMMIT_REF_NAME)"; \
