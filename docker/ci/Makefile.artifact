@@ -1,3 +1,5 @@
+COMMIT_MSG = '$(CI_COMMIT_MESSAGE)'
+
 init:
 	mkdir -pvm 0700 $(HOME)/.ssh
 	echo "$(SSH_PRIVATE_KEY)" > $(HOME)/.ssh/id_rsa-gitlab-ci
@@ -23,7 +25,7 @@ replay:
 
 push:
 
-	cd $(BUILD_REPO) && git add * && git commit -am \'$(CI_COMMIT_MESSAGE)\'
+	cd $(BUILD_REPO) && git add * && git commit -am $(COMMIT_MSG)
 
 	if [ `git -C $(BUILD_REPO) ls-remote --heads origin $(CI_COMMIT_REF_NAME) | wc -l` = 1 ]; then \
 		echo "Pushing to the existing remote branch $(CI_COMMIT_REF_NAME)"; \
