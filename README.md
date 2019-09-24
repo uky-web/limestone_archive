@@ -42,25 +42,22 @@ You will not need to configure anything in this section, this information is jus
 
 ### Gulp
 
-This project's gulpfile is mounted from:
-
-`/docker/taskrunner/gulpfile.js`
-
 You will not need to make any changes to the gulpfile.
+
+This project's gulpfile is mounted from: `/docker/taskrunner/gulpfile.js`
 
 ### NPM / Yarn
 
-This project's required modules are maintained with the `Yarn` package manager and listed in:
-
+This project's required modules are maintained with the `Yarn` package manager and listed in: 
 `/docker/taskrunner/gulpfile.js`
 
 If you need to add more modules, that is the place to do it. This should always stay mounted, since the fallback configuration may not have all the required modules.
 
 ### PatternLab
+You will not need to make any changes to the PatternLab settings.
 
 This project's PatternLab settings are in `/docker/pl/config.yml` and `/docker/pl/gulpfile.js`. 
 
-You will not need to make any changes to the PatternLab settings.
 
 ## Drupal set up help
 
