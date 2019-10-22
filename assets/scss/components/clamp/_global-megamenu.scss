@@ -83,7 +83,7 @@
 
       &--dark {
         background-color: color(wildcat-blue);
-        @include usescheme-l($scheme-dark);
+        @include usescheme($scheme-dark, 'l');
 
       }
 

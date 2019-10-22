@@ -754,21 +754,17 @@ $rr-lineheights: $lineheights;
 }
 
 
-//todo replace with loop through color schemes
-@include generatescheme($scheme-dark, 'scheme-dark');
-@include generatescheme($scheme-light, 'scheme-light');
+@include generatescheme($scheme-dark, 'scheme-dark-');
+@include generatescheme($scheme-light, 'scheme-light-');
 
-@include rr-break-directive(l) {
-  @include generatescheme($scheme-dark, 'scheme-dark-l');
-  @include generatescheme($scheme-light, 'scheme-light-l');
-}
-
-@mixin usescheme($textscheme){
- @extend %#{map_get($textscheme, 'scheme-name')}--generated;
-}
-
-@mixin usescheme-l($textscheme){
-  @include rr-break-directive(l) {
-    @extend %#{map_get($textscheme, 'scheme-name')}-l--generated;
+@each $size, $settings in $rr-grid-settings {
+  @include rr-break-directive($size) {
+    @include generatescheme($scheme-dark, 'scheme-dark-'#{$size});
+    @include generatescheme($scheme-light, 'scheme-light-'#{$size});
   }
 }
+
+@mixin usescheme($textscheme, $breakpoint: ''){
+    @extend %#{map_get($textscheme, 'scheme-name')}-#{$breakpoint}--generated;
+}
+
