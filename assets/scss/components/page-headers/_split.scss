@@ -60,27 +60,27 @@
       max-height: 100%;
       padding: rr-gridbase(4) rr-gridbase(6);
       background-color: color(wildcat-blue);
-      @include usescheme($scheme-dark);
+      @include usescheme-l($scheme-dark);
     }
 
     &.slab--light-gray {
       .page-header__content {
         background-color: color(dark-blue);
-        @include usescheme($scheme-dark);
+        @include usescheme-l($scheme-dark);
       }
     }
 
     &.slab--dark-blue {
       .page-header__content {
         background-color: color(wildcat-white);
-        @include usescheme($scheme-light);
+        @include usescheme-l($scheme-light);
       }
     }
 
     &.slab--wildcat-blue {
       .page-header__content {
         background-color: color(wildcat-white);
-        @include usescheme($scheme-light);
+        @include usescheme-l($scheme-light);
       }
     }
   }
