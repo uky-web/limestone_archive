@@ -759,8 +759,8 @@ $rr-lineheights: $lineheights;
 
 @each $size, $settings in $rr-grid-settings {
   @include rr-break-directive($size) {
-    @include generatescheme($scheme-dark, 'scheme-dark-'#{$size});
-    @include generatescheme($scheme-light, 'scheme-light-'#{$size});
+    @include generatescheme($scheme-dark, 'scheme-dark-#{$size}');
+    @include generatescheme($scheme-light, 'scheme-light-#{$size}');
   }
 }
 
