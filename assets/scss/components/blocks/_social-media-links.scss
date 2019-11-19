@@ -36,7 +36,7 @@
   }
 
   &#{&}--row {
-    background-color: color(sky);
+    background-color: transparent;
 
     #{$root}__linkset {
       @include rr-font-compute(3xl, tight);
