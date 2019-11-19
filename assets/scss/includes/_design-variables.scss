@@ -717,7 +717,7 @@ $rr-lineheights: $lineheights;
 
       &:hover,
       &:active {
-        color: color(button-hover-background, $textscheme);
+        color: color(button-disabled-text, $textscheme);
       }
     }
   }
