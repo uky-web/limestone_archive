@@ -1,6 +1,5 @@
 {
     "columns": 3,
-    "head": "Call To Three Actions",
     "cta_variant": "cta--light",
     "grid_columns": [
         "components-call-to-action",

@@ -1,0 +1,10 @@
+{
+  "columns": 3,
+  "cta_variant": "cta--light",
+  "grid_columns": [
+    "components-button-group",
+    "components-button-group",
+    "components-button-group"
+  ],
+  "slab_variant": "slab--blocks"
+}
