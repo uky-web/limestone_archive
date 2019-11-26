@@ -50,3 +50,23 @@
         </div>
     {% endblock %}
 {% endembed %}
+
+{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+    {% block slab_content %}
+        <h2 class="font-blackbikerough">Blackbike Rough</h2>
+        <div class="font-blackbikerough">
+            <p>Normal text {{ sentences }}</p>
+            <p style="font-weight: bold;">Bold text {{ sentences }}</p>
+        </div>
+    {% endblock %}
+{% endembed %}
+
+{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+    {% block slab_content %}
+        <h2 class="font-blackbikeclean">Blackbike Clean</h2>
+        <div class="font-blackbikeclean">
+            <p>Normal text {{ sentences }}</p>
+            <p style="font-weight: bold;">Bold text {{ sentences }}</p>
+        </div>
+    {% endblock %}
+{% endembed %}
