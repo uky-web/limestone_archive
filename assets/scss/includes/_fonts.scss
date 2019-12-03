@@ -1,6 +1,18 @@
 //sass-lint:disable no-url-domains, no-url-protocols, no-duplicate-properties
-//@import url('https://cloud.typography.com/7932236/6118192/css/fonts.css');
+
+//Required for Hoefler (typography.com) licensing
 @import url('https://cloud.typography.com/7932236/7395812/css/fonts.css');
+
+//Required for Monotype (fonts.com) licensing
+@import url("https://fast.fonts.net/t/1.css?apiType=css&projectid=005a4192-e50c-47fd-82fb-8473aa314d9c");
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://www.fonts.com
+*/
+
+
 @font-face {
   font-family: 'AvenirNextLT';
   font-style: normal;
