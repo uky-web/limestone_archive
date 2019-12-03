@@ -1,6 +1,18 @@
 //sass-lint:disable no-url-domains, no-url-protocols, no-duplicate-properties
-//@import url('https://cloud.typography.com/7932236/6118192/css/fonts.css');
+
+//Required for Hoefler (typography.com) licensing
 @import url('https://cloud.typography.com/7932236/7395812/css/fonts.css');
+
+//Required for Monotype (fonts.com) licensing
+@import url("https://fast.fonts.net/t/1.css?apiType=css&projectid=005a4192-e50c-47fd-82fb-8473aa314d9c");
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://www.fonts.com
+*/
+
+
 @font-face {
   font-family: 'AvenirNextLT';
   font-style: normal;
@@ -82,6 +94,20 @@
   src:url("../fonts/227de6ba-fef9-435d-8693-a53a76aa1add.eot?#iefix") format("eot"),url("../fonts/dae937ec-159f-4710-9b2d-9470e24807ba.woff2") format("woff2"),url("../fonts/c8856bf2-4d23-4e30-9fb1-eede15b787b6.woff") format("woff"),url("../fonts/376f433f-1486-4168-932f-06352c8291f8.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'blackbikeclean';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/blackbike-clean-webfont.woff2') format('woff2'), url('../fonts/blackbike-clean-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'blackbikerough';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/blackbike-rough-webfont.woff2') format('woff2'), url('../fonts/blackbike-rough-webfont.woff') format('woff');
+}
+
 body {
   font-family: $font-avenirnext;
 }
@@ -100,4 +126,12 @@ body {
 
 .font-tradegothic {
   font-family: $font-tradegothic;
+}
+
+.font-blackbikeclean {
+  font-family: $font-blackbikeclean;
+}
+
+.font-blackbikerough {
+  font-family: $font-blackbikerough;
 }

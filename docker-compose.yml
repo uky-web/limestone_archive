@@ -3,7 +3,7 @@ version: '2'
 services:
   # taskrunner to compile src
   taskrunner:
-    image: newcity/taskrunner:ukd8
+    image: registry.gitlab.com/uky-web/university-web-platform/docker/taskrunner:latest
     volumes:
       # map assets in and persistent storage containers out
       - ./assets:/app/assets:ro
