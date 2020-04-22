@@ -4,7 +4,6 @@
     .page-header__content {
     padding: rr-gridbase(2) rr-prop-for-breakpoint(s, offset);
       padding-bottom: rr-gridbase(2);
-    //   border-bottom: 4px color(light-blue) solid;
 
         p {
             @include rr-font-compute(xl, tight);
@@ -54,7 +53,7 @@
         width: 66.66666667%;
         max-height: 100%;
         padding: rr-gridbase(4) rr-gridbase(6);
-         @include usescheme($scheme-dark, 'l'); //white text
+         @include usescheme($scheme-dark, 'l');
 
         .headline-group .headline-group__super{
           color: color(wildcat-white);
@@ -88,7 +87,7 @@
         .headline-group__head{
           text-shadow: none;
         }
-        
+
         .headline-group .headline-group__super{
           color: color(wildcat-black);
           text-shadow: none;
