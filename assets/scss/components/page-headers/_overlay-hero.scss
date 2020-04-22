@@ -80,29 +80,7 @@
       .headline-group__head {
         @include rr-font-compute(5xl, tight);
         text-shadow: 1px 1px 1px rgba(0,0,0,.3);
-
-      }
-  
-      &.slab--light-gray {
-        .page-header__content {
-          background-color: color(dark-blue);
-          @include usescheme($scheme-dark, 'l');
-        }
-      }
-  
-      &.slab--dark-blue {
-        .page-header__content {
-          background-color: color(wildcat-white);
-          @include usescheme($scheme-light, 'l');
-        }
-      }
-  
-      &.slab--wildcat-blue {
-        .page-header__content {
-          background-color: color(wildcat-white);
-          @include usescheme($scheme-light, 'l');
-        }
-      }
+      }  
     }
   }
   
