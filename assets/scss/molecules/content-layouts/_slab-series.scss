@@ -1,0 +1,20 @@
+.slab-series {
+    width:100%;
+    display: flex;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+
+    .slab {
+        width:100%;
+        flex-shrink: 0;
+        display: relative;
+        scroll-snap-align: start;
+    }
+
+    .slab-series__next {
+        position: absolute;
+        bottom: 10px; //TODO: use rr values
+        right: 20px;
+    }
+
+}
