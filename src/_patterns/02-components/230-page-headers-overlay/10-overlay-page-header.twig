@@ -1,4 +1,5 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
+
 {% embed 'molecules-slab' with {attrs : {id:id}, slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--overlay-hero " ~ hero_variant} %}
     {% block slab_outer %}
         <div class="page-header--overlay__hero">

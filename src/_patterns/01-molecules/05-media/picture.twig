@@ -1,0 +1,8 @@
+{% set horizontal = fake('imageUrl',{width: 1600, height: 700}) %}
+{% set vertical = fake('imageUrl',{width: 700, height: 1600}) %}
+
+<picture>
+	<source srcset="{{ horizontal }}" media="(min-width: 58rem)">
+	<source srcset="{{ vertical }}">
+	{% include 'atoms-image' %}
+</picture>
