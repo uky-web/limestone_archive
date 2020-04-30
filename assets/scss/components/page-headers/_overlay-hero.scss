@@ -1,23 +1,62 @@
+//scheme-dark is dark background image with light text
+//scheme-light is light background image with dark text
+//the default assumes a dark photo background and uses scheme dark
+//slab-light is an alternative for light photo backgrounds
+
 .page-header.page-header--overlay-hero {
-    padding: 0;
-    background-color: color(blue-gray);
-    $colors: light-gray wildcat-blue dark-blue;
-  
-    @each $color in $colors {
-      &.slab--#{$color} {
-        padding-bottom: 0;
-        border-width: 0;
-        background-color: color($color);
+    padding: 0;  
+
+    @include usescheme($scheme-dark);
+
+    &.slab--light {
+      @include usescheme($scheme-light);
+
+      .page-header__content {
+
+        p {
+          @include rr-font-compute(xl, tight);
+          text-shadow: none;
       }
-    }
+
+      .headline-group__head{
+        text-shadow: none;
+      }
+
+      .headline-group .headline-group__super{
+        color: color(wildcat-black);
+        text-shadow: none;
+      }
+
+      .cta-group .link--fancy{
+        text-shadow: none;
+      }
+      }
+    } 
   
     .page-header__content {
-      padding: rr-gridbase(2) rr-prop-for-breakpoint(s, offset);
+    padding: rr-gridbase(2) rr-prop-for-breakpoint(s, offset);
       padding-bottom: rr-gridbase(2);
-      border-bottom: 4px color(light-blue) solid;
+
+        p {
+            @include rr-font-compute(xl, tight);
+            text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+        }
     }
+
+    .headline-group .headline-group__super{
+      color: color(wildcat-white);
+      text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    }
+
+    .cta-group .link--fancy{
+      text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    }
+    
   
     .slab__wrapper {
+      display: flex;
+      position: absolute;
+      top: 0;
       padding: 0;
       border-width: 0;
     }
@@ -38,14 +77,10 @@
   
     @include rr-break-directive(l) {
       .page-header--overlay__hero {
-        width: 56%;
         margin-left: auto;
       }
   
       .slab__wrapper {
-        display: flex;
-        position: absolute;
-        top: 0;
         bottom: 0;
         left: 50%;
         align-items: center;
@@ -56,33 +91,101 @@
       }
   
       .page-header__content {
-        width: 50%;
+        width: 66.66666667%;
         max-height: 100%;
         padding: rr-gridbase(4) rr-gridbase(6);
-        background-color: color(wildcat-blue);
-        @include usescheme($scheme-dark, 'l');
+
+      }
+
+      .headline-group {
+        margin-bottom: 1rem;
+      }
+
+      .headline-group__super {
+          margin-bottom: 1rem;
+      }
+      
+      .headline-group__head {
+        @include rr-font-compute(5xl, tight);
+      }
+    
+       &.slab--light {
+        .page-header__content {
+
+          p {
+            @include rr-font-compute(xl, tight);
+            text-shadow: none;
+        }
+
+        .headline-group__head{
+          text-shadow: none;
+        }
+
+        .headline-group .headline-group__super{
+          color: color(wildcat-black);
+          text-shadow: none;
+        }
+        }
+      }  
+    }
+
+    @include rr-break-directive(l) {
+      .page-header--overlay__hero {
+        margin-left: auto;
       }
   
-      &.slab--light-gray {
-        .page-header__content {
-          background-color: color(dark-blue);
-          @include usescheme($scheme-dark, 'l');
-        }
+      .slab__wrapper {
+        bottom: 0;
+        left: 50%;
+        align-items: center;
+        width: 100%;
+        max-width: $global-width;
+        transform: translateX(-50%);
+        overflow: hidden;
       }
   
-      &.slab--dark-blue {
-        .page-header__content {
-          background-color: color(wildcat-white);
-          @include usescheme($scheme-light, 'l');
+      .page-header__content {
+        width: 66.66666667%;
+        max-height: 100%;
+        padding: rr-gridbase(4) rr-gridbase(6);
+
+        .headline-group .headline-group__super{
+          color: color(wildcat-white);
         }
       }
-  
-      &.slab--wildcat-blue {
-        .page-header__content {
-          background-color: color(wildcat-white);
-          @include usescheme($scheme-light, 'l');
-        }
+
+      .headline-group {
+        margin-bottom: 1rem;
       }
+
+      .headline-group__super {
+          margin-bottom: 1rem;
+          text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+      }
+      
+      .headline-group__head {
+        @include rr-font-compute(5xl, tight);
+        text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+
+      }
+    
+       &.slab--light {
+        .page-header__content {
+
+          p {
+            @include rr-font-compute(xl, tight);
+            text-shadow: none;
+        }
+
+        .headline-group__head{
+          text-shadow: none;
+        }
+
+        .headline-group .headline-group__super{
+          color: color(wildcat-black);
+          text-shadow: none;
+        }
+        }
+      }  
     }
   }
-  
