@@ -1,5 +1,6 @@
 {
     "with_cta" : true,
+    "with_editorial":true,
     "cta_type" : "mixed",
     "super" : "Overlay Hero Header"
 }

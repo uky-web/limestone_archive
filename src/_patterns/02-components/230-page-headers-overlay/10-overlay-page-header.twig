@@ -1,14 +1,21 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
-{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--overlay-hero " ~ hero_variant} %}
+{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--dark') ~ " page-header page-header--overlay-hero " ~ hero_variant} %}
     {% block slab_outer %}
         <div class="page-header--overlay__hero">
-            {% include 'atoms-image' with {aspect: "4:3", width: 1800} %}
+            {% include 'molecules-picture' %}
         </div>
         <div class="slab__wrapper">
             <div class="page-header__content">
                 {% include 'molecules-headline-group' with { level : 1, head:head|default(default_headline)|titleize } %}
+                {% if with_editorial %}
+                <div class="editorial">
+                    {% for i in 1..formatted_text_paragraphs|default(1) %}
+                        <p>{{ text.editorial(3) }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
                 {% if with_cta %}
-                    {% include 'molecules-cta-group' %}
+                    {% include 'molecules-cta-group' with {button_style:'button--small'}%}
                 {% endif %}
             </div>
         </div>
