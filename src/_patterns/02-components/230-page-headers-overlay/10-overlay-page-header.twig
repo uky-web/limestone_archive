@@ -1,9 +1,9 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
 
-{% embed 'molecules-slab' with {attrs : {id:id}, slab_variant : slab_variant|default('slab--light') ~ " page-header page-header--overlay-hero " ~ hero_variant} %}
+{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--dark') ~ " page-header page-header--overlay-hero " ~ hero_variant} %}
     {% block slab_outer %}
         <div class="page-header--overlay__hero">
-            {% include 'atoms-image' with {aspect: "16:7", width: 1800} %}
+            {% include 'molecules-picture' %}
         </div>
         <div class="slab__wrapper">
             <div class="page-header__content">
