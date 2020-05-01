@@ -13,8 +13,24 @@
 
     .slab-series__next {
         position: absolute;
-        bottom: 10px; //TODO: use rr values
-        right: 20px;
+        bottom: rr-gridbase(2); 
+        right: rr-gridbase(2);
+        max-width: $global-width/4;
     }
+
+    .slab-series__next-super {
+        @include rr-font-compute(xl, wide);
+    }
+
+    .slab--dark {
+        .slab-series__next-super {
+            color: color(light-blue);
+        }
+
+        .link--fancy {
+            color: color(wildcat-white);
+        }
+    }
+
 
 }
