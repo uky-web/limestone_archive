@@ -54,7 +54,6 @@
     .headline-group {
 
       .headline-group__head {
-        @include rr-font-compute(5xl, tight);
         color: color(wildcat-white);
         text-shadow: 1px 1px 1px rgba(0,0,0,.3);
       }
@@ -133,7 +132,7 @@
       }
       
       .headline-group__head {
-        @include rr-font-compute(5xl, tight);
+        // @include rr-font-compute(5xl, tight);
       }
     
        &.slab--light {
@@ -203,9 +202,6 @@
           margin-bottom: 1rem;
       }
       
-      .headline-group__head {
-        @include rr-font-compute(5xl, tight);
-      }
     
        &.slab--light {
         .page-header__content {
