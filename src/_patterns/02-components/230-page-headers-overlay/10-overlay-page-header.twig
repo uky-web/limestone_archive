@@ -1,5 +1,6 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
-{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--dark') ~ " page-header page-header--overlay-hero " ~ hero_variant} %}
+
+{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--dark') ~ " page-header page-header--overlay-hero " ~ hero_variant, attrs : {id:id} }%}
     {% block slab_outer %}
         <div class="page-header--overlay__hero">
             {% include 'molecules-picture' %}
@@ -18,6 +19,16 @@
                     {% include 'molecules-cta-group' with {button_style:'button--small'}%}
                 {% endif %}
             </div>
+
+
+        {% if with_next %}
+         <div class="slab-series__next">
+         <span class="slab-series__next-super">Next</span><br/>
+            {% include 'atoms-link' with { link_variant: link_variant|default('link--fancy'), label : fake('words',{ nb: 3 + random(5), asText: true })|capitalize, url : "#" ~ next_id } %}
         </div>
+        {% endif %}
+
+        </div>
+
     {% endblock %}
 {% endembed %}

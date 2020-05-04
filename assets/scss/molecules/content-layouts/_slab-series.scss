@@ -1,0 +1,48 @@
+.slab-series {
+    width:100%;
+    display: flex;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+
+    .slab {
+        width:100%;
+        flex-shrink: 0;
+        position: relative;
+        scroll-snap-align: start;
+    }
+
+    .slab-series__next {
+        position: absolute;
+        bottom: rr-gridbase(2); 
+        right: rr-gridbase(2);
+        max-width: $global-width/4;
+    }
+
+    .slab-series__next-super {
+        @include rr-font-compute(xl, wide);
+    }
+
+    .slab-series__next-super {
+        color: color(wildcat-white);
+        text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    }
+
+    .link--fancy {
+        color: color(wildcat-white);
+        text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    }
+    
+
+    .slab--light {
+        .slab-series__next-super {
+            color: color(wildcat-black);
+            text-shadow: none;
+        }
+
+        .link--fancy {
+            color: color(wildcat-black);
+            text-shadow: none;
+        }
+    }
+
+}
