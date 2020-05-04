@@ -7,7 +7,7 @@
     .slab {
         width:100%;
         flex-shrink: 0;
-        display: relative;
+        position: relative;
         scroll-snap-align: start;
     }
 
@@ -22,15 +22,25 @@
         @include rr-font-compute(xl, wide);
     }
 
-    .slab--dark {
+    .slab-series__next-super {
+        color: color(wildcat-white);
+        text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    }
+
+    .link--fancy {
+        color: color(wildcat-white);
+        text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    }
+    
+
+    .slab--light {
         .slab-series__next-super {
-            color: color(light-blue);
+            color: color(wildcat-black);
         }
 
         .link--fancy {
-            color: color(wildcat-white);
+            color: color(wildcat-black);
         }
     }
-
 
 }
