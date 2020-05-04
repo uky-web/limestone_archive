@@ -51,12 +51,12 @@
     }
 
     .headline-group__head {
-      @include rr-font-compute(5xl, medium);
+      @include rr-font-compute(1xl, tight);
       font-weight: 600;
     }
 
     .headline-group__super {
-      @include rr-font-compute(1xl, tight);
+      @include rr-font-compute(l, tight);
     }
 
     .headline-group__sub,
@@ -75,5 +75,26 @@
 
   .cta-group {
     margin-top: rr-gridbase(4);
+  }
+
+  @include rr-break-directive(m) {
+
+    h1 {
+      .headline-group__head {
+        @include rr-font-compute(5xl, medium);
+        font-weight: 600;
+      }
+  
+      .headline-group__super {
+        @include rr-font-compute(1xl, tight);
+      }
+  
+      .headline-group__sub,
+      .headline-group__super {
+        font-weight: 600;
+      }
+    }
+
+
   }
 }
