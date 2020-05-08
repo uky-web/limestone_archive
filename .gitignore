@@ -3,3 +3,4 @@ docker/taskrunner/node_modules/
 .idea
 .npm-dist/*
 .DS_Store
+dist/*
