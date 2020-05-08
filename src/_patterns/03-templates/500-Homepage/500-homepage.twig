@@ -7,12 +7,13 @@
 {% set call_to_actions = [ "components-large-call-to-action", "components-large-call-to-action", "components-large-call-to-action" ] %}
 
 {% block main_content %}
-    {% include 'components-' ~ page_header|default('hero-page-header')
+    {% include 'molecules-slab-series' 
         with {
-            heading_line_1: 'PERSERVERANCE',
-            heading_line_2: 'PAYS OFF'
+           page_header:'overlay-page-header' 
         }
     %}
+
+
     {% include 'components-block-columns'
         with {
             columns: 3,
