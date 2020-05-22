@@ -1,15 +1,17 @@
 .cta-group {
   display: flex;
+  flex-wrap:wrap;
   align-items: center;
   margin-right: -.5rem;
   margin-left: -.5rem;
 
   a {
-    margin: .5rem 0;
+    margin: .5rem auto;
   }
 
   @include rr-break-directive(m) {
     display: flex;
+    justify-content: unset;
     margin-right: -.5rem;
     margin-left: -.5rem;
 

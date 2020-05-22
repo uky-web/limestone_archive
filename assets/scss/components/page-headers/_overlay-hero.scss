@@ -43,6 +43,7 @@
     .page-header__content {
     padding: rr-gridbase(2) rr-prop-for-breakpoint(s, offset);
       padding-bottom: rr-gridbase(2);
+      width: 100%;
 
         p {
             @include rr-font-compute(xl, tight);
@@ -80,8 +81,9 @@
       padding: 0;
       border-width: 0;
       height:100%;
+      width: 100%;
     }
-  
+
     .cta-group {
       flex-direction: column;
       align-items: flex-start;
@@ -106,7 +108,6 @@
         left: 50%;
         display:flex;
         align-items: center;
-        width: 100%;
         max-width: $global-width;
         transform: translateX(-50%);
         overflow: hidden;

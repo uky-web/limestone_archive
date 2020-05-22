@@ -14,7 +14,7 @@ services:
       - fonts:/app/dist/fonts
       - sprites:/app/dist/sprites
       - intermediate:/app/intermediate
-      # - ./dist:/app/dist
+      - ./dist:/app/dist
       # - ./npm-dist:/app/npm-dist
       # config overrides
       # - ./docker/taskrunner/package.json:/app/package.json:ro
