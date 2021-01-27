@@ -28,8 +28,8 @@ compile:assets:
     paths:
     - dist
     expire_in: 1 week
-  #only:
-  #- master
+  only:
+  - master
 
 push:artifact:
   stage: deploy
@@ -43,85 +43,4 @@ push:artifact:
   - make replay
   - make push
 
-  # Setup ssh
-  # - mkdir -pvm 0700 ${HOME}/.ssh
-  # - echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
-  # - chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci
-  # - ls -la
-  # - cd ${HOME}
-  # - ls -la
-  # Prepare git for pushing back to repository.
-  # - git clone $REMOTE_REPO $BUILD_REPO
- #- cd $BUILD_REPO
-  # - git checkout -b "$temporary_branch"
-  # - git checkout $CI_COMMIT_REF_NAME 2>/dev/null || git checkout -b $CI_COMMIT_REF_NAME
-  # - git remote set-url --push origin $(perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#' <<< $REMOTE_REPO)
 
-  # Add changes from build
-  # - rm -Rf dist/.git
-  # - cd $BUILD_REPO
-  # - git checkout -b $CI_COMMIT_REF_NAME
-  # - git pull origin $CI_COMMIT_REF_NAME
-  #- git checkout $CI_COMMIT_REF_NAME
-  # - git status
-  # - rsync -av --delete --exclude '.git/' /builds/uky-web/patternlab/dist/* $BUILD_REPO
-  # - git status
-  # - git config --global user.email "$GITLAB_USER_EMAIL"
-  # - git config --global user.name "$GITLAB_USER_NAME"
-  # - git add *
-  # - git commit -am "CI BUILD $CI_COMMIT_MESSAGE"  || true
-
-  # #push back to the repository
-  # - git status
-  # - git push -u origin  origin/$CI_COMMIT_REF_NAME || true
-#
-#  artifacts:
-#    paths:
-#    - pl/public
-
-#    only:
-#       - master
-
-
-#generate:patternlab:
-#  image: newcity/pl-bash:latest
-#  stage: combine
-#  script:
-#    - mv /pl pl
-#    - rm -rf pl/source/*
-#    - cp -R src/* pl/source/
-#    - cd pl && php core/console --generate
-#    - cd .. && rsync -ra dist/* pl/public/
-#  artifacts:
-#    paths:
-#      - dist
-#      - pl/public
-#    expire_in: 1 week
-#  only:
-#     - master
-#
-#push:
-#  stage: deploy
-#  script:
-#    - cp docker/pl/Makefile .
-#    - make init
-#    - make clone
-#    - make replay
-#    - make push
-#  artifacts:
-#    paths:
-#      - pl/public
-#  only:
-#     - master
-#
-#pa11y:
-#  before_script:
-#    - echo "Did you know the 'a11y' abbreviation is considered inaccessable? It's true."
-#  stage: accessibility
-#  image: newcity/pa11y-sh:jhw-config
-#  script:
-#    - pwd
-#    - ls -alh /home/chrome
-#    - pa11y-ci --config /home/chrome/.pa11yci -s https://newcity.gitlab.io/uk-d8-patternlab-artifact/xml/sitemap.xml
-#  only:
-#    - master
