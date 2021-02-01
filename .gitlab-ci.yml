@@ -51,7 +51,6 @@ pages:
         - ""
   script:
     - mkdocs build
-    - mv site public
   artifacts:
     paths:
       - public
