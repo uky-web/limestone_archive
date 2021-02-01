@@ -46,9 +46,9 @@ push:artifact:
 pages:
   stage: build
   image:
-  name: squidfunk/mkdocs-material
-  entrypoint:
-    - ""
+      name: squidfunk/mkdocs-material
+      entrypoint:
+        - ""
   script:
     - mkdocs build
     - mv site public
