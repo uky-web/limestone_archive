@@ -64,7 +64,6 @@
 				'countryCode' => 'US',    // 2-letter ISO country code? https://countrycode.org/
 				'width' => 640,
 				'height' => 480,
-				'imgTag' => '*',
 				'imgProvider' => 'https://picsum.photos',
 				'imgFilter' => '',
 				'indexSize' => 2,
@@ -207,7 +206,7 @@
 					$h = $o['height'];
 				}
 				// Stomp Faker's generation of image urls in favor of our own
-				$returnable = "{$o['imgProvider']}/{$w}/{$h}/{$o['imgTag']}/{$o['imgFilter']}";
+				$returnable = "{$o['imgProvider']}/{$w}/{$h}/{$o['imgFilter']}";
 			break;
 			case 'file':
 			case 'image':
