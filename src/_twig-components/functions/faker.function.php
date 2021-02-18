@@ -65,7 +65,7 @@
 				'width' => 640,
 				'height' => 480,
 				'imgTag' => '*',
-				'imgProvider' => 'https://picsum.photos/',
+				'imgProvider' => 'https://picsum.photos',
 				'imgFilter' => '',
 				'indexSize' => 2,
 				'chanceOfGettingTrue' => 50,
