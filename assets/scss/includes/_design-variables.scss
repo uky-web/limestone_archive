@@ -597,11 +597,12 @@ $rr-lineheights: $lineheights;
         color: color(button-focus-text, $textscheme);
 
         &.button--ghost {
-          background-color: transparent;
+          //background-color: transparent;
           // Like disabled ghost, the focus state is quite different
           // and we need some extra tuning
           @if $textscheme == $scheme-dark {
-            color: color(wildcat-white);
+            //color: color(wildcat-white);
+            border-color: color(bluegrass);
           } @else {
             color: color(button-focus-text, $textscheme);
           }
