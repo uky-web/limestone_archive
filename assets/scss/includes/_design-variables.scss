@@ -602,7 +602,7 @@ $rr-lineheights: $lineheights;
           // and we need some extra tuning
           @if $textscheme == $scheme-dark {
             //color: color(wildcat-white);
-            border-color: color(bluegrass);
+            border-color: color(wildcat-white);
           } @else {
             color: color(button-focus-text, $textscheme);
           }
