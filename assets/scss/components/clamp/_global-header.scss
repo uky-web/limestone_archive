@@ -15,6 +15,18 @@
     display: none;
   }
 
+  .menu-button:focus{
+    border-color: #ffffff;
+    outline: 2px solid #ffffff;
+    background-color: #0033a0;
+    color: #DCDDDE;
+  }
+
+  .menu-button:active {
+    background: #0033a0;
+    color: #DCDDDE;
+  }
+
   @include rr-break-directive(l) {
     .slab.global-header__masthead {
       padding: rr-gridbase(3) rr-gridbase(2) rr-gridbase(1);
