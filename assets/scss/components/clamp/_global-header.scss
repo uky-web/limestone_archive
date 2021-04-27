@@ -26,6 +26,10 @@
     background: #0033a0;
     color: #DCDDDE;
   }
+  .button[aria-pressed='true']{
+    background: #0033a0;
+    color: #DCDDDE;
+  }
 
   @include rr-break-directive(l) {
     .slab.global-header__masthead {
