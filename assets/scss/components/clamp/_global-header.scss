@@ -26,7 +26,11 @@
     background: #0033a0;
     color: #DCDDDE;
   }
-  .button[aria-pressed='true']{
+  button:focus {
+    background: #0033a0;
+    color: #DCDDDE;
+  }
+  button[aria-pressed='true']{
     background: #0033a0;
     color: #DCDDDE;
   }
