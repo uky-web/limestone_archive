@@ -7,6 +7,7 @@ services:
     volumes:
       # map assets in and persistent storage containers out
       - ./assets:/app/assets:ro
+      - ./dist:/app/npm-dist
       - css:/app/dist/css
       - js:/app/dist/js
       - images:/app/dist/images
