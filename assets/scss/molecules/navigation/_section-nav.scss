@@ -1,11 +1,20 @@
 .section-nav {
 
+  + label {
+    font-size: 1.1667rem;
+    line-height: 1.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
   h2,
   h3,
   h4 {
     margin: 0;
   }
-
+  
   ol,
   ul {
     margin: rr-gridbase() 0;
