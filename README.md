@@ -2,6 +2,7 @@
 
 This project can be viewed at [http://patternlab.uky.edu].
 
+
 ## Requirements:
 
 * [Docker](https://www.docker.com/products/overview)
@@ -24,6 +25,14 @@ you can keep it up and running in a visible location. If you don't want to watch
 ```docker-compose up -d```
 
 When you want to get the output from one of the containers, use the (docker logs)[https://docs.docker.com/engine/reference/commandline/logs/] command.
+
+## Running in Gitpod
+After the workspace starts, run 2 commands to get patternlab building:
+
+`docker-compose up`
+
+`docker-compose exec taskrunner gulp watcher`
+
 
 ## Editing Patterns and Styles
 
