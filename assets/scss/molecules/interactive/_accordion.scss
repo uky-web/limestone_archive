@@ -38,7 +38,6 @@
 }
 
 .accordion__panel {
-  max-height: 100em;
   margin: 0;
   padding: 0;
   transition: visibility 0s ease-in-out, max-height .3s ease-in-out, opacity .3s ease-in-out;
