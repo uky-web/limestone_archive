@@ -25,11 +25,14 @@
   list-style: none;
 }
 
+.js-tablist__item:nth-child(2) {
+    padding: 0 20px 0 20px;
+}
+
 .js-tablist__item {
   position: relative;
   flex: 1 1 100%;
   margin-bottom: 0;
-  padding: 20px 20px 0 0;
 
   a {
     @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
