@@ -24,6 +24,7 @@
   position: relative;
   flex: 1 1 100%;
   margin-bottom: 0;
+  padding: 20px 20px 0 0;
 
   a {
     @include rr-font-compute(s, tight);
