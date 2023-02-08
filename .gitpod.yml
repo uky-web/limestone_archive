@@ -6,5 +6,9 @@
 
 tasks:
   - init: npm install
+  - command: |
+      gulp start
+      gp await-port 3001 && gp preview $(gp url 3001)
+
 
 
