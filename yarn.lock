@@ -3347,7 +3347,7 @@
     "through2" "2.0.3"
     "vinyl-sourcemaps-apply" "0.2.1"
 
-"gulp-cli@^2.2.0":
+"gulp-cli@^2.2.0", "gulp-cli@^2.3.0":
   "integrity" "sha512-zzGBl5fHo0EKSXsHzjspp3y5CONegCm8ErO5Qh0UzFzk2y4tMvzLWhoDokADbarfZRL2pGpRp7yt6gfJX4ph7A=="
   "resolved" "https://registry.npmjs.org/gulp-cli/-/gulp-cli-2.3.0.tgz"
   "version" "2.3.0"
