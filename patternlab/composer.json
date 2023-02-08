@@ -34,7 +34,8 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-			"PatternLab\\Installer::postInstallCmd"
+			"PatternLab\\Installer::postInstallCmd",
+			"sudo echo '{\"patternengines\":[\"\\\\PatternLab\\\\PatternEngine\\\\Twig\\\\PatternEngineRule\"]}' >| config/patternengines.json"
 		],
 		"post-update-cmd": [
 			"PatternLab\\Installer::postUpdateCmd"
