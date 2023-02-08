@@ -1,0 +1,69 @@
+@use '../../includes/root-rhythm';
+
+.icon-label {
+  display: flex;
+  align-items: baseline;
+
+  .ic {
+    width: auto;
+    margin-right: .55em;
+    vertical-align: baseline;
+  }
+
+  .label {
+    white-space: normal;
+  }
+}
+
+.icon-label--stacked {
+  flex-direction: column;
+  align-items: center;
+
+  .ic {
+    margin-right: 0;
+    font-size: 1.1em;
+    line-height: root-rhythm.rr-gridbase(3);
+  }
+
+  .label {
+    font-size: .5625rem;
+    font-weight: 900;
+    line-height: root-rhythm.rr-gridbase(2);
+  }
+}
+
+.icon-label--big {
+  @include root-rhythm.rr-font-compute(xl, tight);
+  align-items: center;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  .ic {
+    position: relative;
+    align-self: flex-start;
+    margin-right: .5em;
+    font-size: 2em;
+  }
+
+  @at-root button #{&},
+  .button #{&} {
+    .label {
+      font-size: 1em;
+      line-height: 1.1;
+      text-align: left;
+    }
+  }
+}
+
+a .icon-label .label {
+  @include underline-link;
+  display: inline;
+  text-decoration: none;
+}
+
+// Just to let you know this is an option.
+// This tweaks the icon-label styles so the
+// label and the icons line up
+.align-icons {
+  @include icon-label-align;
+}

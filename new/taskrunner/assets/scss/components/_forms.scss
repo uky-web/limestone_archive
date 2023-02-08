@@ -1,0 +1,95 @@
+@use '../includes/root-rhythm';
+@use '../includes/color-functions';
+@import 'forms/search-form';
+
+form {
+  margin-bottom: root-rhythm.rr-gridbase(4);
+
+  .icon-only {
+    .icon-label {
+      display: block;
+
+      .ic {
+        position: relative;
+        top: .1em;
+        margin-right: 0;
+      }
+
+      .label {
+        position: absolute;
+        left: -999999em;
+      }
+    }
+  }
+
+  .control-group {
+    display: flex;
+
+    input,
+    textarea {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    button {
+      &.icon-only {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 .3em;
+      }
+    }
+  }
+
+  label,
+  select {
+    @include root-rhythm.rr-font-compute(l, tight);
+    display: block;
+    font-weight: 500;
+
+    &.form-required {
+      &::after {
+        color: color-functions.color(alert);
+        content: '*';
+      }
+    }
+  }
+
+  .description {
+    margin-top: root-rhythm.rr-gridbase(1);
+    @include root-rhythm.rr-font-compute(s, medium);
+  }
+
+  input[type='text'],
+  input[type='password'],
+  input[type='color'],
+  input[type='date'],
+  input[type='datetime'],
+  input[type='email'],
+  input[type='month'],
+  input[type='number'],
+  input[type='range'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='time'],
+  input[type='ur'],
+  input[type='week'],
+  textarea {
+    @include root-rhythm.rr-font-compute(r, medium);
+    padding: root-rhythm.rr-grid-remainder(1px) root-rhythm.rr-gridbase(1);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    background-color: color-functions.color(wildcat-white);
+  }
+
+  input,
+  textarea,
+  select {
+    max-width: 100%;
+  }
+
+  .form-item {
+    margin-bottom: root-rhythm.rr-gridbase(2);
+  }
+}

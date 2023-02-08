@@ -1,0 +1,402 @@
+{
+  "menus": {
+    "0": {
+      "is_expanded": true,
+      "is_collapsed": false,
+      "in_active_trail": false,
+      "attributes": {},
+      "title": "Academics",
+      "url": "www.uky.edu",
+      "below": {
+        "0": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Appointment",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "General Information",
+          "url": "www.uky.edu",
+          "below": {}
+        }
+      }
+    },
+    "1": {
+      "is_expanded": true,
+      "is_collapsed": false,
+      "in_active_trail": false,
+      "attributes": {},
+      "title": "Patients & Visitors",
+      "url": "www.uky.edu",
+      "below": {
+        "0": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Appointment",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "General Information",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "2": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "New Patients",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "3": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Privacy Policy",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "4": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Your Visit",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "00": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Advanced Practice Providers",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "11": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Physicians Liaisons",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "22": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK-MDs",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "33": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK Nursing",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "44": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Bioethics Program",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "55": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Appointment",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "66": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "General Information",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "77": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "New Patients",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "88": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Privacy Policy",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "99": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Your Visit",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "0100": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Advanced Practice Providers",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "110": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Physicians Liaisons",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "220": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK-MDs",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "330": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK Nursing",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "440": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Bioethics Program",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "100": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Appointment",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "101": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "General Information",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "102": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "New Patients",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "103": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Privacy Policy",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "104": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Your Visit",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1000": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Advanced Practice Providers",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1011": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Physicians Liaisons",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1022": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK-MDs",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1033": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK Nursing",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1044": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Bioethics Program",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1055": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Appointment",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1066": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "General Information",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1077": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "New Patients",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1088": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Privacy Policy",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "1099": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Your Visit",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "100100": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Advanced Practice Providers",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "10110": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Physicians Liaisons",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "10220": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK-MDs",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "10330": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "UK Nursing",
+          "url": "www.uky.edu",
+          "below": {}
+        },
+        "10440": {
+          "is_expanded": false,
+          "is_collapsed": false,
+          "in_active_trail": false,
+          "attributes": {},
+          "title": "Bioethics Program",
+          "url": "www.uky.edu",
+          "below": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use '../../tokens/color-schemes';
+
+
+.teaser-aside--dark {
+  @include usescheme(color-schemes.$scheme-dark);
+  padding: 1rem;
+  background-color: color-schemes.$black;
+}

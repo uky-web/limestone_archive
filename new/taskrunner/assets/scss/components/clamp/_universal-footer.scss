@@ -1,0 +1,86 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+.universal-footer {
+  padding-top: root-rhythm.rr-gridbase(4);
+  padding-bottom: root-rhythm.rr-gridbase(4);
+  background-color: color-functions.color(wildcat-blue);
+
+  .uk-wordmark {
+    display: block;
+    width: 70vw;
+    height: 7.14vw;
+    margin: 0 auto root-rhythm.rr-gridbase(2);
+
+    @include root-rhythm.rr-break-directive(l) {
+      width: 20rem;
+      height: 2.04rem;
+    }
+  }
+}
+
+.universal-footer__ribbon {
+  padding-bottom: root-rhythm.rr-gridbase(2);
+  a {
+    line-height: 17px;
+    text-decoration: none;
+
+    // Text-shadow serves as a knockout of the underline around the text
+    text-shadow: 1px 0 1px color-functions.color(wildcat-blue), 2px 0 1px color-functions.color(wildcat-blue), -1px 0 1px color-functions.color(wildcat-blue), -2px 0 1px color-functions.color(wildcat-blue);
+
+    &.underline-link {
+      @include underline-link($d: color-functions.color(wildcat-white), $h: color-functions.color(light-blue-tint), $w: 1px, $alpha: .6);
+      @include link-colors($d: color-functions.color(wildcat-white), $h: color-functions.color(wildcat-white));
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      text-shadow: none;
+    }
+
+    .icon-label {
+      .label {
+        @include underline-link($d: color-functions.color(wildcat-white), $h: color-functions.color(light-blue-tint), $w: 1px, $alpha: .6);
+        @include link-colors($d: color-functions.color(wildcat-white), $h: color-functions.color(light-blue-tint));
+        font-weight: normal;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .ic--pin {
+    position: relative;
+    top: .125rem;
+    font-size: .93em;
+  }
+
+  > * {
+    margin-bottom: root-rhythm.rr-gridbase(2);
+  }
+
+  @include root-rhythm.rr-break-directive(l) {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    > * {
+      margin-right: -1px;
+      margin-bottom: 0;
+      padding: 0 root-rhythm.rr-gridbase(2);
+      border-right: 1px color-functions.color(light-blue-tint) solid;
+      border-width: 0 1px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-width: 0;
+      }
+    }
+  }
+}

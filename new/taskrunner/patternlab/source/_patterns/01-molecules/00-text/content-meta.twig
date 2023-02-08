@@ -1,0 +1,18 @@
+<div class="content-meta">
+    <div class="content-meta__who-when">
+        {% block meta_fields %}
+            <span class="byline">By {{ fake('name') }}</span>
+            <span class="date">{{ "now"|date(content_date_format|default("M d, Y - g:i a")) }}</span>
+        {% endblock %}
+    </div>
+    <div class="taxonomy-list">
+        {% block meta_taxonomy %}
+            {% set taxo = fake('words',{nb: 2 + random(3)}) %}
+            {% for w in taxo %}
+                {{ w|capitalize }}
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        {% endblock %}
+    </div> 
+</div>
+

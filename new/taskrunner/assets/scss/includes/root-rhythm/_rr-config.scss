@@ -1,0 +1,228 @@
+// maximum content width
+// If you are going for a full fluid design, set this
+// value to 100%.
+$rr-maxwidth: 72rem !default;
+
+// Divisions of the base grid size.
+$rr-line-height: 1rem !default;
+
+// How many grid squares will fit in the default line
+// height. The larger this number is, the more options
+// you have but the more difficult it becomes to establish
+// a vertical rhythm.
+$rr-grid-divisions: 2 !default;
+
+// By default, the last breakpoint is set to `$rr-maxwidth`
+// + `$rr-maxwidth-margin` to prevent a case where the
+// max content width sits against left and right margins.// 
+// If you are going for a full fluid design, set this value
+// to 0.
+$rr-maxwidth-margin: 4rem !default;
+
+// Blend mode for the grid/columns overlay. This might not
+// work on all browsers. (Looking at you, Edge.)
+$rr-blend-mode: exclusion !default;
+
+// IE support flag; should be `true` if you need to support
+// IE 11 and plan to use CSS grid layouts. (We do.)
+$rr-support-ie: true !default;
+
+// Default responsive settings, assuming a mobile-first
+// approach. The first breakpoint will be used as the 
+// default settings outside of a media query. If you do
+// not redefine a setting in a larger breakpoint it 
+// will inherit from one of the smaller breakpoints,
+// just as you would expect.
+
+$rr-grid-settings: (
+  s: (
+    mq: max-width,
+    size: 35rem,
+    columns: 4,
+    gutter: calc(1rem / $rr-grid-divisions),
+    offset: 1rem,
+    vspace: 2,
+    column_color: rgba(128, 128, 128, .2),
+    baseline_color: rgba(128, 128, 128, .2)
+  ),
+  m: (
+    mq: min-width,
+    size: 35rem,
+    columns: 8,
+    gutter: 1rem,
+    offset: 2rem,
+    vspace: 3
+  ),
+  l: (
+    size: 48rem,
+    columns: 12
+  ),
+  xl: (
+    size: $rr-maxwidth + 4rem,
+    gutter: 2rem,
+    offset: 0,
+    vspace: 4
+  )
+) !default;
+
+$rr-grids: (
+  2-up: (
+    m: (
+      columns: 2,
+    )
+  ),
+  3-up: (
+    m: (
+      columns: 3,
+    )
+  ),
+  4-up: (
+    m: (
+      columns: 2,
+    ),
+    l: (
+      columns: 4,
+    )
+  ),
+  5-up: (
+    m: (
+      columns: 3,
+    ),
+    l: (
+      columns: 5,
+    )
+  ),
+  6-up: (
+    m: (
+      columns: 3,
+    ),
+    l: (
+      columns: 6,
+    )
+  ),
+  sidebar-left: (
+    m: (
+      columns: 3,
+      areas: side main main,
+      flex-areas: (
+        article: 66.6%,
+        sidebar: 33.3%
+      )
+    ),
+    l: (
+      columns: 4,
+      areas: side main main main,
+      flex-areas: (
+        article: 75%,
+        sidebar: 25%
+      )
+    )
+  ),
+  sidebar-right: (
+    m: (
+      columns: 3,
+      areas: main main side,
+      flex-areas: (
+        article: 66.6%,
+        sidebar: 33.3%
+      )
+    ),
+    l: (
+      columns: 4,
+      areas: main main main side,
+      flex-areas: (
+        article: 75%,
+        sidebar: 25%
+      )
+    )
+  ),
+  major-left: (
+    m: (
+      columns: 2,
+      areas: major minor,
+    ),
+    l: (
+      columns: 3,
+      areas: major major minor,
+      flex-areas: (
+        major: 66.6%,
+        minor: 33.3%
+      )
+    )
+  ),
+  major-right: (
+    m: (
+      columns: 2,
+      areas: minor major,
+    ),
+    l: (
+      columns: 3,
+      areas: minor major major,
+      flex-areas: (
+        major: 66.6%,
+        minor: 33.3%
+      )
+    )
+  )
+) !default;
+
+$rr-fonts: (
+  s: (
+    xs: .75rem,
+    s: .875rem,
+    m: 1rem,
+    l: 1.125rem,
+    xl: 1.25rem,
+    2xl: 1.45rem,
+    3xl: 1.67rem,
+    4xl: 1.92rem,
+    5xl: 2.24rem
+  ),
+  l: (
+    2xl: 1.5rem,
+    3xl: 2.25rem,
+    4xl: 3rem,
+    5xl: 4.5rem
+  )
+) !default;
+
+$rr-headings: (
+  h1: (
+    size: 5xl,
+    lineheight: tight,
+    font: serif,
+    weight: normal
+  ),
+  h2: (
+    size: 4xl,
+    lineheight: tight,
+    font: serif,
+    weight: normal,
+  ),
+  h3: (
+    size: 3xl,
+    weight: normal,
+  ),
+  h4: (
+    size: 2xl,
+    weight: normal,
+  ),
+  h5: (
+    size: xl,
+    weight: normal,
+    style: italic
+  ),
+  h6: (
+    size: l,
+    weight: bold
+  )
+) !default;
+
+$rr-lineheights: (
+  squeeze: -1,
+  tight: 0,
+  medium: 1,
+  wide: 2,
+  huge: 3,
+  redic: 4
+) !default;

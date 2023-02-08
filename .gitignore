@@ -4,3 +4,7 @@ docker/taskrunner/node_modules/
 .npm-dist/*
 .DS_Store
 dist/*
+**/node_modules
+**/dist/*
+**/.npm
+**/.node-gyp

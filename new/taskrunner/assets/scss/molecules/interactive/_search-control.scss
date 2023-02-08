@@ -1,0 +1,19 @@
+@use '../../includes/root-rhythm';
+@use '../../tokens/typography';
+
+.search-control {
+  @include root-rhythm.rr-font-compute(s, tight);
+  padding: root-rhythm.rr-gridbase(1);
+  transition: color .3s ease-in-out;
+  border-width: 0;
+  background-color: transparent;
+  font-family: typography.$font-avenirnext;
+
+  &::before {
+    margin-right: .3em;
+    font-family: iconfont;
+    font-weight: normal;
+    content: $icon-magnify;
+    vertical-align: text-bottom;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="social-media-links {{ social_media_links_variant }}">
+    {% set headline_group_variant = (hide_heading) ? "show-for-sr" : "" %}
+    {% include 'molecules-headline-group' with { head: 'Connect With Us' } %}
+    <div class="social-media-links__linkset">
+        {% set icons = ['twitter','facebook','linkedin','instagram','pinterest','snapchat','youtube'] %}
+        {% spaceless %}    
+            {% for social in icons %}
+                {% if social_icons_block %}{% set icon = social ~ '-block' %}{% else %}{% set icon = social %}{% endif %}
+                <a href="http://www.{{ social }}.com/">{% include 'atoms-icon-label' with { hide_label: true, icon: icon, label:social } %}</a>
+            {% endfor %}
+        {% endspaceless %}
+    </div>
+</div>

@@ -1,0 +1,306 @@
+@use '../tokens/colors';
+@use '../tokens/color-schemes';
+@use '../tokens/typography';
+@use '../tokens/layout';
+@use 'root-rhythm';
+@use 'color-functions';
+
+
+// // This mixin generates all of the color CSS that
+// // marries the color schemes above with CSS selectors.
+// // This can generate a considerable amount of CSS,
+// // so it's probably a good place for some reengineering
+// // and refactoring. When I went down this road, I was
+// // really only expecting to change colors for a handful
+// // of items -- but by the end it had become pretty
+// // elaborate.
+
+@import 'mixins';
+
+@mixin generatescheme($textscheme, $schemename) {
+  %#{$schemename}--generated {
+    color: color-functions.color(text, $textscheme);
+    .cite-media .icon-label {
+      color: color-functions.color(media-citation, $textscheme);
+    }
+
+    .image-with-caption__media {
+      background-color: color-functions.color(media-background, $textscheme);
+    }
+
+    .icon-label--stacked {
+      .label {
+        color: color-functions.color(text, $textscheme);
+      }
+    }
+
+    a {
+      @include link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme));
+    }
+
+    .carousel figcaption a {
+      //@include underline-link($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme), $w: 1px, $alpha: .6);
+      @include link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link, $textscheme));
+    }
+
+    button,
+    a.button,
+    input.button {
+      border-color: color-functions.color(button-border, $textscheme);
+      background-color: color-functions.color(button-background, $textscheme);
+      color: color-functions.color(button-text, $textscheme);
+
+      // attach default colors to the anchor-as-button version
+      &:link {
+        border-color: color-functions.color(button-border, $textscheme);
+        background-color: color-functions.color(button-background, $textscheme);
+        color: color-functions.color(button-text, $textscheme);
+      }
+
+      &.button--ghost {
+        background-color: transparent;
+        border-color: color-functions.color(button-hover-border, $textscheme); //The background should be the 'opposite' of the border and text
+        color: color-functions.color(button-hover-text, $textscheme);
+      }
+
+      &.button--bluegrass {
+        border-color: color-functions.color(bluegrass);
+      }
+
+      &.button--transparent {
+        border-color: transparent;
+        background-color: transparent;
+        color: color-functions.color(button-border, $textscheme);
+      }
+
+      &[disabled] {
+        // sass-lint:disable-block no-important
+        border-color: color-functions.color(button-disabled-border, $textscheme) !important;
+        background-color: color-functions.color(button-disabled-background, $textscheme) !important;
+        color: color-functions.color(button-disabled-text, $textscheme) !important;
+
+        &.button--ghost {
+          background-color: transparent !important;
+          // The ghost disabled text is a weird case; we have to
+          // tune it for specific text schemes
+          @if $textscheme == color-schemes.$scheme-dark {
+            color: color-functions.color(wildcat-white) !important;
+          } @else {
+            color: color-functions.color(button-disabled-text, $textscheme) !important;
+          }
+        }
+      }
+
+      &:hover {
+        border-color: color-functions.color(button-hover-border, $textscheme);
+        background-color: color-functions.color(button-hover-background, $textscheme);
+        color: color-functions.color(button-hover-text, $textscheme);
+
+        &.button--ghost {
+          background-color: color-functions.color(button-background, $textscheme);
+          border-color: color-functions.color(button-border, $textscheme);
+          color: color-functions.color(button-text, $textscheme);
+        }
+      }
+
+      &:active,
+      &[aria-pressed='true'] {
+        border-color: color-functions.color(button-active-border, $textscheme);
+        background-color: color-functions.color(button-active-background, $textscheme);
+        color: color-functions.color(button-active-text, $textscheme);
+
+        &.button--ghost {
+          color: color-functions.color(button-active-text, $textscheme);
+        }
+
+        &.button--transparent {
+          border-color: transparent;
+          background-color: transparent;
+          color: color-functions.color(button-active-border, $textscheme);
+        }
+      }
+
+      &:focus {
+        border-color: color-functions.color(button-focus-border, $textscheme);
+        outline: none;
+        background-color: color-functions.color(button-focus-background, $textscheme);
+        color: color-functions.color(button-focus-text, $textscheme);
+
+        &.button--ghost {
+          //background-color: transparent;
+          // Like disabled ghost, the focus state is quite different
+          // and we need some extra tuning
+          @if $textscheme == color-schemes.$scheme-dark {
+            //color: color-functions.color(wildcat-white);
+            border-color: color-functions.color(wildcat-white);
+          } @else {
+            color: color-functions.color(button-focus-text, $textscheme);
+          }
+        }
+      }
+    }
+
+    .headline-group .headline-group__super {
+      color: color-functions.color(headline-group-super, $textscheme);
+    }
+
+    .headline-group .headline-group__sub {
+      color: color-functions.color(headline-group-sub, $textscheme);
+    }
+
+    .headline-group .headline-group__head a {
+      color: color-functions.color(headline-group-head, $textscheme);
+    }
+
+    .slick-prev,
+    .slick-next {
+      background-color: color-functions.color(carousel-single-button, $textscheme);
+      color: #fff;
+
+      &:hover,
+      &:focus {
+        background-color: color-functions.color(carousel-single-button, $textscheme);
+        color: #fff;
+      }
+
+      &::before {
+        color: color-functions.color(carousel-single-button-art, $textscheme);
+      }
+    }
+
+    .slick-dots li {
+      button {
+        background-color: transparent;
+        color: color-functions.color(wildcat-black);
+
+        &::before {
+          color: color-functions.color(carousel-dot, $textscheme);
+        }
+      }
+
+      &.slick-active button::before {
+        color: color-functions.color(carousel-dot-active, $textscheme);
+      }
+    }
+
+    .statistic {
+      .editorial {
+        &::before {
+          background-color: color-functions.color(statistic-head-color, $textscheme);
+        }
+      }
+
+      .headline-group {
+        .headline-group__head {
+          color: color-functions.color(statistic-head-color, $textscheme);
+        }
+
+        .headline-group__super,
+        .headline-group__sub {
+          color: color-functions.color(statistic-subhead-color, $textscheme);
+        }
+      }
+    }
+
+    .pullquote__attribution {
+      &::before {
+        background-color: color-functions.color(statistic-head-color, $textscheme);
+      }
+
+      .pullquote__first-line {
+        color: color-functions.color(statistic-subhead-color, $textscheme);
+      }
+    }
+
+    .search-control {
+      background-color: transparent;
+      color: color-functions.color(link, $textscheme);
+
+      &:hover,
+      &:active {
+        background-color: transparent;
+        color: color-functions.color(link-active, $textscheme);
+      }
+    }
+
+    .menu-button {
+      background-color: transparent;
+      color: color-functions.color(menu-icon-color, $textscheme);
+
+      &:hover,
+      &:active {
+        background-color: transparent;
+        color: color-functions.color(menu-icon-color-active, $textscheme);
+      }
+    }
+
+    .uky-logo-main {
+      .uky-logo-main__logo {
+        fill: color-functions.color(logo-color, $textscheme);
+      }
+
+      .uky-logo-main__wordmark {
+        fill: color-functions.color(wordmark-color, $textscheme);
+      }
+    }
+
+    .contact-table {
+      th,
+      td {
+        border-color: color-functions.color(dashed-border-color, $textscheme);
+      }
+    }
+
+    .social-media-links {
+      a {
+        &:link,
+        &:visited {
+          color: color-functions.color(button-background, $textscheme);
+        }
+
+        &:hover,
+        &:active {
+          color: color-functions.color(button-disabled-text, $textscheme);
+
+        }
+      }
+    }
+
+
+    form {
+      input[type='text'],
+      input[type='password'],
+      input[type='color'],
+      input[type='date'],
+      input[type='datetime'],
+      input[type='email'],
+      input[type='month'],
+      input[type='number'],
+      input[type='range'],
+      input[type='search'],
+      input[type='tel'],
+      input[type='time'],
+      input[type='url'],
+      input[type='week'],
+      textarea {
+        border-color: color-functions.color(form-borders, $textscheme);
+      }
+    }
+  }
+}
+
+
+@include generatescheme(color-schemes.$scheme-dark, 'scheme-dark-');
+@include generatescheme(color-schemes.$scheme-light, 'scheme-light-');
+
+@each $size, $settings in layout.$rr-grid-settings {
+  @include root-rhythm.rr-break-directive($size) {
+    @include generatescheme(color-schemes.$scheme-dark, 'scheme-dark-#{$size}');
+    @include generatescheme(color-schemes.$scheme-light, 'scheme-light-#{$size}');
+  }
+}
+
+@mixin usescheme($textscheme, $breakpoint: ''){
+    @extend %#{map_get($textscheme, 'scheme-name')}-#{$breakpoint}--generated;
+}
+

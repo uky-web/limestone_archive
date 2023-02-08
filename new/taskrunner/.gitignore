@@ -1,0 +1,5 @@
+node_modules
+intermediate
+dist
+.node-gyp
+.npm

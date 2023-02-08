@@ -1,0 +1,39 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+.link-group {
+  a {
+    @include root-rhythm.rr-font-compute(l, tight);
+    font-weight: 500;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.link-group__heading {
+  @include root-rhythm.rr-font-compute(xl, tight);
+  position: relative;
+  margin-bottom: root-rhythm.rr-gridbase(3);
+  padding-bottom: root-rhythm.rr-gridbase(2);
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    width:  3.125rem;
+    height: .25rem;
+    background-color: color-functions.color(light-blue);
+    content: '';
+  }
+}

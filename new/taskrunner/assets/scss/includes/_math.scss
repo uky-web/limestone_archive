@@ -1,0 +1,106 @@
+@use 'sass:math';
+
+@function pow($number, $exp) {
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  } @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
+
+@function fact($number) {
+  $value: 1;
+  @if $number > 0 {
+    @for $i from 1 through $number {
+      $value: $value * $i;
+    }
+  }
+  @return $value;
+}
+
+@function pi() {
+  @return 3.14159265359;
+}
+
+@function rad($angle) {
+  $unit: unit($angle);
+  $unitless: $angle / ($angle * 0 + 1);
+  // If the angle has 'deg' as unit, convert to radians.
+  @if $unit == deg {
+    $unitless: $unitless / 180 * pi();
+  }
+  @return $unitless;
+}
+
+@function sin($angle) {
+  $sin: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+  }
+  @return $sin;
+}
+
+@function cos($angle) {
+  $cos: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+  }
+  @return $cos;
+}
+
+@function tan($angle) {
+  @return sin($angle) / cos($angle);
+}
+
+@function sqrt ($r) {
+  @return math.sqrt($r);
+  // $x0: 1;
+  // $x1: $x0;
+
+  // @for $i from 1 through 10 {
+  //   $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+  //   $x0: $x1;
+  // }
+
+  // @return $x1;
+}
+
+// brightness mixin from https://gist.github.com/jlong/f06f5843104ee10006fe
+// Brightness math based on:
+//   http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+
+$red-magic-number: 241;
+$green-magic-number: 691;
+$blue-magic-number: 68;
+$brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number;
+
+@function brightness($color) {
+  // Extract color components
+  $red-component: red($color);
+  $green-component: green($color);
+  $blue-component: blue($color);
+
+  // Calculate a brightness value in 3d color space between 0 and 255
+  $number: sqrt(calc((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor));
+
+  // Convert to percentage and return
+  @return 100% * calc($number / 255);
+}
+
+@function contrasting-color($color, $light, $dark) {
+  @if brightness($color) < 65% {
+    @return $light;
+  } @else {
+    @return $dark;
+  }
+}

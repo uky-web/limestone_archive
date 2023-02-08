@@ -1,0 +1,337 @@
+@use "rr-util" as *;
+@use "rr-config" as *;
+
+
+// Creates a slab for a slab layout. 
+// Layout options are provided in other mixins
+// All options are driven by the global configuration
+// Slabs bring their own padding to the party which 
+// we will override in some special circumstances.
+@mixin rr-slab {
+  $breaks: rr-breakpoint-list();
+  @each $break in $breaks {
+    $vspace: rr-gridbase(rr-prop-for-breakpoint($break, vspace));
+    @if $break == nth($breaks, 1) {
+      padding: $vspace rr-prop-for-breakpoint($break, offset);
+    } @else {
+      @include rr-break-directive($break) {
+        padding: $vspace rr-prop-for-breakpoint($break, offset);
+      }
+    }
+  }
+}
+
+// This creates a slab wrapper constrained to the main content width
+@mixin rr-slab-wrapper($margins: false) {
+  max-width: $rr-maxwidth;
+  margin: 0 auto;
+  @if not $margins {
+
+    // Get rid of top margins on the first child,
+    // bottom margins on the second so those
+    // margins don't pop out of the wrapper.
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// This creates a full-bleed slab wrapper
+@mixin rr-slab-full-fullbleed {
+  max-width: none;
+  margin: 0;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Pass this a list of class names (without the '.' prefix) and 
+// adjacency classes that collapse padding between the 
+@mixin rr-slab-adjacency($style-list) {
+  @each $style in $style-list {
+    .#{""+$style}+.#{""+$style} {
+      padding-top: 0;
+    }
+  }
+}
+
+@function rr-columns-for-template($template, $break) {
+  @if map-has-key($template, $break) {
+    $break-template: map-get($template, $break);
+    @if map-has-key($break-template, columns) {
+      @return map-get($break-template, columns);
+    }
+  }
+  @return null;
+}
+
+@function rr-areas-for-template($template, $break) {
+  @if map-has-key($template, $break) {
+    $break-template: map-get($template, $break);
+    @if map-has-key($break-template, areas) {
+      @return map-get($break-template, areas);
+    }
+  }
+  @return null;
+}
+
+@function rr-flex-areas-for-template($template, $break) {
+  @if map-has-key($template, $break) {
+    $break-template: map-get($template, $break);
+    @if map-has-key($break-template, flex-areas) {
+      @return map-get($break-template, flex-areas);
+    }
+  }
+  @return null;
+}
+
+@function rr-flex-columns-for-template($template, $break) {
+  @if map-has-key($template, $break) {
+    $break-template: map-get($template, $break);
+    @if map-has-key($break-template, flex-columns) {
+      @return map-get($break-template, flex-columns);
+    }
+  }
+  @return null;
+}
+
+// Code below is by Jesse Janowiak of NewCity; currently 
+// working on integrating it with the existing code.
+// CSS GRID MIXINS
+//  `css-grid-columns( $count, $gutter, $gutter-s, $class-prefix, $breakpoint, $rr-support-ie)`
+//  `content-width( $count, $class-prefix, $breakpoint, $rr-support-ie )`
+//  `reverse-grid-columns( $count, $class-prefix, $breakpoint, $rr-support-ie )`
+// DEPENDENCIES
+// These mixins currently rely on Zurb's Foundation 6 for Sites Sass libraries,
+// specifically the `breakpoint` mixin and breakpoint values set in `foundation-settings`
+// SHARED VARIABLES
+$global-width: $rr-maxwidth !default;
+// `css-grid-columns` mixin
+// Builds a basic multi-column layout using pure CSS Grid.
+// Best used with content that divides evenly into full rows of the specified column count.
+//
+// Supports the following settings:
+//
+// $count:         The number of columns each row; defaults to 3
+// $gutter:        The space between columns; defaults to Foundation's
+//                 global $grid-column-gutter.
+//                 NOTE: Row gaps are not supported in IE. In this mixin, they are simulated
+//                 with bottom margins when the layout switches to single column.
+//                 If `$rr-support-ie` is disabled, `$gutter` can be either a single value applied
+//                 to both row and column gutters, or two values of the format
+//                 `row-gutter column-gutter`
+// $gutter-s:      If your grid breakpoint is set to 'small' so that the layout remains columned even
+//                 at the smallest breakpoint, you may want to use a narrower column gutter at that breakpoint.
+//                 Set the small gutter value here.
+// $class-prefix:  By default, all styles applied to child columns will be applied to the class
+//                 `&__column`. If you want to use a different prefix for columns than for the parent
+//                  class, set this value. DO include the leading `.`
+// $breakpoint:    The breakpoint above which the layout switches from a single column to
+//                 the specified column count. Accepts a predefined breakpoint
+//                 definition (e.g. 'medium') or a unitless pixel width.
+//                 Requires Foundation's `breakpoint` mixin or another breakpoint mixin
+//                 with the same syntax.
+// $reverse:       Applies the `reverse-grid-columns` mixin instead of the standard column placement.
+// $rr-support-ie:    If set to `false`, the fallback code for IE 10 and 11 will be omitted.
+//                 This results in cleaner stylesheet code if you don't need to support those
+//                 browsers.
+//
+// Required html markup (if this mixin is applied to a class called `.row-container`):
+// <div class="row-container">
+//
+//    <div class="row-container__column">
+//      Column Content
+//    </div>
+//
+//    <div class="row-container__column">
+//      Column Content
+//    </div>
+//
+//    <div class="row-container__column">
+//      Column Content
+//    </div>
+//
+// </div>
+@mixin css-grid-columns($templates, $config: $rr-grid-settings, $class-prefix: null, $reverse: false) {
+  $medium-size: rr-prop-for-breakpoint(m, size);
+  @if not $class-prefix {
+    $class-prefix: #{&};
+  }
+
+  $breaks: rr-breakpoint-list();
+  $flex-initialized: false;
+
+  #{$class-prefix}__column {
+    margin-bottom: rr-gridbase(2);
+    box-sizing: border-box;
+  }
+  @each $break in $breaks {
+    $num-columns: rr-columns-for-template($templates, $break);
+    $grid-gap: rr-prop-for-breakpoint($break, gutter);
+    $grid-areas: rr-areas-for-template($templates, $break);
+    $flex-areas: rr-flex-areas-for-template($templates, $break);
+    @include rr-break-directive($break) {
+      @if $num-columns {
+        $width: percentage(calc(1 / $num-columns));
+        @if (not $flex-initialized) {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: stretch;
+          justify-content: space-between;
+          $flex-initialized: true;
+        }
+        @if (not $flex-areas) {
+          #{$class-prefix}__column {
+            flex: 0 1 auto;
+            width: calc(#{$width} - #{$grid-gap});
+            @if $grid-gap {
+              margin: 0 0 ($grid-gap * 2);
+            }
+          }
+        }
+      }
+      @if $flex-areas {
+        @each $area,
+        $width in $flex-areas {
+          // try https://hugogiraudel.com/2014/01/27/casting-types-in-sass/
+          #{$class-prefix}__column--#{$area} {
+            flex: 0 1 auto;
+            width: calc(#{$width} - #{$grid-gap});
+          }
+        }
+      }
+    }
+  }
+  @supports ( grid-template-columns: 1px) {
+    display: grid;
+
+    #{$class-prefix}__column {
+      width: auto;
+      margin: 0;
+    }
+    @each $break in $breaks {
+      $num-columns: rr-columns-for-template($templates, $break);
+      $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
+      $grid-areas: rr-areas-for-template($templates, $break);
+      grid-auto-rows: auto;
+      @if $num-columns or $grid-gap {
+        @include rr-break-directive($break) {
+          @if $grid-gap {
+            grid-gap: rr-prop-for-breakpoint($break, gutter);
+          }
+          @if $num-columns {
+            grid-template-columns: repeat(#{$num-columns}, minmax(0, 1fr));
+          }
+          @if $grid-areas {
+            grid-template-areas: '#{$grid-areas}';
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// `reverse-grid-columns` mixin
+//  Changes the column order of a row created with the `css-grid-columns` from left-to-right
+//  to right-to-left. It can be set as the default layout for a specific class by passing `$reverse: true`
+//  to `css-grid-columns`, or it can be used as a stand-alone mixin for reversing the columns of
+//  an existing grid layout.
+//  NOTE: If applied to a row that is already right-to-left, this mixin will NOT switch it back to
+//        left-to-right. It only works in one direction.
+//
+// Supports the following settings:
+//
+// $count:         The number of columns each row; defaults to 3
+// $class-prefix:  By default, all styles applied to child columns will be applied to the class
+//                 `&__column`. If you want to use a different prefix for columns than for the parent
+//                  class, set this value. DO include the leading `.`
+// $breakpoint:    The breakpoint above which the layout switches from a single column to
+//                 the specified column count. Accepts a predefined breakpoint
+//                 definition (e.g. 'medium') or a unitless pixel width.
+//                 Requires Foundation's `breakpoint` mixin or another breakpoint mixin
+//                 with the same syntax.
+// $rr-support-ie:    If set to `false`, the fallback code for IE 10 and 11 will be omitted.
+//                 This results in cleaner stylesheet code if you don't need to support those
+//                 browsers.
+@mixin reverse-grid-columns($count: 3, $class-prefix: '', $breakpoint: 'medium', $rr-support-ie: true) {
+  @if $class-prefix == '' {
+    $class-prefix: #{&};
+  }
+  $class-prefix: #{'.' + $class-prefix};
+
+  #{$class-prefix}__column {
+    $ms-columns: $count + $count - 1;
+    @for $i from 0 through $count - 1 {
+      @include breakpoint($breakpoint) {
+        &:nth-child(#{$i + 1}) {
+          -ms-grid-column: $ms-columns - (($i + 1) * 2 - 1) + 1;
+          @supports ( grid-column-start: 1) {
+            grid-column-start: $count - $i;
+            grid-row: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// `content-width` mixin
+//  For the common use-case of a content column that needs to be restricted to a maximum width and centered
+//  horizontally in the viewport. Can optionally include a left and right gutter value so that a specific
+//  amount of vertical space is always reserved between the content and the viewport edges.
+//
+//  Supports the following settings:
+//
+//  $max-width:          The maximum width of the content inside this container
+//  $gutter:             Minimum distance between the content and the left and right viewport edges.
+//                       Defaults to the `$gutter-medium` value set above or inherited from another settings file.
+//  $container-selector: Selector for the content area. Defaults to `&__container`. DO include the leading `.`
+//  $rr-support-ie:         If set to `false`, the fallback code for IE 10 and 11 will be omitted.
+//                       This results in cleaner stylesheet code if you don't need to support those
+//                       browsers.
+//
+// Required html markup (if this mixin is applied to a class called `.slab` and `$container-selector` is not set):
+// <div class="slab">
+//    <div class="slab__container">
+//      Constrained Content Area
+//    </div>
+// </div>
+@mixin content-width($max-width: $global-width, $gutter: false, $container-selector: '', $rr-support-ie: true) {
+  @if ( $gutter == false) {
+    $gutter: $gutter-medium;
+  }
+  @if ( $container-selector == '') {
+    $container-selector: '#{&}__container';
+  }
+  @if ( $rr-support-ie) {
+    display: -ms-grid;
+    -ms-grid-columns: minmax($gutter, 1fr) minmax(0, $max-width) minmax($gutter, 1fr);
+    -ms-grid-rows: auto;
+
+    #{$container-selector} {
+      -ms-grid-column: 2;
+      grid-column: 2;
+      -ms-grid-column-span: 1;
+      -ms-grid-row: auto;
+      grid-row: auto;
+    }
+  }
+  @supports ( grid-template-columns: 1px) {
+    display: grid;
+    grid-template-columns: [left-margin] minmax($gutter, 1fr) [content-column] minmax(0, $max-width) [right-margin] minmax($gutter, 1fr) [viewport-end];
+
+    #{$container-selector} {
+      grid-column-start: content-column;
+    }
+  }
+}

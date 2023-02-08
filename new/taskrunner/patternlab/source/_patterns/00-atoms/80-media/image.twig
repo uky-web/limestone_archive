@@ -1,0 +1,29 @@
+{% if imgsrc is empty %}
+	{% set allowed_aspects = ["","1:1","4:3","3:2","16:7","16:9","3:4","2:3","16:7","9:16", "3:1"] %}
+	{% if aspect not in allowed_aspects %}
+		{% set aspect = "1:1" %}
+	{% endif %}
+	{% if width is empty %}
+		{% set width = 800 %}
+	{% endif %}
+	{% if aspect is empty %}
+		{% if height is empty %}
+			{% set height = 800 %}
+		{% endif %}
+		{% set standalone_header = "Image: " ~ width ~ ":" ~ height %}
+		{% set imgsrc = fake('imageUrl',{width: width, height: height}) %}
+	{% else %}
+		{% set standalone_header = "Image: " ~ aspect %}
+		{% set imgsrc = fake('imageUrl',{aspectRatio: aspect, width: width}) %}
+	{% endif %}
+{% endif %}
+
+{% if standalone %}
+	<p><b>{{ standalone_header }}</b></p>
+{% endif %}
+{% if lazy %}
+	{% set src_attr = "data-lazy" %}
+{% else %}
+	{% set src_attr = "src" %}
+{% endif %}
+<img {{ src_attr }}="{{ imgsrc }}" alt="{{ alt|default("Default alt text") }}" class="{{ image_style }}" />

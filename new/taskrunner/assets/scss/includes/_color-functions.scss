@@ -1,0 +1,64 @@
+
+
+@use 'sass:math';
+@use '../tokens/colors';
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black
+/// @param {Color} $color - Color
+/// @return {Number}
+/// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
+@function luminance($color) {
+  $colors: ( 'red': red($color), 'green': green($color), 'blue': blue($color));
+  @each $name, $value in $colors {
+    $adjusted: 0;
+    $value: calc($value / 255);
+    @if $value < .03928 {
+      $value: calc($value / 12.92);
+    } @else {
+      $value: calc(($value + .055) / 1.055);
+      $value: math.pow($value, 2.4);
+    }
+    $colors: map-merge($colors, ($name: $value));
+  }
+  @return (map-get($colors, 'red') * .2126) + (map-get($colors, 'green') * .7152) + (map-get($colors, 'blue') * .0722);
+}
+
+@function contrast($c1, $c2) {
+  $l1: luminance($c1);
+  $l2: luminance($c2);
+  @if $l1 > $l2 {
+    @return calc(($l1 + .05) / ($l2 + .05));
+  }
+  @return calc(($l2 + .05) / ($l1 + .05));
+}
+
+// This looks up a color from a scheme OR from the base 
+// color map. If you do not pass a scheme, color() assumes
+// you want something looked up from the base color map --
+// so all of the color names represet colors from the
+// color swatches ("wildcat-blue", "light-blue", etc.)
+//
+// If you want to get the color of something from one of the
+// schemes above, you can provide the scheme name as the
+// second parameter.
+
+//FIXME: This has a confusing function signature. $name is a
+// color if no $scheme is provided, but is a use context
+// (e.g. 'button border') if $scheme is provided.
+// This would be clearer (if less concise) as two mixins.
+@function color($name: wildcat-blue, $scheme: colors.$colors) {
+  @if map-has-key($scheme, $name) {
+    @return map-get($scheme, $name);
+  }
+  @return colors.$color-undefined;
+}
+
+@function gradient($name) {
+  @if map-has-key($gradients, $name) {
+    @return linear-gradient(map-get($gradients, $name));
+  }
+  @return colors.$color-undefined;
+}
+
+
+

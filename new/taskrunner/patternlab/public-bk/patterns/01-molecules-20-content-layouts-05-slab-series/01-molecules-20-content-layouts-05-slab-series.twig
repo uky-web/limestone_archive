@@ -1,0 +1,39 @@
+<div class="slab-series {{slab_series_variant}}">
+    {% include 'components-' ~ page_header|default('overlay-page-header') with { 
+            with_cta : true,
+            with_editorial:true,
+            cta_type : "mixed",
+            super : "Item #1",
+            id: "item-1",
+            slab_variant : header_slab|default(''),
+            with_cta: true,
+            with_next: true,
+            next_id: "item-2"
+        } 
+    %}
+    {% include 'components-' ~ page_header|default('overlay-page-header') with { 
+            with_cta : true,
+            with_editorial:true,
+            cta_type : "mixed",
+            super : "Item #2",
+            id: "item-2",
+            slab_variant : header_slab|default('slab--light'),
+            with_cta: true,
+            with_next: true,
+            next_id: "item-3"
+        } 
+    %}
+    {% include 'components-' ~ page_header|default('overlay-page-header') with { 
+            with_cta : true,
+            with_editorial:true,
+            cta_type : "mixed",
+            super : "Item #3",
+            id: 'item-3',
+            slab_variant : header_slab|default(''),
+            with_cta: false,
+            with_next: true,
+            next_id: "item-1"
+        } 
+    %}
+
+</div>

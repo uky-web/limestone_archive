@@ -1,0 +1,93 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+
+.accordion__header {
+  @include root-rhythm.rr-font-compute(2xl, medium);
+  width: 100%;
+  padding: {
+    top: root-rhythm.rr-grid-remainder(1px, 2);
+    right: 3.125em;
+    bottom: root-rhythm.rr-gridbase(2);
+    left: 1em;
+  }
+  border: 1px color-functions.color(light-gray) solid;
+  border-width: 1px 0 0;
+  background-color: transparent;
+  color: color-functions.color(wildcat-blue);
+  font-weight: 500;
+  text-align: left;
+  text-transform: none;
+
+
+  &:focus {
+    outline: none;
+    background-color: color-functions.color(subtle-gray);
+  }
+
+  &:active {
+    outline: none;
+    background-color: color-functions.color(light-gray);
+  }
+
+  &:hover {
+    background-color: color-functions.color(blue-gray);
+    color: color-functions.color(wildcat-black);
+  }
+}
+
+.accordion__title {
+  position: absolute;
+  left: -99999em;
+}
+
+.accordion__panel {
+  margin: 0;
+  padding: 0;
+  transition: visibility 0s ease-in-out, max-height .3s ease-in-out, opacity .3s ease-in-out;
+  opacity: 1;
+  overflow: hidden;
+  visibility: visible;
+
+  .editorial {
+    padding: {
+      top: root-rhythm.rr-gridbase(3);
+      bottom: root-rhythm.rr-gridbase(3);
+    }
+  }
+}
+
+[aria-hidden='true'].accordion__panel {
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  transition-delay: .3s, 0s, 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+button.accordion__header {
+  display: block;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: root-rhythm.rr-gridbase(3);
+    bottom: 0;
+    width: root-rhythm.rr-gridbase(3);
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    transition: transform .3s ease-in-out;
+    background: transparent url('data:image/svg+xml;utf-8,%3Csvg%20width%3D%2231%22%20height%3D%2231%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M23.282%2023.872l-7.897-7.897-7.897%207.897-2.59-2.59%207.896-7.897-7.897-7.897%202.59-2.59%207.898%207.896%207.897-7.897%202.59%202.59-7.897%207.898%207.897%207.897z%22%20fill%3D%22%231897d4%22%20stroke-color%3D%22%231897d4%22%20stroke-width%3D%221.5%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E') scroll no-repeat 50% 50% / contain;
+    font-family: 'iconfont';
+    font-size: 1.24em;
+    line-height: 1;
+    content: '';
+  }
+
+  &[aria-expanded='true']::after {
+    transform: rotate(0);
+  }
+}
+

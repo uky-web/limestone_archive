@@ -1,0 +1,135 @@
+@use '../includes/color-functions';
+@use '../includes/root-rhythm';
+@import 'mixins/m_layout';
+@import 'mixins/m_typography';
+
+// Strip decorations from unordered, ordered lists
+@mixin no-decoration {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &>li {
+    margin-left: 0;
+    text-indent: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@mixin faux-underline($d: color-functions.color(wildcat-blue), $h: color-functions.color(light-blue-tint), $w: 2px, $alpha: .4) {
+  $default: rgba($d, $alpha);
+  $hover: rgba($h, $alpha);
+  background-attachment: scroll;
+  background-image: linear-gradient(to top, $hover 0, $hover .5em, transparent .5em, transparent 110%), linear-gradient(to top, $default 0, $default $w, transparent $w, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: 0 .5em, 0 0;
+}
+
+@mixin underline-link($d: color-functions.color(wildcat-blue), $h: color-functions.color(light-blue-tint), $w: 2px, $alpha: .4) {
+  @include faux-underline($d, $h, $w, $alpha);
+  @include link-colors;
+  position: relative;
+  transition: .2s background-position ease-out;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 1;
+
+  &.link--fancy {
+    background-image: none;
+  }
+
+  // Shift the layered gradients around 
+  // to give the impression the dark inactive
+  // underline is changing color and growing.
+  // The huge offset value for the inactive state
+  // makes sure the whole underline disappears in
+  // one animation frame, otherwise you get an 
+  // unsettling flicker.
+  &:active,
+  &:hover {
+    background-position: 0 0, 1000px $w;
+  }
+}
+
+@mixin block-header-font {
+  h2,
+  h3,
+  h4 {
+    @include root-rhythm.rr-font-compute(3xl, tight);
+    font-weight: 500;
+  }
+}
+
+// TODO: Document
+@mixin block-spacing($border-color: wildcat-blue) {
+  margin-right: 0;
+  margin-left: 0;
+  padding: root-rhythm.rr-grid-remainder(3px, 2);
+  border: 3px color-functions.color($border-color) solid;
+
+  @include root-rhythm.rr-break-directive('m') {
+    padding: root-rhythm.rr-grid-remainder(3px, 3);
+  }
+
+  @include root-rhythm.rr-break-directive('l') {
+    padding: root-rhythm.rr-grid-remainder(6px, 5);
+    border-width: 6px;
+  }
+}
+
+// This mixin is a convenience tool for setting link colors
+// on the link/visited state and the hover/active state.
+// Use inside an anchor tag.
+//
+// It's not necessary to use this.
+@mixin link-colors($d: color-functions.color(wildcat-black), $h: color-functions.color(wildcat-blue)) {
+  &:link,
+  &:visited {
+    color: $d;
+  }
+
+  &:hover,
+  &:active {
+    color: $h;
+  }
+}
+
+// Adjust icon labels so the icons and labels 
+// line up
+@mixin icon-label-align {
+  .icon-label {
+    .ic {
+      width: 1em;
+    }
+
+    .label {
+      margin-left: .5em;
+    }
+  }
+}
+
+
+@mixin divider($centered: false) {
+  &::before {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 4px;
+    content: '';
+    @if $centered {
+      left: 50%;
+      transform: translateX(-50%);
+    } @else {
+      left: 0;
+    }
+  }
+}
+
+// generate the image url by prefixing the layout image path
+@function image-url($url) {
+  @return url('#{$image-url-path}#{$url}');
+}
+

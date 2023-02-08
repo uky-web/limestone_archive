@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block main_content %}
+    {% include 'components-' ~ page_header|default('text-page-header') with { head: "News", slab_variant : header_slab|default('slab--wildcat-white') } %}
+    {% include 'components-breadcrumb-slab' %}
+    {% embed 'molecules-slab-2x1' with { slab_variant : slab_variant|default('slab--wildcat-white') }  %} 
+        {% block slab_content %}
+            {% include 'components-content-list' %}
+        {% endblock %}
+        {% block slab_sidebar %}
+            {% include 'components-content-filter' with {contentType: "news"} %}
+            {% include 'components-contact-info' %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+

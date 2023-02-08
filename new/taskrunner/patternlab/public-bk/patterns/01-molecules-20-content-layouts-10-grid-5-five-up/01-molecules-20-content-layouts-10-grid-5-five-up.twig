@@ -1,0 +1,24 @@
+{% embed 'molecules-slab' %}
+    {% block slab_content %}
+        {% if include_headline %}
+        <div class="editorial">
+            {% include 'molecules-headline-group' with { level: 2, head: head|default('Grid Headline') } only %}        
+        </div>
+        {% endif %}
+        <div class="grid {{ grid_type|default('grid--2-up') }} {{ grid_style }}">
+            {% if grid_columns %}                
+                {% for col in grid_columns %}
+                <div class="grid__column">
+                    {% include col  %}
+                </div>
+                {% endfor %}
+            {% else %}
+                {% for i in 1..grid_cols|default(2) %}
+                <div class="grid__column">
+                    {% include 'atoms-placeholder' %}
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endembed %}

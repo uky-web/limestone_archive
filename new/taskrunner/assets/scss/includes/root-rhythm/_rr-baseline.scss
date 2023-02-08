@@ -1,0 +1,176 @@
+@use "rr-config" as *;
+@use "rr-grid" as *;
+@use "rr-util" as *;
+
+// Render the columns as a repeating linear gradient.
+@function rr-columns($break: s) {
+  $gutter: rr-prop-for-breakpoint($break, gutter);
+  $color: rr-prop-for-breakpoint($break, column_color);
+  $columns: rr-prop-for-breakpoint($break, columns);
+  $colwidth: calc(100% / $columns);
+  @if not $color {
+    $color: rgba(0, 0, 0, .5);
+  }
+  @return repeating-linear-gradient(to left, transparent 0, transparent $gutter, $color $gutter, $color $colwidth);
+}
+
+// Render the baselines as a simple linear gradient. This gradient has 
+// small enough values that Safari goes batshit if you try to do it with a 
+// repeating linear gradient. 
+@function rr-baselines($break: s) {
+  $baseline: rr-gridbase();
+  $color: rr-prop-for-breakpoint($break, baseline_color);
+  @if not $color {
+    $color: rgba(0, 0, 0, .5);
+  }
+  @return linear-gradient(to top, #{$color} 0, #{$color} 1px, transparent 1px, transparent 100%);
+}
+
+// Pass a fontsize and how many grid-spaces of spacing you want around it,
+// and this will return font size and line-height declarations. Line-heights
+// are sent back with a unit (instead of unitless) in an attempt to keep 
+// the grid a little more bullet-proof. 
+//
+// If you want smaller line-height than the font size, you can pass negative 
+// values.
+//
+// If you want a line height close to 1, make sure the font size is a multiple
+// of the grid base and `$steps` is 0.
+@mixin rr-font-line-height($fontsize, $steps: 0) {
+  // Our grid unit
+  $gridbase: rr-gridbase(); // Match to the font size
+  $container: ceil(calc($fontsize / $gridbase)) * $gridbase; // Add the offset value to the text
+  $leading: $steps * $gridbase;
+  font-size: $fontsize;
+  line-height: $container + $leading;
+}
+
+// Extract all the possible font sizes out of a font size config. 
+// this is more complicated than your typical keywords() op because
+// font config is organized by breakpoint, then size.
+@function rr-font-sizes($font-config: $rr-fonts) {
+  $working-map: ();
+  @each $break, $fontmap in $font-config {
+    $working-map: map-merge($working-map, $fontmap);
+  }
+  @return map-keys($working-map);
+}
+
+// Pass a font tag and a lineheight tag and rr-font-config returns font size and
+// line height properties for each breakpoint.
+@mixin rr-font-compute($size: m, $lineheight: medium, $font-config: $rr-fonts, $lineheight-config: $rr-lineheights) {
+
+  $breaks: rr-breakpoint-list();
+  $linegridheight: map-get($lineheight-config, $lineheight);
+  @each $break in $breaks {
+    @if map-has-key($font-config, $break) {
+      $font-size-set: map-get($font-config, $break);
+      @if map-has-key($font-size-set, $size) {
+        @include rr-break-directive($break) {
+          $fontsize: map-get($font-size-set, $size);
+          @include rr-font-line-height($fontsize, $linegridheight);
+        }
+      }
+    }
+  }
+}
+
+// Builds a list of style rules with the specified prefix, size tag, and
+// lineheight tag. Useful for building pattern libraries or if you intend
+// to expose design capabilities through css.
+@mixin rr-font-samples($prefix: 'text', $font-config: $rr-fonts, $lineheight-config: $rr-lineheights) {
+  $font-sizes: rr-font-sizes($font-config);
+  @each $fs in $font-sizes {
+    @each $name, $size in $fs {
+      @each $linename, $lineheight in $lineheight-config {
+        .#{$prefix}-#{$name}-#{$linename} {
+          background-color: rgba(200, 255, 200, .3);
+          @include rr-font-compute($name, $linename);
+        }
+      }
+    }
+  }
+}
+
+// Builds basic heading layout using the heading style configuration, including
+// media queries.
+@mixin rr-heading($config-map-tag, $heading-config: $rr-headings) {
+  @if map-has-key($heading-config, $config-map-tag) {
+    $config: map-get($map: $heading-config, $key: $config-map-tag);
+    $size: m;
+    @if map-has-key($config, size) {
+      $size: map-get($config, size);
+    }
+    $lineheight: medium;
+    @if map-has-key($config, lineheight) {
+      $lineheight: map-get($config, lineheight);
+    }
+    @include rr-font-compute($size, $lineheight);
+    $font: sans-serif;
+    @if map-has-key($config, font) {
+      $font: map-get($config, font);
+    }
+    font-family: $font;
+    @if map-has-key($config, weight) {
+      font-weight: map-get($config, weight);
+    }
+    @if map-has-key($config, style) {
+      font-style: map-get($config, style);
+    }
+  }
+}
+
+// Add columns to a ::before pseudoelement, gridlines to an ::after pseudoelement.
+@mixin rr-grid-overlay {
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: $rr-maxwidth;
+    min-height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+    content: '';
+    z-index: 1000;
+    pointer-events: none;
+    mix-blend-mode: $rr-blend-mode;
+    $breaks: rr-breakpoint-list();
+    @each $break in $breaks {
+      $offset: rr-prop-for-breakpoint($break, offset);
+      $gutter: rr-prop-for-breakpoint($break, gutter);
+      $cols: rr-prop-for-breakpoint($break, columns);
+      @include rr-break-directive($break) {
+        @if $offset > 0 {
+          width: calc(100% - (2 * #{$offset}));
+        } @else {
+          width: 100%;
+        }
+        background-image: rr-columns($break);
+        background-size: calc(100% + #{$gutter});
+      }
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+    content: '';
+    z-index: 1000;
+    pointer-events: none;
+    mix-blend-mode: $rr-blend-mode;
+    $breaks: rr-breakpoint-list();
+    @each $break in $breaks {
+      @include rr-break-directive($break) {
+        background: transparent rr-baselines($break) scroll repeat left top / 100% rr-gridbase();
+      }
+    }
+  }
+}

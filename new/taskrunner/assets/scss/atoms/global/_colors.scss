@@ -1,0 +1,33 @@
+@use '../../tokens/colors';
+@use '../../tokens/color-schemes';
+@use '../../includes/color-functions';
+
+
+@mixin show-color($color) {
+  background-color: $color;
+
+  &::before {
+    $swatch-label-background: rgba(color-schemes.$black, .5);
+    $swatch-label-foreground: color-schemes.$white;
+    @if (brightness($color) > 50) {
+      $swatch-label-background: rgba(color-schemes.$white, .5);
+      $swatch-label-foreground: color-schemes.$black;
+    }
+
+    display: inline-block;
+    padding: .5em;
+    border-radius: 0 0 4px;
+    background-color: $swatch-label-background;
+    color: $swatch-label-foreground;
+    font-size: 12px;
+    font-weight: bold;
+    content: '#{$color}';
+  }
+}
+
+@each $name, $color in colors.$colors {
+  .bg-#{""+$name} {
+    @include show-color($color)
+  }
+}
+

@@ -1,0 +1,9 @@
+{% if num is empty %}
+    {% set num = 10 %}
+{% endif %}
+<div class="item-list">
+    {% for i in 1..num  %}
+        {% include 'components-teaser' %}
+    {% endfor %}
+    {% if num >= 10 %}{% include 'molecules-pagination' %}{% endif %}
+</div>

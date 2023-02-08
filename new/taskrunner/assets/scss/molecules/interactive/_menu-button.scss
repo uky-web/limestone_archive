@@ -1,0 +1,8 @@
+@use '../../includes/root-rhythm';
+
+.menu-button {
+  margin-right: root-rhythm.rr-gridbase(2);
+  padding: 0;
+  border-width: 0;
+  width:auto;
+}

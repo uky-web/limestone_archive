@@ -1,0 +1,9 @@
+.link-collection {
+  &__header {
+    margin-bottom: 1rem;
+  }
+}
+
+.link-collection--bordered {
+  @include block-spacing;
+}

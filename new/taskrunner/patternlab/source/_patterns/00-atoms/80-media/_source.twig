@@ -1,0 +1,5 @@
+{% set fake1x = fake('imageUrl',{ height: height|default(640), width: width|default(480)}) ~ ' 1x' %}
+{% set fake1_5x = fake('imageUrl',{ height: (height * 1.5)|default(975), width: (width * 1.5)|default(720)})  ~ ' 1.5x' %}
+{% set fake2x = fake('imageUrl',{ height: (height * 2)|default(1280), width: (width * 2)|default(960)}) ~ ' 2x' %}
+
+<source srcset="{{ fake1x }}, {{ fake1_5x}}, {{ fake2x }}" media="{{ mediaQuery }}" type="image/jpeg">

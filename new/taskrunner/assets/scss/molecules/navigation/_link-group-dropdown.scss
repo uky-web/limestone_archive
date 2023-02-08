@@ -1,0 +1,56 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/layout';
+
+.link-group-dropdown {
+  position:relative;
+  a {
+    //@include root-rhythm.rr-font-compute(l, tight);
+    font-weight: 500;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.link-group-dropdown__button {
+  //@include root-rhythm.rr-font-compute(xl, tight);
+  position: relative;
+  margin-bottom: root-rhythm.rr-gridbase(3);
+  padding-bottom: root-rhythm.rr-gridbase(2);
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    width:  3.125rem;
+    height: .25rem;
+    background-color: color-functions.color(light-blue);
+    content: '';
+  }
+}
+
+.link-group-dropdown__menu {
+  display:none;
+  position: absolute;
+  padding: root-rhythm.rr-gridbase(2);
+  top: calc( 100% + #{rr-gridbase(1.5)});
+  right:0;
+  z-index: 1000;
+  background-color: color-functions.color(midnight);
+  width: layout.$global-width/4;
+}
+
+.link-group-dropdown[aria-expanded="true"] .link-group-dropdown__menu {
+  display: block;
+}

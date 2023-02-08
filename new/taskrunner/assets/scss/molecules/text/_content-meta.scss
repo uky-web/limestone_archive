@@ -1,0 +1,33 @@
+@use '../../includes/root-rhythm';
+
+.content-meta {
+  margin-bottom: root-rhythm.rr-gridbase(1);
+
+  .byline,
+  .location,
+  .date {
+    @include root-rhythm.rr-font-compute(l, medium);
+  }
+
+  .byline,
+  .date,
+  .who-when {
+    font-weight: 500;
+  }
+
+  .taxonomy-list {
+    @include root-rhythm.rr-font-compute(r, medium);
+    display: block;
+    font-style: italic;
+  }
+
+  a {
+    @include underline-link;
+  }
+
+  span + span {
+    &::before {
+      content: ' | ';
+    }
+  }
+}

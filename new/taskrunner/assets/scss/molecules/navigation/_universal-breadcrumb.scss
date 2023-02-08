@@ -1,0 +1,74 @@
+@use '../../includes/root-rhythm';
+@use '../../tokens/typography';
+@use '../../includes/color-functions';
+
+
+.universal-breadcrumb {
+  display: none;
+
+  @include root-rhythm.rr-break-directive(m) {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .link--fancy-reverse {
+    @include root-rhythm.rr-font-compute(r, tight);
+    margin-left: -1rem;
+    padding-left: 1rem;
+
+    &::before {
+      top: .05em;
+      content: $icon-triangle-left;
+    }
+  }
+
+  sub {
+    position: relative;
+    top: .1875rem;
+    left: -.05rem;
+    font-size: inherit;
+  }
+
+  ul {
+    @include root-rhythm.rr-font-compute(s, tight);
+    margin-left: 1rem;
+    padding: 0;
+    font-family: typography.$font-mercury;
+    font-weight: normal;
+    list-style: none;
+
+    @include root-rhythm.rr-break-directive(m) {
+      @include root-rhythm.rr-font-compute(r, tight);
+    }
+
+    @include root-rhythm.rr-break-directive(l) {
+      @include root-rhythm.rr-font-compute(l, tight);
+      margin: 0 0 0 1rem;
+    }
+
+    li {
+      display: inline;
+      position: relative;
+      margin-right: calc(2rem + 1px);
+
+      &::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -1rem;
+        width: 1px;
+        height: 1rem;
+        transform: translateY(-50%);
+        background-color: color-functions.color(wildcat-white);
+        content: '';
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+}

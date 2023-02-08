@@ -1,0 +1,16 @@
+{% if standalone %}
+    {% set toggle_id = "standalone_"|uniqid %}
+    {% set toggle_class = "toggle-button__demo--active" %}
+    {% set data_obj = { 
+        toggle: '#' ~ toggle_id, 
+        toggle_class:toggle_class, 
+        toggle_viz:'true' } %}
+{% endif %}
+
+{% set attr_obj = { aria_pressed: "false" }  %}
+
+{% include 'atoms-icon-button' with { button_variant:toggle_button_variant ~ " toggle-button" } %}
+
+{% if standalone %}
+<div id="{{ toggle_id }}" hidden class="toggle-button__demo">Sample Toggle Panel</div>
+{% endif %}

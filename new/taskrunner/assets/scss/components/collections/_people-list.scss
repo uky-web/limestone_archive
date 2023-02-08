@@ -1,0 +1,98 @@
+@use '../../tokens/typography';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+.people-list {
+  width: 100%;
+  border-collapse: collapse;
+
+  .contact-info--sheet {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: transparent;
+  }
+
+  dl {
+    margin: 0;
+  }
+
+  caption {
+    position: absolute;
+    left: -999999em;
+  }
+
+  .contact-info {
+    margin-top: 1rem;
+    margin-bottom: 0;
+
+    dd {
+      @include root-rhythm.rr-font-compute(r, medium);
+
+      .link--fancy {
+        @include root-rhythm.rr-font-compute(r, medium);
+      }
+    }
+  }
+
+  .people-list--name {
+    @include root-rhythm.rr-font-compute(2xl, tight);
+    font-family: typography.$font-surveyor;
+    font-weight: 600;
+  }
+
+  thead {
+    position: absolute;
+    left: -99999999em;
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px dashed color-functions.color(light-gray);
+
+      &:last-child {
+        border-width: 0;
+      }
+    }
+
+    td {
+      @include root-rhythm.rr-font-compute(r, medium);
+      padding: 1rem;
+    }
+  }
+
+  @include root-rhythm.rr-break-directive(m) {
+    width: 100%;
+    border-spacing: 0;
+
+    td:nth-child(1) {
+      width: 50%;
+    }
+  }
+
+  @include root-rhythm.rr-break-directive(l) {
+    td:nth-child(1) {
+      width: 20%;
+      vertical-align: top;
+    }
+  }
+
+  // This is the opposite of mobile-first but
+  // is cleaner for responsifying tables. 
+  // See http://adrianroselli.com/2017/11/a-responsive-accessible-table.html#Responsive
+  @media all and (max-width: 58em) {
+    table,
+    tr,
+    td {
+      display: block;
+      width: auto;
+    }
+
+    thead {
+      display: none; // Headers are useless to screenreaders at this size
+    }
+
+    td {
+      padding: root-rhythm.rr-gridbase() root-rhythm.rr-gridbase(2);
+    }
+  }
+}

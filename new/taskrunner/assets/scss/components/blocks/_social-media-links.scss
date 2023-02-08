@@ -1,0 +1,73 @@
+@use '../../tokens/color-schemes';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+.social-media-links {
+  padding: root-rhythm.rr-gridbase(4);
+  background-color: color-functions.color(sky);
+
+  &__linkset {
+    // The margin around each link 
+    $cm: root-rhythm.rr-gridbase(2);
+    @include root-rhythm.rr-font-compute(4xl, tight);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: ($cm * 2) ($cm * -1) ($cm * -1);
+
+    a {
+      width: 2.8rem;
+      margin: 0 $cm $cm;
+      text-align: center;
+    }
+  }
+
+  $root: &;
+
+  &#{&}--dark {
+    @include usescheme(color-schemes.$scheme-dark);
+    background-color: color-functions.color(wildcat-blue);
+  }
+
+  &#{&}--blocks {
+    #{$root}__linkset {
+      @include root-rhythm.rr-font-compute(5xl, tight);
+
+      a {
+        text-align: left;
+      }
+    }
+  }
+
+  &#{&}--row {
+    background-color: transparent;
+
+    #{$root}__linkset {
+      @include root-rhythm.rr-font-compute(3xl, tight);
+      display: block;
+
+      a {
+        display: inline-block;
+        margin: 0 .3em .3em 0;
+
+        .icon-label {
+          justify-content: center;
+
+          .ic {
+            margin: 0;
+          }
+
+          .show-for-sr {
+            position: absolute;
+          }
+        }
+      }
+
+      @supports (display: grid) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1.5em, 1fr));
+        grid-gap: .3em;
+      }
+    }
+  }
+}

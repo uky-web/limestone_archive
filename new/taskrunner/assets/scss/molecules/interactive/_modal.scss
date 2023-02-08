@@ -1,0 +1,83 @@
+// removes scroll when modal is opened 
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/layout';
+
+
+.no-scroll {
+  overflow: hidden;
+}
+
+// overlay covers everything 
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: color-functions.color(wildcat-blue);
+  opacity: .89;
+  z-index: 666;
+}
+
+// modal 
+
+.mfp-inline-holder,
+.mfp-image-holder {
+  .mfp-close {
+    color: color-functions.color(wildcat-blue);
+
+    &:hover {
+      color: color-functions.color(wildcat-white);
+    }
+  }
+}
+
+.modal-display {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: layout.$global-width;
+  margin: 0;
+  padding: root-rhythm.rr-gridbase(2);
+  border-width: 0;
+  background: color-functions.color(wildcat-white);
+  z-index: 667;
+  overflow-x: none;
+  overflow-y: auto;
+
+  @include root-rhythm.rr-break-directive(l) {
+    position: fixed;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    max-height: 95vh;
+    padding: root-rhythm.rr-gridbase(4);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @include root-rhythm.rr-break-directive(xl) {
+    padding: root-rhythm.rr-gridbase(8);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: root-rhythm.rr-gridbase(2);
+  right: root-rhythm.rr-gridbase(2);
+  padding: 0;
+  border: 0;
+
+  &::after {
+    display: inline-block;
+    margin-left: .3em;
+    font-family: 'iconfont';
+    font-size: 2em;
+    content: $icon-close;
+    vertical-align: middle;
+  }
+}
