@@ -1,3 +1,0 @@
-{% for i in 1 .. numParagraphs|default(1) %}
-<p class="{{ paragraph_variant }}">{{ content|default(fake('paragraph',{nb: numParagraphs})) }}</p>
-{% endfor %}

@@ -1,5 +1,0 @@
-{
-  "_COMMENT": "include the key -> arrays below in Twig with e.g., {{ fake('json', {'custom' : 'academicTitle'}) }}",
-  
-  "academicTitle": ["Professor", "Administator", "Snowplow operator"]
-}

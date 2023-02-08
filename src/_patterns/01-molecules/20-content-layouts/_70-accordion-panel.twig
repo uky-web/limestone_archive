@@ -1,8 +1,0 @@
-<div class="accordion-item{% if accordion_panel_active %} is-active{% endif %}" data-accordion-item data-deep-link="true" data-update-history="true">
-	<a href="#" class="accordion-title">{{ accordion_panel_headline|default('Accordion Panel') }}</a>
-	<div class="accordion-content" data-tab-content>
-		{% block accordion_panel_content %}
-			{% include 'atoms-paragraph' %}
-		{% endblock %}
-	</div>
-</div>

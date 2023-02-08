@@ -1,6 +1,0 @@
-{
-    "columns" : 3,
-    "head" : "Teasers, three columns",
-    "grid_columns" : ["components-teaser","components-teaser","components-teaser"],
-    "slab_variant" : "slab--blocks"
-}

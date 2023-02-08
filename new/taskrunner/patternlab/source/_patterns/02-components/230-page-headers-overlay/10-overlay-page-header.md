@@ -1,4 +1,0 @@
----
-Title: Overlay Hero Headers
----
-

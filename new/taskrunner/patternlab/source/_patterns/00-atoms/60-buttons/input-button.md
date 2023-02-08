@@ -1,1 +1,0 @@
-<input type="{{ input_button_type|default('button') }}" value="{{ label|default('Input Button: ' ~ input_button_type) }}" />

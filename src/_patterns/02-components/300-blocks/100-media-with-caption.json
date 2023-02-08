@@ -1,8 +1,0 @@
-{
-    "media" : "image",
-    "icon" : "camera",
-    "headline" : "Image with Caption",
-    "aspect" : "4:3",
-    "width" : 600,
-    "media_pattern" : "atoms-image"
-}

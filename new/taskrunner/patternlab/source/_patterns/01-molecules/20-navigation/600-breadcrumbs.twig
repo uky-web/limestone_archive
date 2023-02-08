@@ -1,9 +1,0 @@
-
-<nav class="breadcrumbs">
-  <ul class="no-decoration">
-    <li>{% include 'atoms-link' with { label: 'Home' } %}</li>
-    {% for i in 0 .. 3 %}
-      <li>{% include 'atoms-link' with { label: fake('words',{nb: 1 + random(10), asText: true})|capitalize } %}</li>
-    {% endfor %}
-  </ul>
-</nav>

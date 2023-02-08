@@ -1,8 +1,0 @@
-{% extends 'base.twig' %}
-
-{% block main_content %}
-    {% include 'components-' ~ page_header|default('text-page-header') with { head: fake("name"), sub: fake("jobTitle"), secondary_image: true, slab_variant : header_slab|default('slab--wildcat-white') } %}
-    {% include 'components-breadcrumb-slab' %}
-    {% include 'components-sidebar-profile' with { slab_variant : slab_variant|default('slab--wildcat-white'), hide_image: hide_image }  %} 
-{% endblock %}
-
