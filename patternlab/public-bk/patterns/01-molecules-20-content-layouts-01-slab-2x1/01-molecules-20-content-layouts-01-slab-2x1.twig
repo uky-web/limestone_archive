@@ -1,0 +1,14 @@
+<div class="slab {{ slab_variant }}">
+    <div class="grid grid--major-left">
+        <div class="grid__column grid__column--major">
+            {% block slab_content %}
+                {% include 'atoms-placeholder' %}
+            {% endblock %}
+        </div>                        
+        <div class="grid__column grid__column--minor">
+            {% block slab_sidebar %}
+                {% include 'atoms-placeholder' %}
+            {% endblock %}
+        </div>
+    </div>
+</div>

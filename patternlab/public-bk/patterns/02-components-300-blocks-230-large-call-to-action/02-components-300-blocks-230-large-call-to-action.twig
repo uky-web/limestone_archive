@@ -1,0 +1,9 @@
+<div class="cta large-cta text-center {{ cta_variant }}">
+    {% include 'molecules-headline-group' with { head: random(['99.99%','99th','9 out of 10','$9,999,999','9:10','98/99']), sub: fake('bs') } %}
+    {% include 'atoms-formatted-text' with { formatted_text_sentences : 1 } %}
+    {% if cta_variant in ['cta--dark', 'cta--ghost'] %}
+        <p>{% include 'atoms-button' with { button_variant: 'button--ghost' } %}</p>
+    {% else %}
+        <p>{% include 'atoms-button' %}</p>
+    {% endif %}
+</div>

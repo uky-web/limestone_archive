@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @function pow($number, $exp) {
   $value: 1;
   @if $exp > 0 {
@@ -61,15 +63,16 @@
 }
 
 @function sqrt ($r) {
-  $x0: 1;
-  $x1: $x0;
+  @return math.sqrt($r);
+  // $x0: 1;
+  // $x1: $x0;
 
-  @for $i from 1 through 10 {
-    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-    $x0: $x1;
-  }
+  // @for $i from 1 through 10 {
+  //   $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+  //   $x0: $x1;
+  // }
 
-  @return $x1;
+  // @return $x1;
 }
 
 // brightness mixin from https://gist.github.com/jlong/f06f5843104ee10006fe
@@ -88,10 +91,10 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   $blue-component: blue($color);
 
   // Calculate a brightness value in 3d color space between 0 and 255
-  $number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
+  $number: sqrt(calc((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor));
 
   // Convert to percentage and return
-  @return 100% * $number / 255;
+  @return 100% * calc($number / 255);
 }
 
 @function contrasting-color($color, $light, $dark) {

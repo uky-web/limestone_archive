@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+{% block main_content %}
+
+{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white' } %}
+    {% block slab_content %}
+        {% for i in 2..6 %}
+            {% include 'atoms-heading' with { level: i, headline: 'H' ~ i ~ '. ' ~ fake('bs')|titleize } %}
+            {% include 'atoms-formatted-text' with { formatted_text_paragraphs:random(5), formatted_text_sentences : 10 + random(10) } %}
+        {% endfor %}
+        {% for i in 2..6 %}
+            {% include 'molecules-headline-group' with { level: i, super: 'H' ~ i ~ ' headline group', head: fake('bs')|titleize, sub: fake('catchPhrase') } %}
+            {% include 'atoms-formatted-text' with { formatted_text_paragraphs:random(5), formatted_text_sentences : 10 + random(10) } %}
+        {% endfor %}        
+    {% endblock %}
+{% endembed %}
+
+{% endblock %}

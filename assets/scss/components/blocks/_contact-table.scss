@@ -1,20 +1,23 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
 .contact-table {
   width: 100%;
   border-collapse: collapse;
 
   th {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight);
     display: block;
-    padding: rr-gridbase(1) 0 0;
+    padding: root-rhythm.rr-gridbase(1) 0 0;
     font-weight: 400;
     text-align: left;
   }
 
   td {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight);
     display: block;
-    padding: 0 0 rr-gridbase(1);
-    border-bottom: 1px color(wildcat-black) dashed;
+    padding: 0 0 root-rhythm.rr-gridbase(1);
+    border-bottom: 1px color-functions.color(wildcat-black) dashed;
     font-weight: 500;
   }
 
@@ -25,12 +28,12 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     th,
     td {
       display: table-cell;
-      padding: rr-gridbase(1) 0;
-      border-bottom: 1px color(wildcat-black) dashed;
+      padding: root-rhythm.rr-gridbase(1) 0;
+      border-bottom: 1px color-functions.color(wildcat-black) dashed;
     }
 
     td {

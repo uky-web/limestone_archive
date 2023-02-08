@@ -1,8 +1,10 @@
+@use '../includes/root-rhythm';
+
 ul,
 ol {
   li {
-    @include rr-font-compute(r, medium);
-    margin-bottom: rr-gridbase();
+    @include root-rhythm.rr-font-compute(r, medium);
+    margin-bottom:root-rhythm.rr-gridbase();
   }
 
   &.no-decoration {
@@ -12,14 +14,14 @@ ol {
 
 dl {
   dt {
-    @include rr-font-compute(l, medium);
-    margin-bottom: rr-gridbase(1);
+    @include root-rhythm.rr-font-compute(l, medium);
+    margin-bottom:root-rhythm.rr-gridbase(1);
     font-weight: 500;
   }
 
   dd {
-    @include rr-font-compute(r, medium);
-    margin-bottom: rr-gridbase(2);
+    @include root-rhythm.rr-font-compute(r, medium);
+    margin-bottom:root-rhythm.rr-gridbase(2);
     margin-left: 0;
   }
 

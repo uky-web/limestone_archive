@@ -1,0 +1,127 @@
+// Font Shortcuts
+// Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
+$font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
+
+// Surveyor Display (from typography.com)  NB: limited weights and styles provided, see typography.com project dashboard
+$font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
+
+
+// Avenir Next styles (from fonts.com)
+$font-avenirnext: 'AvenirNextLT', sans-serif;
+
+//TODO: These do not appear to be implemented. If needed as separate fonts
+//they should be correctly named in _fonts.scss
+//$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
+//$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
+//$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
+//$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
+
+// Trade Gothic styles (from fonts.com)
+$font-tradegothic: 'TradeGothicCond', sans-serif;
+//$font-tradegothic__bold: 'TradeGothic Next LT W01 Bd Cn', sans-serif;
+
+// Blackbike styles (generated from fontsquirrel.com)
+$font-blackbikeclean: 'blackbikeclean', serif;
+$font-blackbikerough: 'blackbikerough', serif;
+
+
+
+// Line heights in grid units. These are all
+// relative to the font size, so "tight" has a line
+// height that represents just enough space
+// to contain a line of font text, whereas "redic"
+// is pretty massive.
+//
+// rr-font-compute(size,lineheight) will provide
+// a font-size, line-height combination in rem,
+// along with the required media queries to ensure
+// font sizes change in a standardized fashion.
+//
+// It is preferable to using font size and line
+// height directly in the code.
+$lineheights: (
+  hpc: -2,
+  squeeze: -1,
+  tight: 0,
+  medium: 1,
+  wide: 2,
+  huge: 3,
+  redic: 4
+);
+
+// This map lets us specify font sizes by a name
+// rather than a specific value. You can create
+// new sizes by adding a new name. The font sizes
+// change based on breakpoint.
+
+// rr-font-compute(size,lineheight) will provide
+// a font-size, line-height combination in rem,
+// along with the required media queries to ensure
+// font sizes change in a standardized fashion.
+//
+// It is preferable to using font size and line
+// height directly in the code.
+$fonts: (
+  s: (
+    xs: .75rem,
+    s: .875rem,
+    r: 1rem,
+    l: 1.1667rem,
+    xl: 1.25rem,
+    2xl: 1.5rem,
+    3xl: 1.775rem,
+    4xl: 2rem,
+    5xl: 2.4286rem,
+    6xl: 4.5rem
+  ),
+  xl: (
+    xs: .75rem,
+    s: .875rem,
+    r: 1rem,
+    l: 1.1667rem,
+    xl: 1.25rem,
+    2xl: 1.5rem,
+    3xl: 1.875rem,
+    4xl: 2.375rem,
+    5xl: 3.4286rem,
+    6xl: 6.3rem
+  )
+);
+
+$font-sizes: rr-font-sizes();
+
+// Establish header sizes for the editorial
+// headings.
+$editorial-headings: (
+  h2: (
+    size: 4xl,
+    lineheight: tight,
+    weight: normal,
+  ),
+  h3: (
+    size: 3xl,
+    lineheight: tight,
+    weight: normal,
+  ),
+  h4: (
+    size: xl,
+    lineheight: tight,
+    weight: normal,
+  ),
+  h5: (
+    size: xl,
+    lineheight: tight,
+    weight: normal,
+    style: italic
+  ),
+  h6: (
+    size: l,
+    lineheight: tight,
+    weight: normal
+  )
+);
+
+// // Set rr defaults
+
+// $rr-fonts: $fonts;
+// $rr-lineheights: $lineheights;

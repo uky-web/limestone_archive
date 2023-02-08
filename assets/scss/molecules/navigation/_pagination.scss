@@ -1,9 +1,11 @@
+@use '../../includes/root-rhythm';
+
 .pagination {
-  margin: rr-gridbase(4) 0;
+  margin: root-rhythm.rr-gridbase(4) 0;
 
   a {
     @include underline-link();
-    margin: rr-gridbase(1);
+    margin: root-rhythm.rr-gridbase(1);
     text-align: center;
     text-decoration: none;
 
@@ -18,12 +20,12 @@
     text-align: center;
 
     li {
-      @include rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight);
       display: none;
       margin: 0;
 
 
-      @include rr-break-directive(m) {
+      @include root-rhythm.rr-break-directive(m) {
         display: inline-block;
       }
     }

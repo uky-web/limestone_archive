@@ -1,10 +1,14 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+
 .calendar-preview {
-  color: color(wildcat-blue);
+  color: color-functions.color(wildcat-blue);
   height: 6rem;
   padding: 15px;
   .stacked-date {
-    @include rr-font-compute(4xl, squeeze);
-    border-right: solid 2px color(wildcat-blue);
+    @include root-rhythm.rr-font-compute(4xl, squeeze);
+    border-right: solid 2px color-functions.color(wildcat-blue);
     display: inline-block;
     font-weight: 600;
     height: 100%;
@@ -13,7 +17,7 @@
   .calendar-heading {
     display: inline-block;
     height: 100%;
-    padding: rr-gridbase(2);
+    padding:root-rhythm.rr-gridbase(2);
     vertical-align: top;
     width: 60%;
   }

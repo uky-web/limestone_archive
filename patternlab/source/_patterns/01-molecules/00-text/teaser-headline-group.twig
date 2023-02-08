@@ -1,0 +1,7 @@
+{% if standalone %}
+<div class="teaser">
+{% endif %}
+    {% include 'molecules-headline-group' with { level:level|default(3), headline_group_linked: true, head:head|default(fake('sentence')) } %}
+{% if standalone %}
+</div>
+{% endif %}

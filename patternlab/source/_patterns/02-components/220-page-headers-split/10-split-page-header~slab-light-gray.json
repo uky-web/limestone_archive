@@ -1,0 +1,7 @@
+{
+    "with_cta" : true,
+    "cta_type" : "mixed",
+    "slab_variant": "slab--light-gray",
+    "super": "Split Header",
+    "button_style" : "button--ghost"
+}

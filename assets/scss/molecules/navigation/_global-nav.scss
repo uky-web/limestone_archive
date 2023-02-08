@@ -1,9 +1,12 @@
+@use '../../includes/root-rhythm';
+
+
 .global-nav {
 
   a {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight);
     display: block;
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
     font-weight: 500;
 
     &.ic--home {
@@ -26,22 +29,22 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
     a {
-      @include rr-font-compute(l, medium);
-      margin-right: rr-gridbase(3.5);
+      @include root-rhythm.rr-font-compute(l, medium);
+      margin-right: root-rhythm.rr-gridbase(3.5);
       margin-bottom: 0;
       transition: margin-right .3s ease-in-out;
     }
   }
 
-  @include rr-break-directive(xl) {
+  @include root-rhythm.rr-break-directive(xl) {
     a {
-      margin-right: rr-gridbase(6);
+      margin-right: root-rhythm.rr-gridbase(6);
     }
   }
 }

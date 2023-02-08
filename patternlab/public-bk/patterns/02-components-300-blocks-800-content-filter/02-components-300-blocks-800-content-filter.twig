@@ -1,0 +1,15 @@
+<div class="content-filter">
+    {% include 'molecules-headline-group' with { level: 2, head: "Filter " ~ contentType|default('content') } %}
+    <form action="/news" method="get" id="views-exposed-form-news-page-1" accept-charset="UTF-8">
+        <div class="form-item">
+            <label for="edit-category">Category</label>
+            <select data-drupal-selector="edit-category" id="edit-category" name="category" class="form-select">
+                <option value="All" selected="selected">- Any -</option>
+                {% for i in 0 .. 20 %}
+                    <option value="{{ i }}">{{ fake('words',{nb: 2, asText: true}) }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input value="Apply" class="button" type="submit">
+    </form>
+</div>

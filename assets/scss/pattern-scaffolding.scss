@@ -4,10 +4,10 @@
 // These styles will not be your production CSS.
 //
 
-@import 'root-rhythm';
+@use 'includes/root-rhythm';
+@use 'includes/color-functions';
 @import 'includes/design-variables';
 @import 'includes/mixins/m_typography';
-@import 'includes/colors';
 @import 'includes/fonts';
 
 //sass-lint:disable no-ids
@@ -20,7 +20,7 @@
   margin-bottom: 1em;
   padding: 1em;
   border-radius: 8px;
-  background: color(dark-gray);
+  background: color-functions.color(dark-gray);
   text-align: center;
   cursor: pointer;
 }
@@ -28,32 +28,32 @@
 .sg-colors {
   margin-left: 0;
   list-style: none;
-  @include css-grid-columns(map-get($rr-grids, 4-up));
+  @include root-rhythm.css-grid-columns(map-get(root-rhythm.$rr-grids, 4-up));
 }
 
 .sg-colors__column {
-  padding: rr-grid-remainder(2px);
-  border: 2px solid color(light-gray);
+  padding: root-rhythm.rr-grid-remainder(2px);
+  border: 2px solid color-functions.color(light-gray);
   border-radius: 8px;
   overflow: hidden;
-  @include rr-font-compute(r, tight);
+  @include root-rhythm.rr-font-compute(r, tight);
 
   margin {
-    top: rr-gridbase(2);
-    bottom: rr-gridbase(2);
+    top: root-rhythm.rr-gridbase(2);
+    bottom: root-rhythm.rr-gridbase(2);
   }
 }
 
 .sg-colors pre {
-  @include rr-font-compute(xs, tight);
-  margin-bottom: rr-gridbase();
+  @include root-rhythm.rr-font-compute(xs, tight);
+  margin-bottom: root-rhythm.rr-gridbase();
 }
 
 .sg-swatch {
   display: block;
-  height: rr-gridbase(10);
-  margin-bottom: rr-gridbase();
-  padding: rr-grid-remainder(5px);
+  height: root-rhythm.rr-gridbase(10);
+  margin-bottom: root-rhythm.rr-gridbase();
+  padding: root-rhythm.rr-grid-remainder(5px);
   border-radius: 5px;
 }
 
@@ -62,18 +62,18 @@
 }
 
 .sg-pattern {
-  margin-bottom: rr-gridbase(4);
+  margin-bottom: root-rhythm.rr-gridbase(4);
 }
 
 .sg-pattern-head {
-  @include rr-font-compute(r);
-  padding: rr-gridbase();
+  @include root-rhythm.rr-font-compute(r);
+  padding: root-rhythm.rr-gridbase();
 }
 
 .sg-pattern-title {
   padding {
-    top: rr-gridbase(2);
-    bottom: rr-gridbase(2);
+    top: root-rhythm.rr-gridbase(2);
+    bottom: root-rhythm.rr-gridbase(2);
   }
 
   a {
@@ -105,7 +105,7 @@
 }
 
 body.layout-grid--on {
-  @include rr-grid-overlay;
+  @include root-rhythm.rr-grid-overlay;
 }
 
 .toggleGroup {
@@ -119,8 +119,8 @@ body.layout-grid--on {
 
     padding: 2px 8px;
     border-radius: 8px;
-    border-color: color(wildcat-black);
-    background-color: color(wildcat-black);
+    border-color: color-functions.color(wildcat-black);
+    background-color: color-functions.color(wildcat-black);
     font-size: 12px;
     font-weight: bold;
     line-height: 1;
@@ -137,13 +137,13 @@ body.layout-grid--on {
   position: absolute;
   top: 0;
   right: 1rem;
-  color: color(alert);
+  color: color-functions.color(alert);
   z-index: 998;
 }
 
 body.twig-includes--on {
   .twig-include {
-    border: 2px solid color(alert);
+    border: 2px solid color-functions.color(alert);
   }
 
   .twig-include__label {

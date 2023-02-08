@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+{% block main_content %}
+
+{% set with_cta = true %}
+{% set cta_type = 'mixed' %}
+{% set secondary_image = 'true' %}
+{% set super = fake('words',{nb: 5, asText: true}) %}
+
+{% set headers = ['hero','split','text'] %}
+{% for h in headers %}
+  {% include 'components-' ~ h ~ '-page-header' with { head: h ~ 'Header' } %}
+{% endfor %}
+
+  {% set block = 'call-to-action' %}
+  
+  {% include 'components-block-columns' with { columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
+  {% include 'components-carousel-slab' with { carousel_style: 'carousel--center' } %}
+
+  {% set block = 'teaser' %}
+  {% include 'components-block-columns' with { columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
+
+  {% embed 'molecules-slab' %}
+    {% block slab_content %}
+    {% set num = 3 %}
+      {% include 'components-content-list' %}
+      {% include 'components-people-list' %}
+    {% endblock %}
+  {% endembed %}  
+
+  {% include 'components-image-gallery-slab' with { numImages: 7, level: 2 } %}
+
+  {% set block = 'link-collection' %}
+  {% include 'components-block-columns' with { columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
+
+  {% include 'components-statistics' %}
+
+  {% embed 'molecules-slab' %}
+    {% block slab_content %}
+      {% include 'molecules-figure' %}
+    {% endblock %}
+  {% endembed %}
+
+  {% include 'components-zipper' %}
+
+
+{% endblock %} 

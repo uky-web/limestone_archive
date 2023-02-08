@@ -1,3 +1,8 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/layout';
+
+
 .slab-series {
     width:100%;
     display: flex;
@@ -13,34 +18,34 @@
 
     .slab-series__next {
         position: absolute;
-        bottom: rr-gridbase(2); 
-        right: rr-gridbase(2);
-        max-width: $global-width/4;
+        bottom: root-rhythm.rr-gridbase(2); 
+        right: root-rhythm.rr-gridbase(2);
+        max-width: calc(layout.$global-width/4);
     }
 
     .slab-series__next-super {
-        @include rr-font-compute(xl, wide);
+        @include root-rhythm.rr-font-compute(xl, wide);
     }
 
     .slab-series__next-super {
-        color: color(wildcat-white);
+        color: color-functions.color(wildcat-white);
         text-shadow: 1px 1px 1px rgba(0,0,0,.3);
     }
 
     .link--fancy {
-        color: color(wildcat-white);
+        color: color-functions.color(wildcat-white);
         text-shadow: 1px 1px 1px rgba(0,0,0,.3);
     }
     
 
     .slab--light {
         .slab-series__next-super {
-            color: color(wildcat-black);
+            color: color-functions.color(wildcat-black);
             text-shadow: none;
         }
 
         .link--fancy {
-            color: color(wildcat-black);
+            color: color-functions.color(wildcat-black);
             text-shadow: none;
         }
     }

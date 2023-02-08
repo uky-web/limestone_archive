@@ -1,4 +1,6 @@
+@use '../../includes/root-rhythm';
+
 .cite-media {
-  @include rr-font-compute(s, tight);
+  @include root-rhythm.rr-font-compute(s, tight);
   font-style: normal;
 }

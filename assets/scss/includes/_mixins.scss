@@ -1,3 +1,5 @@
+@use '../includes/color-functions';
+@use '../includes/root-rhythm';
 @import 'mixins/m_layout';
 @import 'mixins/m_typography';
 
@@ -17,7 +19,7 @@
   }
 }
 
-@mixin faux-underline($d: color(wildcat-blue), $h: color(light-blue-tint), $w: 2px, $alpha: .4) {
+@mixin faux-underline($d: color-functions.color(wildcat-blue), $h: color-functions.color(light-blue-tint), $w: 2px, $alpha: .4) {
   $default: rgba($d, $alpha);
   $hover: rgba($h, $alpha);
   background-attachment: scroll;
@@ -26,7 +28,7 @@
   background-position: 0 .5em, 0 0;
 }
 
-@mixin underline-link($d: color(wildcat-blue), $h: color(light-blue-tint), $w: 2px, $alpha: .4) {
+@mixin underline-link($d: color-functions.color(wildcat-blue), $h: color-functions.color(light-blue-tint), $w: 2px, $alpha: .4) {
   @include faux-underline($d, $h, $w, $alpha);
   @include link-colors;
   position: relative;
@@ -56,7 +58,7 @@
   h2,
   h3,
   h4 {
-    @include rr-font-compute(3xl, tight);
+    @include root-rhythm.rr-font-compute(3xl, tight);
     font-weight: 500;
   }
 }
@@ -65,15 +67,15 @@
 @mixin block-spacing($border-color: wildcat-blue) {
   margin-right: 0;
   margin-left: 0;
-  padding: rr-grid-remainder(3px, 2);
-  border: 3px color($border-color) solid;
+  padding: root-rhythm.rr-grid-remainder(3px, 2);
+  border: 3px color-functions.color($border-color) solid;
 
-  @include rr-break-directive('m') {
-    padding: rr-grid-remainder(3px, 3);
+  @include root-rhythm.rr-break-directive('m') {
+    padding: root-rhythm.rr-grid-remainder(3px, 3);
   }
 
-  @include rr-break-directive('l') {
-    padding: rr-grid-remainder(6px, 5);
+  @include root-rhythm.rr-break-directive('l') {
+    padding: root-rhythm.rr-grid-remainder(6px, 5);
     border-width: 6px;
   }
 }
@@ -83,7 +85,7 @@
 // Use inside an anchor tag.
 //
 // It's not necessary to use this.
-@mixin link-colors($d: color(wildcat-black), $h: color(wildcat-blue)) {
+@mixin link-colors($d: color-functions.color(wildcat-black), $h: color-functions.color(wildcat-blue)) {
   &:link,
   &:visited {
     color: $d;

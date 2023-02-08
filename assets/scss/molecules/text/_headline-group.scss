@@ -1,3 +1,8 @@
+@use '../../includes/root-rhythm';
+@use '../../tokens/typography';
+@use '../../includes/color-functions';
+
+
 $sizelist: 4xl 3xl 2xl 2xl xl xl;
 
 .headline-group {
@@ -5,7 +10,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   $bem-root: #{&};
   display: block;
   margin-top: 0;
-  margin-bottom: rr-gridbase(2);
+  margin-bottom: root-rhythm.rr-gridbase(2);
   line-height: auto;
 
   #{$bem-root}__super,
@@ -16,12 +21,12 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   // Default non-semantic headline group
   @at-root #{$bem-root} {
     #{$bem-root}__super {
-      @include rr-font-compute(s, tight);
+      @include root-rhythm.rr-font-compute(s, tight);
       text-transform: uppercase;
     }
 
     #{$bem-root}__sub {
-      @include rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight);
       font-style: italic;
 
       i,
@@ -31,7 +36,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
     }
 
     #{$bem-root}__head {
-      @include rr-font-compute(2xl, tight);
+      @include root-rhythm.rr-font-compute(2xl, tight);
     }
   }
 
@@ -42,26 +47,26 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   .editorial aside {
     #{$bem-root} {
       #{$bem-root}__super, {
-        @include rr-font-compute(r, tight);
-        color: color(dark-gray);
+        @include root-rhythm.rr-font-compute(r, tight);
+        color: color-functions.color(dark-gray);
         font-weight: 500;
       }
 
       #{$bem-root}__sub {
-        @include rr-font-compute(xl, tight);
-        color: color(dark-gray);
+        @include root-rhythm.rr-font-compute(xl, tight);
+        color: color-functions.color(dark-gray);
         font-weight: 500;
       }
 
       #{$bem-root}__head {
         font-weight: 500;
-        font-family: $font-tradegothic;
-        @include rr-font-compute(3xl, tight);
+        font-family: typography.$font-tradegothic;
+        @include root-rhythm.rr-font-compute(3xl, tight);
 
         .underline-link {
           &:link,
           &:visited {
-            color: color(dark-blue);
+            color: color-functions.color(dark-blue);
           }
         }
       }
@@ -72,19 +77,19 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   // eg h1.headline-group, h2.headline-group
   @for $pos from 1 through 6 {
     $size: nth($sizelist, $pos);
-    $supersize: map-offset-from($font-sizes, $size, -3);
-    $subsize: map-offset-from($font-sizes, $size, -1);
+    $supersize: map-offset-from(typography.$font-sizes, $size, -3);
+    $subsize: map-offset-from(typography.$font-sizes, $size, -1);
     @at-root h#{$pos}#{&} {
       #{$bem-root}__super {
-        @include rr-font-compute($supersize, tight);
+        @include root-rhythm.rr-font-compute($supersize, tight);
       }
 
       #{$bem-root}__sub {
-        @include rr-font-compute($subsize, tight);
+        @include root-rhythm.rr-font-compute($subsize, tight);
       }
 
       #{$bem-root}__head {
-        @include rr-font-compute($size, tight);
+        @include root-rhythm.rr-font-compute($size, tight);
       }
     }
   }

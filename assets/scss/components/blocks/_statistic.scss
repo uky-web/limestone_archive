@@ -1,39 +1,42 @@
+@use '../../includes/root-rhythm';
+@use '../../tokens/typography';
+
 .statistic {
   // We need about 16px padding from the top and bottom
   // but the headline has < 1em line height, so we need
   // 1 grid row extra padding for the ascenders.
-  padding-top: rr-gridbase(2);
-  padding-bottom: rr-gridbase;
+  padding-top: root-rhythm.rr-gridbase(2);
+  padding-bottom: root-rhythm.rr-gridbase();
   text-align: center;
   overflow: hidden;
 
   .headline-group {
     .headline-group__head {
-      @include rr-font-compute(6xl, squeeze);
+      @include root-rhythm.rr-font-compute(6xl, squeeze);
       display: inline-block;
       font-weight: 500;
-      font-family: $font-surveyor;
+      font-family: typography.$font-surveyor;
     }
 
     .headline-group__super,
     .headline-group__sub {
-      @include rr-font-compute(xl, tight);
+      @include root-rhythm.rr-font-compute(xl, tight);
       font-weight: 600;
       text-transform: uppercase;
     }
 
     .headline-group__sub {
-      padding-top: rr-gridbase();
+      padding-top: root-rhythm.rr-gridbase();
     }
   }
 
   .editorial {
     @include divider($centered: true);
     position: relative;
-    padding-top: rr-gridbase(2);
+    padding-top: root-rhythm.rr-gridbase(2);
 
     p {
-      @include rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight);
     }
   }
 }

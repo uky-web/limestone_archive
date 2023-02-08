@@ -1,3 +1,6 @@
+@use '../includes/root-rhythm';
+@use '../tokens/colors';
+@use '../includes/color-functions';
 @import 'page-headers/text-header';
 @import 'page-headers/hero';
 @import 'page-headers/overlay-hero';
@@ -5,12 +8,12 @@
 
 .page-header {
   position: relative;
-  padding-top: rr-grid-remainder(2px, 6);
+  padding-top: root-rhythm.rr-grid-remainder(2px, 6);
 
-  @each $color in $colors {
-    &.slab--#{$color} {
+  @each $color, $color-value in colors.$colors {
+    &.slab--#{""+$color} {
       @if ($color ne 'wildcat-white') {
-        padding-top: rr-gridbase(6);
+        padding-top: root-rhythm.rr-gridbase(6);
         border-width: 0;
       }
     }
@@ -19,7 +22,7 @@
   &.slab--blue-gray,
   &.slab--dark-blue,
   &.slab--wildcat-blue {
-    padding-bottom: rr-grid-remainder(4px, 6);
+    padding-bottom: root-rhythm.rr-grid-remainder(4px, 6);
 
     .slab__wrapper {
       padding-bottom: 0;
@@ -29,12 +32,12 @@
 
   &.slab--dark-blue,
   &.slab--wildcat-blue {
-    border-bottom-color: color(light-blue);
+    border-bottom-color: color-functions.color(light-blue);
   }
 
   .slab__wrapper {
-    padding-bottom: rr-grid-remainder(4px, 5);
-    border-bottom: 4px color(almost-wildcat-blue) solid;
+    padding-bottom: root-rhythm.rr-grid-remainder(4px, 5);
+    border-bottom: 4px color-functions.color(almost-wildcat-blue) solid;
   }
 
   h1 {
@@ -43,7 +46,7 @@
     }
 
     &.headline-group__popout {
-      color: color(wildcat-white);
+      color: color-functions.color(wildcat-white);
       left: 5%;
       max-width: 100%;
       position: absolute;
@@ -51,12 +54,12 @@
     }
 
     .headline-group__head {
-      @include rr-font-compute(1xl, tight);
+      @include root-rhythm.rr-font-compute(1xl, tight);
       font-weight: 600;
     }
 
     .headline-group__super {
-      @include rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight);
     }
 
     .headline-group__sub,
@@ -65,28 +68,28 @@
     }
 
     .headline-group__sub {
-      margin-top: rr-gridbase(2);
+      margin-top: root-rhythm.rr-gridbase(2);
     }
 
     .headline-group__super {
-      margin-bottom: rr-gridbase(0);
+      margin-bottom: root-rhythm.rr-gridbase(0);
     }
   }
 
   .cta-group {
-    margin-top: rr-gridbase(4);
+    margin-top: root-rhythm.rr-gridbase(4);
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
 
     h1 {
       .headline-group__head {
-        @include rr-font-compute(5xl, medium);
+        @include root-rhythm.rr-font-compute(5xl, medium);
         font-weight: 600;
       }
   
       .headline-group__super {
-        @include rr-font-compute(1xl, tight);
+        @include root-rhythm.rr-font-compute(1xl, tight);
       }
   
       .headline-group__sub,

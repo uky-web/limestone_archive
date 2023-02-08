@@ -1,4 +1,8 @@
 // removes scroll when modal is opened 
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/layout';
+
 
 .no-scroll {
   overflow: hidden;
@@ -12,7 +16,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: color(wildcat-blue);
+  background-color: color-functions.color(wildcat-blue);
   opacity: .89;
   z-index: 666;
 }
@@ -22,10 +26,10 @@
 .mfp-inline-holder,
 .mfp-image-holder {
   .mfp-close {
-    color: color(wildcat-blue);
+    color: color-functions.color(wildcat-blue);
 
     &:hover {
-      color: color(wildcat-white);
+      color: color-functions.color(wildcat-white);
     }
   }
 }
@@ -36,35 +40,35 @@
   right: 0;
   bottom: 0;
   left: 0;
-  max-width: $global-width;
+  max-width: layout.$global-width;
   margin: 0;
-  padding: rr-gridbase(2);
+  padding: root-rhythm.rr-gridbase(2);
   border-width: 0;
-  background: color(wildcat-white);
+  background: color-functions.color(wildcat-white);
   z-index: 667;
   overflow-x: none;
   overflow-y: auto;
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     position: fixed;
     top: 50%;
     right: auto;
     bottom: auto;
     left: 50%;
     max-height: 95vh;
-    padding: rr-gridbase(4);
+    padding: root-rhythm.rr-gridbase(4);
     transform: translateX(-50%) translateY(-50%);
   }
 
-  @include rr-break-directive(xl) {
-    padding: rr-gridbase(8);
+  @include root-rhythm.rr-break-directive(xl) {
+    padding: root-rhythm.rr-gridbase(8);
   }
 }
 
 .modal-close {
   position: absolute;
-  top: rr-gridbase(2);
-  right: rr-gridbase(2);
+  top: root-rhythm.rr-gridbase(2);
+  right: root-rhythm.rr-gridbase(2);
   padding: 0;
   border: 0;
 

@@ -1,15 +1,23 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../includes/design-variables';
+@use '../../tokens/colors';
+@use '../../tokens/color-schemes';
+@use '../../tokens/typography';
+
+
 button,
 a.button,
 input.button {
-  @include rr-font-compute(l, tight);
+  @include root-rhythm.rr-font-compute(l, tight);
 
   //TODO: Review this, this assumes S breakpoint
   // should never get 2-up buttons.
   display: block;
   width: 80%;
-  margin: rr-gridbase(1) auto;
+  margin:root-rhythm.rr-gridbase(1) auto;
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     display: inline-block;
     width:auto;
     margin: 0;
@@ -28,18 +36,18 @@ input.button {
   transition: .3s ease-in-out;
   border-width: 2px;
   border-style: solid;
-  font-family: $font-avenirnext;
+  font-family: typography.$font-avenirnext;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 
   $skins: transparent;
-  @each $name, $color in $colors {
-    &.button--#{$name} {
+  @each $name, $color in colors.$colors {
+    &.button--#{""+$name} {
       background-color: $color;
-      @if (contrast($color, color(wildcat-black)) < 4.5) {
-        @include usescheme($scheme-dark);
+      @if (color-functions.contrast($color, color-functions.color(wildcat-black)) < 4.5) {
+        @include design-variables.usescheme(color-schemes.$scheme-dark);
       }
 
       .heading--display span {
@@ -56,12 +64,12 @@ input.button {
   &.button--transparent {
     border-color: transparent;
     background-color: transparent;
-    color: color(wildcat-blue);
+    color: color-functions.color(wildcat-blue);
   }
 
   // Variants
   &.button--small {
-    @include rr-font-compute(s, tight);
+    @include root-rhythm.rr-font-compute(s, tight);
     padding: {
       right: calc(1.625rem - 3px);
       left: calc(1.625rem - 3px);
@@ -69,7 +77,7 @@ input.button {
   }
 
   &.button--large {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight);
     padding: {
       right: calc(2rem - 3px);
       left: calc(2rem - 3px);

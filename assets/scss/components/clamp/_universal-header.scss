@@ -1,22 +1,26 @@
+@use '../../tokens/color-schemes';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
 .universal-header {
-  @include usescheme($scheme-dark);
+  @include usescheme(color-schemes.$scheme-dark);
   display: none;
-  padding-top: rr-gridbase(1.5);
-  padding-bottom: rr-gridbase(1.5);
-  background-color: color(midnight);
+  padding-top: root-rhythm.rr-gridbase(1.5);
+  padding-bottom: root-rhythm.rr-gridbase(1.5);
+  background-color: color-functions.color(midnight);
 
   .universal-header__layout {
     justify-content: space-between;
-    @include rr-break-directive(m) {
+    @include root-rhythm.rr-break-directive(m) {
       display: flex;
     }
   }
 
   &.clamp--wildcat {
-    background-color: color(dark-blue);
+    background-color: color-functions.color(dark-blue);
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     display: block;
   }
 }

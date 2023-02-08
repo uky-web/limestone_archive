@@ -1,0 +1,13 @@
+{% set uniqid = "MainNavLabel"|uniqid %}
+
+{% set labels = ['About','Students','Alumni & Friends','Faculty & Staff Resources','Giving','News & Media','Visit'] %}
+
+<nav id="MainNav" class="global-nav" aria-labelledby="{{ uniqid }}">
+    <div class="show-for-sr" id="{{ uniqid }}">Main Navigation</div>
+    <a href="/patternlab/" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
+
+    {% for label in labels %}
+        {% include 'atoms-link' with { label: label } %}
+    {% endfor %}
+
+</nav>

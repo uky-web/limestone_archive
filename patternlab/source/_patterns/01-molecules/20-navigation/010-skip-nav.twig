@@ -1,0 +1,10 @@
+{% if standalone %}
+<div class="skip-nav-demo-wrapper">
+{% endif %}
+    {% include 'atoms-link' with {link_variant:'skip-nav', url:'#main-content', label:'Skip to main'}%}
+{% if standalone %}
+</div>
+{% endif %}
+
+
+

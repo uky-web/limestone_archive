@@ -1,0 +1,9 @@
+<div class="link-collection {{ link_collection_variant }}">
+    <div class="link-collection__header">
+        {% include 'molecules-headline-group' with { super: super|default('Described Links Block'), head: head|default('Link Collection') } %}
+        {% include 'atoms-formatted-text' with { formatted_text_sentences : 2 } %}
+    </div>
+    <div class="link-collection__content">
+        {% include 'molecules-described-links' with { brief: brief|default(false) } %}
+    </div>
+</div>

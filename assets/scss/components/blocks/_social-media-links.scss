@@ -1,11 +1,15 @@
+@use '../../tokens/color-schemes';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
 .social-media-links {
-  padding: rr-gridbase(4);
-  background-color: color(sky);
+  padding: root-rhythm.rr-gridbase(4);
+  background-color: color-functions.color(sky);
 
   &__linkset {
     // The margin around each link 
-    $cm: rr-gridbase(2);
-    @include rr-font-compute(4xl, tight);
+    $cm: root-rhythm.rr-gridbase(2);
+    @include root-rhythm.rr-font-compute(4xl, tight);
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -21,13 +25,13 @@
   $root: &;
 
   &#{&}--dark {
-    @include usescheme($scheme-dark);
-    background-color: color(wildcat-blue);
+    @include usescheme(color-schemes.$scheme-dark);
+    background-color: color-functions.color(wildcat-blue);
   }
 
   &#{&}--blocks {
     #{$root}__linkset {
-      @include rr-font-compute(5xl, tight);
+      @include root-rhythm.rr-font-compute(5xl, tight);
 
       a {
         text-align: left;
@@ -39,7 +43,7 @@
     background-color: transparent;
 
     #{$root}__linkset {
-      @include rr-font-compute(3xl, tight);
+      @include root-rhythm.rr-font-compute(3xl, tight);
       display: block;
 
       a {

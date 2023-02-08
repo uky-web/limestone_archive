@@ -1,725 +1,253 @@
-// Font Shortcuts
-// Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
-$font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
-
-// Surveyor Display (from typography.com)  NB: limited weights and styles provided, see typography.com project dashboard
-$font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
-
-
-// Avenir Next styles (from fonts.com)
-$font-avenirnext: 'AvenirNextLT', sans-serif;
-
-//TODO: These do not appear to be implemented. If needed as separate fonts
-//they should be correctly named in _fonts.scss
-//$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
-//$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
-//$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
-//$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
-
-// Trade Gothic styles (from fonts.com)
-$font-tradegothic: 'TradeGothicCond', sans-serif;
-//$font-tradegothic__bold: 'TradeGothic Next LT W01 Bd Cn', sans-serif;
-
-// Blackbike styles (generated from fontsquirrel.com)
-$font-blackbikeclean: 'blackbikeclean', serif;
-$font-blackbikerough: 'blackbikerough', serif;
-
-// Width of the central column
-$global-width: 72rem;
-
-// All variables prefixed with "rr" are used to
-// set defaults for the root-rhythm sass module.
-$rr-max-width: $global-width;
-
-// 1 rem is divided into this many segments to
-// make a grid square. at 2, that means each
-// grid is .5rem x .5rem.
-$rr-grid-divisions: 2;
-
-// These grid settings configure the grid at
-// different breakpoints and also specify the
-// breaks used by rr-break-directive() -- the
-// sass mixin that creates media queries.
-//
-// "Grid" here means a typographic / layout
-// grid, not CSS3 Grids.
-//
-// rr-break-directive is the preferred method
-// for making breakpoints; a close alternative
-// is looking the breakpoint values up here.
-// If necessary you can write one manually,
-// but then those will need to be found and
-// tweaked by hand if there are revisions.
-$rr-grid-settings: (
-  s: (
-    mq: max-width,
-    size: 35rem,
-    columns: 4,
-    gutter: 1rem / $rr-grid-divisions,
-    offset: 1rem,
-    vspace: 2,
-    column_color: rgba(200, 200, 255, .2),
-    baseline_color: rgba(128, 128, 200, .2)
-  ),
-  m: (
-    mq: min-width,
-    size: 35rem,
-    gutter: 1rem,
-    columns: 8,
-    offset: 2rem,
-    vspace: 3, //  21px / 42px
-    column_color: rgba(255, 200, 200, .2),
-    baseline_color: rgba(128, 128, 200, .2)
-  ),
-  l: (
-    size: 58rem,
-    columns: 12,
-    column_color: rgba(128, 255, 200, .2),
-    baseline_color: rgba(128, 128, 200, .2)
-  ),
-  xl: (
-    size: $global-width + 4rem,
-    offset: 0,
-    gutter: 2rem, //36px
-    vspace: 5, // (36px / 72px)
-    column_color: rgba(200, 128, 255, .2),
-    baseline_color: rgba(128, 128, 200, .2)
-  ),
-  xlp: (
-    size: $global-width + 8rem
-  )
-);
-
-// This configures the CSS3 grid layout as well
-// as the flex fallbacks for IE11. Configuration
-// is provided through 6-up, but 3-up is the most
-// content-friendly maxium.
-//
-// The m/l/xl breakpoints match the breakpoints
-// in rr-grid-settings above, and control
-// layout at those breakpoints.
-//
-// You can add new configurations just by following
-// the pattern below.
-$rr-grids: (
-  2-up: (
-    m: (
-      columns: 2,
-    )
-  ),
-  3-up: (
-    //m: (
-    //  columns: 2,
-    //),
-    l: (
-      columns: 3,
-    )
-  ),
-  4-up: (
-    m: (
-      columns: 2,
-    ),
-    l: (
-      columns: 4,
-    )
-  ),
-  5-up: (
-    m: (
-      columns: 3,
-    ),
-    l: (
-      columns: 5,
-    )
-  ),
-  6-up: (
-    m: (
-      columns: 3,
-    ),
-    l: (
-      columns: 4,
-    ),
-    xl: (
-      columns: 6
-    )
-  ),
-  sidebar-left: (
-    m: (
-      columns: 3,
-      areas: side main main,
-      flex-areas: (
-        side: 33.3%,
-        main: 66.6%
-      )
-    ),
-    l: (
-      columns: 4,
-      areas: side main main main,
-      flex-areas: (
-        side: 25%,
-        main: 75%
-      )
-    )
-  ),
-  sidebar-right: (
-    m: (
-      columns: 3,
-      areas: main main side,
-      flex-columns: 2,
-      flex-areas: (
-        side: 33.3%,
-        main: 66.6%
-      )
-    ),
-    l: (
-      columns: 4,
-      areas: main main main side,
-      flex-areas: (
-        side: 25%,
-        main: 75%
-      )
-    )
-  ),
-  major-left: (
-    m: (
-      columns: 2,
-      areas: major minor,
-      flex-columns: 2,
-      flex-areas: (
-        minor: 33.3%,
-        major: 66.6%
-      )
-    ),
-    l: (
-      columns: 3,
-      areas: major major minor,
-      flex-areas: (
-        minor: 33.3%,
-        major: 66.6%
-      )
-    )
-  ),
-  major-right: (
-    m: (
-      columns: 2,
-      areas: minor major,
-      flex-columns: 2,
-      flex-areas: (
-        minor: 33.3%,
-        major: 66.6%
-      )
-    ),
-    l: (
-      columns: 3,
-      areas: minor major major,
-      flex-areas: (
-        minor: 33.3%,
-        major: 66.6%
-      )
-    ),
-  )
-);
-
-// Line heights in grid units. These are all
-// relative to the font size, so "tight" has a line
-// height that represents just enough space
-// to contain a line of font text, whereas "redic"
-// is pretty massive.
-//
-// rr-font-compute(size,lineheight) will provide
-// a font-size, line-height combination in rem,
-// along with the required media queries to ensure
-// font sizes change in a standardized fashion.
-//
-// It is preferable to using font size and line
-// height directly in the code.
-$lineheights: (
-  hpc: -2,
-  squeeze: -1,
-  tight: 0,
-  medium: 1,
-  wide: 2,
-  huge: 3,
-  redic: 4
-);
-
-// This map lets us specify font sizes by a name
-// rather than a specific value. You can create
-// new sizes by adding a new name. The font sizes
-// change based on breakpoint.
-
-// rr-font-compute(size,lineheight) will provide
-// a font-size, line-height combination in rem,
-// along with the required media queries to ensure
-// font sizes change in a standardized fashion.
-//
-// It is preferable to using font size and line
-// height directly in the code.
-$fonts: (
-  s: (
-    xs: .75rem,
-    s: .875rem,
-    r: 1rem,
-    l: 1.1667rem,
-    xl: 1.25rem,
-    2xl: 1.5rem,
-    3xl: 1.775rem,
-    4xl: 2rem,
-    5xl: 2.4286rem,
-    6xl: 4.5rem
-  ),
-  xl: (
-    xs: .75rem,
-    s: .875rem,
-    r: 1rem,
-    l: 1.1667rem,
-    xl: 1.25rem,
-    2xl: 1.5rem,
-    3xl: 1.875rem,
-    4xl: 2.375rem,
-    5xl: 3.4286rem,
-    6xl: 6.3rem
-  )
-);
-
-$font-sizes: rr-font-sizes();
-
-// Establish header sizes for the editorial
-// headings.
-$editorial-headings: (
-  h2: (
-    size: 4xl,
-    lineheight: tight,
-    weight: normal,
-  ),
-  h3: (
-    size: 3xl,
-    lineheight: tight,
-    weight: normal,
-  ),
-  h4: (
-    size: xl,
-    lineheight: tight,
-    weight: normal,
-  ),
-  h5: (
-    size: xl,
-    lineheight: tight,
-    weight: normal,
-    style: italic
-  ),
-  h6: (
-    size: l,
-    lineheight: tight,
-    weight: normal
-  )
-);
-
-// This is the color palette. Colors should never be
-// referenced with literals. These names are preferred.
-//
-// color(key) will return the hex value here.
-//
-// Seriously, do not pollute the sass with color literals.
-// new colors: July 2019
-$colors: (
-  // primary
-  wildcat-blue: #0033a0,
-  wildcat-white: #fff,
-  // secondary
-  bluegrass: #0071eb,
-  sky: #B1C9E8,
-  midnight: #041E42,
-  goldenrod: #FFDC00,
-  sunset: #FFA360,
-  river-green: #4CBCC0,
-  // neutral
-  cool-neutral: #DCDDDE,
-  warm-neutral-20: #F9F9F5,
-  warm-neutral-60: #EFEBE2,
-  warm-neutral: #D6D2C4,
-  wildcat-black: #000000,
-  // old colors
-  light-blue: #1897d4,
-  medium-blue: #2b3a82,
-  dark-blue: #1f2c5e,
-  almost-wildcat-blue: #002678,
-  light-blue-tint: #a1d3ed,
-  light-blue-shade: #106693,
-  blue-black: #000500,
-  light-gray: #c8c8c7,
-  subtle-gray: #ebebeb,
-  barely-gray: #f4f4f5,
-  dark-gray: #515664,
-  blue-gray: #eff4fd,
-  success: #7cfc00,
-  warning: #ff8c00,
-  alert: #c12c2b,
-  info: #a1d3ed,
-);
-
-$gradients: (
-  dark-wildcat:(color(dark-blue), color(wildcat-blue))
-);
-// These are color schemes that map the colors above
-// to specific elements. In general we try to keep
-// css rules that specify color in the "usescheme"
-// mixin; this makes it easy to ensure that color
-// schemes remain consistent.
-//
-// $scheme-light is the default.
-//
-// You can create a new scheme by copying this
-// map and giving it a new name.
-//
-// color(key,scheme) will return the hex value
-// of the color in that space; typically you
-// do not use color(key,scheme) except in the
-// usescheme() mixin below.
-$scheme-light: (
-  scheme-name: 'scheme-light',
-  link: color(wildcat-black),
-  link-active: color(wildcat-blue),
-  menu-icon-color: color(wildcat-blue),
-  menu-icon-color-active: color(wildcat-blue),
-  text: color(wildcat-black),
-  accent: color(sunset),
-  button-border: color(wildcat-blue),
-  button-background: color(wildcat-blue),
-  button-text: color(wildcat-white),
-  button-disabled-border: color(subtle-gray),
-  button-disabled-background: color(subtle-gray),
-  button-disabled-text: color(dark-gray),
-  button-hover-border: color(wildcat-blue),
-  button-hover-background: color(wildcat-white),
-  button-hover-text: color(wildcat-blue),
-  button-active-border: color(wildcat-blue),
-  button-active-background: color(wildcat-blue),
-  button-active-text: color(wildcat-white),
-  button-focus-border: color(bluegrass),
-  button-focus-background: color(wildcat-white),
-  button-focus-text: color(wildcat-blue),
-  headline-group-super: color(dark-gray),
-  headline-group-head: color(wildcat-black),
-  headline-group-sub: color(dark-gray),
-  media-citation: color(dark-gray),
-  carousel-single-button: color(dark-gray),
-  carousel-single-button-art: color(wildcat-white),
-  carousel-center-button: color(dark-gray),
-  carousel-center-button-art: color(wildcat-white),
-  carousel-dot: color(bluegrass),
-  carousel-dot-active: color(wildcat-black),
-  carousel-center-caption: color(wildcat-black),
-  media-background: color(wildcat-blue),
-  statistic-head-color: color(wildcat-blue),
-  statistic-subhead-color: color(bluegrass),
-  logo-color: color(wildcat-blue),
-  wordmark-color: color(wildcat-black),
-  dashed-border-color: rgba(#2c2a29, .3),
-  form-borders: color(cool-neutral)
-);
-
-// This scheme applies lighter colors to child elements,
-// and should be invoked by darker-background containing elements
-$scheme-dark: (
-  scheme-name:'scheme-dark',
-  link: color(wildcat-white),
-  link-active: color(sky),
-  menu-icon-color: color(cool-neutral),
-  menu-icon-color-active: color(cool-neutral),
-  text: color(wildcat-white),
-  accent: color(river-green),
-  button-border: color(wildcat-white),
-  button-background: color(wildcat-white),
-  button-text: color(wildcat-blue),
-  button-disabled-border: rgba(#ededed, .66),
-  button-disabled-background: rgba(#ededed, .66),
-  button-disabled-text: color(wildcat-blue),
-  button-hover-border: color(wildcat-white),
-  button-hover-background: color(wildcat-blue),
-  button-hover-text: color(wildcat-white),
-  button-active-border: color(dark-blue),
-  button-active-background: color(cool-neutral),
-  button-active-text: color(wildcat-blue),
-  button-focus-border: color(wildcat-white),
-  button-focus-background: color(cool-neutral),
-  button-focus-text: color(wildcat-blue),
-  headline-group-super: color(cool-neutral),
-  headline-group-head: color(wildcat-white),
-  headline-group-sub: color(cool-neutral),
-  media-citation: color(wildcat-white),
-  carousel-single-button: color(dark-gray),
-  carousel-single-button-art: color(wildcat-white),
-  carousel-center-button: transparent,
-  carousel-center-button-art: color(wildcat-white),
-  carousel-dot: color(subtle-gray),
-  carousel-dot-active: color(sky),
-  carousel-center-caption: color(wildcat-black),
-  media-background: color(wildcat-black),
-  statistic-head-color: color(wildcat-white),
-  statistic-subhead-color: color(sky),
-  logo-color: color(wildcat-white),
-  wordmark-color: color(wildcat-white),
-  dashed-border-color: rgba(#fff, .3),
-  form-borders: transparent
-);
+@use '../tokens/colors';
+@use '../tokens/color-schemes';
+@use '../tokens/typography';
+@use '../tokens/layout';
+@use 'root-rhythm';
+@use 'color-functions';
 
 
-// convenience aliases
-$white: color(wildcat-white);
-$black: color(wildcat-black);
-$color-text: color(text);
-$color-link: color(link);
-
-// Set rr defaults
-
-$rr-fonts: $fonts;
-$rr-lineheights: $lineheights;
-
-// This mixin generates all of the color CSS that
-// marries the color schemes above with CSS selectors.
-// This can generate a considerable amount of CSS,
-// so it's probably a good place for some reengineering
-// and refactoring. When I went down this road, I was
-// really only expecting to change colors for a handful
-// of items -- but by the end it had become pretty
-// elaborate.
+// // This mixin generates all of the color CSS that
+// // marries the color schemes above with CSS selectors.
+// // This can generate a considerable amount of CSS,
+// // so it's probably a good place for some reengineering
+// // and refactoring. When I went down this road, I was
+// // really only expecting to change colors for a handful
+// // of items -- but by the end it had become pretty
+// // elaborate.
 
 @import 'mixins';
 
-
-
-//@mixin usescheme($textscheme) {
 @mixin generatescheme($textscheme, $schemename) {
   %#{$schemename}--generated {
-    color: color(text, $textscheme);
+    color: color-functions.color(text, $textscheme);
     .cite-media .icon-label {
-      color: color(media-citation, $textscheme);
+      color: color-functions.color(media-citation, $textscheme);
     }
 
     .image-with-caption__media {
-      background-color: color(media-background, $textscheme);
+      background-color: color-functions.color(media-background, $textscheme);
     }
 
     .icon-label--stacked {
       .label {
-        color: color(text, $textscheme);
+        color: color-functions.color(text, $textscheme);
       }
     }
 
     a {
-      @include link-colors($d: color(link, $textscheme), $h: color(link-active, $textscheme));
+      @include link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme));
     }
 
     .carousel figcaption a {
-      //@include underline-link($d: color(link, $textscheme), $h: color(link-active, $textscheme), $w: 1px, $alpha: .6);
-      @include link-colors($d: color(link, $textscheme), $h: color(link, $textscheme));
+      //@include underline-link($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme), $w: 1px, $alpha: .6);
+      @include link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link, $textscheme));
     }
 
     button,
     a.button,
     input.button {
-      border-color: color(button-border, $textscheme);
-      background-color: color(button-background, $textscheme);
-      color: color(button-text, $textscheme);
+      border-color: color-functions.color(button-border, $textscheme);
+      background-color: color-functions.color(button-background, $textscheme);
+      color: color-functions.color(button-text, $textscheme);
 
       // attach default colors to the anchor-as-button version
       &:link {
-        border-color: color(button-border, $textscheme);
-        background-color: color(button-background, $textscheme);
-        color: color(button-text, $textscheme);
+        border-color: color-functions.color(button-border, $textscheme);
+        background-color: color-functions.color(button-background, $textscheme);
+        color: color-functions.color(button-text, $textscheme);
       }
 
       &.button--ghost {
         background-color: transparent;
-        border-color: color(button-hover-border, $textscheme); //The background should be the 'opposite' of the border and text
-        color: color(button-hover-text, $textscheme);
+        border-color: color-functions.color(button-hover-border, $textscheme); //The background should be the 'opposite' of the border and text
+        color: color-functions.color(button-hover-text, $textscheme);
       }
 
       &.button--bluegrass {
-        border-color: color(bluegrass);
+        border-color: color-functions.color(bluegrass);
       }
 
       &.button--transparent {
         border-color: transparent;
         background-color: transparent;
-        color: color(button-border, $textscheme);
+        color: color-functions.color(button-border, $textscheme);
       }
 
       &[disabled] {
         // sass-lint:disable-block no-important
-        border-color: color(button-disabled-border, $textscheme) !important;
-        background-color: color(button-disabled-background, $textscheme) !important;
-        color: color(button-disabled-text, $textscheme) !important;
+        border-color: color-functions.color(button-disabled-border, $textscheme) !important;
+        background-color: color-functions.color(button-disabled-background, $textscheme) !important;
+        color: color-functions.color(button-disabled-text, $textscheme) !important;
 
         &.button--ghost {
           background-color: transparent !important;
           // The ghost disabled text is a weird case; we have to
           // tune it for specific text schemes
-          @if $textscheme == $scheme-dark {
-            color: color(wildcat-white) !important;
+          @if $textscheme == color-schemes.$scheme-dark {
+            color: color-functions.color(wildcat-white) !important;
           } @else {
-            color: color(button-disabled-text, $textscheme) !important;
+            color: color-functions.color(button-disabled-text, $textscheme) !important;
           }
         }
       }
 
       &:hover {
-        border-color: color(button-hover-border, $textscheme);
-        background-color: color(button-hover-background, $textscheme);
-        color: color(button-hover-text, $textscheme);
+        border-color: color-functions.color(button-hover-border, $textscheme);
+        background-color: color-functions.color(button-hover-background, $textscheme);
+        color: color-functions.color(button-hover-text, $textscheme);
 
         &.button--ghost {
-          background-color: color(button-background, $textscheme);
-          border-color: color(button-border, $textscheme);
-          color: color(button-text, $textscheme);
+          background-color: color-functions.color(button-background, $textscheme);
+          border-color: color-functions.color(button-border, $textscheme);
+          color: color-functions.color(button-text, $textscheme);
         }
       }
 
       &:active,
       &[aria-pressed='true'] {
-        border-color: color(button-active-border, $textscheme);
-        background-color: color(button-active-background, $textscheme);
-        color: color(button-active-text, $textscheme);
+        border-color: color-functions.color(button-active-border, $textscheme);
+        background-color: color-functions.color(button-active-background, $textscheme);
+        color: color-functions.color(button-active-text, $textscheme);
 
         &.button--ghost {
-          color: color(button-active-text, $textscheme);
+          color: color-functions.color(button-active-text, $textscheme);
         }
 
         &.button--transparent {
           border-color: transparent;
           background-color: transparent;
-          color: color(button-active-border, $textscheme);
+          color: color-functions.color(button-active-border, $textscheme);
         }
       }
 
       &:focus {
-        border-color: color(button-focus-border, $textscheme);
+        border-color: color-functions.color(button-focus-border, $textscheme);
         outline: none;
-        background-color: color(button-focus-background, $textscheme);
-        color: color(button-focus-text, $textscheme);
+        background-color: color-functions.color(button-focus-background, $textscheme);
+        color: color-functions.color(button-focus-text, $textscheme);
 
         &.button--ghost {
           //background-color: transparent;
           // Like disabled ghost, the focus state is quite different
           // and we need some extra tuning
-          @if $textscheme == $scheme-dark {
-            //color: color(wildcat-white);
-            border-color: color(wildcat-white);
+          @if $textscheme == color-schemes.$scheme-dark {
+            //color: color-functions.color(wildcat-white);
+            border-color: color-functions.color(wildcat-white);
           } @else {
-            color: color(button-focus-text, $textscheme);
+            color: color-functions.color(button-focus-text, $textscheme);
           }
         }
       }
     }
 
     .headline-group .headline-group__super {
-      color: color(headline-group-super, $textscheme);
+      color: color-functions.color(headline-group-super, $textscheme);
     }
 
     .headline-group .headline-group__sub {
-      color: color(headline-group-sub, $textscheme);
+      color: color-functions.color(headline-group-sub, $textscheme);
     }
 
     .headline-group .headline-group__head a {
-      color: color(headline-group-head, $textscheme);
+      color: color-functions.color(headline-group-head, $textscheme);
     }
 
     .slick-prev,
     .slick-next {
-      background-color: color(carousel-single-button, $textscheme);
+      background-color: color-functions.color(carousel-single-button, $textscheme);
       color: #fff;
 
       &:hover,
       &:focus {
-        background-color: color(carousel-single-button, $textscheme);
+        background-color: color-functions.color(carousel-single-button, $textscheme);
         color: #fff;
       }
 
       &::before {
-        color: color(carousel-single-button-art, $textscheme);
+        color: color-functions.color(carousel-single-button-art, $textscheme);
       }
     }
 
     .slick-dots li {
       button {
         background-color: transparent;
-        color: color(wildcat-black);
+        color: color-functions.color(wildcat-black);
 
         &::before {
-          color: color(carousel-dot, $textscheme);
+          color: color-functions.color(carousel-dot, $textscheme);
         }
       }
 
       &.slick-active button::before {
-        color: color(carousel-dot-active, $textscheme);
+        color: color-functions.color(carousel-dot-active, $textscheme);
       }
     }
 
     .statistic {
       .editorial {
         &::before {
-          background-color: color(statistic-head-color, $textscheme);
+          background-color: color-functions.color(statistic-head-color, $textscheme);
         }
       }
 
       .headline-group {
         .headline-group__head {
-          color: color(statistic-head-color, $textscheme);
+          color: color-functions.color(statistic-head-color, $textscheme);
         }
 
         .headline-group__super,
         .headline-group__sub {
-          color: color(statistic-subhead-color, $textscheme);
+          color: color-functions.color(statistic-subhead-color, $textscheme);
         }
       }
     }
 
     .pullquote__attribution {
       &::before {
-        background-color: color(statistic-head-color, $textscheme);
+        background-color: color-functions.color(statistic-head-color, $textscheme);
       }
 
       .pullquote__first-line {
-        color: color(statistic-subhead-color, $textscheme);
+        color: color-functions.color(statistic-subhead-color, $textscheme);
       }
     }
 
     .search-control {
       background-color: transparent;
-      color: color(link, $textscheme);
+      color: color-functions.color(link, $textscheme);
 
       &:hover,
       &:active {
         background-color: transparent;
-        color: color(link-active, $textscheme);
+        color: color-functions.color(link-active, $textscheme);
       }
     }
 
     .menu-button {
       background-color: transparent;
-      color: color(menu-icon-color, $textscheme);
+      color: color-functions.color(menu-icon-color, $textscheme);
 
       &:hover,
       &:active {
         background-color: transparent;
-        color: color(menu-icon-color-active, $textscheme);
+        color: color-functions.color(menu-icon-color-active, $textscheme);
       }
     }
 
     .uky-logo-main {
       .uky-logo-main__logo {
-        fill: color(logo-color, $textscheme);
+        fill: color-functions.color(logo-color, $textscheme);
       }
 
       .uky-logo-main__wordmark {
-        fill: color(wordmark-color, $textscheme);
+        fill: color-functions.color(wordmark-color, $textscheme);
       }
     }
 
     .contact-table {
       th,
       td {
-        border-color: color(dashed-border-color, $textscheme);
+        border-color: color-functions.color(dashed-border-color, $textscheme);
       }
     }
 
@@ -727,12 +255,12 @@ $rr-lineheights: $lineheights;
       a {
         &:link,
         &:visited {
-          color: color(button-background, $textscheme);
+          color: color-functions.color(button-background, $textscheme);
         }
 
         &:hover,
         &:active {
-          color: color(button-disabled-text, $textscheme);
+          color: color-functions.color(button-disabled-text, $textscheme);
 
         }
       }
@@ -755,21 +283,20 @@ $rr-lineheights: $lineheights;
       input[type='url'],
       input[type='week'],
       textarea {
-        border-color: color(form-borders, $textscheme);
+        border-color: color-functions.color(form-borders, $textscheme);
       }
     }
-    //}
   }
 }
 
 
-@include generatescheme($scheme-dark, 'scheme-dark-');
-@include generatescheme($scheme-light, 'scheme-light-');
+@include generatescheme(color-schemes.$scheme-dark, 'scheme-dark-');
+@include generatescheme(color-schemes.$scheme-light, 'scheme-light-');
 
-@each $size, $settings in $rr-grid-settings {
-  @include rr-break-directive($size) {
-    @include generatescheme($scheme-dark, 'scheme-dark-#{$size}');
-    @include generatescheme($scheme-light, 'scheme-light-#{$size}');
+@each $size, $settings in layout.$rr-grid-settings {
+  @include root-rhythm.rr-break-directive($size) {
+    @include generatescheme(color-schemes.$scheme-dark, 'scheme-dark-#{$size}');
+    @include generatescheme(color-schemes.$scheme-light, 'scheme-light-#{$size}');
   }
 }
 

@@ -1,11 +1,13 @@
+@use '../../includes/root-rhythm';
+
 .described-links {
-  margin-bottom: rr-gridbase(3);
+  margin-bottom: root-rhythm.rr-gridbase(3);
 
   .editorial p {
-    @include rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium);
   }
 
   dd {
-    padding-left: rr-gridbase(2); // matches padding on fancy links
+    padding-left: root-rhythm.rr-gridbase(2); // matches padding on fancy links
   }
 }

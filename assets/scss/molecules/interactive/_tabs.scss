@@ -1,3 +1,7 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/color-schemes';
+
 .js-tabs {
   position: relative;
 
@@ -5,11 +9,11 @@
     position: absolute;
     right: 1rem;
     bottom: 0;
-    padding: 0 rr-gridbase(1);
-    background-color: color(light-blue);
-    color: color(wildcat-white);
+    padding: 0 root-rhythm.rr-gridbase(1);
+    background-color: color-functions.color(light-blue);
+    color: color-functions.color(wildcat-white);
     font-size: 1rem;
-    line-height: rr-gridbase(4);
+    line-height: root-rhythm.rr-gridbase(4);
   }
 }
 
@@ -26,59 +30,59 @@
   margin-bottom: 0;
 
   a {
-    @include rr-font-compute(s, tight);
+    @include root-rhythm.rr-font-compute(s, tight);
     display: block;
     margin: 0 auto;
-    padding: rr-gridbase(2) 0;
+    padding: root-rhythm.rr-gridbase(2) 0;
     outline: 0;
-    background-color: color(blue-gray);
-    color: color(dark-blue);
+    background-color: color-functions.color(blue-gray);
+    color: color-functions.color(dark-blue);
 
     text-align: center;
     text-transform: uppercase;
 
     &:hover,
     &:active {
-      color: color(dark-blue);
+      color: color-functions.color(dark-blue);
     }
 
     &[aria-selected='true'],
     &:focus {
       &::after {
         position: absolute;
-        right: rr-gridbase(3);
+        right: root-rhythm.rr-gridbase(3);
         bottom: 0;
-        left: rr-gridbase(3);
+        left: root-rhythm.rr-gridbase(3);
         height: 4px;
-        background-color: color(light-blue-tint);
+        background-color: color-functions.color(light-blue-tint);
         content: '';
       }
     }
 
     &[aria-selected='true'] {
-      background-color: color(dark-blue);
-      color: color(wildcat-white);
+      background-color: color-functions.color(dark-blue);
+      color: color-functions.color(wildcat-white);
       font-weight: 600;
       pointer-events: none;
 
       &::after {
-        background-color: color(light-blue);
+        background-color: color-functions.color(light-blue);
       }
 
       &:hover,
       &:active {
-        color: color(light-blue-tint);
+        color: color-functions.color(light-blue-tint);
       }
     }
   }
 }
 
 .js-tabcontent {
-  @include usescheme($scheme-dark);
-  margin-bottom: rr-grid-remainder(4px);
-  padding-bottom: rr-gridbase(5);
-  border-bottom: 4px color(light-blue) solid;
-  background-color: color(dark-blue);
+  @include usescheme(color-schemes.$scheme-dark);
+  margin-bottom: root-rhythm.rr-grid-remainder(4px);
+  padding-bottom: root-rhythm.rr-gridbase(5);
+  border-bottom: 4px color-functions.color(light-blue) solid;
+  background-color: color-functions.color(dark-blue);
 
   &[aria-hidden='true'] {
     display: none;

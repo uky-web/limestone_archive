@@ -1,3 +1,5 @@
+@use '../../includes/root-rhythm';
+
 .universal-nav {
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +8,7 @@
 
   > * {
     flex: 0 1 auto;
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
   }
 
   a {
@@ -14,31 +16,31 @@
     text-decoration: none;
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     justify-content: flex-end;
 
     > * {
       margin-bottom: 0;
-      margin-left: rr-gridbase(2);
+      margin-left: root-rhythm.rr-gridbase(2);
     }
 
     .my-uk-logo {
       width: 3.4375;
-      height: rr-gridbase(3);
+      height: root-rhythm.rr-gridbase(3);
       box-sizing: content-box;
 
       svg {
         display: block;
         width: 3.4375em;
-        height: rr-gridbase(3);
+        height: root-rhythm.rr-gridbase(3);
         margin: 0 auto;
       }
     }
 
     .my-uk-logo,
     .search-control {
-      margin-top: rr-gridbase(-1);
-      margin-bottom: rr-gridbase(-1);
+      margin-top: root-rhythm.rr-gridbase(-1);
+      margin-bottom: root-rhythm.rr-gridbase(-1);
     }
 
     &:first-child:last-child {

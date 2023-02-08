@@ -1,8 +1,12 @@
+@use '../../tokens/color-schemes';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
 .global-megamenu {
 
   &--dark {
-    background-color: color(dark-blue);
-    @include usescheme($scheme-dark);
+    background-color: color-functions.color(dark-blue);
+    @include usescheme(color-schemes.$scheme-dark);
   }
 
 
@@ -16,7 +20,7 @@
         left: 0;
         width:  3.125rem;
         height: .25rem;
-        background-color: color(wildcat-white);
+        background-color: color-functions.color(wildcat-white);
         content: '';
     }
   }
@@ -40,17 +44,17 @@
     display: flex;
     flex-wrap: wrap;
     max-height: fit-content;
-    padding: 0 rr-gridbase(1) rr-gridbase(1);
+    padding: 0 root-rhythm.rr-gridbase(1) root-rhythm.rr-gridbase(1);
 
     &--dark {
-      background-color: color(dark-blue);
-        @include usescheme($scheme-dark);
+      background-color: color-functions.color(dark-blue);
+        @include usescheme(color-schemes.$scheme-dark);
     }
 
     .global-megamenu__description,
     .global-megamenu__submenus {
       flex: 1 0 100%;
-      //padding: rr-gridbase(1);
+      //padding: root-rhythm.rr-gridbase(1);
     }
 
     .global-megamenu__description {
@@ -61,17 +65,17 @@
       //display: flex;
       //flex-wrap: wrap;
       a {
-        @include rr-font-compute(r, medium);
-        padding-bottom: rr-gridbase(1);
+        @include root-rhythm.rr-font-compute(r, medium);
+        padding-bottom: root-rhythm.rr-gridbase(1);
       }
     }
 
 
   }
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
 
     &--dark {
-      background-color: color(wildcat-blue);
+      background-color: color-functions.color(wildcat-blue);
     }
 
     .global-megamenu__slab {
@@ -79,17 +83,17 @@
       position: absolute;
       top: 100%;
       z-index: 100;
-      padding: 0 rr-gridbase(3) rr-gridbase(3);
+      padding: 0 root-rhythm.rr-gridbase(3) root-rhythm.rr-gridbase(3);
 
       &--dark {
-        background-color: color(wildcat-blue);
-        @include usescheme($scheme-dark, 'l');
+        background-color: color-functions.color(wildcat-blue);
+        @include usescheme(color-schemes.$scheme-dark, 'l');
 
       }
 
       .global-megamenu__description,
       .global-megamenu__submenus {
-        @include rr-font-compute(r, medium);
+        @include root-rhythm.rr-font-compute(r, medium);
       }
       .global-megamenu__description {
         display:block;

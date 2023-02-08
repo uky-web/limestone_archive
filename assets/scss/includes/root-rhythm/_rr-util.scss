@@ -1,0 +1,116 @@
+@use "../../tokens/layout";
+@use "rr-config" as *;
+
+// Gets the list of breakpoints; very useful for walking
+// the configuration.
+@function rr-breakpoint-list($config: layout.$rr-grid-settings) {
+  @return map-keys($config);
+}
+
+// Return a breakpoint configuration for the specified tag. 
+// The tag is the first-level value in the `$rr-grid-settings` map.
+// This does not compute mobile-first cascade; you need to 
+// use `$rr-combined-breakpoint` instead. 
+@function rr-breakpoint($tag) {
+  $config: layout.$rr-grid-settings;
+  @if map-has-key($config, $tag) {
+    @return map-get($config, $tag);
+  } @else {
+    @return map-get($config, nth(map-keys($config), 1));
+  }
+}
+
+@function rr-first-breakpoint($break, $config: layout.$rr-grid-settings) {
+  $breaks: rr-breakpoint-list($config);
+  @return $break == nth($breaks, 1);
+}
+
+// Returns the first breakpoint config settings.
+// Remember maps are 1-indexed.
+@function rr-breakpoint-first() {
+  @return rr-breakpoint(nth(rr-breakpoint-list(), 1));
+}
+
+// Compute the size of a grid square, computed in the unit of the
+// line height. You can pass an optional multiplier.
+@function rr-gridbase($multiplier: 1) {
+  @return (calc($rr-line-height / layout.$rr-grid-divisions)) * $multiplier;
+}
+
+// deprecated
+@function rr-grid-units($steps) {
+  @return rr-gridbase($steps);
+}
+
+// Takes an offset value (like the width of a border) and a number of 
+// grid steps; returns the size of the remaining grid step area.
+// Useful primarily for adding borders around things. 
+@function rr-grid-remainder($offset, $steps: 1) {
+  $result: 0;
+  @if $steps < 1 {
+    $result: 0;
+  } @else {
+    $stepsize: rr-gridbase($steps);
+    @if comparable($offset, $stepsize) {
+      $result: $stepsize - $offset;
+    } @else {
+      $result: calc(#{$stepsize} - #{$offset});
+    }
+  }
+  @return $result;
+}
+
+// Convenience mixin for building breakpoints around the media queries. 
+@mixin rr-break-directive($break, $config: layout.$rr-grid-settings) {
+  @if rr-first-breakpoint($break, $config) {
+    // Base Breakpoint
+    @content;
+    // End base breakpoint
+  } @else {
+    $mq: rr-prop-for-breakpoint($break, mq);
+    $size: rr-prop-for-breakpoint($break, size);
+    @media screen and ($mq: $size) {
+      @content;
+    }
+  }
+}
+
+// Return a breakpoint configuration for the specified tag. 
+// The tag is the first-level value in the `$rr-grid-settings` map. 
+// Unlike `rr-breakpoint`, this will look up values from earlier 
+// breakpoints. 
+@function rr-combined-breakpoint($break: s) {
+  $breaks: rr-breakpoint-list();
+  $work-map: rr-breakpoint-first();
+  $stop: index($breaks, $break);
+  @if not $stop {
+    @return $work-map;
+  } // Bounds-check the stop
+  @if ($stop > 1) {
+    @for $i from 2 through $stop {
+      $tag: nth($breaks, $i);
+      $work-map: map-merge($work-map, rr-breakpoint($tag));
+    }
+  }
+  @return $work-map;
+}
+
+// Given a breakpoint tag and a property name, return the property value. 
+// This looks for the property in the combined breakpoint.
+@function rr-prop-for-breakpoint($break, $prop) {
+  $bp: rr-combined-breakpoint($break);
+  @if map-has-key($bp, $prop) {
+    @return map-get($bp, $prop);
+  }
+  @return null;
+}
+
+// Given a breakpoint tag and a property name, return the property value. 
+// This looks for the property only in the specified breakpoint.
+@function rr-strict-prop-for-breakpoint($break, $prop) {
+  $bp: rr-breakpoint($break);
+  @if map-has-key($bp, $prop) {
+    @return map-get($bp, $prop);
+  }
+  @return null;
+}

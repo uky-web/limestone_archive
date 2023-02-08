@@ -1,11 +1,14 @@
+@use '../includes/root-rhythm';
+
 @import 'icons/main';
 @import 'icons/icon-label';
+
 
 .icon-catalog {
   @include no-decoration;
   @include icon-label-align;
 
   li {
-    @include rr-font-compute(xl, wide);
+    @include root-rhythm.rr-font-compute(xl, wide);
   }
 }

@@ -1,9 +1,13 @@
+@use '../../tokens/color-schemes';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
 .global-footer {
-  @include usescheme($scheme-dark);
-  background-color: color(dark-blue);
+  @include usescheme(color-schemes.$scheme-dark);
+  background-color: color-functions.color(dark-blue);
 
   .slab__wrapper {
-    @include rr-break-directive(m) {
+    @include root-rhythm.rr-break-directive(m) {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
@@ -12,11 +16,11 @@
       @supports(display: grid) {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-        grid-gap: rr-gridbase(3);
+        grid-gap: root-rhythm.rr-gridbase(3);
       }
     }
 
-    @include rr-break-directive(l) {
+    @include root-rhythm.rr-break-directive(l) {
       @supports(display: grid) {
         grid-template-columns: minmax(275px, 1fr) minmax(200px, 487px) minmax(275px, 1fr);
       }
@@ -24,14 +28,14 @@
   }
 
   .global-footer__column {
-    margin-bottom: rr-gridbase(3);
+    margin-bottom: root-rhythm.rr-gridbase(3);
 
-    @include rr-break-directive(m) {
+    @include root-rhythm.rr-break-directive(m) {
       flex: 1 1 auto;
       width: 100%;
       min-width: 200px;
       max-width: 275px;
-      margin: 0 rr-gridbase(2);
+      margin: 0 root-rhythm.rr-gridbase(2);
 
       @supports(display: grid) {
         width: auto;
@@ -56,13 +60,13 @@
     }
 
     .headline-group__head {
-      @include rr-font-compute(xl, tight);
+      @include root-rhythm.rr-font-compute(xl, tight);
       text-transform: uppercase;
     }
   }
 
   .link-group {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight);
   }
 
   .art-link {

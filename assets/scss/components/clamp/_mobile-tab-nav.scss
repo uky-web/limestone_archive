@@ -1,11 +1,14 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
 .mobile-tab-nav {
   .utility-nav {
     display: block;
-    margin-top: rr-gridbase();
+    margin-top: root-rhythm.rr-gridbase();
   }
 
   .universal-nav > * {
-    padding: rr-gridbase(1) rr-gridbase(1) 0 0;
+    padding: root-rhythm.rr-gridbase(1) root-rhythm.rr-gridbase(1) 0 0;
 
     &.my-uk-logo {
       padding: 0;
@@ -13,16 +16,16 @@
   }
 
   .mobile-tab-nav__main-menu-panel {
-    background-color: color(wildcat-blue);
+    background-color: color-functions.color(wildcat-blue);
   }
 
   .mobile-tab-nav__menus {
-    padding: rr-gridbase(3);
-    background-color: color(dark-blue);
+    padding: root-rhythm.rr-gridbase(3);
+    background-color: color-functions.color(dark-blue);
   }
 
   .mobile-tab-nav__universal {
-    padding: rr-gridbase(3) rr-gridbase(3) 0;
+    padding: root-rhythm.rr-gridbase(3) root-rhythm.rr-gridbase(3) 0;
   }
 
   .universal-breadcrumb {
@@ -37,14 +40,14 @@
   }
 
   .section-nav {
-    padding: rr-gridbase(3);
+    padding: root-rhythm.rr-gridbase(3);
 
     li {
       display: none;
 
       &.current-item {
         display: list-item;
-        @include rr-font-compute(l, medium);
+        @include root-rhythm.rr-font-compute(l, medium);
 
         a {
           pointer-events: none;
@@ -52,9 +55,9 @@
 
         ul,
         ol {
-          padding-top: rr-grid-remainder(1px);
-          padding-bottom: rr-gridbase(1);
-          border-top: 1px color(light-blue) solid;
+          padding-top: root-rhythm.rr-grid-remainder(1px);
+          padding-bottom: root-rhythm.rr-gridbase(1);
+          border-top: 1px color-functions.color(light-blue) solid;
         }
 
         li {
@@ -67,12 +70,12 @@
 
 .mobile-tab-nav--wildcat {
   .mobile-tab-nav__main-menu-tab[aria-selected='true'] {
-    background-color: color(wildcat-blue);
+    background-color: color-functions.color(wildcat-blue);
   }
 
   .mobile-tab-nav__menus {
     padding-bottom: 0;
-    background-color: color(wildcat-blue);
+    background-color: color-functions.color(wildcat-blue);
   }
 
   .mobile-tab-nav__universal {

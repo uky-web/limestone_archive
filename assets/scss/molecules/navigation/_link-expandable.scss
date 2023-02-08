@@ -1,7 +1,11 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/layout';
+
 .link-expandable {
   position:relative;
   a {
-    //@include rr-font-compute(l, tight);
+    //@include root-rhythm.rr-font-compute(l, tight);
     font-weight: 500;
 
     &:link,
@@ -20,15 +24,15 @@
 .link-expandable__container {
   display:none;
   position: absolute;
-  padding: rr-gridbase(2);
+  padding: root-rhythm.rr-gridbase(2);
   top: calc( 100% + #{rr-gridbase(1.5)});
   left:0;
   z-index: 1000;
 
-  width: $global-width/4;
+  width: calc(layout.$global-width/4);
 
   &--dark {
-    background-color: color(midnight);
+    background-color: color-functions.color(midnight);
   }
 }
 

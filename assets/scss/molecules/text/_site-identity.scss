@@ -1,18 +1,22 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/typography';
+
 .site-identity {
   display: block;
   position: relative;
-  font-family: $font-avenirnext;
+  font-family: typography.$font-avenirnext;
   font-size: 0;
 
   &:link,
   &:visited {
-    color: color(light-gray);
+    color: color-functions.color(light-gray);
     text-decoration: none;
   }
 
   &:active,
   &:hover {
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
     text-decoration: none;
   }
 
@@ -25,13 +29,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
     vertical-align: middle;
     word-wrap: none;
 
     //fixme: overriding an external component
     .uk-logo-svg {
-      border-right: 1px color(light-gray) solid;
+      border-right: 1px color-functions.color(light-gray) solid;
       margin-right: 1.5vw;
     }
 
@@ -51,7 +55,7 @@
     font-size: 5vw; // ( logo width * .494117647 )
     font-weight: 500;
     line-height: 1; // Line-height is proportional already
-    color: color(wildcat-white)
+    color: color-functions.color(wildcat-white)
   }
 
   &__wordmark__row--subhead {
@@ -60,14 +64,14 @@
   }
 
   &__unit {
-    @include rr-font-compute(s, tight);
+    @include root-rhythm.rr-font-compute(s, tight);
     margin-top: .2rem;
     margin-left: 0;
     font-style: italic;
     font-weight: 500;
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     &__logo {
       vertical-align: baseline;
 
@@ -96,9 +100,9 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     &__main {
-      min-height: rr-gridbase(9);
+      min-height: root-rhythm.rr-gridbase(9);
     }
 
     &__logo svg {
@@ -120,9 +124,9 @@
     }
   }
 
-  @include rr-break-directive(xl) {
+  @include root-rhythm.rr-break-directive(xl) {
     &__main {
-      min-height: rr-gridbase(11);
+      min-height: root-rhythm.rr-gridbase(11);
     }
 
     &__logo svg {

@@ -1,0 +1,19 @@
+{% include 'molecules-skip-nav' %}
+{% include 'components-global-header' with { nav_molecule: nav_molecule, menus: menus } %}
+<main class="main" id="main-content">
+	{% block main_content %}
+		{% include 'organisms-page-header' with { page_header_show_hero : true } %}
+
+		<div class="page-section">
+			{% embed 'molecules-one-column' %}
+				{% block one_column_col %}
+					{% include 'atoms-heading' with {level: 2, headline: 'Default Content Warning'} %}
+					<p>If you are seeing this page it is because you have not overridden the base template block.</p>
+				{% endblock %}
+			{% endembed %}
+		</div>
+
+	{% endblock %}
+</main>
+{% include 'components-global-footer' %}
+{% include 'components-universal-footer' with { include_wordmark : true } %}

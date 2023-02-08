@@ -1,0 +1,7 @@
+{% set className = ['js-tabcontent', tab_panel_variant] %}
+
+<div id="{{ tab_panel_id }}" class="{{ className|join(' ') }}">
+    {% block tab_panel_content %}
+        {% include 'atoms-formatted-text' %}
+    {% endblock %}
+</div>

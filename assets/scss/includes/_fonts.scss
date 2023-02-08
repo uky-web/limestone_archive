@@ -1,3 +1,4 @@
+@use "../tokens/typography";
 //sass-lint:disable no-url-domains, no-url-protocols, no-duplicate-properties
 
 //Required for Hoefler (typography.com) licensing
@@ -109,29 +110,29 @@ Imaging with any questions regarding Web Fonts:  http://www.fonts.com
 }
 
 body {
-  font-family: $font-avenirnext;
+  font-family: typography.$font-avenirnext;
 }
 
 .font-mercury {
-  font-family: $font-mercury;
+  font-family: typography.$font-mercury;
 }
 
 .font-avenirnext {
-  font-family: $font-avenirnext;
+  font-family: typography.$font-avenirnext;
 }
 
 .font-surveyor {
-  font-family: $font-surveyor;
+  font-family: typography.$font-surveyor;
 }
 
 .font-tradegothic {
-  font-family: $font-tradegothic;
+  font-family: typography.$font-tradegothic;
 }
 
 .font-blackbikeclean {
-  font-family: $font-blackbikeclean;
+  font-family: typography.$font-blackbikeclean;
 }
 
 .font-blackbikerough {
-  font-family: $font-blackbikerough;
+  font-family: typography.$font-blackbikerough;
 }

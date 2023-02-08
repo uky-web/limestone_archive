@@ -1,16 +1,20 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+
+
 .accordion__header {
-  @include rr-font-compute(2xl, medium);
+  @include root-rhythm.rr-font-compute(2xl, medium);
   width: 100%;
   padding: {
-    top: rr-grid-remainder(1px, 2);
+    top: root-rhythm.rr-grid-remainder(1px, 2);
     right: 3.125em;
-    bottom: rr-gridbase(2);
+    bottom: root-rhythm.rr-gridbase(2);
     left: 1em;
   }
-  border: 1px color(light-gray) solid;
+  border: 1px color-functions.color(light-gray) solid;
   border-width: 1px 0 0;
   background-color: transparent;
-  color: color(wildcat-blue);
+  color: color-functions.color(wildcat-blue);
   font-weight: 500;
   text-align: left;
   text-transform: none;
@@ -18,17 +22,17 @@
 
   &:focus {
     outline: none;
-    background-color: color(subtle-gray);
+    background-color: color-functions.color(subtle-gray);
   }
 
   &:active {
     outline: none;
-    background-color: color(light-gray);
+    background-color: color-functions.color(light-gray);
   }
 
   &:hover {
-    background-color: color(blue-gray);
-    color: color(wildcat-black);
+    background-color: color-functions.color(blue-gray);
+    color: color-functions.color(wildcat-black);
   }
 }
 
@@ -47,8 +51,8 @@
 
   .editorial {
     padding: {
-      top: rr-gridbase(3);
-      bottom: rr-gridbase(3);
+      top: root-rhythm.rr-gridbase(3);
+      bottom: root-rhythm.rr-gridbase(3);
     }
   }
 }
@@ -69,9 +73,9 @@ button.accordion__header {
   &::after {
     position: absolute;
     top: 0;
-    right: rr-gridbase(3);
+    right: root-rhythm.rr-gridbase(3);
     bottom: 0;
-    width: rr-gridbase(3);
+    width: root-rhythm.rr-gridbase(3);
     transform: rotate(45deg);
     transform-origin: 50% 50%;
     transition: transform .3s ease-in-out;

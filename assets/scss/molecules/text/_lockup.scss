@@ -1,18 +1,22 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
+@use '../../tokens/typography';
+
 .lockup {
   display: block;
   position: relative;
-  font-family: $font-mercury;
+  font-family: typography.$font-mercury;
   font-size: 0;
 
   &:link,
   &:visited {
-    color: color(light-gray);
+    color: color-functions.color(light-gray);
     text-decoration: none;
   }
 
   &:active,
   &:hover {
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
     text-decoration: none;
   }
 
@@ -22,7 +26,7 @@
 
   &__logo {
     display: inline-block;
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
     vertical-align: middle;
     word-wrap: none;
 
@@ -39,7 +43,7 @@
     font-weight: 500;
     line-height: 1; // Line-height is proportional already
     vertical-align: middle;
-    color: color(wildcat-white)
+    color: color-functions.color(wildcat-white)
   }
 
   &__wordmark__row {
@@ -47,14 +51,14 @@
   }
 
   &__unit {
-    @include rr-font-compute(s, tight);
+    @include root-rhythm.rr-font-compute(s, tight);
     margin-top: .2rem;
     margin-left: 0;
     font-style: italic;
     font-weight: 500;
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     &__logo {
       vertical-align: baseline;
 
@@ -77,9 +81,9 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     &__main {
-      min-height: rr-gridbase(9);
+      min-height: root-rhythm.rr-gridbase(9);
     }
 
     &__logo svg {
@@ -97,9 +101,9 @@
     }
   }
 
-  @include rr-break-directive(xl) {
+  @include root-rhythm.rr-break-directive(xl) {
     &__main {
-      min-height: rr-gridbase(11);
+      min-height: root-rhythm.rr-gridbase(11);
     }
 
     &__logo svg {

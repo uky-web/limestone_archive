@@ -1,21 +1,23 @@
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
 
 
 .checker-divider {
 
-  border-bottom-color: color(wildcat-white);
+  border-bottom-color: color-functions.color(wildcat-white);
   border-bottom-style:solid;
   border-bottom-width: 1px;
 
 
 
   &::after {
-    @include rr-slab-wrapper;
+    @include root-rhythm.rr-slab-wrapper;
     display: block;
     width: 100%;
     font-family: "iconfont";
     //content: "";
     content: "";
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
     font-style: normal;
     font-weight: normal;
     line-height: 0;
@@ -25,27 +27,27 @@
     text-align: right;
     position: relative;
 
-    //slab padding is defined by rr-slab,
+    //slab padding is defined byroot-rhythm.rr-slab,
     //this loop recreates that bottom value
-    $breaks: rr-breakpoint-list();
+    $breaks:root-rhythm.rr-breakpoint-list();
     @each $break in $breaks {
-      $vspace: rr-gridbase(rr-prop-for-breakpoint($break, vspace));
+      $vspace: root-rhythm.rr-gridbase(root-rhythm.rr-prop-for-breakpoint($break, vspace));
       @if $break == nth($breaks, 1) {
         bottom: -$vspace;
       } @else {
-        @include rr-break-directive($break) {
+        @include root-rhythm.rr-break-directive($break) {
           bottom: -$vspace;
         }
       }
     }
 
-    @each $break in rr-breakpoint-list() {
-      $vspace: rr-gridbase(rr-prop-for-breakpoint($break, vspace));
+    @each $break in root-rhythm.rr-breakpoint-list() {
+      $vspace: root-rhythm.rr-gridbase(root-rhythm.rr-prop-for-breakpoint($break, vspace));
       @if $break == nth($breaks, 1) {
-        padding: 0 rr-prop-for-breakpoint($break, offset);
+        padding: 0 root-rhythm.rr-prop-for-breakpoint($break, offset);
       } @else {
-        @include rr-break-directive($break) {
-          padding: 0 rr-prop-for-breakpoint($break, offset);
+        @include root-rhythm.rr-break-directive($break) {
+          padding: 0 root-rhythm.rr-prop-for-breakpoint($break, offset);
         }
       }
     }

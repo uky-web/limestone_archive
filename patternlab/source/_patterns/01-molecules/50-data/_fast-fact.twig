@@ -1,0 +1,8 @@
+<div class="fast-fact">
+  <div class="fast-fact__stat">
+    {% include 'molecules-headline-group' with {level: 1, superhead: 'over', headline: main_stat|default(fake('randomNumber')), subhead: sub_stat|default(fake('catchPhrase')) } %}
+  </div>
+  <div class="fast-fact__description">
+    {% include 'atoms-paragraph' %}
+  </div>
+</div>
