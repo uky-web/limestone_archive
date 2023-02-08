@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ff2f8e6a322add21dccc3658e640dc9",
+    "content-hash": "04d756a7b97c5dc7bf0ebd775120117a",
     "packages": [
         {
             "name": "ahebrank/yeti_twig",
@@ -327,18 +327,19 @@
         },
         {
             "name": "koenpunt/php-inflector",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/koenpunt/php-inflector.git",
-                "reference": "6c0157f7fb6e5129743508c303dcb6b1d246b800"
+                "reference": "8bf0655b11d0c9d5a065928a1d4a4c627b0a09c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/koenpunt/php-inflector/zipball/6c0157f7fb6e5129743508c303dcb6b1d246b800",
-                "reference": "6c0157f7fb6e5129743508c303dcb6b1d246b800",
+                "url": "https://api.github.com/repos/koenpunt/php-inflector/zipball/8bf0655b11d0c9d5a065928a1d4a4c627b0a09c1",
+                "reference": "8bf0655b11d0c9d5a065928a1d4a4c627b0a09c1",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -362,9 +363,9 @@
             ],
             "support": {
                 "issues": "https://github.com/koenpunt/php-inflector/issues",
-                "source": "https://github.com/koenpunt/php-inflector/tree/v1.0.0"
+                "source": "https://github.com/koenpunt/php-inflector/tree/master"
             },
-            "time": "2014-04-10T19:13:17+00:00"
+            "time": "2018-05-20T22:50:25+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -1281,6 +1282,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "fzaninotto/faker": 20,
+        "koenpunt/php-inflector": 20,
         "ahebrank/yeti_twig": 20
     },
     "prefer-stable": false,

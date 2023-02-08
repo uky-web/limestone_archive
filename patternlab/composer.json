@@ -29,7 +29,7 @@
 		"pattern-lab/patternengine-twig": "^2.0.0",
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"fzaninotto/faker": "dev-master",
-		"koenpunt/php-inflector": "^1.0",
+		"koenpunt/php-inflector": "dev-master",
 		"ahebrank/yeti_twig": "dev-master"
 	},
 	"scripts": {

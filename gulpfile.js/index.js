@@ -25,11 +25,11 @@ const watcher = function(){
 }
 
 const build = series(
+    buildIconfont,
     buildCSS,
     buildLibs,
     buildJS,
     buildXML,
-    buildIconfont,
     buildImages,
     buildFonts
 )
