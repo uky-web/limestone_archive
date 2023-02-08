@@ -72,5 +72,11 @@
     "eyeglass": "^3.0.3",
     "gulp-rename": "^1.2.2",
     "rollup-plugin-bower-resolve": "^0.4.0"
+  },
+
+  "scripts":{
+    "start": "composer install --working-dir ./patternlab && gulp start",
+    "dev": "", 
+    "build-patternlab":"" 
   }
 }

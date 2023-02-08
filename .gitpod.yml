@@ -10,9 +10,7 @@ tasks:
       npm install -g gulp-cli
   - command: |
       npm install -g gulp-cli
-      gulp start
-      composer install --working-dir ./patternlab
-      gp await-port 3000 && gp preview $(gp url 3000)
+      npm start
 
 
 
