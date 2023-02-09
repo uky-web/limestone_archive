@@ -8,7 +8,8 @@ tasks:
   - name: Dev Server
     init:  | 
         npm install
-        npm install -g gulp-cli
-    command: npm start
+    command: |
+      npm install -g gulp-cli
+      npm start
 
 
