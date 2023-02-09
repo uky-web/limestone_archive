@@ -75,7 +75,7 @@
   },
 
   "scripts":{
-    "install": "composer install --working-dir ./patternlab",
+    "install": "echo 'Y' | composer install --working-dir ./patternlab",
     "start": "gulp start",
     "dev": "", 
     "build-patternlab":"" 
