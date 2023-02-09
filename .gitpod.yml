@@ -11,5 +11,6 @@ tasks:
     command: |
       npm install -g gulp-cli
       npm start
+      gp ports await 3000 && gp preview $(gp url 3000)
 
 
