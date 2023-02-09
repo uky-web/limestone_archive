@@ -7,5 +7,5 @@ This project includes SCSS, JS, and Twig for interface components used in UK web
 
 ### Running 
 
-To build and start a `browsersync` based server, run `gulp start` in the command line.
+To build and start a `browsersync` based server, run `npm start` in the command line (this should start automatically in gitpod).
 
