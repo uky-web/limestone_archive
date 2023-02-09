@@ -1,6 +1,6 @@
-@use '../../tokens/color-schemes';
-@use '../../includes/color-functions';
-@use '../../includes/root-rhythm';
+@use 'color-schemes';
+@use 'color-functions';
+@use 'root-rhythm';
 
 .banner-alert {
   padding: root-rhythm.rr-gridbase(2);

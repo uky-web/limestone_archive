@@ -1,7 +1,7 @@
-@use '../../includes/root-rhythm';
-@use '../../includes/color-functions';
-@use '../../tokens/colors';
-@use '../../tokens/color-schemes';
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'colors';
+@use 'color-schemes';
 
 .slab {
   @include root-rhythm.rr-slab;

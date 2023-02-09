@@ -1,6 +1,6 @@
-@use '../../includes/root-rhythm';
-@use '../../includes/color-functions';
-@use '../../tokens/color-schemes';
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'color-schemes';
 
 .grid {
   @include root-rhythm.rr-slab-wrapper($margins: true);

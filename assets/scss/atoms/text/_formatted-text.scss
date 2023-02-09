@@ -1,6 +1,6 @@
-@use '../../includes/design-variables';
-@use '../../tokens/color-schemes';
-@use '../../tokens/colors';
+@use 'design-variables';
+@use 'color-schemes';
+@use 'colors';
 
 .formatted-text--dark {
   @include design-variables.usescheme(color-schemes.$scheme-dark);

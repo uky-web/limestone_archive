@@ -1,5 +1,5 @@
-@use '../../includes/root-rhythm';
-@use '../../tokens/typography';
+@use 'root-rhythm';
+@use 'typography';
 
 .search-control {
   @include root-rhythm.rr-font-compute(s, tight);

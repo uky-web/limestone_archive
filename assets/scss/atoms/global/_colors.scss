@@ -1,6 +1,6 @@
-@use '../../tokens/colors';
-@use '../../tokens/color-schemes';
-@use '../../includes/color-functions';
+@use 'colors';
+@use 'color-schemes';
+@use 'color-functions';
 
 
 @mixin show-color($color) {
