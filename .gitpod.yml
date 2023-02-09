@@ -5,12 +5,10 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
-  - init: | 
-      npm install
-      npm install -g gulp-cli
-  - command: |
-      npm install -g gulp-cli
-      npm start
-
+  - name: Dev Server
+    init:  | 
+        npm install
+        npm install -g gulp-cli
+    command: npm start
 
 
