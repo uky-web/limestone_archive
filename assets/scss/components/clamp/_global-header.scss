@@ -1,6 +1,6 @@
-@use '../../tokens/color-schemes';
-@use '../../includes/root-rhythm';
-@use '../../includes/color-functions';
+@use 'color-schemes';
+@use 'root-rhythm';
+@use 'color-functions';
 
 .global-header {
   @include usescheme(color-schemes.$scheme-dark);

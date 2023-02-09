@@ -1,9 +1,8 @@
-@use '../tokens/color-schemes';
-@use '../includes/color-functions';
-@use '../includes/design-variables';
-@use '../includes/root-rhythm';
+@use 'color-schemes';
+@use 'color-functions';
+@use 'design-variables';
+@use 'root-rhythm';
 
-@import 'global/colors';
 @import 'global/font-styles';
 @import 'global/placeholder';
 @import 'global/uky-logo-main';

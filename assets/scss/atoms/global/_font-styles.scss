@@ -1,3 +1,3 @@
-@use '../../includes/root-rhythm';
+@use 'root-rhythm';
 @include root-rhythm.rr-font-samples($prefix: 'text');
 

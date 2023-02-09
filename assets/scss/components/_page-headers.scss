@@ -1,6 +1,6 @@
-@use '../includes/root-rhythm';
-@use '../tokens/colors';
-@use '../includes/color-functions';
+@use 'root-rhythm';
+@use 'colors';
+@use 'color-functions';
 @import 'page-headers/text-header';
 @import 'page-headers/hero';
 @import 'page-headers/overlay-hero';

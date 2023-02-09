@@ -1,7 +1,7 @@
-@use '../../tokens/color-schemes';
-@use '../../tokens/typography';
-@use '../../includes/root-rhythm';
-@use '../../includes/color-functions';
+@use 'color-schemes';
+@use 'typography';
+@use 'root-rhythm';
+@use 'color-functions';
 
 .pullquote {
   @include block-spacing($border-color: transparent);

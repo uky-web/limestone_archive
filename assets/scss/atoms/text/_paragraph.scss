@@ -1,4 +1,4 @@
-@use '../../includes/root-rhythm';
+@use 'root-rhythm';
 
 p {
   @include root-rhythm.rr-font-compute(r, medium);
