@@ -1,9 +1,0 @@
-<div class="cta {{ cta_variant }}">
-    {% include 'atoms-heading' with { level:level|default(2) } %}
-    {% include 'atoms-formatted-text' %}
-    {% if cta_variant is sameas('cta--dark') %}
-        <p>{% include 'atoms-button' with { button_variant: 'button--ghost' } %}</p>
-    {% else %}
-        <p>{% include 'atoms-button' %}</p>
-    {% endif %}
-</div>
