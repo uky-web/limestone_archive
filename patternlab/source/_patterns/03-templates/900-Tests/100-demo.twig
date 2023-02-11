@@ -19,7 +19,7 @@
   {% set block = 'teaser' %}
   {% include 'components-block-columns' with { columns: 3, grid_columns: ['components-' ~ block,'components-' ~ block,'components-' ~ block] } %}
 
-  {% embed 'molecules-slab' %}
+  {% embed '@limestone/slab.twig' %}
     {% block slab_content %}
     {% set num = 3 %}
       {% include 'components-content-list' %}
@@ -34,7 +34,7 @@
 
   {% include 'components-statistics' %}
 
-  {% embed 'molecules-slab' %}
+  {% embed '@limestone/slab.twig' %}
     {% block slab_content %}
       {% include 'molecules-figure' %}
     {% endblock %}

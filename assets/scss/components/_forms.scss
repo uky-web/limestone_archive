@@ -1,6 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
-@import 'forms/search-form';
+@import 'search-form';
 
 form {
   margin-bottom: root-rhythm.rr-gridbase(4);

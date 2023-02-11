@@ -1,7 +1,7 @@
 {% set slabstyles = ["wildcat-white","wildcat-blue"] %}
 
 {% for skin in slabstyles %}
-    {% embed 'molecules-slab' with { slab_variant: 'slab--' ~ skin } %}
+    {% embed '@limestone/slab.twig' with { slab_variant: 'slab--' ~ skin } %}
         {% block slab_content %}
             {% set sizes = ['small','','large'] %}
             {% for size in sizes %}

@@ -1,0 +1,16 @@
+{% set props = {
+ 'content_type': "inline", 
+ 'modal_trigger_text': "Search", 
+ 'modal_variant': "search-control",
+ 'search_form_props': {
+  'search_label': search_label,
+ }
+
+}%}
+
+
+{% embed 'molecules-modal' with props only %}
+  {% block modal_content %}
+    {% include '@limestone/search-form.twig' with search_form_props only %}
+  {% endblock %}
+{% endembed %}

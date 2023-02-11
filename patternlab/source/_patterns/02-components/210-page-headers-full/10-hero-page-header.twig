@@ -1,6 +1,6 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
 {% set popout_class = no_popout ? ' popout' : '' %}
-{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--hero " ~ hero_variant ~ popout_class } %}
+{% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--hero " ~ hero_variant ~ popout_class } %}
     {% block slab_outer %}
         {% if ambient_video %}
             {% include 'molecules-ambient-video' %}

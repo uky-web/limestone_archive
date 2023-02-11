@@ -1,5 +1,5 @@
 {% if standalone %}
-	{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white editorial' } %}
+	{% embed '@limestone/slab.twig' with { slab_variant : 'slab--wildcat-white editorial' } %}
 		{% block slab_content %}
 			{% for i in 1..formatted_text_paragraphs|default(1) %}
 				<p>{{ text.editorial(formatted_text_sentences) }}</p>

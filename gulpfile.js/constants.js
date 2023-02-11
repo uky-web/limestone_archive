@@ -3,9 +3,9 @@ var runTimestamp = Math.round(Date.now() / 1000);
 const interactive = false;
 
 const paths = {
-sass: ['assets/scss/**/*.scss'],
+  sass: ['assets/scss/**/*.scss', 'components/**/*.scss'],
   lib: ['assets/lib/**/*.js'],
-  js: ['assets/js/**/*.js'],
+  js: ['assets/js/**/*.js','components/**/*.js'],
   xml: ['assets/xml/**/*.xml'],
   images: ['assets/images/**/*'],
   fonts: ['assets/fonts/**/*'],
@@ -20,7 +20,7 @@ sass: ['assets/scss/**/*.scss'],
   dist_fonts: 'dist/fonts'
 }
 
-const sassIncludePaths = ['./assets/scss/tokens/', './assets/scss/includes/']
+const sassIncludePaths = ['./assets/scss/tokens/', './assets/scss/includes/', './components/']
 
 // Error reporter for plumber.
 const plumber_error = function(err) {

@@ -1,6 +1,6 @@
 {% set sidebar_aside = ['molecules-section-nav'] %}
 
-{% embed 'molecules-slab-2x1'  %}
+{% embed '@limestone/slab-2x1.twig'  %}
     {% block slab_content %}
         {% include 'components-contact-info' with {contact_info_variant : "contact-info--sheet", hide_image: hide_image|default(false) } %}
         {% if profile_bio %}

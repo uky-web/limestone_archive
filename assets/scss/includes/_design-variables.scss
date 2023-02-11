@@ -4,7 +4,7 @@
 @use 'layout';
 @use 'root-rhythm';
 @use 'color-functions';
-
+@use 'mixins';
 
 // // This mixin generates all of the color CSS that
 // // marries the color schemes above with CSS selectors.
@@ -15,7 +15,7 @@
 // // of items -- but by the end it had become pretty
 // // elaborate.
 
-@import 'mixins';
+// @import 'mixins';
 
 @mixin generatescheme($textscheme, $schemename) {
   %#{$schemename}--generated {
@@ -35,12 +35,12 @@
     }
 
     a {
-      @include link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme));
+      @include mixins.link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme));
     }
 
     .carousel figcaption a {
       //@include underline-link($d: color-functions.color(link, $textscheme), $h: color-functions.color(link-active, $textscheme), $w: 1px, $alpha: .6);
-      @include link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link, $textscheme));
+      @include mixins.link-colors($d: color-functions.color(link, $textscheme), $h: color-functions.color(link, $textscheme));
     }
 
     button,

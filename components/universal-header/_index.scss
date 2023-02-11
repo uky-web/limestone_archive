@@ -1,9 +1,10 @@
 @use 'color-schemes';
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'design-variables';
 
 .universal-header {
-  @include usescheme(color-schemes.$scheme-dark);
+  @include design-variables.usescheme(color-schemes.$scheme-dark);
   display: none;
   padding-top: root-rhythm.rr-gridbase(1.5);
   padding-bottom: root-rhythm.rr-gridbase(1.5);

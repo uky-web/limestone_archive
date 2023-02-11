@@ -11,7 +11,7 @@
 {% include 'components-universal-header' with { universal_header_variant : clamp_variant, hide_breadcrumb: is_main } %}
 <header id="MainHeader" class="global-header {{ clamp_variant }}">
 
-{% embed 'molecules-slab' with { slab_variant: 'global-header__masthead'} %}
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-header__masthead'} %}
     {% block slab_content %}
         <div class="global-header__banner">
             {% include logo %}
@@ -20,13 +20,13 @@
         </div>
     {% endblock %}
 {% endembed %}
-{% embed 'molecules-slab' with { slab_variant: 'global-header__nav-bar' } %}
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-header__nav-bar' } %}
     {% block slab_content %}
         {% include nav_molecule with {menus:menus} %}
     {% endblock %}
 {% endembed %}
 
-{% embed 'molecules-slab' with { slab_variant: 'mobile-nav', props: ['hidden'], attrs: { id : 'MobileNav' } } %}
+{% embed '@limestone/slab.twig' with { slab_variant: 'mobile-nav', props: ['hidden'], attrs: { id : 'MobileNav' } } %}
     {% block slab_content %}
         {% include 'components-mobile-tab-nav' with {nav_molecule:nav_molecule, menus:menus}%}
     {% endblock %}

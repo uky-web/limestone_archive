@@ -4,7 +4,7 @@
     {% set gridlayout = 'grid--sidebar-right' %}
 {% endif %}
 
-{% embed 'molecules-slab' with { slab_variant: slab_variant } %}
+{% embed '@limestone/slab.twig' with { slab_variant: slab_variant } %}
     {% block slab_outer %}
         <div class="grid {{ gridlayout }}">
             {% if reverse_order %}

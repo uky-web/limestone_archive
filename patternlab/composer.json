@@ -30,7 +30,8 @@
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"fzaninotto/faker": "dev-master",
 		"koenpunt/php-inflector": "dev-master",
-		"ahebrank/yeti_twig": "dev-master"
+		"ahebrank/yeti_twig": "dev-master",
+		"evanlovely/plugin-twig-namespaces": "^1.1"
 	},
 	"scripts": {
 		"post-install-cmd": [

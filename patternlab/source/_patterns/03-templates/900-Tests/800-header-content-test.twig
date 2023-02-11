@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 {% block main_content %}
 
-{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white' } %}
+{% embed '@limestone/slab.twig' with { slab_variant : 'slab--wildcat-white' } %}
     {% block slab_content %}
         {% for i in 2..6 %}
             {% include 'atoms-heading' with { level: i, headline: 'H' ~ i ~ '. ' ~ fake('bs')|titleize } %}
