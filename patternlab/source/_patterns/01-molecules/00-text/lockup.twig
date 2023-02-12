@@ -1,13 +1,12 @@
-<a href="/patternlab" class="lockup">
-	<div class="lockup__main">
-		<div class="lockup__logo">
-			{% include 'atoms-uk-logo' %}
-		</div>
-		<div class="lockup__wordmark">
-			<span class="lockup__wordmark__row">{{lockup_wordmark_1 | default('Department of Integrated') }}</span>
-			<span class="lockup__wordmark__row">{{lockup_wordmark_2 | default('Strategic Communication') }}</span>
-		</div>
-	</div>
-	<!-- This is the longest college name so far -->
-	<div class="lockup__unit">{{ lockup_unit|default('College of Agriculture, Food and Environment') }}</div>
-</a>
+{% set lockup_props = {
+	'url': "example.com",
+	'lockup_wordmark_1':'Department of Integrated',
+	'lockup_wordmark_2':'Strategic Communication',
+	'lockup_unit':'College of Agriculture, Food and Environment'
+}%}
+
+{% embed '@limestone/slab.twig' with { slab_variant: 'slab--wildcat-blue', lockup_props} %}
+ {% block slab_content %}
+{% include '@limestone/lockup.twig' with lockup_props only %}
+	{% endblock %}
+{% endembed %}

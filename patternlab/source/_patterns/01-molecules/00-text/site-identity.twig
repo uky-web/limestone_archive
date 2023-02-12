@@ -1,13 +1,12 @@
-<a href="/patternlab" class="site-identity">
-	<div class="site-identity__main">
-		<div class="site-identity__logo">
-			{% include 'atoms-uk-logo' %}
-		</div>
-		<div class="site-identity__wordmark">
-			<span class="site-identity__wordmark__row--subhead">{{lockup_wordmark_1 | default('Department of') }}</span>
-			<span class="site-identity__wordmark__row">{{lockup_wordmark_2 | default('Strategic Communications') }}</span>
+{% set site_identity_props = {
+	'url': "example.com",
+	'lockup_wordmark_1':'Department of Integrated',
+	'lockup_wordmark_2':'Strategic Communication'
+}%}
 
-		</div>
-	</div>
 
-</a>
+{% embed '@limestone/slab.twig' with { slab_variant: 'slab--wildcat-blue', site_identity_props} %}
+ {% block slab_content %}
+	{% include '@limestone/site-identity.twig' with site_identity_props only %}
+	{% endblock %}
+{% endembed %}

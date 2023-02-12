@@ -45,7 +45,7 @@
 			]
 		%}
 			
-		<li>{% include 'atoms-icon-label' with { icon: icon, label: icon|capitalize ~ ' | ' ~ 'ic--' ~ icon }  %}</li>
+		<li>{% include '@limestone/icon-label.twig' with { icon: icon, label: icon|capitalize ~ ' | ' ~ 'ic--' ~ icon }  %}</li>
 			
 		{% endfor %}
 		</ul>

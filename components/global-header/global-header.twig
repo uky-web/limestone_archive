@@ -1,0 +1,63 @@
+{% set lockup_props = {
+    'url':lockup_url,
+    'lockup_wordmark_1':lockup_wordmark_1,
+    'lockup_wordmark_2':lockup_wordmark_2,
+    'lockup_unit':lockup_unit
+}%}
+{% set universal_header_props = {
+    'universal_header_variant' : clamp_variant, 
+    'hide_breadcrumb': is_main,
+    'parent_site_title': parent_site_title,
+    'parent_site_name': parent_site_name 
+} %}
+{% set utility_nav_props = {
+    'links': [
+        {'label': fake('word')|titleize,'url':'#' },
+        {'label': fake('word')|titleize,'url':'#' },
+        {'label': fake('word')|titleize,'url':'#' }
+    ]
+}
+%}
+
+{% set logo %}
+    {% if (is_main) %}
+        {% include  '@limestone/uky-logo-main.twig'%}
+   
+        
+    {% else %}
+        {% if (site_identity) %}
+            {% include '@limestone/site-identity.twig' with lockup_props only %}
+        {% else %}
+            {% include '@limestone/lockup.twig' with lockup_props only %}
+        {% endif %}
+    {% endif %}
+{% endset %}
+
+{% set clamp_variant = (is_main) ? 'clamp--main' %}
+{% set nav_molecule = nav_molecule ? nav_molecule : 'molecules-global-nav' %}
+
+{% include '@limestone/universal-header.twig' with universal_header_props only %}
+<header id="MainHeader" class="global-header {{ clamp_variant }}">
+
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-header__masthead'} %}
+    {% block slab_content %}
+        <div class="global-header__banner">
+            {{logo}}
+            {% include '@limestone/utility-nav.twig' with utility_nav_props only %}
+            {% include 'molecules-menu-button' %}
+        </div>
+    {% endblock %}
+{% endembed %}
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-header__nav-bar' } %}
+    {% block slab_content %}
+        {% include nav_molecule with {menus:menus} %}
+    {% endblock %}
+{% endembed %}
+
+{% embed '@limestone/slab.twig' with { slab_variant: 'mobile-nav', props: ['hidden'], attrs: { id : 'MobileNav' } } %}
+    {% block slab_content %}
+        {% include 'components-mobile-tab-nav' with {nav_molecule:nav_molecule, menus:menus}%}
+    {% endblock %}
+{% endembed %}
+
+</header>
