@@ -1,1 +1,6 @@
-{% include 'atoms-link' with { link_variant: link_variant|default('link--fancy'), label : label|default(fake('words',{nb: random(20), asText: true}))|capitalize } %}
+{% set link_props = { 
+    link_variant: link_variant|default('link--fancy'), 
+    label : label|default(fake('words', {nb: random(20), asText: true}))|capitalize 
+}%}
+
+{% include '@limestone/link.twig' with link_props only %}

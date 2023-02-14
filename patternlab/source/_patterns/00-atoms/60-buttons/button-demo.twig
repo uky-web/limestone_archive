@@ -14,11 +14,11 @@
                 {% endif %}
                 {% include 'atoms-heading' with { headline: sizelabel ~ ' Buttons'} %}
                 <p>
-                    {% include 'atoms-link' with { link_variant: 'button ' ~ sizeclass, label : 'Link Button' } %}
-                    {% include 'atoms-button' with { button_variant: sizeclass, label : 'Button' } %}
-                    {% include 'atoms-button' with { button_variant: 'button--ghost ' ~ sizeclass, label : 'Ghost' } %}
-                    {% include 'atoms-button' with { button_variant: sizeclass, label : 'Disabled', disabled: true } %}
-                    {% include 'atoms-button' with { button_variant: 'button--ghost ' ~ sizeclass, disabled: true, label : 'Disabled Ghost' } %}
+                    {% include '@limestone/link.twig' with { 'link_variant': 'button ' ~ sizeclass, 'label' : 'Link Button' } %}
+                    {% include '@limestone/button.twig' with { button_variant: sizeclass, label : 'Button' } %}
+                    {% include '@limestone/button.twig'  with { button_variant: 'button--ghost ' ~ sizeclass, label : 'Ghost' } %}
+                    {% include '@limestone/button.twig'  with { button_variant: sizeclass, label : 'Disabled', disabled: true } %}
+                    {% include '@limestone/button.twig'  with { button_variant: 'button--ghost ' ~ sizeclass, disabled: true, label : 'Disabled Ghost' } %}
                 </p>            
             {% endfor %}
         {% endblock %}

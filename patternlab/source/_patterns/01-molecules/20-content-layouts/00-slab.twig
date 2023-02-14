@@ -1,5 +1,11 @@
-{% include "@limestone/slab.twig" with {
-    slab_variant,
-    props,
-    attrs
-} %}
+{% set slab_props = 
+{   'slab_variant':slab_variant,
+    'props': props,
+    'attrs': attrs
+}%}
+
+{% embed "@limestone/slab.twig" with slab_props only %}
+    {% block slab_content %}
+        {% include 'atoms-placeholder' %}
+    {% endblock %}
+{% endembed %}

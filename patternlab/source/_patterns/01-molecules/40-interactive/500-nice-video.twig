@@ -1,7 +1,12 @@
+{% set icon_label_props = {
+	'icon': 'play-triangle', 
+	'label': 'Play Video' 
+}%}
+
 <div class="nice-video">
 	{% include 'atoms-image' with { aspect: "16:9", width: 600 } %}
 	<a href="https://www.youtube.com/watch?v={{ youtube|default('UKBvaOLDem0') }}" class="nice-video--control">
-		{% include 'atoms-icon-label' with { icon: 'play-triangle', label: 'Play Video' } %}
+		{% include '@limestone/icon-label.twig' with icon_label_props only %}
 	</a>		
 </div>
  

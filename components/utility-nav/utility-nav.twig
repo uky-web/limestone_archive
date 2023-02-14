@@ -2,6 +2,6 @@
 <nav id="{{ "UtilityNav"|uniqid }}" class="utility-nav" aria-labelledby="{{ utility_label_id }}">
     <div class="show-for-sr" id="{{ utility_label_id }}">Utility Navigation</div>    
     {% for link in links %}
-        {% include 'atoms-link' with { label: link.label} %}
+        {% include '@limestone/link.twig' with { label: link.label} only %}
     {% endfor %}
 </nav>

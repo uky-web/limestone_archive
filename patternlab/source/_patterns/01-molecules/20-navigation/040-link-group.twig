@@ -4,7 +4,7 @@
   <ul class="no-decoration">
     {% for i in 0..5 %}
       {% set label = fake('words', {nb: 1 + random(5), asText: true} )|capitalize %}
-      <li>{% include 'atoms-link' %}</li>
+      <li>{% include '@limestone/link.twig' with {'label':label} only %}</li>
     {% endfor %}
   </ul>
 </div>

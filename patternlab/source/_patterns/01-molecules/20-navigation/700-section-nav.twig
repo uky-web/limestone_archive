@@ -1,7 +1,7 @@
 {% set section_nav_label = "sectionNavigationLabel"|uniqid %}
 <div class="section-nav {{ section_nav_variant|default('section-nav--blue-gray') }}">
     <nav aria-labelledby="{{ section_nav_label }}">
-        <h2 id="{{ section_nav_label }}"><span class="show-for-sr">Section Navigation: </span>{% include 'atoms-link' with { link_variant: 'link--fancy-reverse', label: 'Parent Page/Section' } %}</h2>
+        <h2 id="{{ section_nav_label }}"><span class="show-for-sr">Section Navigation: </span>{% include '@limestone/link.twig' with { link_variant: 'link--fancy-reverse', label: 'Parent Page/Section' } only %}</h2>
         <ol>
             {% for i in 1 .. 5 %}
                 {% set current = "" %}

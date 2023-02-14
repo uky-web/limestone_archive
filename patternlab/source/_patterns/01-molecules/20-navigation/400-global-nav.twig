@@ -7,7 +7,7 @@
     <a href="/patternlab/" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
 
     {% for label in labels %}
-        {% include 'atoms-link' with { label: label } %}
+        {% include '@limestone/link.twig' with { label: label } %}
     {% endfor %}
 
 </nav>

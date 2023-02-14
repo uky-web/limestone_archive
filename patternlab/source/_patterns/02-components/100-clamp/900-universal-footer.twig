@@ -1,4 +1,10 @@
 {% set footernavid = 'universal-links'|uniqid %}
+
+{% set icon_label_props = {
+    icon: 'pin', 
+    'label': 'Lexington, Kentucky 40506' 
+}%}
+
 {% embed '@limestone/slab.twig' with { slab_variant: 'slab--wildcat-blue universal-footer' } %}
     {% block slab_content %}
         {% if include_wordmark %}
@@ -14,7 +20,7 @@
         </div>
         <div class="universal-footer__ribbon">
             <div>© University of Kentucky</div>
-            <div><a href="#"><a href="#">{% include 'atoms-icon-label' with { icon: 'pin', 'label': 'Lexington, Kentucky 40506' } %}</a></div>
+            <div><a href="#"><a href="#">{% include '@limestone/icon-label.twig' with icon_label_props only %}</a></div>
         </div>
     {% endblock %}
 {% endembed %}

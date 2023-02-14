@@ -24,7 +24,7 @@
         {% if with_next %}
          <div class="slab-series__next">
          <span class="slab-series__next-super">Next</span><br/>
-            {% include 'atoms-link' with { link_variant: link_variant|default('link--fancy'), label : fake('words',{ nb: 3 + random(5), asText: true })|capitalize, url : "#" ~ next_id } %}
+            {% include '@limestone/link.twig' with { link_variant: link_variant|default('link--fancy'), label : fake('words',{ nb: 3 + random(5), asText: true })|capitalize, url : "#" ~ next_id } only %}
         </div>
         {% endif %}
 

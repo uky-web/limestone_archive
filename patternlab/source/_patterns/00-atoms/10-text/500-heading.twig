@@ -1,9 +1,9 @@
-{% spaceless %}
-<h{{ level|default(1) }}{% if heading_variant is not empty %} class="{{ heading_variant }}"{% endif %}>
-  {% if linked is sameas(true) %}
-    {% include 'atoms-link' with { label: headline|default(fake('bs')|titleize) } %}
-  {% else %}
-    <span class="heading__text">{{ headline|default(fake('bs')|titleize) }}</span>
-  {% endif %}
-</h{{ level|default(1) }}>
-{% endspaceless %}
+{% set heading_props = {
+    "level": level,
+    "linked": linked,
+    "url": url,
+    "heading_variant":heading_variant,
+    "headline":headline|default(fake('bs')|titleize)
+}%}
+
+{% include "@limestone/heading.twig" with heading_props only %}

@@ -1,2 +1,2 @@
 {% set email = fake('email') %}
-{% include 'atoms-link' with {label: email, href: 'mailto:' ~ email } %}
+{% include '@limestone/link.twig' with {label: email, href: 'mailto:' ~ email } %}

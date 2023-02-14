@@ -1,5 +1,8 @@
-{% embed 'atoms-button' with { button_variant: 'button--icon ' ~ button_variant } %}
-    {% block button_content %}
-        {% include 'atoms-icon-label' with { icon_label_variant: icon_label_variant, icon: icon|default('home'), label: label|default('Home') } %}
-    {% endblock %}
-{% endembed %}
+{% set props = {
+    'button_variant': '',
+    'icon_label_variant':'',
+    'icon':'',
+    'label':''
+}%}
+
+{% include '@limestone/icon-button.twig' with props only %}

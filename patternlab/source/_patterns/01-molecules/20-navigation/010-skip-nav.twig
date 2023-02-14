@@ -1,7 +1,7 @@
 {% if standalone %}
 <div class="skip-nav-demo-wrapper">
 {% endif %}
-    {% include 'atoms-link' with {link_variant:'skip-nav', url:'#main-content', label:'Skip to main'}%}
+    {% include '@limestone/link.twig' with {'link_variant':'skip-nav', 'href':'#main-content', 'label':'Skip to main'}%}
 {% if standalone %}
 </div>
 {% endif %}

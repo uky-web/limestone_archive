@@ -2,7 +2,7 @@
 {% for i in 1..num_actions|default(2) %}
     {% set label = fake('words',{nb: 3, asText: true}) %}
     {% if cta_type is sameas('buttons') or (cta_type is sameas('mixed') and loop.first) %}
-        {% include 'atoms-link' with { link_variant : 'button ' ~ button_style } %}
+        {% include '@limestone/link.twig' with { 'label':label, 'href':'#','link_variant' : 'button ' ~ button_style } only %}
     {% else %}
         {% include 'atoms-link-fancy' %}
     {% endif %}

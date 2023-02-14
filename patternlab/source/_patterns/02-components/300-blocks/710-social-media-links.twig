@@ -6,7 +6,7 @@
         {% spaceless %}    
             {% for social in icons %}
                 {% if social_icons_block %}{% set icon = social ~ '-block' %}{% else %}{% set icon = social %}{% endif %}
-                <a href="http://www.{{ social }}.com/">{% include 'atoms-icon-label' with { hide_label: true, icon: icon, label:social } %}</a>
+                <a href="http://www.{{ social }}.com/">{% include '@limestone/icon-label.twig' with { hide_label: true, icon: icon, label:social } only %}</a>
             {% endfor %}
         {% endspaceless %}
     </div>

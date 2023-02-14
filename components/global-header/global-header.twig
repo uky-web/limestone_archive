@@ -18,12 +18,16 @@
     ]
 }
 %}
+{% set menu_button_props = {
+    'toggle': '#MobileNav',
+    'toggle_viz':true,
+    'toggle_toggled_label' : 'Close',
+    'toggle_toggled_icon' : 'close'
+}%}
 
 {% set logo %}
     {% if (is_main) %}
         {% include  '@limestone/uky-logo-main.twig'%}
-   
-        
     {% else %}
         {% if (site_identity) %}
             {% include '@limestone/site-identity.twig' with lockup_props only %}
@@ -32,6 +36,8 @@
         {% endif %}
     {% endif %}
 {% endset %}
+
+
 
 {% set clamp_variant = (is_main) ? 'clamp--main' %}
 {% set nav_molecule = nav_molecule ? nav_molecule : 'molecules-global-nav' %}
@@ -44,7 +50,7 @@
         <div class="global-header__banner">
             {{logo}}
             {% include '@limestone/utility-nav.twig' with utility_nav_props only %}
-            {% include 'molecules-menu-button' %}
+            {% include '@limestone/menu-button.twig' with menu_button_props only %}
         </div>
     {% endblock %}
 {% endembed %}

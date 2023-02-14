@@ -1,0 +1,341 @@
+D8 ATOMS:
+  Button:
+    x Create component directory @done(23-02-13 23:32)
+    x move scss @done(23-02-13 23:32)
+    x Modify PL story to reference component @done(23-02-13 23:32)
+    x Modify component to be reusable @done(23-02-13 23:32)
+    x Update all references to component @done(23-02-14 00:00)
+  heading:
+    x Create component directory @done(23-02-14 00:01)
+    x move scss @done(23-02-14 01:38)
+    x Modify PL story to reference component @done(23-02-14 02:43)
+    x Modify component to be reusable @done(23-02-14 02:43)
+    x Update all references to component @done(23-02-14 02:44)
+  link:
+    x Create component directory @done(23-02-14 01:49)
+    x move scss @done(23-02-14 01:49)
+    x Modify PL story to reference component @done(23-02-14 01:49)
+    x Modify component to be reusable @done(23-02-14 01:49)
+    x Update all references to component @started(23-02-14 01:49) @done(23-02-14 02:42) @lasted(53m38s)
+  icon button:
+    x Create component directory @done(23-02-14 02:46)
+    x move scss @done(23-02-14 02:46)
+    x Modify PL story to reference component @done(23-02-14 02:47)
+    x Modify component to be reusable @done(23-02-14 02:52)
+    x Update all references to component @done(23-02-14 02:57)
+  icon label:
+    x Create component directory @done(23-02-14 03:06)
+    x move scss @done(23-02-14 03:06)
+    x Modify PL story to reference component @done(23-02-14 03:09)
+    x Modify component to be reusable @done(23-02-14 03:09)
+    x Update all references to component @done(23-02-14 03:25)
+  link fancy:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+
+  my-uk-logo:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  uk-wordmark:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  uk-logo-main:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+
+
+D8 Molecules:
+  accordion-panel:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  carousel:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  cite-media:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  content-meta:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  cta-group:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  described-links:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  grid:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  image-gallery:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  link-collection:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  lockup:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  headline group:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  mobile-tab-nav:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  modal:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  page-header-text:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  skip-nav:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  slab-1x2:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  slab-2x1:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  slab:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  tab-panel:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  tab-tab:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  tabs:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  toggle-button:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  universal-nav:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  zipper:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  
+D8 Components:
+  call-to-action:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  carousel-slab:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  contact-info:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  content-teaser:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  editorial:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  global-footer:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  global-header:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  hero-page-header:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  image-gallery (also molecule???):
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  media-with-caption:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  micro-teaser:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  pullquote:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  pulltext:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  search-form:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  social-media-links:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  split-page-header:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  statistic:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  teaser:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  text-page-header:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  universal-footer:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  universal-header:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  zipper-slab:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+
+
+
+

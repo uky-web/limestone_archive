@@ -1,5 +1,11 @@
-{% spaceless %}
-<a href="{{ url|default('http://www.example.com/')}}" class="{{ link_variant }}">
-    {% block link_content %}{{ label|default(fake('bs')) }}{% endblock %}
-</a>
-{% endspaceless %}
+{% set props = {
+    'href':url|default('http://www.example.com/'),
+    'link_variant': link_variant,
+    'label':label|default(fake('bs')) 
+}%}
+
+{% embed "@limestone/link.twig" with props only %}
+    {% block link_content %}
+        {{label}}
+    {% endblock %}
+{% endembed %}
