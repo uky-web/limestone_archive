@@ -3,19 +3,19 @@
 @use 'root-rhythm';
 @use 'color-functions';
 @use 'design-variables';
-
+@use 'typography';
 
 .teaser {
   .headline-group {
     .headline-group__sub,
     .headline-group__super {
-      @include root-rhythm.rr-font-compute(xl, medium);
+      @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts);
       font-weight: 500;
       text-transform: uppercase;
     }
 
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(3xl, medium);
+      @include root-rhythm.rr-font-compute(3xl, medium, typography.$fonts);
     }
   }
 }
@@ -42,7 +42,7 @@
 
 .teaser__content {
   .editorial {
-    @include root-rhythm.rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
     margin-top: 1rem;
   }
 

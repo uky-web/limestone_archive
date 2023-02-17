@@ -51,7 +51,7 @@
   }
 
   &__unit {
-    @include root-rhythm.rr-font-compute(s, tight);
+    @include root-rhythm.rr-font-compute(s, tight, typography.$fonts);
     margin-top: .2rem;
     margin-left: 0;
     font-style: italic;

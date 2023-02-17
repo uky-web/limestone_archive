@@ -2,6 +2,8 @@
 @use 'layout';
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
+
 
 //scheme-dark is dark background image with light text
 //scheme-light is light background image with dark text
@@ -21,7 +23,7 @@
       .page-header__content {
 
         p {
-          @include root-rhythm.rr-font-compute(xl, tight);
+          @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
           text-shadow: none;
       }
 
@@ -50,7 +52,7 @@
       padding-bottom: root-rhythm.rr-gridbase(2);
 
         p {
-            @include root-rhythm.rr-font-compute(xl, tight);
+            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
             text-shadow: 1px 1px 1px rgba(0,0,0,.3);
             display:none;
         }
@@ -137,14 +139,14 @@
       }
       
       .headline-group__head {
-        // @include root-rhythm.rr-font-compute(5xl, tight);
+        // @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts);
       }
     
        &.slab--light {
         .page-header__content {
 
           p {
-            @include root-rhythm.rr-font-compute(xl, tight);
+            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
             text-shadow: none;
         }
 
@@ -212,7 +214,7 @@
         .page-header__content {
 
           p {
-            @include root-rhythm.rr-font-compute(xl, tight);
+            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
             text-shadow: none;
         }
 

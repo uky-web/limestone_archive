@@ -1,4 +1,5 @@
 @use 'root-rhythm';
+@use 'typography';
 
 .content-meta {
   margin-bottom: root-rhythm.rr-gridbase(1);
@@ -6,7 +7,7 @@
   .byline,
   .location,
   .date {
-    @include root-rhythm.rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
   }
 
   .byline,
@@ -16,7 +17,7 @@
   }
 
   .taxonomy-list {
-    @include root-rhythm.rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts);
     display: block;
     font-style: italic;
   }

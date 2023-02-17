@@ -1,5 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
 @import 'forms/search-form';
 
 form {
@@ -43,7 +44,7 @@ form {
 
   label,
   select {
-    @include root-rhythm.rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
     display: block;
     font-weight: 500;
 
@@ -57,7 +58,7 @@ form {
 
   .description {
     margin-top: root-rhythm.rr-gridbase(1);
-    @include root-rhythm.rr-font-compute(s, medium);
+    @include root-rhythm.rr-font-compute(s, medium, typography.$fonts);
   }
 
   input[type='text'],
@@ -75,7 +76,7 @@ form {
   input[type='ur'],
   input[type='week'],
   textarea {
-    @include root-rhythm.rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts);
     padding: root-rhythm.rr-grid-remainder(1px) root-rhythm.rr-gridbase(1);
     border-width: 1px;
     border-style: solid;

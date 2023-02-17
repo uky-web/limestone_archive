@@ -1,6 +1,7 @@
 @use 'color-schemes';
 @use 'color-functions';
 @use 'root-rhythm';
+@use 'typography';
 
 .banner-alert {
   padding: root-rhythm.rr-gridbase(2);
@@ -11,7 +12,7 @@
 
   a,
   p {
-    @include root-rhythm.rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
   }
 
   &--emergency {
