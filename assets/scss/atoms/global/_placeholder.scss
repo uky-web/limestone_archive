@@ -1,5 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
 
 .nc-placeholder {
   padding-top:root-rhythm.rr-gridbase(4);
@@ -10,6 +11,6 @@
   box-shadow: color-functions.color(wildcat-blue) 0 0 0 6px inset;
 
   p {
-    @include root-rhythm.rr-font-compute(l, wide);
+    @include root-rhythm.rr-font-compute(l, wide, typography.$fonts);
   }
 }

@@ -1,3 +1,5 @@
+@use 'root-rhythm';
+
 // Font Shortcuts
 // Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
 $font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
@@ -88,7 +90,7 @@ $fonts: (
   )
 );
 
-$font-sizes: rr-font-sizes();
+$font-sizes: root-rhythm.rr-font-sizes();
 
 // Establish header sizes for the editorial
 // headings.

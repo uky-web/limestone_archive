@@ -1,5 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
 
 .mobile-tab-nav {
   .utility-nav {
@@ -47,7 +48,7 @@
 
       &.current-item {
         display: list-item;
-        @include root-rhythm.rr-font-compute(l, medium);
+        @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
 
         a {
           pointer-events: none;

@@ -53,28 +53,31 @@
   @each $break, $fontmap in $font-config {
     $working-map: map-merge($working-map, $fontmap);
   }
+
+  
   @return map-keys($working-map);
 }
+
 
 // Pass a font tag and a lineheight tag and rr-font-config returns font size and
 // line height properties for each breakpoint.
 @mixin rr-font-compute($size: m, $lineheight: medium, $font-config: $rr-fonts, $lineheight-config: $rr-lineheights) {
 
   $breaks: rr-breakpoint-list();
+
   $linegridheight: map-get($lineheight-config, $lineheight);
   @each $break in $breaks {
-    @if map-has-key($font-config, $break) {
+    @if map-has-key($font-config, $break) { //only s and l pass this, bc that's all in rr-fonts
       $font-size-set: map-get($font-config, $break);
       @if map-has-key($font-size-set, $size) {
         @include rr-break-directive($break) {
           $fontsize: map-get($font-size-set, $size);
           @include rr-font-line-height($fontsize, $linegridheight);
         }
-      }
-    }
+      } 
+    } 
   }
 }
-
 // Builds a list of style rules with the specified prefix, size tag, and
 // lineheight tag. Useful for building pattern libraries or if you intend
 // to expose design capabilities through css.

@@ -1,9 +1,9 @@
 @use 'root-rhythm';
 @use 'color-functions';
-
+@use 'typography';
 
 .skip-nav {
-  @include root-rhythm.rr-font-compute(l, wide);
+  @include root-rhythm.rr-font-compute(l, wide, typography.$fonts);
   display: flex;
   position: absolute;
   top: -5rem;

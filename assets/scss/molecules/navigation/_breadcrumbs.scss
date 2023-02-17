@@ -1,5 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
 
 .breadcrumbs {
   ul {
@@ -8,7 +9,7 @@
   }
 
   li {
-    @include root-rhythm.rr-font-compute(s, medium);
+    @include root-rhythm.rr-font-compute(s, medium, typography.$fonts);
     display: inline-block;
 
     &::after {

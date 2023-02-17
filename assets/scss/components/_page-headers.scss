@@ -1,6 +1,7 @@
 @use 'root-rhythm';
 @use 'colors';
 @use 'color-functions';
+@use 'typography';
 @import 'page-headers/text-header';
 @import 'page-headers/hero';
 @import 'page-headers/overlay-hero';
@@ -54,12 +55,12 @@
     }
 
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(1xl, tight);
+      @include root-rhythm.rr-font-compute(1xl, tight, typography.$fonts);
       font-weight: 600;
     }
 
     .headline-group__super {
-      @include root-rhythm.rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
     }
 
     .headline-group__sub,
@@ -84,12 +85,12 @@
 
     h1 {
       .headline-group__head {
-        @include root-rhythm.rr-font-compute(5xl, medium);
+        @include root-rhythm.rr-font-compute(5xl, medium, typography.$fonts);
         font-weight: 600;
       }
   
       .headline-group__super {
-        @include root-rhythm.rr-font-compute(1xl, tight);
+        @include root-rhythm.rr-font-compute(1xl, tight, typography.$fonts);
       }
   
       .headline-group__sub,
