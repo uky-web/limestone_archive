@@ -30,42 +30,38 @@ D8 ATOMS:
     x Modify component to be reusable @done(23-02-14 03:09)
     x Update all references to component @done(23-02-14 03:25)
   link fancy:
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
+    x Update all references to component @done(23-02-14 21:49)
 
   my-uk-logo:
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
+    x Create component directory @done(23-02-14 21:49)
+    x move scss @done(23-02-14 23:13)
+    x Modify PL story to reference component @done(23-02-14 23:14)
+    x Modify component to be reusable @done(23-02-14 23:14)
+    x Update all references to component @done(23-02-14 23:15)
   uk-wordmark:
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
+    x Create component directory @done(23-02-14 23:17)
+    x move scss @done(23-02-14 23:18)
+    x Modify PL story to reference component @done(23-02-14 23:19)
+    x Modify component to be reusable @done(23-02-14 23:19)
+    x Update all references to component @done(23-02-14 23:22)
   uk-logo-main:
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
+    x Create component directory @done(23-02-14 23:22)
+    x move scss @done(23-02-14 23:22)
+    x Modify PL story to reference component @done(23-02-14 23:26)
+    x Modify component to be reusable @done(23-02-14 23:22)
+    x Update all references to component @done(23-02-14 23:27)
 
 
 D8 Molecules:
   accordion-panel:
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
+    x Create component directory @done(23-02-14 23:41)
+    x move scss @done(23-02-14 23:41)
+    x Modify PL story to reference component @done(23-02-14 23:41)
+    x Modify component to be reusable @done(23-02-14 23:41)
+    x Update all references to component @done(23-02-14 23:41)
   carousel:
-    [] Create component directory
-    [] move scss
+    x Create component directory @done(23-02-15 00:25)
+    x move scss @done(23-02-15 00:29)
     [] Modify PL story to reference component
     [] Modify component to be reusable
     [] Update all references to component
@@ -203,6 +199,12 @@ D8 Molecules:
     [] Update all references to component
   
 D8 Components:
+  media-with-caption:
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
   call-to-action:
     [] Create component directory
     [] move scss
@@ -252,12 +254,6 @@ D8 Components:
     [] Modify component to be reusable
     [] Update all references to component
   image-gallery (also molecule???):
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
-  media-with-caption:
     [] Create component directory
     [] move scss
     [] Modify PL story to reference component

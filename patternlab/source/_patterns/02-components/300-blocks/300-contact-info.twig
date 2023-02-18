@@ -21,13 +21,13 @@
         {% endif %}
         <dl class="invisible-labels">
             <dt>College or Department</dt>
-            <dd>{% include 'atoms-link-fancy' with { label:"College or Department" } %}</dd>
+            <dd>{% include '@limestone/link.twig' with { label:'College or Department', 'link_variant':'link--fancy' } %}</dd>
             <dt>Address</dt>
             <dd>117 Pence Hall</dd>
             <dt>Phone Number</dt>
-            <dd>{% include 'atoms-link-fancy' with { label:"859.257.7617" } %}</dd>
+            <dd>{% include '@limestone/link.twig' with { label:"859.257.7617",'link_variant':'link--fancy' } %}</dd>
             <dt>Email Address</dt>
-            <dd>{% include 'atoms-link-fancy' with { label:fake('email') } %}</dd>
+            <dd>{%  include '@limestone/link.twig' with { label:fake('email') , 'link_variant':'link--fancy' } %}</dd>
         </dl>
     </div>
 </div>

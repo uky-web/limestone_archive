@@ -14,7 +14,7 @@ h3,
 h4,
 h5,
 h6 {
-  @include root-rhythm.rr-font-compute(l, tight);
+  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   font-weight: normal;
 }
 
@@ -37,7 +37,7 @@ h6 {
 }
 
 .heading--display {
-  @include root-rhythm.rr-font-compute(3xl, tight);
+  @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts, typography.$lineheights);
   position: relative;
   margin-bottom: 2rem;
   // font-family: $font-mercury;

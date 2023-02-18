@@ -1,6 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
-
+@use 'typography';
 
 .editorial table,
 .content-table {
@@ -61,16 +61,16 @@
   }
 
   th {
-    @include root-rhythm.rr-font-compute(xl, tight);
+    @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
     font-weight: 500;
   }
 
   td {
-    @include root-rhythm.rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   }
 
   caption {
-    @include root-rhythm.rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     padding: root-rhythm.rr-gridbase(2);
     font-style: italic;
   }

@@ -1,7 +1,7 @@
 @use 'root-rhythm';
 @use 'color-functions';
 @use 'color-schemes';
-
+@use 'typography';
 .js-tabs {
   position: relative;
 
@@ -30,7 +30,7 @@
   margin-bottom: 0;
 
   a {
-    @include root-rhythm.rr-font-compute(s, tight);
+    @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
     display: block;
     margin: 0 auto;
     padding: root-rhythm.rr-gridbase(2) 0;

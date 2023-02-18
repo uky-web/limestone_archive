@@ -12,7 +12,7 @@
 
   .headline-group {
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(6xl, squeeze);
+      @include root-rhythm.rr-font-compute(6xl, squeeze, typography.$fonts, typography.$lineheights);
       display: inline-block;
       font-weight: 500;
       font-family: typography.$font-surveyor;
@@ -20,7 +20,7 @@
 
     .headline-group__super,
     .headline-group__sub {
-      @include root-rhythm.rr-font-compute(xl, tight);
+      @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
       font-weight: 600;
       text-transform: uppercase;
     }
@@ -36,7 +36,7 @@
     padding-top: root-rhythm.rr-gridbase(2);
 
     p {
-      @include root-rhythm.rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     }
   }
 }

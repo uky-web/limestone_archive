@@ -1,6 +1,6 @@
 @use 'root-rhythm';
 @use 'color-functions';
-
+@use 'typography';
 
 .image-gallery {
   // -1 gridblock in all directions to make up for gutter
@@ -85,7 +85,7 @@
 }
 
 .image-gallery__slide__title {
-  @include root-rhythm.rr-font-compute(l, tight);
+  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   font-weight: 500;
 }
 

@@ -8,7 +8,7 @@
 
   &__quote {
     p {
-      @include root-rhythm.rr-font-compute(4xl, medium);
+      @include root-rhythm.rr-font-compute(4xl, medium, typography.$fonts, typography.$lineheights);
       margin-top: 0;
       font-family: typography.$font-surveyor;
       font-style: italic;
@@ -64,14 +64,14 @@
   }
 
   &__first-line {
-    @include root-rhythm.rr-font-compute(2xl, tight);
+    @include root-rhythm.rr-font-compute(2xl, tight, typography.$fonts, typography.$lineheights);
     display: block;
     font-style: normal;
     font-weight: 600;
   }
 
   &__second-line {
-    @include root-rhythm.rr-font-compute(xl, medium);
+    @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts, typography.$lineheights);
     display: block;
   }
 
@@ -91,7 +91,7 @@
 
   &--brief {
     #{$root}__quote p {
-      @include root-rhythm.rr-font-compute(2xl, medium);
+      @include root-rhythm.rr-font-compute(2xl, medium, typography.$fonts, typography.$lineheights);
     }
 
     #{$root}__meta {
@@ -111,11 +111,11 @@
     }
 
     #{$root}__first-line {
-      @include root-rhythm.rr-font-compute(xl, tight);
+      @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
     }
 
     #{$root}__second-line {
-      @include root-rhythm.rr-font-compute(l, medium);
+      @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     }
   }
 }

@@ -1,10 +1,11 @@
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
 
 .micro-teaser {
   .headline-group {
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(3xl, medium);
+      @include root-rhythm.rr-font-compute(3xl, medium, typography.$fonts, typography.$lineheights);
       font-weight: 500;
     }
   }
@@ -37,7 +38,7 @@
     margin-bottom: root-rhythm.rr-gridbase(2);
 
     p {
-      @include root-rhythm.rr-font-compute(l, medium);
+      @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     }
   }
 

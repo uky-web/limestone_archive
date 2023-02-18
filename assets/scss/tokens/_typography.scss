@@ -1,3 +1,5 @@
+@use 'root-rhythm';
+
 // Font Shortcuts
 // Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
 $font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
@@ -7,7 +9,8 @@ $font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
 
 
 // Avenir Next styles (from fonts.com)
-$font-avenirnext: 'AvenirNextLT', sans-serif;
+// $font-avenirnext: 'AvenirNextLT', sans-serif;
+$font-avenirnext: 'usual', sans-serif;
 
 //TODO: These do not appear to be implemented. If needed as separate fonts
 //they should be correctly named in _fonts.scss
@@ -88,7 +91,7 @@ $fonts: (
   )
 );
 
-$font-sizes: rr-font-sizes();
+$font-sizes: root-rhythm.rr-font-sizes();
 
 // Establish header sizes for the editorial
 // headings.

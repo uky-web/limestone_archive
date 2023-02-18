@@ -1,9 +1,9 @@
 @use 'root-rhythm';
-
+@use 'typography';
 ul,
 ol {
   li {
-    @include root-rhythm.rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     margin-bottom:root-rhythm.rr-gridbase();
   }
 
@@ -14,13 +14,13 @@ ol {
 
 dl {
   dt {
-    @include root-rhythm.rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     margin-bottom:root-rhythm.rr-gridbase(1);
     font-weight: 500;
   }
 
   dd {
-    @include root-rhythm.rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     margin-bottom:root-rhythm.rr-gridbase(2);
     margin-left: 0;
   }

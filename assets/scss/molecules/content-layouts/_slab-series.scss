@@ -1,7 +1,7 @@
 @use 'root-rhythm';
 @use 'color-functions';
 @use 'layout';
-
+@use 'typography';
 
 .slab-series {
     width:100%;
@@ -24,7 +24,7 @@
     }
 
     .slab-series__next-super {
-        @include root-rhythm.rr-font-compute(xl, wide);
+        @include root-rhythm.rr-font-compute(xl, wide, typography.$fonts, typography.$lineheights);
     }
 
     .slab-series__next-super {

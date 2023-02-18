@@ -1,5 +1,5 @@
 @use 'root-rhythm';
-
+@use 'typography';
 @import 'icons/main';
 @import 'icon-label';
 
@@ -8,6 +8,6 @@
   @include icon-label-align;
 
   li {
-    @include root-rhythm.rr-font-compute(xl, wide);
+    @include root-rhythm.rr-font-compute(xl, wide, typography.$fonts, typography.$lineheights);
   }
 }

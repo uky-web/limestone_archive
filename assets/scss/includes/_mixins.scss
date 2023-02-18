@@ -1,5 +1,6 @@
 @use 'color-functions';
 @use 'root-rhythm';
+@use 'typography';
 @import 'mixins/m_layout';
 @import 'mixins/m_typography';
 
@@ -58,7 +59,7 @@
   h2,
   h3,
   h4 {
-    @include root-rhythm.rr-font-compute(3xl, tight);
+    @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts, typography.$lineheights);
     font-weight: 500;
   }
 }

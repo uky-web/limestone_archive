@@ -4,7 +4,7 @@
     {% if cta_type is sameas('buttons') or (cta_type is sameas('mixed') and loop.first) %}
         {% include '@limestone/link.twig' with { 'label':label, 'href':'#','link_variant' : 'button ' ~ button_style } only %}
     {% else %}
-        {% include 'atoms-link-fancy' %}
+        {% include '@limestone/link.twig' with { 'label':label, 'link_variant':'link--fancy' } only %}
     {% endif %}
 {% endfor %}
 </div>

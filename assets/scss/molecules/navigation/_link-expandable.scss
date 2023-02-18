@@ -5,7 +5,7 @@
 .link-expandable {
   position:relative;
   a {
-    //@include root-rhythm.rr-font-compute(l, tight);
+    //@include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     font-weight: 500;
 
     &:link,

@@ -1,6 +1,6 @@
 @use 'includes/root-rhythm';
 @use 'includes/color-functions';
-
+@use 'typography';
 // susy is a grid layout tool. This is used when grid or flexbox choices aren't appropriate
 // sshttp: //oddbird.net/susy/
 // @import 'susy';
@@ -22,7 +22,7 @@
 @import 'includes/design-variables';
 
 :root {
-  @include root-rhythm.rr-font-compute(r, tight);
+  @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
   position: relative;
 }
 

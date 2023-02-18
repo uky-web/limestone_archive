@@ -1,6 +1,7 @@
 @use 'color-schemes';
 @use 'root-rhythm';
 @use 'color-functions';
+@use 'typography';
 
 .global-footer {
   @include usescheme(color-schemes.$scheme-dark);
@@ -60,13 +61,13 @@
     }
 
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(xl, tight);
+      @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
       text-transform: uppercase;
     }
   }
 
   .link-group {
-    @include root-rhythm.rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   }
 
   .art-link {

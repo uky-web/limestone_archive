@@ -21,12 +21,12 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   // Default non-semantic headline group
   @at-root #{$bem-root} {
     #{$bem-root}__super {
-      @include root-rhythm.rr-font-compute(s, tight);
+      @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
       text-transform: uppercase;
     }
 
     #{$bem-root}__sub {
-      @include root-rhythm.rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
       font-style: italic;
 
       i,
@@ -36,7 +36,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
     }
 
     #{$bem-root}__head {
-      @include root-rhythm.rr-font-compute(2xl, tight);
+      @include root-rhythm.rr-font-compute(2xl, tight, typography.$fonts, typography.$lineheights);
     }
   }
 
@@ -47,13 +47,13 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
   .editorial aside {
     #{$bem-root} {
       #{$bem-root}__super, {
-        @include root-rhythm.rr-font-compute(r, tight);
+        @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
         color: color-functions.color(dark-gray);
         font-weight: 500;
       }
 
       #{$bem-root}__sub {
-        @include root-rhythm.rr-font-compute(xl, tight);
+        @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
         color: color-functions.color(dark-gray);
         font-weight: 500;
       }
@@ -61,7 +61,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
       #{$bem-root}__head {
         font-weight: 500;
         font-family: typography.$font-tradegothic;
-        @include root-rhythm.rr-font-compute(3xl, tight);
+        @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts, typography.$lineheights);
 
         .underline-link {
           &:link,
@@ -81,15 +81,15 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
     $subsize: map-offset-from(typography.$font-sizes, $size, -1);
     @at-root h#{$pos}#{&} {
       #{$bem-root}__super {
-        @include root-rhythm.rr-font-compute($supersize, tight);
+        @include root-rhythm.rr-font-compute($supersize, tight, typography.$fonts, typography.$lineheights);
       }
 
       #{$bem-root}__sub {
-        @include root-rhythm.rr-font-compute($subsize, tight);
+        @include root-rhythm.rr-font-compute($subsize, tight, typography.$fonts, typography.$lineheights);
       }
 
       #{$bem-root}__head {
-        @include root-rhythm.rr-font-compute($size, tight);
+        @include root-rhythm.rr-font-compute($size, tight, typography.$fonts, typography.$lineheights);
       }
     }
   }

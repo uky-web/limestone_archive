@@ -13,6 +13,7 @@
 // @import 'sass-mq';
 
 @use 'includes/root-rhythm';
+@use 'typography';
 @import 'includes/rem';
 @import 'includes/math';
 // @import 'includes/colors';
@@ -20,7 +21,7 @@
 @import 'includes/mixins';
 
 :root {
-  @include root-rhythm.rr-font-compute(r, tight);
+  @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
   position: relative;
 }
 

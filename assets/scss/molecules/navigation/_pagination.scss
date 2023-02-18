@@ -1,5 +1,5 @@
 @use 'root-rhythm';
-
+@use 'typography';
 .pagination {
   margin: root-rhythm.rr-gridbase(4) 0;
 
@@ -20,7 +20,7 @@
     text-align: center;
 
     li {
-      @include root-rhythm.rr-font-compute(l, tight);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
       display: none;
       margin: 0;
 

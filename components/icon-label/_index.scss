@@ -1,5 +1,5 @@
 @use 'root-rhythm';
-
+@use 'typography';
 .icon-label {
   display: flex;
   align-items: baseline;
@@ -33,7 +33,7 @@
 }
 
 .icon-label--big {
-  @include root-rhythm.rr-font-compute(xl, tight);
+  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
   align-items: center;
   font-weight: 500;
   text-transform: uppercase;

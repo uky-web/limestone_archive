@@ -3,7 +3,7 @@
 		{% include 'molecules-headline-group' with { level:level|default(3), headline_group_linked: true, head:fake('name') } %}
 		<p>
 			<span class="title">{{ fake('jobTitle') }}</span><br />
-			{% include 'atoms-link-fancy' with { label:'College or Department' } %}
+			{% include '@limestone/link.twig'  with { label:'College or Department', 'link_variant':'link--fancy' } %}
 		</p>
 		{% include 'atoms-formatted-text' %}
 	{% endblock %}

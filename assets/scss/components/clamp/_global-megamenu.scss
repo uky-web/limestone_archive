@@ -1,7 +1,7 @@
 @use 'color-schemes';
 @use 'root-rhythm';
 @use 'color-functions';
-
+@use 'typography';
 .global-megamenu {
 
   &--dark {
@@ -65,7 +65,7 @@
       //display: flex;
       //flex-wrap: wrap;
       a {
-        @include root-rhythm.rr-font-compute(r, medium);
+        @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
         padding-bottom: root-rhythm.rr-gridbase(1);
       }
     }
@@ -93,7 +93,7 @@
 
       .global-megamenu__description,
       .global-megamenu__submenus {
-        @include root-rhythm.rr-font-compute(r, medium);
+        @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
       }
       .global-megamenu__description {
         display:block;

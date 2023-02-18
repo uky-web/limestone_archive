@@ -2,7 +2,7 @@
 @use 'color-functions';
 @use 'colors';
 @use 'color-schemes';
-
+@use 'typography';
 
 .section-nav {
 
@@ -29,7 +29,7 @@
 
     li {
       padding-bottom: root-rhythm.rr-gridbase(1);
-      @include root-rhythm.rr-font-compute(r, medium);
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
 
       &:last-child {
         padding-bottom: 0;

@@ -44,3 +44,19 @@ It seems like defining a variant of a child component should be kept semanticall
 
 ### Prop type checking
 Speaking of prop-type checking, this exists: https://github.com/guym4c/twig-prop-types. Looks like a port of react prop-types, ported into twig. This would preclude using twig.js or twing.js for anything meaningful (unless we ported it *back* to js).
+
+
+### Carousel (and probably similar) components
+In the current Drupal theme, `carousel` items might be implicitly inheriting some props. `Carousel-slab` passes `level` to `carousel`, which doesn't mention it, but then implicitly passes it to `eck-entity--collection-item--media-figure`, which passes it on to `components-media-with-caption`, who finally references it. The question here is how flexible the child components can be. Should the `carousel` just have a single slot to take an array of arbitrary objects? and if so how does it pass necessary props (e.g. `aspect`, `width`, `level`, etc)? 
+
+#### Option 1: It's up to the drupal template
+In this case, the eck entity template is responsible for knowing what presentation props to pass to `media-with-caption`. This makes sense, you'd just write a 'slide' specific template for the entity, and configure Drupal to use that when rendering them in a carousel. This would let the eck template break the carousel render (maybe).
+
+#### Option 2: Pass the props somehow
+Not sure this is doable, but maybe when you output drupal renderable variables (e.g `{{content}}`, or in this case `{{figures}}`), they have access to the parent twig context. Then you could do what looks like is happening now, and leave some 'hint' props for the child elements to use if they want. This is sloppy and not really 'type safe'. A variant of this would be to at least namespace it in some sort of 'parent_props' object. blech.
+
+#### Option 3: Skip the renderables
+Instead of letting drupal templates render the contents of the carousel, accept an array of specific data types and render them within the carousel component. This would be least flexible and most stable. This is an un-drupally solution.
+
+
+

@@ -6,6 +6,7 @@
 
 @use 'includes/root-rhythm';
 @use 'includes/color-functions';
+@use 'typography';
 @import 'includes/design-variables';
 @import 'includes/mixins/m_typography';
 @import 'includes/fonts';
@@ -36,7 +37,7 @@
   border: 2px solid color-functions.color(light-gray);
   border-radius: 8px;
   overflow: hidden;
-  @include root-rhythm.rr-font-compute(r, tight);
+  @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
 
   margin {
     top: root-rhythm.rr-gridbase(2);
@@ -45,7 +46,7 @@
 }
 
 .sg-colors pre {
-  @include root-rhythm.rr-font-compute(xs, tight);
+  @include root-rhythm.rr-font-compute(xs, tight, typography.$fonts, typography.$lineheights);
   margin-bottom: root-rhythm.rr-gridbase();
 }
 
@@ -66,7 +67,7 @@
 }
 
 .sg-pattern-head {
-  @include root-rhythm.rr-font-compute(r);
+  @include root-rhythm.rr-font-compute(r, typography.$fonts, typography.$lineheights);
   padding: root-rhythm.rr-gridbase();
 }
 
