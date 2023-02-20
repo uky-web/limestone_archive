@@ -3,7 +3,7 @@
 @use 'typography';
 
 .skip-nav {
-  @include root-rhythm.rr-font-compute(l, wide, typography.$fonts);
+  @include root-rhythm.rr-font-compute(l, wide, typography.$fonts, typography.$lineheights);
   display: flex;
   position: absolute;
   top: -5rem;

@@ -4,7 +4,7 @@
 
 .link-group {
   a {
-    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     font-weight: 500;
 
     &:link,
@@ -20,7 +20,7 @@
 }
 
 .link-group__heading {
-  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
   position: relative;
   margin-bottom: root-rhythm.rr-gridbase(3);
   padding-bottom: root-rhythm.rr-gridbase(2);

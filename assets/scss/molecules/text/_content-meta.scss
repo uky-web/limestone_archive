@@ -7,7 +7,7 @@
   .byline,
   .location,
   .date {
-    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
   }
 
   .byline,
@@ -17,7 +17,7 @@
   }
 
   .taxonomy-list {
-    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     display: block;
     font-style: italic;
   }

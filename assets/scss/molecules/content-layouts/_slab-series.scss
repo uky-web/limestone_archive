@@ -25,7 +25,7 @@
     }
 
     .slab-series__next-super {
-        @include root-rhythm.rr-font-compute(xl, wide, typography.$fonts);
+        @include root-rhythm.rr-font-compute(xl, wide, typography.$fonts, typography.$lineheights);
     }
 
     .slab-series__next-super {

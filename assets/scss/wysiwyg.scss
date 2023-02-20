@@ -22,7 +22,7 @@
 @import 'includes/mixins';
 
 :root {
-  @include root-rhythm.rr-font-compute(r, tight, typography.$fonts);
+  @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
   position: relative;
 }
 

@@ -44,7 +44,7 @@ form {
 
   label,
   select {
-    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     display: block;
     font-weight: 500;
 
@@ -58,7 +58,7 @@ form {
 
   .description {
     margin-top: root-rhythm.rr-gridbase(1);
-    @include root-rhythm.rr-font-compute(s, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(s, medium, typography.$fonts, typography.$lineheights);
   }
 
   input[type='text'],
@@ -76,7 +76,7 @@ form {
   input[type='ur'],
   input[type='week'],
   textarea {
-    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     padding: root-rhythm.rr-grid-remainder(1px) root-rhythm.rr-gridbase(1);
     border-width: 1px;
     border-style: solid;
