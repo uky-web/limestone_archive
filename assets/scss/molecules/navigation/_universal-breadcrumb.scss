@@ -14,7 +14,7 @@
   }
 
   .link--fancy-reverse {
-    @include root-rhythm.rr-font-compute(r, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
     margin-left: -1rem;
     padding-left: 1rem;
 
@@ -32,7 +32,7 @@
   }
 
   ul {
-    @include root-rhythm.rr-font-compute(s, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
     margin-left: 1rem;
     padding: 0;
     font-family: typography.$font-mercury;
@@ -40,11 +40,11 @@
     list-style: none;
 
     @include root-rhythm.rr-break-directive(m) {
-      @include root-rhythm.rr-font-compute(r, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
     }
 
     @include root-rhythm.rr-break-directive(l) {
-      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
       margin: 0 0 0 1rem;
     }
 

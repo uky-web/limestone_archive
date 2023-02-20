@@ -55,12 +55,12 @@
     }
 
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(1xl, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(1xl, tight, typography.$fonts, typography.$lineheights);
       font-weight: 600;
     }
 
     .headline-group__super {
-      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     }
 
     .headline-group__sub,
@@ -85,12 +85,12 @@
 
     h1 {
       .headline-group__head {
-        @include root-rhythm.rr-font-compute(5xl, medium, typography.$fonts);
+        @include root-rhythm.rr-font-compute(5xl, medium, typography.$fonts, typography.$lineheights);
         font-weight: 600;
       }
   
       .headline-group__super {
-        @include root-rhythm.rr-font-compute(1xl, tight, typography.$fonts);
+        @include root-rhythm.rr-font-compute(1xl, tight, typography.$fonts, typography.$lineheights);
       }
   
       .headline-group__sub,

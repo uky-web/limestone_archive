@@ -8,7 +8,7 @@
 
   &__content {
     p {
-      @include root-rhythm.rr-font-compute(4xl, medium, typography.$fonts);
+      @include root-rhythm.rr-font-compute(4xl, medium, typography.$fonts, typography.$lineheights);
       margin-top: 0;
       font-family: typography.$font-surveyor;
       font-style: italic;
@@ -27,7 +27,7 @@
 
   &--brief {
     #{$root}__content p {
-      @include root-rhythm.rr-font-compute(2xl, medium, typography.$fonts);
+      @include root-rhythm.rr-font-compute(2xl, medium, typography.$fonts, typography.$lineheights);
     }
   }
 }

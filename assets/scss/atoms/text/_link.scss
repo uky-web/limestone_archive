@@ -23,7 +23,7 @@ a {
 .link--fancy-reverse,
 .editorial .link--fancy,
 .editorial .link--fancy-reverse {
-  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
   @include link-colors($d: color-functions.color('medium-blue'), $h: color-functions.color('light-blue'));
   display: inline-block;
   position: relative;
@@ -68,7 +68,7 @@ a {
 // Tweak the font size
 .editorial .link--fancy,
 .editorial .link--fancy-reverse {
-  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
 }
 
 .art-link {

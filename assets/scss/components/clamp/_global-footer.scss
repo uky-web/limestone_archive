@@ -61,13 +61,13 @@
     }
 
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
       text-transform: uppercase;
     }
   }
 
   .link-group {
-    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   }
 
   .art-link {

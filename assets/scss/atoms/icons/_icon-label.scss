@@ -34,7 +34,7 @@
 }
 
 .icon-label--big {
-  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
   align-items: center;
   font-weight: 500;
   text-transform: uppercase;

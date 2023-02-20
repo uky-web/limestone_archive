@@ -23,7 +23,7 @@
       .page-header__content {
 
         p {
-          @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+          @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
           text-shadow: none;
       }
 
@@ -52,7 +52,7 @@
       padding-bottom: root-rhythm.rr-gridbase(2);
 
         p {
-            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
             text-shadow: 1px 1px 1px rgba(0,0,0,.3);
             display:none;
         }
@@ -139,14 +139,14 @@
       }
       
       .headline-group__head {
-        // @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts);
+        // @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts, typography.$lineheights);
       }
     
        &.slab--light {
         .page-header__content {
 
           p {
-            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
             text-shadow: none;
         }
 
@@ -214,7 +214,7 @@
         .page-header__content {
 
           p {
-            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts);
+            @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
             text-shadow: none;
         }
 

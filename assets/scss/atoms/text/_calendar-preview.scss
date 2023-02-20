@@ -7,7 +7,7 @@
   height: 6rem;
   padding: 15px;
   .stacked-date {
-    @include root-rhythm.rr-font-compute(4xl, squeeze, typography.$fonts);
+    @include root-rhythm.rr-font-compute(4xl, squeeze, typography.$fonts, typography.$lineheights);
     border-right: solid 2px color-functions.color(wildcat-blue);
     display: inline-block;
     font-weight: 600;

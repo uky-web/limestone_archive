@@ -9,13 +9,13 @@
   .headline-group {
     .headline-group__sub,
     .headline-group__super {
-      @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts);
+      @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts, typography.$lineheights);
       font-weight: 500;
       text-transform: uppercase;
     }
 
     .headline-group__head {
-      @include root-rhythm.rr-font-compute(3xl, medium, typography.$fonts);
+      @include root-rhythm.rr-font-compute(3xl, medium, typography.$fonts, typography.$lineheights);
     }
   }
 }
@@ -42,7 +42,7 @@
 
 .teaser__content {
   .editorial {
-    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     margin-top: 1rem;
   }
 
