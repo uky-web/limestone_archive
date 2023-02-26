@@ -1,10 +1,31 @@
+{% set grid_column_content %}
+    {% include 'atoms-placeholder' %}
+{% endset %}
+
+{% set grid_props = {
+    "include_headline":true,
+    "headline_level":2,
+    "headline":"Grid Headline",
+    "grid_type":grid_type|default('grid--2-up'),
+    "grid_style":"",
+    "grid_column_count":column_count|default(2),
+    "grid_columns":[
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+        grid_column_content
+    ]
+}%}
+
 {% embed '@limestone/slab.twig' with { slab_variant: slab_variant } %}
     {% block slab_outer %}
         {% if head %}
         <div class="slab__wrapper">
-            {% include 'atoms-heading' with { heading_variant:"heading--display", level: 2, headline:head|default("Grid Headline") } %}
+            {% include '@limestone/heading.twig' with { heading_variant:"heading--display", level: 2, headline:head|default("Grid Headline") } %}
         </div>
         {% endif %}
-        {% include 'molecules-grid' %}
+        {% include '@limestone/grid.twig' with grid_props only %}
     {% endblock %}
 {% endembed %}

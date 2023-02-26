@@ -1,6 +1,6 @@
 <div class="address">
   {% set heading_variant = (hide_heading) ? "show-for-sr" : "link-group__heading" %}
-  {% include 'atoms-heading' with { heading_variant: heading_variant, headline:label|default('Contact Us')} %}
+  {% include '@limestone/heading.twig' with { heading_variant: heading_variant, headline:label|default('Contact Us')} %}
   <p>
     <b>Student Advising</b><br />
     107 Grehan Journalism Building<br />

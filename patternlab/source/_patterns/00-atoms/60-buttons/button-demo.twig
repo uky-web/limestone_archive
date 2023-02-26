@@ -12,7 +12,7 @@
                     {% set sizeclass = '' %}
                     {% set sizelabel = 'Default' %} 
                 {% endif %}
-                {% include 'atoms-heading' with { headline: sizelabel ~ ' Buttons'} %}
+                {% include '@limestone/heading.twig' with { headline: sizelabel ~ ' Buttons'} %}
                 <p>
                     {% include '@limestone/link.twig' with { 'link_variant': 'button ' ~ sizeclass, 'label' : 'Link Button' } %}
                     {% include '@limestone/button.twig' with { button_variant: sizeclass, label : 'Button' } %}

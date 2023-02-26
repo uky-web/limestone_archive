@@ -1,7 +1,17 @@
+{% set headline_group_props = {
+	"level":level|default(3),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"headline_group_link": "example.com",
+	"head": head|default(fake('sentence')),
+    "super":super,
+    "sub":sub
+}%}
+
 {% if standalone %}
 <div class="teaser">
 {% endif %}
-    {% include 'molecules-headline-group' with { level:level|default(3), headline_group_linked: true, head:head|default(fake('sentence')) } %}
+    {% include '@limestone/headline-group.twig' with headline_group_props only %}
 {% if standalone %}
 </div>
 {% endif %}

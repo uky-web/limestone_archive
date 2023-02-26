@@ -1,6 +1,13 @@
+{% set headline_group_props = {
+	"level":level|default(2),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"head": 'Connect With Us' ,
+}%}
+
 <div class="social-media-links {{ social_media_links_variant }}">
     {% set headline_group_variant = (hide_heading) ? "show-for-sr" : "" %}
-    {% include 'molecules-headline-group' with { head: 'Connect With Us' } %}
+    {% include '@limestone/headline-group.twig' with headline_group_props only %}
     <div class="social-media-links__linkset">
         {% set icons = ['twitter','facebook','linkedin','instagram','pinterest','snapchat','youtube'] %}
         {% spaceless %}    

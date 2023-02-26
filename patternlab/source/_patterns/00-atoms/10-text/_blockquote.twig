@@ -1,3 +1,7 @@
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(3, 5)
+}%}
+
 <blockquote>
-	{% include 'atoms-formatted-text' %}
+		{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 </blockquote>

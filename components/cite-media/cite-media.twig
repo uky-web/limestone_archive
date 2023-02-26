@@ -1,0 +1,10 @@
+{% set icon_label_props = {
+    "icon": icon,
+    "label":label
+}%}
+
+<p>
+    <cite class="cite-media">
+        {% include '@limestone/icon-label.twig' with icon_label_props only %}
+    </cite>
+</p>

@@ -1,6 +1,6 @@
 {% set props = {
 	'accordion_panel_active':true,
-	'accordion_panel_headline':accordion_panel_headline|default('Accordion Panel'),
+	'title':accordion_panel_headline|default('Accordion Panel'),
 }%}
 
 {% embed '@limestone/accordion-panel.twig' with props only %}

@@ -1,16 +1,13 @@
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(3, 5)
+}%}
+
 {% if standalone %}
 	{% embed '@limestone/slab.twig' with { slab_variant : 'slab--wildcat-white editorial' } %}
 		{% block slab_content %}
-			{% for i in 1..formatted_text_paragraphs|default(1) %}
-				<p>{{ text.editorial(formatted_text_sentences) }}</p>
-			{% endfor %}		
+			{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 		{% endblock %}
 	{% endembed %}
 {% else %}
-	<div class="editorial">
-	{% for i in 1..formatted_text_paragraphs|default(1) %}
-		<p>{{ text.editorial(formatted_text_sentences) }}</p>
-	{% endfor %}
-	</div>
+	{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 {% endif %}
-

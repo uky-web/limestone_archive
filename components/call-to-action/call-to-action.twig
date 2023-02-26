@@ -1,0 +1,18 @@
+{% set button_props = {
+    'label':button_label
+}%}
+
+{% set heading_props = {
+    "headline":headline,
+    "level":headline_level|default(2),
+}%}
+
+{% if cta_variant is sameas('cta--dark') %}
+    {% set button_props = button_props|merge({'button_variant':'button--ghost'}) %}
+{% endif %}
+
+<div class="cta {{ cta_variant }}">
+    {% include '@limestone/heading.twig' with heading_props only %}
+	{{body}}
+    <p>{% include '@limestone/button.twig' with button_props only %}</p>
+</div>

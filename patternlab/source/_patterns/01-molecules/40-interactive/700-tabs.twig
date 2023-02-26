@@ -1,17 +1,30 @@
-{% set js_tabs_classes = [ 'js-tabs', tabs_variant ] %}
-{% set js_tabs_id = "TabGroup-"|uniqid %}
-<div class="{{ js_tabs_classes|join(' ') }}" id="{{ js_tabs_id }}">
-    <ul class="js-tablist">
-        {% block tabs_tabs %}
-            {% for i in 1..3 %}
-                {% include 'molecules-tab-tab' with { tab_target : "tab_" ~ i, tab_label : "Tab " ~ i } %}
-            {% endfor %}
-        {% endblock %}
-    </ul>
-    {% block tabs_panels %}
-        {% for i in 1..3 %}
-            {% include 'molecules-tab-panel' with { tab_panel_id : "tab_" ~ i } %}
-        {% endfor %}
-    {% endblock %}
-    <a class="back-to-top ic ic--angle-up" href="#{{ js_tabs_id }}"><span class="show-for-sr">Back to Tabs</span></a>
-</div>
+{% set tab_1_content%}
+    {% include "@limestone/formatted-text.twig" with {content: text.editorial_paragraphs(3, 5)} only %}
+{% endset %}
+{% set tab_2_content%}
+    {% include "@limestone/formatted-text.twig" with {content: text.editorial_paragraphs(3, 6)} only %}
+{% endset %}
+{% set tab_3_content%}
+    {% include "@limestone/formatted-text.twig" with {content: text.editorial_paragraphs(3, 7)} only %}
+{% endset %}
+
+{% set tabs_props = {
+    "tabs_variant":tabs_variant,
+    "tabs":[
+        {
+            "label":"Tab 1",
+            "content": tab_1_content
+        },
+        {
+            "label":"Tab 2",
+            "content": tab_2_content
+        },
+        {
+            "label":"Tab 3",
+            "content": tab_3_content
+        }
+    ]
+}%}
+
+{% include "@limestone/tabs.twig" with tabs_props only %}
+

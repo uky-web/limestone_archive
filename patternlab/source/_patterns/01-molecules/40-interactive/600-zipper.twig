@@ -1,8 +1,22 @@
-<div class="js-accordion">
-	{% for i in 0..10 %}
-	<div class="js-accordion__panel">
-		{% include 'atoms-heading' with { level: level|default(2), headline: fake('sentence'), 'heading_variant':'js-accordion__header' } %}
-		{% include 'atoms-formatted-text' with { formatted_text_paragraphs : 2 } %}
-	</div>
-	{% endfor %}
-</div>
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(2, 5)
+}%}
+
+{% embed "@limestone/zipper.twig" %}
+	{% block accordion_panels %}
+		{% for i in 0..10 %}
+
+			{% set accordion_content %}
+				{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+			{% endset %}
+
+			{% set accordion_panel_props = {
+				"level":level|default(2),
+				"title": fake('sentence'),
+				"heading_variant":'js-accordion__header',
+				"body": accordion_content
+			}%}
+			{% include "@limestone/accordion-panel.twig" with accordion_panel_props only %}
+		{% endfor %}
+	{% endblock %}
+{% endembed %}

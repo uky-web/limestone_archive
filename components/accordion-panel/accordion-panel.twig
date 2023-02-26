@@ -1,8 +1,12 @@
-<div class="accordion-item{% if accordion_panel_active %} is-active{% endif %}" data-accordion-item data-deep-link="true" data-update-history="true">
-	<a href="#" class="accordion-title">{{ accordion_panel_headline|default('Accordion Panel') }}</a>
-	<div class="accordion-content" data-tab-content>
-		{% block accordion_panel_content %}
-			{% include 'atoms-paragraph' %}
-		{% endblock %}
-	</div>
+<div class="js-accordion__panel">
+  {% include 'atoms-heading' with { 
+	level: level|default(3), 
+	headline: title, 
+	'heading_variant': heading_variant
+	}%}
+
+	{% block accordion_panel_content %}
+  		{{ body }}
+	{% endblock %}
+
 </div>

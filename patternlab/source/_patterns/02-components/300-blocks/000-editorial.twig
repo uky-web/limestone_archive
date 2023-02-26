@@ -1,3 +1,8 @@
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(10, 5)
+}%}
+
+
 <div class="editorial">
 	{% block editorial_aside %}
 		{% if aside is not empty %}
@@ -8,8 +13,8 @@
 	{% endblock %}
 	{% block editorial_content %}
 	<div class="editorial__content">
-		{% include 'atoms-heading' with { level: level|default(2) } %}
-		{% include 'atoms-formatted-text' with { formatted_text_paragraphs : paragraphs|default(10) } %}
+		{% include '@limestone/heading.twig' with {"headline":headline|default(fake('bs')|titleize), level: level|default(2) } %}
+	{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 	</div>
 	{% endblock %}
 </div>

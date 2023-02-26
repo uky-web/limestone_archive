@@ -1,7 +1,40 @@
+{% set headline_group_props = {
+	"level":level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"super": super|default(fake('bs')),
+	"head": head|default(fake('bs')),
+	"sub": sub|default(fake('bs')),
+}%}
+
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(1, 5)
+}%}
+
 {% embed '@limestone/slab.twig' with { slab_variant : slab_variant|default('slab--wildcat-white')} %}
     {% block slab_content %}
-        {% include 'molecules-headline-group' %}    
-        {% include 'atoms-formatted-text' %}
-        {% include 'molecules-zipper' with { level: 3, linked: true, carousel_variant : carousel_variant, carousel_layout: carousel_layout } %} 
+        {% include '@limestone/headline-group.twig' with headline_group_props only %}    
+	    {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+        {% set formatted_text_props = {
+			content: text.editorial_paragraphs(2, 5)
+		}%}
+		{% embed "@limestone/zipper.twig" %}
+			{% block accordion_panels %}
+				{% for i in 0..10 %}
+
+					{% set accordion_content %}
+						{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+					{% endset %}
+
+					{% set accordion_panel_props = {
+						"level":level|default(2),
+						"title": fake('sentence'),
+						"heading_variant":'js-accordion__header',
+						"body": accordion_content
+					}%}
+					{% include "@limestone/accordion-panel.twig" with accordion_panel_props only %}
+				{% endfor %}
+			{% endblock %}
+		{% endembed %}
     {% endblock %}
 {% endembed %}

@@ -1,12 +1,17 @@
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(3, 5)
+}%}
+
+
 <div class="with-sidebar {{ row_sidebar_position|default('with-sidebar--right') }}">
 	<div class="with-sidebar__main">
 		{% block sidebar_content %}
-			{% include 'atoms-formatted-text' with { formatted_text_paragraphs : 3 } %}
+			{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 		{% endblock %}
 	</div>
 	<div class="with-sidebar__sidebar">
 		{% block sidebar_sidebars %}
-			{% include 'atoms-formatted-text' %}
+			{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 		{% endblock %}
 	</div>
 </div>

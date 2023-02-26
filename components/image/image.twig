@@ -1,0 +1,6 @@
+{% if lazy %}
+	{% set src_attr = "data-lazy" %}
+{% else %}
+	{% set src_attr = "src" %}
+{% endif %}
+<img {{ src_attr }}="{{ src }}" alt="{{ alt_text|default("Default alt text") }}" class="{{ image_style }}" />

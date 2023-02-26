@@ -1,12 +1,14 @@
-{% set button_props = {
-    'label':'Call To Action text'
-}%}
-{% if cta_variant is sameas('cta--dark') %}
-    {% set button_props = button_props|merge({'button_variant':'button--ghost'}) %}
-{% endif %}
+{% set body %}
+    {% include "@limestone/formatted-text.twig" with {content: text.editorial_paragraphs(3, 5)} only %}
+{% endset %}
 
-<div class="cta {{ cta_variant }}">
-    {% include 'atoms-heading' with { level:level|default(2) } %}
-    {% include 'atoms-formatted-text' %}
-    <p>{% include '@limestone/button.twig' with button_props only %}</p>
-</div>
+{% set cta_props = {
+    "cta_variant": cta_variant,
+    "headline": headline|default(fake('bs')|titleize),
+    "headline_level":  level|default(2) ,
+    "body": body,
+    "button_label": 'Call To Action text',
+    "button_url": "example.com",
+}%}
+
+{% include "@limestone/call-to-action.twig" with cta_props only %}

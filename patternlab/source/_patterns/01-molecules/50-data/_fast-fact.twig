@@ -1,6 +1,15 @@
+{% set headline_group_props = {
+	"level":level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"super": "over",
+	"head": main_stat|default(fake('randomNumber')),
+	"sub": sub_stat|default(fake('catchPhrase')),
+}%}
+
 <div class="fast-fact">
   <div class="fast-fact__stat">
-    {% include 'molecules-headline-group' with {level: 1, superhead: 'over', headline: main_stat|default(fake('randomNumber')), subhead: sub_stat|default(fake('catchPhrase')) } %}
+    {% include '@limestone/headline-group.twig' with headline_group_props %}
   </div>
   <div class="fast-fact__description">
     {% include 'atoms-paragraph' %}

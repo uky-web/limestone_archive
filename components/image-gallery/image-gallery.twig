@@ -1,0 +1,19 @@
+
+<div class="image-gallery">
+    <!-- image-gallery__block-sizer empty element, used by masonry image layout -->
+    <div class="image-gallery__block-sizer"></div>
+    {% for image in images %}
+        <div class="image-gallery__block {{ image.class_modifier }}">
+            <a class="image-gallery__popup-launcher" href="{{ image.full_src }}"><!-- should open modal eventually -->
+            {% embed 'molecules-figure' with { imgsrc : image.thumbnail_src } %}
+                {% block figure_caption %}
+                    <span class="image-gallery__block__title">{{ image.caption}}</span>
+                    {% include 'atoms-paragraph' %}
+                    {% include 'atoms-cite' %}
+                {% endblock %}
+            {% endembed %}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+

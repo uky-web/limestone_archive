@@ -1,0 +1,9 @@
+<div class="cta-group">
+{% for action in actions %}
+    {% if cta_type is sameas('buttons') or (cta_type is sameas('mixed') and loop.first) %}
+        {% include '@limestone/link.twig' with { 'label':action.label, 'href':action.url,'link_variant' : 'button ' ~ button_style } only %}
+    {% else %}
+        {% include '@limestone/link.twig' with { 'label':action.label, 'href':action.url,'link_variant':'link--fancy' } only %}
+    {% endif %}
+{% endfor %}
+</div>

@@ -1,0 +1,13 @@
+<div class="content-meta">
+    <div class="content-meta__who-when">
+        {% block meta_fields %}
+            <span class="byline">By {{ byline }}</span>
+            <span class="date">{{ date }}</span>
+        {% endblock %}
+    </div>
+    <div class="taxonomy-list">
+        {% block meta_taxonomy %}
+        {% endblock %}
+    </div> 
+</div>
+

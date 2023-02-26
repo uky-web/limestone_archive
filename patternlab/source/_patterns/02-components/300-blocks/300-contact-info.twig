@@ -1,8 +1,19 @@
+{% set headline_group_props = {
+	"level":level|default(3),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"head": "Contact",
+}%}
+
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(1, 2)
+}%}
+
 <div class="teaser teaser--blue-gray contact-info {{ contact_info_variant }}">
     {% if contact_info_variant is not sameas("contact-info--sheet") %}
     <div class="contact-info__heading">
-        {% include 'molecules-headline-group' with { headline_group_linked: false, head:"Contact", level: 3 } %}
-        {% include 'atoms-formatted-text' with { formatted_text_sentences : 2 } %}
+        {% include '@limestone/headline-group.twig' with headline_group_props only %}
+        {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
     </div>
     {% endif %}
     <div class="contact-info__content">

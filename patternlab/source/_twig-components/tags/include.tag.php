@@ -46,6 +46,7 @@ class Project_include_Node extends Twig_Node_Include
         $compiler->addDebugInfo($this);
 
         if ($name) {
+            // echo $name . "\n";
             $compiler
                 ->write("echo '<!-- TWIG INCLUDE : " . $name . "\" -->';\n");
         }
