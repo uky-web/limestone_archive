@@ -48,7 +48,7 @@
 
       &.current-item {
         display: list-item;
-        @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
+        @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
 
         a {
           pointer-events: none;

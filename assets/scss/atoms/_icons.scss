@@ -9,6 +9,6 @@
   @include icon-label-align;
 
   li {
-    @include root-rhythm.rr-font-compute(xl, wide, typography.$fonts);
+    @include root-rhythm.rr-font-compute(xl, wide, typography.$fonts, typography.$lineheights);
   }
 }

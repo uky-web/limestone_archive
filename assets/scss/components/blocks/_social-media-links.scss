@@ -10,7 +10,7 @@
   &__linkset {
     // The margin around each link 
     $cm: root-rhythm.rr-gridbase(2);
-    @include root-rhythm.rr-font-compute(4xl, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(4xl, tight, typography.$fonts, typography.$lineheights);
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -32,7 +32,7 @@
 
   &#{&}--blocks {
     #{$root}__linkset {
-      @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts, typography.$lineheights);
 
       a {
         text-align: left;
@@ -44,7 +44,7 @@
     background-color: transparent;
 
     #{$root}__linkset {
-      @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts, typography.$lineheights);
       display: block;
 
       a {

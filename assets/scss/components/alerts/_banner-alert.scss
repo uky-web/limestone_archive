@@ -12,7 +12,7 @@
 
   a,
   p {
-    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
   }
 
   &--emergency {

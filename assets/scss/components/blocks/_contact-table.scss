@@ -7,7 +7,7 @@
   border-collapse: collapse;
 
   th {
-    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     display: block;
     padding: root-rhythm.rr-gridbase(1) 0 0;
     font-weight: 400;
@@ -15,7 +15,7 @@
   }
 
   td {
-    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     display: block;
     padding: 0 0 root-rhythm.rr-gridbase(1);
     border-bottom: 1px color-functions.color(wildcat-black) dashed;

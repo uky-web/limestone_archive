@@ -21,7 +21,7 @@
     text-align: center;
 
     li {
-      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts);
+      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
       display: none;
       margin: 0;
 

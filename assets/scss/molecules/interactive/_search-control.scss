@@ -2,12 +2,12 @@
 @use 'typography';
 
 .search-control {
-  @include root-rhythm.rr-font-compute(s, tight, typography.$fonts);
+  @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
   padding: root-rhythm.rr-gridbase(1);
   transition: color .3s ease-in-out;
   border-width: 0;
   background-color: transparent;
-  font-family: typography.$font-avenirnext;
+  font-family: typography.$font-usual;
 
   &::before {
     margin-right: .3em;

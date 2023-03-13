@@ -1,16 +1,16 @@
 @use 'root-rhythm';
 @use 'typography';
 p {
-  @include root-rhythm.rr-font-compute(r, medium, typography.$fonts);
+  @include root-rhythm.rr-font-compute(r, wide, typography.$fonts, typography.$lineheights);
   margin-bottom:root-rhythm.rr-gridbase(2);
 }
 
 // Fix this style so it can be set on a wrapping container or the paragraph itself.
 .intro {
-  @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts);
+  @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts, typography.$lineheights);
 
   p {
-    @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts);
+    @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts, typography.$lineheights);
   }
 }
 

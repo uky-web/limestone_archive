@@ -3,7 +3,7 @@
 @use 'typography';
 
 .accordion__header {
-  @include root-rhythm.rr-font-compute(2xl, medium, typography.$fonts);
+  @include root-rhythm.rr-font-compute(2xl, medium, typography.$fonts, typography.$lineheights);
   width: 100%;
   padding: {
     top: root-rhythm.rr-grid-remainder(1px, 2);
