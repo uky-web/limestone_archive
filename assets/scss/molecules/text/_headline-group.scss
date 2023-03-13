@@ -59,7 +59,7 @@ $sizelist: 4xl 3xl 2xl 2xl xl xl;
 
       #{$bem-root}__head {
         font-weight: 500;
-        font-family: typography.$font-tradegothic;
+        font-family: typography.$font-gothic-atf;
         @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts, typography.$lineheights);
 
         .underline-link {
