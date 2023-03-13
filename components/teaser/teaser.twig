@@ -1,0 +1,41 @@
+{% set headline_group_props = {
+	"level":headline_level|default(3),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"headline_group_link": headline_group_link,
+	"super": headline_super,
+	"head": headline_head,
+	"sub": headline_sub,
+}%}
+
+{% set formatted_text_props = {
+	"content": content
+}%}
+
+{# FIXME: 'taxonomy' isn't in the proptypes for content-meta, but needs to be passed to reference in the block #}
+{% set content_meta_props = {
+    "byline":meta_byline,
+    "date": meta_date,
+	"taxonomy":meta_taxonomy_content
+}%}
+
+
+<div class="teaser {{ teaser_variant }}">
+	<div class="teaser__media">
+		<a href="#">{% include '@limestone/image.twig' with {"src":image_url} %}</a>
+	</div>
+	<div class="teaser__content">
+		{% block teaser_content %}
+			{% include '@limestone/headline-group.twig' with headline_group_props only %}
+			{% if show_meta %}
+			{% embed "@limestone/content-meta.twig" with content_meta_props only %}
+				{% block meta_taxonomy %}
+						{{taxonomy}}
+				{% endblock %}
+			{% endembed %}
+
+			{% endif %}
+			{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+		{% endblock %}
+	</div>
+</div>

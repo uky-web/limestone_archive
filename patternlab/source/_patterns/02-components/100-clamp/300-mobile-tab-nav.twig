@@ -1,56 +1,32 @@
-{# If there's no section, we can spit out the same panel component but with only one tab #}
-{% set show_section_tab = not is_home %}
-
-{% set tabs_variant = [
-        'mobile-tab-nav',
-        (is_main) ? 'mobile-tab-nav--wildcat' : ''
-    ] %}
-
-{% set tab_1_content%}
-    <div class="mobile-tab-nav__menus">
-        {% include nav_molecule with {menus:menus, mobile: true} %}
-        <hr>
-        {% include 'molecules-utility-nav' %}
-    </div>
-    <div class="mobile-tab-nav__universal">
-        {% if not is_main %}
-            {% include 'molecules-universal-breadcrumb' %}
-        {% else %}
-           <hr>
-        {% endif %}
-        {% include '@limestone/universal-nav.twig' with { extra_links: ['#UKY4Y','Resources'] } %}
-    </div>
+{% set primary_nav %}
+    {% include 'molecules-global-nav' %}
 {% endset %}
 
-{% set tab_2_content%}
+{% set section_nav %}
     {% include 'molecules-section-nav' %}
 {% endset %}
 
-{% if show_section_tab %}
-    {% set tabs = [
-        {
-            "label":"Main Menu",
-            "content": tab_1_content
-        },
-        {
-            "label":"This Section",
-            "content": tab_2_content
-        }
-    ] %}
+{% set utility_nav %}
+    {% include 'molecules-utility-nav' %}
+{% endset %}
 
-{% else %}
-    {% set tabs = [{
-        "label":"Main Menu",
-        "content": tab_1_content
-    }] %}
-{% endif %} 
+{% set universal_nav %}
+    {% include 'molecules-universal-nav' with { extra_links: ['#UKY4Y','Resources'] } %}
+{% endset %} 
 
-    {% set tabs_props = {
-        "tabs_variant":tabs_variant,
-        "tabs":tabs
-    }%}
+{% set universal_breadcrumb %}
+    {% include 'molecules-universal-breadcrumb' %}
+{% endset %}
 
 
+{% set props = {
+    "is_main": is_main|default(true),
+    "is_home": is_home|default(false),
+    "primary_nav": primary_nav,
+    "section_nav": section_nav,
+    "utility_nav": utility_nav,
+    "universal_nav": univeral_nav,
+    "universal_breadcrumb": universal_breadcrumb
+}%}
 
-{% embed '@limestone/tabs.twig' with { tabs_variant: tabs_variant|join(' ') } %}
-{% endembed %}
+{% include "@limestone/mobile-tab-nav.twig" with props only %}

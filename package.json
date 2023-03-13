@@ -40,7 +40,7 @@
     "gulp-consolidate": "^0.2.0",
     "gulp-dart-sass": "^1",
     "gulp-eslint": "latest",
-    "gulp-iconfont": "^9",
+    "gulp-iconfont": "^11.0.1",
     "gulp-if": "^2.0.0",
     "gulp-modernizr": "latest",
     "gulp-plumber": "latest",

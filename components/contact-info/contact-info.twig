@@ -1,0 +1,53 @@
+{% set headline_group_props = {
+	"level":headline_level|default(3),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"head": headline_head
+}%}
+
+{% set formatted_text_props = {
+	content: heading_content
+}%}
+
+<div class="teaser teaser--blue-gray contact-info {{ contact_info_variant }}">
+    {% if contact_info_variant is not sameas("contact-info--sheet") %}
+    <div class="contact-info__heading">
+        {% include '@limestone/headline-group.twig' with headline_group_props only %}
+        {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+    </div>
+    {% endif %}
+    <div class="contact-info__content">
+        {% if hide_image is not sameas(true) %}
+            <div class="contact-info__photo">
+                {% include "@limestone/image.twig" with {"src":contact_image} %}
+            </div>
+        {% endif %}
+        {% if contact_info_variant is not sameas("contact-info--sheet") %}
+        <div class="contact-info__identity">
+            <p>
+                <span class="contact-info__name">{{ contact_name }}</span>
+                <span class="contact-info__title">{{ contact_title }}</span>
+            </p>
+        </div>
+        {% endif %}
+
+        {% if contact_info %}
+            <dl class="invisible-labels">
+                {% for item in contact_info %}
+                    <dt>{{item.hidden_label}}</dt>
+                    <dd>
+                        {% if item.link_url %}
+                            {% include '@limestone/link.twig' with { 
+                                "label":item.visible_value, 
+                                "url":item.link_url,
+                                "link_variant":'link--fancy' 
+                            } %}
+                        {% else %}
+                            {{item.visible_value}}
+                        {% endif %}
+                    </dd>
+                {% endfor %}
+            </dl>
+        {% endif %}
+    </div>
+</div>

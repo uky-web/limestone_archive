@@ -1,0 +1,18 @@
+{% set headline_group_props = {
+	"level":headline_level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"head": headline_head,
+	"sub": headline_sub,
+}%}
+
+{% set formatted_text_props = {
+	"content": content
+}%}
+
+<div class="statistic">
+    {% include '@limestone/headline-group.twig' with headline_group_props only %}
+    {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+</div>
+
+

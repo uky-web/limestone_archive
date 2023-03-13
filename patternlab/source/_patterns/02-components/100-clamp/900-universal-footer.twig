@@ -1,26 +1,30 @@
-{% set footernavid = 'universal-links'|uniqid %}
-
-{% set icon_label_props = {
-    icon: 'pin', 
-    'label': 'Lexington, Kentucky 40506' 
+{% set props = {
+    "footer_nav_id":'universal-links'|uniqid,
+    "links":[
+        {
+            "label": 'An Equal Opportunity University',
+            "url":"example.com"
+        },
+        {
+            "label": 'Accreditation',
+            "url":"example.com"
+        },
+        {
+            "label": 'Directory',
+            "url":"example.com"
+        },
+        {
+            "label": 'Email',
+            "url":"example.com"
+        },
+        {
+            "label": 'Privacy Policy',
+            "url":"example.com"
+        },
+        {
+            "label": 'Accessibility',
+            "url":"example.com"
+        }]
 }%}
 
-{% embed '@limestone/slab.twig' with { slab_variant: 'slab--wildcat-blue universal-footer' } %}
-    {% block slab_content %}
-        {% if include_wordmark %}
-            <a href="https://www.uky.edu">{% include '@limestone/uk-wordmark.twig' %}<span class="show-for-sr">University of Kentucky</span></a>
-        {% endif %}
-        <div class="universal-footer__ribbon">
-            <div><a href="#">An Equal Opportunity University</a> </div>
-            <div><a href="#" class="underline-link">Accreditation</a></div>
-            <div><a href="#" class="underline-link">Directory</a></div>
-            <div><a href="#" class="underline-link">Email</a></div>
-            <div><a href="#" class="underline-link">Privacy Policy</a></div>
-            <div><a href="#" class="underline-link">Accessibility</a></div>
-        </div>
-        <div class="universal-footer__ribbon">
-            <div>© University of Kentucky</div>
-            <div><a href="#"><a href="#">{% include '@limestone/icon-label.twig' with icon_label_props only %}</a></div>
-        </div>
-    {% endblock %}
-{% endembed %}
+{% include "@limestone/universal-footer.twig" with props only %}

@@ -1,44 +1,29 @@
-{% set headline_group_props = {
-	"level":level|default(3),
+{% set meta_taxonomy %}
+	{% set taxo = fake('words',{nb: 2 + random(3)}) %}
+	{% for w in taxo %}
+		{{ w|capitalize }}
+		{% if not loop.last %}, {% endif %}
+	{% endfor %}
+{% endset %}
+
+{% set props = {
+	"teaser_variant":teaser_variant,
+	"headline_level":level|default(3),
 	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
 	"headline_group_variant":headline_group_variant,
 	"headline_group_link": "example.com",
-	"super": "Optional Superhead",
-	"head": head|default(fake('bs'))|titleize,
-	"sub": "Optional Subhead",
+	"headline_super": "Optional Superhead",
+	"headline_head": head|default(fake('bs'))|titleize,
+	"headline_sub": "Optional Subhead",
+	"content":text.editorial_paragraphs(3, 5),
+	"image_url":fake('imageUrl',{aspectRatio: "3:2", width: 600}),
+	"show_meta":true,
+    "meta_byline":fake('name'),
+    "meta_date":"now"|date(content_date_format|default("M d, Y - g:i a")),
+	"meta_taxonomy_content": meta_taxonomy
 }%}
 
-{% set formatted_text_props = {
-	content: text.editorial_paragraphs(3, 5)
-}%}
-
-{% set content_meta_props = {
-    "byline":fake('name'),
-    "date":"now"|date(content_date_format|default("M d, Y - g:i a")),
-
-}%}
+{% include "@limestone/teaser.twig" with props only %}
 
 
-<div class="teaser {{ teaser_variant }}">
-	<div class="teaser__media">
-		<a href="#">{% include 'atoms-image' with { width: 600, aspect: "3:2"} %}</a>
-	</div>
-	<div class="teaser__content">
-		{% block teaser_content %}
-			{% include '@limestone/headline-group.twig' with headline_group_props only %}
-			{% if show_meta %}
-			{% embed "@limestone/content-meta.twig" with content_meta_props only %}
-				{% block meta_taxonomy %}
-							{% set taxo = fake('words',{nb: 2 + random(3)}) %}
-						{% for w in taxo %}
-							{{ w|capitalize }}
-						{% if not loop.last %}, {% endif %}
-						{% endfor %}
-					{% endblock %}
-			{% endembed %}
 
-			{% endif %}
-			{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
-		{% endblock %}
-	</div>
-</div>

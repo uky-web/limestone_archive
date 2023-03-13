@@ -1,7 +1,74 @@
+{% set utility_nav_links = [
+        {'label': fake('word')|titleize,'url':'#' },
+        {'label': fake('word')|titleize,'url':'#' },
+        {'label': fake('word')|titleize,'url':'#' }
+]%}
+
+{% set global_nav_links = [
+        {
+            "label": 'About',
+            "url":"example.com"
+        },
+        {
+            "label": 'Students',
+            "url":"example.com"
+        },
+        {
+            "label": 'Alumni & Friends',
+            "url":"example.com"
+        },
+        {
+            "label": 'Faculty & Staff Resources',
+            "url":"example.com"
+        },
+        {
+            "label": 'Giving',
+            "url":"example.com"
+        },
+        {
+            "label": 'News & Media',
+            "url":"example.com"
+        },
+        {
+            "label": 'Visit',
+            "url":"example.com"
+        }
+    ]
+%}
+
+{% set section_nav_props = {
+    "section_nav_label":section_nav_label|default("In This Section"),
+    "links":[
+        {
+            "label":fake('words',{ nb: 2 + random(10), asText: true})|titleize,
+            "url":"example.com"
+        },
+        {
+            "label":fake('words',{ nb: 2 + random(10), asText: true})|titleize,
+            "url":"example.com"
+        },
+        {
+            "label":fake('words',{ nb: 2 + random(10), asText: true})|titleize,
+            "url":"example.com",
+            "current_item":true
+        },
+        {
+            "label":fake('words',{ nb: 2 + random(10), asText: true})|titleize,
+            "url":"example.com"
+        }
+    ]}
+
+%}
+
+
 {% set props = {
     'is_main': false,
     'site_identity': false,
     'nav_molecule': null,
+    'utility_nav_links': utility_nav_links,
+    'global_nav_links': global_nav_links,
+    'global_nav_home':"https://example.com",
+    'section_nav_props':section_nav_props,
     'menus': menus,
     'parent_site_url': '#',
     'parent_site_name': 'College of '~( fake('bs')|titleize ),

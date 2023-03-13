@@ -1,0 +1,18 @@
+{% set hide_heading = true %}
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-footer' } %}
+    {% block slab_content %}  
+        {# this is designed for three columns of content #}
+        <div class="global-footer__column">
+            {% block footer_left %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_mid %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_right %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endembed %}

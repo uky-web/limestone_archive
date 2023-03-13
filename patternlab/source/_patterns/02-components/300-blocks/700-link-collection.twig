@@ -1,39 +1,26 @@
-{% set headline_group_props = {
-	"level":level|default(1),
+{% set props = {
+	"headline_level":level|default(1),
 	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
 	"headline_group_variant":headline_group_variant,
-   "super": super|default('Described Links Block'), 
-   "head": head|default('Link Collection')
-}%}
-
-{% set formatted_text_props = {
-	content: text.editorial_paragraphs(1, 2)
-}%}
-
-{% set described_link_props = {
-  "brief":false,
+   "headline_super": super|default('Described Links Block'), 
+   "headline_head": head|default('Link Collection'),
+   "description": text.editorial_paragraphs(1, 2),
+   "described_links_brief": false,
   "links":[
-    {
-      "label":fake('words',{nb:4, asText: true}),
-      "description": text.editorial_paragraphs(1,2)
-    },
-    {
-      "label":fake('words',{nb:4, asText: true}),
-      "description": text.editorial_paragraphs(1,2)
-    },
-    {
-      "label":fake('words',{nb:4, asText: true}),
-      "description": text.editorial_paragraphs(1,2)
-    },
-  ]
+      {
+        "label":fake('words',{nb:4, asText: true}),
+        "description": text.editorial_paragraphs(1,2)
+      },
+      {
+        "label":fake('words',{nb:4, asText: true}),
+        "description": text.editorial_paragraphs(1,2)
+      },
+      {
+        "label":fake('words',{nb:4, asText: true}),
+        "description": text.editorial_paragraphs(1,2)
+      },
+    ] 
 }%}
 
-<div class="link-collection {{ link_collection_variant }}">
-    <div class="link-collection__header">
-        {% include '@limestone/headline-group.twig' with headline_group_props only %}
-	{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
-    </div>
-    <div class="link-collection__content">
-        {% include '@limestone/described-links.twig' with described_link_props only %}
-    </div>
-</div>
+{% include "@limestone/link-collection.twig" with props only %}
+

@@ -1,14 +1,16 @@
-{% set first_line = attribution|default(fake('name')) %}
-{% set second_line = description|default(fake('jobTitle') ~ ', ' ~ fake('company')) %}
-<div class="pullquote {{ pullquote_variant }}">
-  <div class="pullquote__quote">
-    {% include 'atoms-paragraph' %}
-  </div>
-  <div class="pullquote__meta">
-    {% include 'atoms-image' with {aspect:"1:1", width:200} %}
-    <cite class="pullquote__attribution">
-      <span class="pullquote__first-line">{{ first_line }}</span>
-      <span class="pullquote__second-line">{{ second_line }}</span>
-    </cite>
-  </div>
-</div>
+{% set quote %}
+<p>
+  {{ fake('paragraph',{nb: 1}) }}
+</p>
+{% endset %}
+
+{% set props = {
+  "first_line":attribution|default(fake('name')),
+  "second_line":description|default(fake('jobTitle') ~ ', ' ~ fake('company')),
+  "pullquote_variant":pullquote_variant,
+  "quote":quote,
+  "image_src":fake('imageUrl',{aspectRatio: "1:1", width: 200})
+}%}
+
+{% include "@limestone/pullquote.twig" with props only %}
+

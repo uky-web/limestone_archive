@@ -1,44 +1,35 @@
-{% set headline_group_props = {
-	"level":level|default(3),
+{% set props = {
+    "contact_info_variant": contact_info_variant,
+    "hide_image": hide_image|default(false),
+	"headline_level":level|default(3),
 	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
 	"headline_group_variant":headline_group_variant,
-	"head": "Contact",
+	"headline_head": "Contact",
+    "heading_content":text.editorial_paragraphs(1, 2),
+    "contact_name": fake('name') ,
+    "contact_title": fake('jobTitle'),
+    "contact_image": fake('imageUrl',{aspectRatio: "3:2", width: 400}),
+    "contact_info": [
+        {
+            "hidden_label":"College or Department",
+            "visible_value":"College or Department",
+            "link_url": "example.com"
+        },
+        {
+            "hidden_label":"Address",
+            "visible_value":"117 Pence Hall",
+        },
+        {
+            "hidden_label":"Phone Number",
+            "visible_value":"859.257.7617",
+            "link_url": "tel:8592577617"
+        },
+        {
+            "hidden_label":"Email Address",
+            "visible_value":fake('email'),
+            "link_url": "email:"~fake('email')
+        },
+    ]
 }%}
 
-{% set formatted_text_props = {
-	content: text.editorial_paragraphs(1, 2)
-}%}
-
-<div class="teaser teaser--blue-gray contact-info {{ contact_info_variant }}">
-    {% if contact_info_variant is not sameas("contact-info--sheet") %}
-    <div class="contact-info__heading">
-        {% include '@limestone/headline-group.twig' with headline_group_props only %}
-        {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
-    </div>
-    {% endif %}
-    <div class="contact-info__content">
-        {% if hide_image is not sameas(true) %}
-            <div class="contact-info__photo">
-                {% include 'atoms-image' with {aspect: "1:1", width: 300 } %}
-            </div>
-        {% endif %}
-        {% if contact_info_variant is not sameas("contact-info--sheet") %}
-        <div class="contact-info__identity">
-            <p>
-                <span class="contact-info__name">{{ fake('name') }}</span>
-                <span class="contact-info__title">{{ fake('jobTitle') }}</span>
-            </p>
-        </div>
-        {% endif %}
-        <dl class="invisible-labels">
-            <dt>College or Department</dt>
-            <dd>{% include '@limestone/link.twig' with { label:'College or Department', 'link_variant':'link--fancy' } %}</dd>
-            <dt>Address</dt>
-            <dd>117 Pence Hall</dd>
-            <dt>Phone Number</dt>
-            <dd>{% include '@limestone/link.twig' with { label:"859.257.7617",'link_variant':'link--fancy' } %}</dd>
-            <dt>Email Address</dt>
-            <dd>{%  include '@limestone/link.twig' with { label:fake('email') , 'link_variant':'link--fancy' } %}</dd>
-        </dl>
-    </div>
-</div>
+{% include "@limestone/contact-info.twig" with props only %}

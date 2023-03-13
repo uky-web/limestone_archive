@@ -1,20 +1,55 @@
-{% set headline_group_props = {
-	"level":level|default(2),
+{% set props = {
+    "social_media_links_variant":social_media_links_variant,
+    "icons_block":false,
+    "hide_heading":false,
+    "headline_level":level|default(2),
 	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
-	"headline_group_variant":headline_group_variant,
-	"head": 'Connect With Us' ,
+	"headline_head": 'Connect With Us',
+    "links": [
+        {
+           "name":"twitter",
+           "icon":"twitter",
+           "block_icon":"twitter-block",
+           "url":"https://twitter.com" 
+        },
+        {
+           "name":"facebook",
+           "icon":"facebook",
+           "block_icon":"facebook-block",
+           "url":"https://facebook.com" 
+        },
+        {
+           "name":"linkedin",
+           "icon":"linkedin",
+           "block_icon":"linkedin-block",
+           "url":"https://linkedin.com"
+        },
+         {
+           "name":"instagram",
+           "icon":"instagram",
+           "block_icon":"instagram-block",
+           "url":"https://instagram.com" 
+        },
+        {
+           "name":"pinterest",
+           "icon":"pinterest",
+           "block_icon":"pinterest-block",
+           "url": "https://pinterest.com"
+        },
+        {
+           "name":"snapchat",
+           "icon":"snapchat",
+           "block_icon":"snapchat-block",
+           "url": "https://snapchat.com"
+        },
+        {
+           "name":"youtube",
+           "icon":"youtube",
+           "block_icon":"youtube-block",
+           "url": "https://youtube.com"
+        },
+    ]
 }%}
 
-<div class="social-media-links {{ social_media_links_variant }}">
-    {% set headline_group_variant = (hide_heading) ? "show-for-sr" : "" %}
-    {% include '@limestone/headline-group.twig' with headline_group_props only %}
-    <div class="social-media-links__linkset">
-        {% set icons = ['twitter','facebook','linkedin','instagram','pinterest','snapchat','youtube'] %}
-        {% spaceless %}    
-            {% for social in icons %}
-                {% if social_icons_block %}{% set icon = social ~ '-block' %}{% else %}{% set icon = social %}{% endif %}
-                <a href="http://www.{{ social }}.com/">{% include '@limestone/icon-label.twig' with { hide_label: true, icon: icon, label:social } only %}</a>
-            {% endfor %}
-        {% endspaceless %}
-    </div>
-</div>
+{% include "@limestone/social-media-links.twig" with props only %}
+

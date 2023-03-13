@@ -1,0 +1,35 @@
+{% set carousel_props = {
+    level: carousel_level, 
+    carousel_variant : carousel_variant, 
+    carousel_layout: carousel_layout,
+    carousel_slides: carousel_slides
+}%}
+
+{% set headline_group_props = {
+	"level":headline_level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"super": headline_super,
+	"head": headline_head,
+	"sub": headline_sub,
+}%}
+
+
+{% set slab_props = {
+    "slab_variant" : slab_variant|default('slab--wildcat-white'),
+    "carousel_props": carousel_props,
+    "headline_group_props":headline_group_props
+}%}
+
+
+
+{% embed '@limestone/slab.twig' with slab_props only %}
+    {% block slab_content %}
+        {% include '@limestone/headline-group.twig' with headline_group_props only %}
+        {% embed "@limestone/carousel.twig" with carousel_props only %}
+           {% block slides %} 
+                {{carousel_slides}}
+            {% endblock %} 
+        {% endembed %}
+    {% endblock %}
+{% endembed %}

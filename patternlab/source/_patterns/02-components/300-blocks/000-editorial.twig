@@ -1,20 +1,14 @@
-{% set formatted_text_props = {
-	content: text.editorial_paragraphs(10, 5)
+{% set aside_content %}
+	{% include aside %}
+{% endset %}
+
+{% set props = {
+	"aside":aside_content,
+	"aside_position":aside_position|default('align-right'),
+	"heading":headline|default(fake('bs')|titleize),
+	"heading_level":level|default(2),
+	"body": text.editorial_paragraphs(10, 5)
 }%}
 
-
-<div class="editorial">
-	{% block editorial_aside %}
-		{% if aside is not empty %}
-		<aside class="editorial__aside {{ aside_position|default('align-right') }}">
-			{% include aside %}
-		</aside>
-		{% endif %}
-	{% endblock %}
-	{% block editorial_content %}
-	<div class="editorial__content">
-		{% include '@limestone/heading.twig' with {"headline":headline|default(fake('bs')|titleize), level: level|default(2) } %}
-	{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
-	</div>
-	{% endblock %}
-</div>
+{% embed "@limestone/editorial.twig" with props only %}
+{% endembed %}

@@ -1,18 +1,12 @@
-{% set headline_group_props = {
-	"level":level|default(1),
+{% set props = {
+	"headline_level":level|default(1),
 	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
 	"headline_group_variant":headline_group_variant,
-	"head": random(['99.99%','99th','9 out of 10','$9,999,999','9:10','98/99']),
-	"sub": fake('bs'),
+	"headline_head": random(['99.99%','99th','9 out of 10','$9,999,999','9:10','98/99']),
+	"headline_sub": fake('bs'),
+	"content":text.editorial_paragraphs(1, 1)
 }%}
 
-{% set formatted_text_props = {
-	content: text.editorial_paragraphs(1, 1)
-}%}
-
-<div class="statistic">
-    {% include '@limestone/headline-group.twig' with headline_group_props only %}
-    {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
-</div>
+{% include "@limestone/statistic.twig" with props only %}
 
 

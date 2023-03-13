@@ -1,45 +1,30 @@
-{% set carousel_props = {
-    level: 3, 
-    carousel_variant : carousel_variant, 
-    carousel_layout: carousel_layout ,
-}%}
+{% set carousel_slides %}
+    {% for i in 0 .. 6 %}
+        {% include '@limestone/media-with-caption.twig' with {
+            "media":media|default('image'),
+            "media_component": media_type|default('image'),
+            "media_component_src":fake('imageUrl',{width: 300, height: 168}), 
+            "lazy": false, 
+            "linked": true,
+            "level": level|default(2), 
+            "citation_name": fake('name'),
+            "caption":text.editorial_paragraphs(1, 5)
+        } %}
+    {% endfor %}
+{% endset  %}
 
-{% set headline_group_props = {
-	"level":level|default(1),
+{% set props = {
+    "slab_variant" : slab_variant|default('slab--wildcat-white'),
+    "headline_level":level|default(1),
 	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
 	"headline_group_variant":headline_group_variant,
-	"super": super|default(fake('bs'))|titleize,
-	"head": head|default(fake('bs'))|titleize,
-	"sub": sub|default(fake('bs'))|titleize,
+	"headline_super": super|default(fake('bs'))|titleize,
+	"headline_head": head|default(fake('bs'))|titleize,
+	"headline_sub": sub|default(fake('bs'))|titleize,
+    "carousel_level": 3, 
+    "carousel_variant" : carousel_variant, 
+    "carousel_layout": carousel_layout,
+    "carousel_slides": carousel_slides
 }%}
 
-
-{% set slab_props = {
-    "slab_variant" : slab_variant|default('slab--wildcat-white'),
-    "carousel_props": carousel_props,
-    "headline_group_props":headline_group_props
-}%}
-
-
-
-{% embed '@limestone/slab.twig' with slab_props only %}
-    {% block slab_content %}
-        {% include '@limestone/headline-group.twig' with headline_group_props only %}
-        {% embed "@limestone/carousel.twig" with carousel_props only %}
-           {% block slides %} 
-                {% for i in 0 .. 6 %}
-                    {% include '@limestone/media-with-caption.twig' with {
-                        "media":media|default('image'),
-                        "media_component": media_type|default('image'),
-                        "media_component_src":fake('imageUrl',{width: 300, height: 168}), 
-                        "lazy": false, 
-                        "linked": true,
-                        "level": level|default(2), 
-                        "citation_name": fake('name'),
-                        "caption":text.editorial_paragraphs(1, 5)
-                    } %}
-                {% endfor %}
-            {% endblock %} 
-        {% endembed %}
-    {% endblock %}
-{% endembed %}
+{% include "@limestone/carousel-slab.twig" with props only %}
