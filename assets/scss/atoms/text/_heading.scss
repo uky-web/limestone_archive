@@ -22,7 +22,7 @@ h6 {
   @each $tag, $config in typography.$editorial-headings {
     #{$tag},
     #{$tag}.headline-group .headline-group__head {
-      @include root-rhythm.rr-heading($tag, typography.$editorial-headings);
+      @include root-rhythm.rr-heading($tag, typography.$editorial-headings, typography.$fonts, typography.$lineheights);
       margin-top: 0;
       margin-bottom:root-rhythm.rr-gridbase(2);
       font-family: typography.$font-usual;

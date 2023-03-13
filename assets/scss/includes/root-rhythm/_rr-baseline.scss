@@ -2,6 +2,7 @@
 @use "rr-grid" as *;
 @use "rr-util" as *;
 
+
 // Render the columns as a repeating linear gradient.
 @function rr-columns($break: s) {
   $gutter: rr-prop-for-breakpoint($break, gutter);
@@ -81,14 +82,14 @@
 // Builds a list of style rules with the specified prefix, size tag, and
 // lineheight tag. Useful for building pattern libraries or if you intend
 // to expose design capabilities through css.
-@mixin rr-font-samples($prefix: 'text', $font-config: $rr-fonts, $lineheight-config: $rr-lineheights) {
+@mixin rr-font-samples($prefix: 'text', $font-config, $lineheight-config) {
   $font-sizes: rr-font-sizes($font-config);
   @each $fs in $font-sizes {
     @each $name, $size in $fs {
       @each $linename, $lineheight in $lineheight-config {
         .#{$prefix}-#{$name}-#{$linename} {
           background-color: rgba(200, 255, 200, .3);
-          @include rr-font-compute($name, $linename);
+          @include rr-font-compute($name, $linename,$font-config, $lineheight-config);
         }
       }
     }
@@ -97,7 +98,7 @@
 
 // Builds basic heading layout using the heading style configuration, including
 // media queries.
-@mixin rr-heading($config-map-tag, $heading-config: $rr-headings) {
+@mixin rr-heading($config-map-tag, $heading-config, $font-config, $lineheight-config) {
   @if map-has-key($heading-config, $config-map-tag) {
     $config: map-get($map: $heading-config, $key: $config-map-tag);
     $size: m;
@@ -108,7 +109,7 @@
     @if map-has-key($config, lineheight) {
       $lineheight: map-get($config, lineheight);
     }
-    @include rr-font-compute($size, $lineheight);
+    @include rr-font-compute($size, $lineheight, $font-config, $lineheight-config);
     $font: sans-serif;
     @if map-has-key($config, font) {
       $font: map-get($config, font);
