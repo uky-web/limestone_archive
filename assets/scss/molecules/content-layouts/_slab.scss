@@ -38,7 +38,7 @@ $skins: transparent;
 
 
 .slab--dark-wildcat {
-  background: linear-gradient(#{color(dark-blue)},#{color(wildcat-blue)});
+  background: linear-gradient(#{color-functions.color(dark-blue)},#{color-functions.color(wildcat-blue)});
   @include usescheme(color-schemes.$scheme-dark);
 }
 
@@ -54,7 +54,7 @@ $skins: transparent;
   }
 
   .grid--divided .grid__column::after {
-    background-color:color(bluegrass);
+    background-color:color-functions.color(bluegrass);
     width:1px;
   }
 
