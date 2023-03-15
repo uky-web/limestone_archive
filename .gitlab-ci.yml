@@ -1,0 +1,49 @@
+image: cimg/php:8.1-node
+
+#from: https://nicolaw.uk/GitLabCiPushingWrites
+variables:
+  GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa-gitlab-ci"
+  GIT_STRATEGY: clone
+  REMOTE_REPO: git@gitlab.com:uky-web/patternlab-artifact.git
+  BUILD_REPO: /tmp/pl-artifact
+
+before_script:
+#- eval $(ssh-agent -s)
+#- echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+##- mkdir -p ~/.ssh
+##- chmod 700 ~/.ssh
+
+
+stages:
+- build
+- deploy
+
+compile:assets:
+  stage: build
+  script:
+  - sudo npm install --unsafe-perm -g gulp
+  - npm install
+  - gulp build
+  artifacts:
+    paths:
+    - dist
+    expire_in: 1 week
+  #only:
+  #- master
+
+push:artifact:
+  stage: deploy
+  script:
+  - sudo apt update
+  - sudo apt upgrade
+  - sudo apt install rsync
+  - cp ./ci/Makefile.artifact ./Makefile
+  - mkdir -pvm 0700 ${HOME}/.ssh
+  - echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
+  - chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci
+  - make --version 
+  - make clone
+  - make replay
+  - make push
+
+
