@@ -22,8 +22,14 @@
       text-decoration: none;
     }
 
+    // FIXME: This reference to global-header is a temporary fix for load order issues from 
+    // switching sass implementation. This should be replaced by better use of custom variables 
+    // for color management.
     &:hover,
-    &:active {
+    &:active,
+    
+   .global-header &:hover,
+    .global-header &:active {
       text-decoration: underline;
       color: #ffffff;
     }
