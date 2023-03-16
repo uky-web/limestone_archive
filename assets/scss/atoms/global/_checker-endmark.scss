@@ -1,3 +1,5 @@
+@use 'color-functions';
+
 .checker-endmark {
 
   &::after {
@@ -5,7 +7,7 @@
     font-family: "iconfont";
     content: "";
     display: block;
-    color: color(wildcat-blue);
+    color: color-functions.color(wildcat-blue);
     font-style: normal;
     font-weight: normal;
     line-height: 0;

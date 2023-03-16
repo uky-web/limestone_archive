@@ -1,3 +1,9 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'colors';
+@use 'color-schemes';
+@use 'typography';
+
 .section-nav {
 
   + label {
@@ -17,13 +23,13 @@
   
   ol,
   ul {
-    margin: rr-gridbase() 0;
-    padding-left: rr-gridbase(0);
+    margin: root-rhythm.rr-gridbase() 0;
+    padding-left: root-rhythm.rr-gridbase(0);
     list-style: none;
 
     li {
-      padding-bottom: rr-gridbase(1);
-      @include rr-font-compute(r, medium);
+      padding-bottom: root-rhythm.rr-gridbase(1);
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
 
       &:last-child {
         padding-bottom: 0;
@@ -38,13 +44,13 @@
         }
     }
 
-    @include rr-break-directive(m) {
-      padding-left: rr-gridbase(3);
+    @include root-rhythm.rr-break-directive(m) {
+      padding-left: root-rhythm.rr-gridbase(3);
     }
   }
 
   @at-root .js-tabcontent #{&} {
-    margin: rr-gridbase(2) rr-gridbase(4);
+    margin: root-rhythm.rr-gridbase(2) root-rhythm.rr-gridbase(4);
   }
 
   // We need to hide the sidebar navigation
@@ -53,7 +59,7 @@
   @at-root .grid__column--minor #{&} {
     display: none;
 
-    @include rr-break-directive(l) {
+    @include root-rhythm.rr-break-directive(l) {
       display: block;
     }
   }
@@ -63,19 +69,19 @@
   @include block-spacing;
 }
 
-@each $name, $color in $colors {
-  .section-nav--#{$name} {
+@each $name, $color in colors.$colors {
+  .section-nav--#{""+$name} {
     @include block-spacing;
     border-color: $color;
     background-color: $color;
 
-    @if (contrast($color, color(wildcat-black)) < 4.5) {
-      @include usescheme($scheme-dark);
+    @if (color-functions.contrast($color, color-functions.color(wildcat-black)) < 4.5) {
+      @include usescheme(color-schemes.$scheme-dark);
     }
 
-    @include rr-break-directive(m) {
+    @include root-rhythm.rr-break-directive(m) {
       nav {
-        margin-left: rr-gridbase(-3);
+        margin-left: root-rhythm.rr-gridbase(-3);
       }
     }
   }

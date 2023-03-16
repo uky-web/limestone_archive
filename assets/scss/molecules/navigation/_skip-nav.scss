@@ -1,13 +1,17 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .skip-nav {
-  @include rr-font-compute(l, wide);
+  @include root-rhythm.rr-font-compute(l, wide, typography.$fonts, typography.$lineheights);
   display: flex;
   position: absolute;
   top: -5rem;
   justify-content: center;
   width: 100%;
-  padding: rr-gridbase(2);
+  padding: root-rhythm.rr-gridbase(2);
   transition: top .5s;
-  background-color: color(wildcat-black);
+  background-color: color-functions.color(wildcat-black);
   font-weight: bold;
   z-index: 99999;
 
@@ -15,7 +19,7 @@
   &:visited,
   &:hover,
   &:active {
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
   }
 
   &:focus {

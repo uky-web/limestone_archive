@@ -1,10 +1,13 @@
+@use 'root-rhythm';
+@use 'typography';
+
 .search-control {
-  @include rr-font-compute(s, tight);
-  padding: rr-gridbase(1);
+  @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
+  padding: root-rhythm.rr-gridbase(1);
   transition: color .3s ease-in-out;
   border-width: 0;
   background-color: transparent;
-  font-family: $font-avenirnext;
+  font-family: typography.$font-usual;
 
   &::before {
     margin-right: .3em;

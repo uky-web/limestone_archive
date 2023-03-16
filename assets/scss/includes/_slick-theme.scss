@@ -1,4 +1,6 @@
 @charset 'UTF-8';
+@use 'root-rhythm';
+@use 'color-functions';
 // Default Variables
 // Slick icon entity codes outputs the following
 // '\2190' outputs ascii character '←'
@@ -7,8 +9,8 @@
 $slick-font-path: './fonts/' !default;
 $slick-font-family: 'slick' !default;
 $slick-loader-path: './' !default;
-$slick-arrow-color: color(wildcat-white) !default;
-$slick-dot-color: color(wildcat-black) !default;
+$slick-arrow-color: color-functions.color(wildcat-white) !default;
+$slick-dot-color: color-functions.color(wildcat-black) !default;
 $slick-dot-color-active: $slick-dot-color !default;
 $slick-prev-character: '\2190' !default;
 $slick-next-character: '\2192' !default;
@@ -38,7 +40,7 @@ $slick-opacity-not-active: 1 !default;
 
 .slick-list {
   .slick-loading & {
-    background: color(wildcat-white) slick-image-url('ajax-loader.gif') center center no-repeat;
+    background: color-functions.color(wildcat-white) slick-image-url('ajax-loader.gif') center center no-repeat;
   }
 }
 
@@ -61,8 +63,8 @@ $slick-opacity-not-active: 1 !default;
   display: block;
   position: absolute;
   top: 50%;
-  width: rr-gridbase(4);
-  height: rr-gridbase(4);
+  width: root-rhythm.rr-gridbase(4);
+  height: root-rhythm.rr-gridbase(4);
   padding: 0;
   transform: translate(0, -50%);
   border: 0;
@@ -94,9 +96,9 @@ $slick-opacity-not-active: 1 !default;
     opacity: $slick-opacity-default;
   }
 
-  @include rr-break-directive(m) {
-    width: rr-gridbase(8);
-    height: rr-gridbase(8);
+  @include root-rhythm.rr-break-directive(m) {
+    width: root-rhythm.rr-gridbase(8);
+    height: root-rhythm.rr-gridbase(8);
 
     &::before {
       font-size: 1.625rem;
@@ -216,7 +218,7 @@ button.slick-next {
  }
 
 .carousel.carousel--center {
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     figure {
       margin: 0 auto;
     }

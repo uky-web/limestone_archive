@@ -1,8 +1,11 @@
+@use 'root-rhythm';
+@use 'typography';
+
 .utility-nav {
   a {
-    @include rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     display: block;
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
     transition: color .3s ease-in-out;
     font-weight: 500;
     text-transform: uppercase;
@@ -23,19 +26,19 @@
     }
   }
 
-  @include rr-break-directive(l) {
-    @include rr-font-compute(r, medium);
+  @include root-rhythm.rr-break-directive(l) {
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: rr-gridbase(2);
+    margin-top: root-rhythm.rr-gridbase(2);
     text-transform: none;
 
     a {
       display: inline;
       margin-bottom: 0;
-      @include rr-font-compute(r, tight);
-      margin-left: rr-gridbase(6);
+      @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
+      margin-left: root-rhythm.rr-gridbase(5);
     }
   }
 }

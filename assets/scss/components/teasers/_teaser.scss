@@ -1,14 +1,21 @@
+@use 'color-schemes';
+@use 'colors';
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'design-variables';
+@use 'typography';
+
 .teaser {
   .headline-group {
     .headline-group__sub,
     .headline-group__super {
-      @include rr-font-compute(xl, medium);
+      @include root-rhythm.rr-font-compute(xl, medium, typography.$fonts, typography.$lineheights);
       font-weight: 500;
       text-transform: uppercase;
     }
 
     .headline-group__head {
-      @include rr-font-compute(3xl, medium);
+      @include root-rhythm.rr-font-compute(3xl, medium, typography.$fonts, typography.$lineheights);
     }
   }
 }
@@ -18,7 +25,7 @@
 
   a {
     display: block;
-    background-color: color(wildcat-blue);
+    background-color: color-functions.color(wildcat-blue);
 
     img {
       transition: .3s opacity ease-in-out;
@@ -35,7 +42,7 @@
 
 .teaser__content {
   .editorial {
-    @include rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     margin-top: 1rem;
   }
 
@@ -44,13 +51,13 @@
   }
 }
 
-@each $name, $color in $colors {
-  .teaser--#{$name} {
+@each $name, $color in colors.$colors {
+  .teaser--#{""+$name} {
     @include block-spacing;
     border-color: $color;
     background-color: $color;
-    @if (contrast($color, color(wildcat-black)) < 4.5) {
-      @include usescheme($scheme-dark);
+    @if (color-functions.contrast($color, color-functions.color(wildcat-black)) < 4.5) {
+      @include design-variables.usescheme(color-schemes.$scheme-dark);
     }
   }
 }

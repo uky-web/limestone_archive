@@ -1,3 +1,6 @@
+@use 'root-rhythm';
+@use 'typography';
+
 .icon-label {
   display: flex;
   align-items: baseline;
@@ -20,18 +23,18 @@
   .ic {
     margin-right: 0;
     font-size: 1.1em;
-    line-height: rr-gridbase(3);
+    line-height: root-rhythm.rr-gridbase(3);
   }
 
   .label {
     font-size: .5625rem;
     font-weight: 900;
-    line-height: rr-gridbase(2);
+    line-height: root-rhythm.rr-gridbase(2);
   }
 }
 
 .icon-label--big {
-  @include rr-font-compute(xl, tight);
+  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
   align-items: center;
   font-weight: 500;
   text-transform: uppercase;

@@ -1,20 +1,25 @@
+@use 'color-schemes';
+@use 'layout';
+@use 'root-rhythm';
+@use 'color-functions';
+
 .page-header.page-header--split {
   padding: 0;
-  background-color: color(blue-gray);
+  background-color: color-functions.color(blue-gray);
   $colors: light-gray wildcat-blue dark-blue;
 
   @each $color in $colors {
     &.slab--#{$color} {
       padding-bottom: 0;
       border-width: 0;
-      background-color: color($color);
+      background-color: color-functions.color($color);
     }
   }
 
   .page-header__content {
-    padding: rr-gridbase(2) rr-prop-for-breakpoint(s, offset);
-    padding-bottom: rr-gridbase(2);
-    border-bottom: 4px color(light-blue) solid;
+    padding: root-rhythm.rr-gridbase(2) root-rhythm.rr-prop-for-breakpoint(s, offset);
+    padding-bottom: root-rhythm.rr-gridbase(2);
+    border-bottom: 4px color-functions.color(light-blue) solid;
   }
 
   .slab__wrapper {
@@ -28,7 +33,7 @@
     justify-content: flex-start;
 
     a {
-      margin-bottom: rr-gridbase(2);
+      margin-bottom: root-rhythm.rr-gridbase(2);
 
       &:last-child {
         margin-bottom: 0;
@@ -36,7 +41,7 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .page-header--split__hero {
       width: 56%;
       margin-left: auto;
@@ -50,7 +55,7 @@
       left: 50%;
       align-items: center;
       width: 100%;
-      max-width: $global-width;
+      max-width: layout.$global-width;
       transform: translateX(-50%);
       overflow: hidden;
     }
@@ -58,29 +63,29 @@
     .page-header__content {
       width: 50%;
       max-height: 100%;
-      padding: rr-gridbase(4) rr-gridbase(6);
-      background-color: color(wildcat-blue);
-      @include usescheme($scheme-dark, 'l');
+      padding: root-rhythm.rr-gridbase(4) root-rhythm.rr-gridbase(6);
+      background-color: color-functions.color(wildcat-blue);
+      @include usescheme(color-schemes.$scheme-dark, 'l');
     }
 
     &.slab--light-gray {
       .page-header__content {
-        background-color: color(dark-blue);
-        @include usescheme($scheme-dark, 'l');
+        background-color: color-functions.color(dark-blue);
+        @include usescheme(color-schemes.$scheme-dark, 'l');
       }
     }
 
     &.slab--dark-blue {
       .page-header__content {
-        background-color: color(wildcat-white);
-        @include usescheme($scheme-light, 'l');
+        background-color: color-functions.color(wildcat-white);
+        @include usescheme(color-schemes.$scheme-light, 'l');
       }
     }
 
     &.slab--wildcat-blue {
       .page-header__content {
-        background-color: color(wildcat-white);
-        @include usescheme($scheme-light, 'l');
+        background-color: color-functions.color(wildcat-white);
+        @include usescheme(color-schemes.$scheme-light, 'l');
       }
     }
   }

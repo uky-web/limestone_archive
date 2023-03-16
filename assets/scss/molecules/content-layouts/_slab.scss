@@ -1,9 +1,14 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'colors';
+@use 'color-schemes';
+
 .slab {
-  @include rr-slab;
+  @include root-rhythm.rr-slab;
 
   &.slab--thin {
-    padding-top: rr-gridbase(3);
-    padding-bottom: rr-gridbase(3);
+    padding-top: root-rhythm.rr-gridbase(3);
+    padding-bottom: root-rhythm.rr-gridbase(3);
   }
 
   .slab {
@@ -13,15 +18,15 @@
 }
 
 .slab__wrapper {
-  @include rr-slab-wrapper;
+  @include root-rhythm.rr-slab-wrapper;
 }
 
 $skins: transparent;
-@each $name, $color in $colors {
-  .slab--#{$name} {
+@each $name, $color in colors.$colors {
+  .slab--#{""+$name} {
     background-color: $color;
-    @if (contrast($color, color(wildcat-black)) < 4.5) {
-      @include usescheme($scheme-dark);
+    @if (color-functions.contrast($color, color-functions.color(wildcat-black)) < 4.5) {
+      @include usescheme(color-schemes.$scheme-dark);
     }
 
     .heading--display span {
@@ -33,27 +38,27 @@ $skins: transparent;
 
 
 .slab--dark-wildcat {
-  background: linear-gradient(#{color(dark-blue)},#{color(wildcat-blue)});
-  @include usescheme($scheme-dark);
+  background: linear-gradient(#{color-functions.color(dark-blue)},#{color-functions.color(wildcat-blue)});
+  @include usescheme(color-schemes.$scheme-dark);
 }
 
 .slab--speckled {
   background-image: url('../../images/speckled-texture.png');
   background-repeat: repeat;
   background-attachment: fixed;
-  @include usescheme($scheme-light);
+  @include usescheme(color-schemes.$scheme-light);
 
   //FIXME: Should containers be targeting child elements like this? -AA
   .headline-group__head {
-    color: color(wildcat-blue);
+    color: color-functions.color(wildcat-blue);
   }
 
   .grid--divided .grid__column::after {
-    background-color:color(bluegrass);
+    background-color:color-functions.color(bluegrass);
     width:1px;
   }
 
 }
 
-@include rr-slab-adjacency($style-list: $skins);
+@include root-rhythm.rr-slab-adjacency($style-list: $skins);
 

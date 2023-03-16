@@ -1,3 +1,9 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
+
+
 // Normalize heading sizes; headings in a
 // display context should have an additional
 // font style applied to them.
@@ -8,30 +14,30 @@ h3,
 h4,
 h5,
 h6 {
-  @include rr-font-compute(l, tight);
+  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   font-weight: normal;
 }
 
 .editorial {
-  @each $tag, $config in $editorial-headings {
+  @each $tag, $config in typography.$editorial-headings {
     #{$tag},
     #{$tag}.headline-group .headline-group__head {
-      @include rr-heading($tag, $editorial-headings);
+      @include root-rhythm.rr-heading($tag, typography.$editorial-headings, typography.$fonts, typography.$lineheights);
       margin-top: 0;
-      margin-bottom: rr-gridbase(2);
-      font-family: $font-avenirnext;
+      margin-bottom:root-rhythm.rr-gridbase(2);
+      font-family: typography.$font-usual;
       font-weight: bold;
     }
 
 
     aside h2 {
-      font-family: $font-avenirnext;
+      font-family: typography.$font-usual;
     }
   }
 }
 
 .heading--display {
-  @include rr-font-compute(3xl, tight);
+  @include root-rhythm.rr-font-compute(3xl, tight, typography.$fonts, typography.$lineheights);
   position: relative;
   margin-bottom: 2rem;
   // font-family: $font-mercury;
@@ -40,7 +46,7 @@ h6 {
     display: inline-block;
     position: relative;
     padding-right: 2rem;
-    background-color: color(wildcat-white);
+    background-color: color-functions.color(wildcat-white);
     z-index: 1;
   }
 
@@ -50,7 +56,7 @@ h6 {
     bottom: .15em;
     left: 0;
     height: 2px;
-    background-image: repeating-linear-gradient(to right, #{color(light-gray)}, #{color(light-gray)} 3px, transparent 3px, transparent 7px);
+    background-image: repeating-linear-gradient(to right, #{color-functions.color(light-gray)}, #{color-functions.color(light-gray)} 3px, transparent 3px, transparent 7px);
     content: '';
     z-index: 0;
   }
@@ -64,14 +70,14 @@ h6 {
     margin-bottom: 2rem;
   }
 
-  @include rr-break-directive('m') {
+  @include root-rhythm.rr-break-directive('m') {
     margin-bottom: 3rem;
     @at-root .slab #{&}:last-child {
       margin-bottom: 3rem;
     }
   }
 
-  @include rr-break-directive('l') {
+  @include root-rhythm.rr-break-directive('l') {
     margin-bottom: 5.5rem;
     @at-root .slab #{&}:last-child {
       margin-bottom: 5.5rem;

@@ -1,8 +1,8 @@
-image: newcity/builder:node8
+image: cimg/php:8.1-node
 
 #from: https://nicolaw.uk/GitLabCiPushingWrites
 variables:
-  GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa-gitlab-ci"
+  GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa-gitlab-ci"
   GIT_STRATEGY: clone
   REMOTE_REPO: git@gitlab.com:uky-web/patternlab-artifact.git
   BUILD_REPO: /tmp/pl-artifact
@@ -21,9 +21,9 @@ stages:
 compile:assets:
   stage: build
   script:
-  - cp docker/taskrunner/* .
+  - sudo npm install --unsafe-perm -g gulp
   - npm install
-  - gulp build-all
+  - gulp build
   artifacts:
     paths:
     - dist
@@ -34,7 +34,10 @@ compile:assets:
 push:artifact:
   stage: deploy
   script:
-  - cp docker/ci/Makefile.artifact ./Makefile
+  - sudo apt update
+  - sudo apt upgrade
+  - sudo apt install rsync
+  - cp ./ci/Makefile.artifact ./Makefile
   - mkdir -pvm 0700 ${HOME}/.ssh
   - echo "$SSH_PRIVATE_KEY" > ${HOME}/.ssh/id_rsa-gitlab-ci
   - chmod 0600 ${HOME}/.ssh/id_rsa-gitlab-ci

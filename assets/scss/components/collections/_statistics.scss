@@ -1,19 +1,22 @@
+@use 'color-functions';
+@use 'root-rhythm';
+
 .grid--divided {
   .statistic {
-    padding: rr-gridbase(4);
+    padding: root-rhythm.rr-gridbase(4);
   }
 }
 
 .grid--two-tone {
   .headline-group__head {
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
   }
 
   .headline-group__sub {
-    color: color(light-blue-tint);
+    color: color-functions.color(light-blue-tint);
   }
 
   .editorial::before {
-    background-color: color(light-blue-tint);
+    background-color: color-functions.color(light-blue-tint);
   }
 }

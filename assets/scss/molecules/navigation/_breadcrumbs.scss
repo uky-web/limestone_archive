@@ -1,3 +1,7 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .breadcrumbs {
   ul {
     margin: 0;
@@ -5,7 +9,7 @@
   }
 
   li {
-    @include rr-font-compute(s, medium);
+    @include root-rhythm.rr-font-compute(s, medium, typography.$fonts, typography.$lineheights);
     display: inline-block;
 
     &::after {
@@ -25,7 +29,7 @@
 
     &:link,
     &:visited {
-      color: color(dark-blue);
+      color: color-functions.color(dark-blue);
     }
   }
 }
