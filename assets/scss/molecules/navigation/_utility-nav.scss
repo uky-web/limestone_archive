@@ -3,7 +3,7 @@
 
 .utility-nav {
   a {
-    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     display: block;
     margin-bottom: root-rhythm.rr-gridbase(2);
     transition: color .3s ease-in-out;
@@ -38,7 +38,7 @@
       display: inline;
       margin-bottom: 0;
       @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
-      margin-left: root-rhythm.rr-gridbase(6);
+      margin-left: root-rhythm.rr-gridbase(5);
     }
   }
 }

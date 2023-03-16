@@ -51,7 +51,7 @@
       background-color: color-functions.color(dark-blue);
         @include usescheme(color-schemes.$scheme-dark);
     }
-
+    .mega-menu__submenus,
     .global-megamenu__description,
     .global-megamenu__submenus {
       flex: 1 0 100%;
@@ -62,12 +62,13 @@
       display:none;
     }
 
+    .mega-menu__submenus,
     .global-megamenu__submenus {
       //display: flex;
       //flex-wrap: wrap;
       a {
-        @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
-        padding-bottom: root-rhythm.rr-gridbase(1);
+        @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
+        padding-bottom: root-rhythm.rr-gridbase(3);
       }
     }
 
@@ -91,7 +92,7 @@
         @include usescheme(color-schemes.$scheme-dark, 'l');
 
       }
-
+      .mega-menu__submenus,
       .global-megamenu__description,
       .global-megamenu__submenus {
         @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
