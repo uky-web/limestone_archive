@@ -1,15 +1,18 @@
+@use 'root-rhythm';
+@use 'color-functions';
+
 .universal-footer {
-  padding-top: rr-gridbase(4);
-  padding-bottom: rr-gridbase(4);
-  background-color: color(wildcat-blue);
+  padding-top: root-rhythm.rr-gridbase(4);
+  padding-bottom: root-rhythm.rr-gridbase(4);
+  background-color: color-functions.color(wildcat-blue);
 
   .uk-wordmark {
     display: block;
     width: 70vw;
     height: 7.14vw;
-    margin: 0 auto rr-gridbase(2);
+    margin: 0 auto root-rhythm.rr-gridbase(2);
 
-    @include rr-break-directive(l) {
+    @include root-rhythm.rr-break-directive(l) {
       width: 20rem;
       height: 2.04rem;
     }
@@ -17,17 +20,17 @@
 }
 
 .universal-footer__ribbon {
-  padding-bottom: rr-gridbase(2);
+  padding-bottom: root-rhythm.rr-gridbase(2);
   a {
     line-height: 17px;
     text-decoration: none;
 
     // Text-shadow serves as a knockout of the underline around the text
-    text-shadow: 1px 0 1px color(wildcat-blue), 2px 0 1px color(wildcat-blue), -1px 0 1px color(wildcat-blue), -2px 0 1px color(wildcat-blue);
+    text-shadow: 1px 0 1px color-functions.color(wildcat-blue), 2px 0 1px color-functions.color(wildcat-blue), -1px 0 1px color-functions.color(wildcat-blue), -2px 0 1px color-functions.color(wildcat-blue);
 
     &.underline-link {
-      @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint), $w: 1px, $alpha: .6);
-      @include link-colors($d: color(wildcat-white), $h: color(wildcat-white));
+      @include underline-link($d: color-functions.color(wildcat-white), $h: color-functions.color(light-blue-tint), $w: 1px, $alpha: .6);
+      @include link-colors($d: color-functions.color(wildcat-white), $h: color-functions.color(wildcat-white));
       font-weight: normal;
       text-decoration: none;
     }
@@ -39,8 +42,8 @@
 
     .icon-label {
       .label {
-        @include underline-link($d: color(wildcat-white), $h: color(light-blue-tint), $w: 1px, $alpha: .6);
-        @include link-colors($d: color(wildcat-white), $h: color(light-blue-tint));
+        @include underline-link($d: color-functions.color(wildcat-white), $h: color-functions.color(light-blue-tint), $w: 1px, $alpha: .6);
+        @include link-colors($d: color-functions.color(wildcat-white), $h: color-functions.color(light-blue-tint));
         font-weight: normal;
         text-decoration: none;
       }
@@ -54,10 +57,10 @@
   }
 
   > * {
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     display: flex;
     align-items: stretch;
     justify-content: center;
@@ -65,8 +68,8 @@
     > * {
       margin-right: -1px;
       margin-bottom: 0;
-      padding: 0 rr-gridbase(2);
-      border-right: 1px color(light-blue-tint) solid;
+      padding: 0 root-rhythm.rr-gridbase(2);
+      border-right: 1px color-functions.color(light-blue-tint) solid;
       border-width: 0 1px;
 
       &:first-child {

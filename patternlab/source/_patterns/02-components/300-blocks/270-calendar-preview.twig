@@ -1,0 +1,13 @@
+{% if media is empty %}
+    {% set media = 'image' %}
+{% endif %}
+<div>
+    {% embed 'molecules-figure' %}
+        {% block figure_media %}
+            <div class="image-with-caption__media">{% include media_pattern|default('atoms-image') %}</div>
+            {% include 'molecules-calendar-preview-group' with { heading_variant: "font-usual" } %}
+        {% endblock %}
+        {% block figure_caption %}
+        {% endblock %}
+    {% endembed %}
+</div>

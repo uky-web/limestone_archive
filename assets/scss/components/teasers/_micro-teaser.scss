@@ -1,21 +1,25 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .micro-teaser {
   .headline-group {
     .headline-group__head {
-      @include rr-font-compute(3xl, medium);
+      @include root-rhythm.rr-font-compute(3xl, medium, typography.$fonts, typography.$lineheights);
       font-weight: 500;
     }
   }
 
   .micro-teaser__wrapper {
-    margin-top: rr-gridbase(2);
+    margin-top: root-rhythm.rr-gridbase(2);
   }
 
   .micro-teaser__media {
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
 
     a {
       display: block;
-      background-color: color(wildcat-blue);
+      background-color: color-functions.color(wildcat-blue);
 
       img {
         transition: .3s opacity ease-in-out;
@@ -31,10 +35,10 @@
   }
 
   .editorial {
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
 
     p {
-      @include rr-font-compute(l, medium);
+      @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     }
   }
 
@@ -46,15 +50,15 @@
     }
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     .micro-teaser__wrapper {
       display: flex;
-      margin-top: rr-gridbase(3);
+      margin-top: root-rhythm.rr-gridbase(3);
     }
 
     .micro-teaser__media {
       flex: 1 0 26%;
-      margin-right: rr-gridbase(3);
+      margin-right: root-rhythm.rr-gridbase(3);
       margin-bottom: 0;
     }
 
@@ -63,27 +67,27 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .micro-teaser__wrapper {
       display: flex;
-      margin-top: rr-gridbase(4);
+      margin-top: root-rhythm.rr-gridbase(4);
     }
 
     .micro-teaser__media {
       flex: 1 0 26%;
-      margin-right: rr-gridbase(4);
+      margin-right: root-rhythm.rr-gridbase(4);
     }
   }
 
-  @include rr-break-directive(xl) {
+  @include root-rhythm.rr-break-directive(xl) {
     .micro-teaser__wrapper {
       display: flex;
-      margin-top: rr-gridbase(6);
+      margin-top: root-rhythm.rr-gridbase(6);
     }
 
     .micro-teaser__media {
       flex: 1 0 26%;
-      margin-right: rr-gridbase(6);
+      margin-right: root-rhythm.rr-gridbase(6);
     }
 
     .cta-group {

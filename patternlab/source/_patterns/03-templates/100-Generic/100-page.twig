@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+
+{% set media_grid_columns = [ "components-media-with-caption", "components-media-with-caption", "components-media-with-caption"] %}
+
+
+{% block main_content %}
+    {% include 'components-' ~ page_header|default('hero-page-header') %}
+    {% include 'components-breadcrumb-slab' %}
+    {% include 'components-carousel-slab' with { carousel_style: "carousel--center" } %}
+    {% include 'components-sidebar-editorial' %}        
+    {% include 'components-block-columns' with { columns: 3, grid_columns: media_grid_columns, media_pattern: 'molecules-nice-video', media: 'video', icon: 'video', slab_variant: 'slab--blocks'} %}
+{% endblock %}
+

@@ -1,3 +1,7 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 a {
   transition: color .3s ease-in-out, background-color .3s ease-in-out;
 }
@@ -9,7 +13,7 @@ a {
 }
 
 .underline-link--light {
-  @include underline-link(color(wildcat-white));
+  @include underline-link(color-functions.color(wildcat-white));
 }
 
 // We include the editorial link styles here
@@ -19,11 +23,11 @@ a {
 .link--fancy-reverse,
 .editorial .link--fancy,
 .editorial .link--fancy-reverse {
-  @include rr-font-compute(xl, tight);
-  @include link-colors($d: color('medium-blue'), $h: color('light-blue'));
+  @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
+  @include link-colors($d: color-functions.color('medium-blue'), $h: color-functions.color('light-blue'));
   display: inline-block;
   position: relative;
-  padding-left: rr-gridbase(3);
+  padding-left:root-rhythm.rr-gridbase(3);
   transition: color .2s ease-in-out;
   font-weight: 500;
   text-decoration: none;
@@ -32,7 +36,7 @@ a {
     position: absolute;
     left: .25em;
     transition: left .3s ease-in-out;
-    color: color(light-blue);
+    color: color-functions.color(light-blue);
     font-family: iconfont;
     font-size: .7em;
     content: $icon-angle-right;
@@ -64,14 +68,14 @@ a {
 // Tweak the font size
 .editorial .link--fancy,
 .editorial .link--fancy-reverse {
-  @include rr-font-compute(l, tight);
+  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
 }
 
 .art-link {
   display: inline-block;
   max-width: 18rem;
   padding: 0;
-  background-color: color(wildcat-black);
+  background-color: color-functions.color(wildcat-black);
   text-decoration: none;
 
   .icon-label {
@@ -80,8 +84,8 @@ a {
     .ic {
       margin: 0;
       padding: .5rem .3rem;
-      background-color: color(light-blue);
-      color: color(wildcat-white);
+      background-color: color-functions.color(light-blue);
+      color: color-functions.color(wildcat-white);
       font-size: 2.6rem;
     }
 
@@ -101,7 +105,7 @@ a {
     .icon-label {
       .ic,
       .label {
-        color: color(wildcat-white);
+        color: color-functions.color(wildcat-white);
       }
     }
   }

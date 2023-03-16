@@ -1,12 +1,17 @@
+@use 'colors';
+@use 'color-schemes';
+@use 'color-functions';
+
+
 @mixin show-color($color) {
   background-color: $color;
 
   &::before {
-    $swatch-label-background: rgba($black, .5);
-    $swatch-label-foreground: $white;
+    $swatch-label-background: rgba(color-schemes.$black, .5);
+    $swatch-label-foreground: color-schemes.$white;
     @if (brightness($color) > 50) {
-      $swatch-label-background: rgba($white, .5);
-      $swatch-label-foreground: $black;
+      $swatch-label-background: rgba(color-schemes.$white, .5);
+      $swatch-label-foreground: color-schemes.$black;
     }
 
     display: inline-block;
@@ -20,8 +25,8 @@
   }
 }
 
-@each $name, $color in $colors {
-  .bg-#{$name} {
+@each $name, $color in colors.$colors {
+  .bg-#{""+$name} {
     @include show-color($color)
   }
 }

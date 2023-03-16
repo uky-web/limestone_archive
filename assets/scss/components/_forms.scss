@@ -1,7 +1,10 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
 @import 'forms/search-form';
 
 form {
-  margin-bottom: rr-gridbase(4);
+  margin-bottom: root-rhythm.rr-gridbase(4);
 
   .icon-only {
     .icon-label {
@@ -41,21 +44,21 @@ form {
 
   label,
   select {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     display: block;
     font-weight: 500;
 
     &.form-required {
       &::after {
-        color: color(alert);
+        color: color-functions.color(alert);
         content: '*';
       }
     }
   }
 
   .description {
-    margin-top: rr-gridbase(1);
-    @include rr-font-compute(s, medium);
+    margin-top: root-rhythm.rr-gridbase(1);
+    @include root-rhythm.rr-font-compute(s, medium, typography.$fonts, typography.$lineheights);
   }
 
   input[type='text'],
@@ -73,12 +76,12 @@ form {
   input[type='ur'],
   input[type='week'],
   textarea {
-    @include rr-font-compute(r, medium);
-    padding: rr-grid-remainder(1px) rr-gridbase(1);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+    padding: root-rhythm.rr-grid-remainder(1px) root-rhythm.rr-gridbase(1);
     border-width: 1px;
     border-style: solid;
     border-radius: 0;
-    background-color: color(wildcat-white);
+    background-color: color-functions.color(wildcat-white);
   }
 
   input,
@@ -88,6 +91,6 @@ form {
   }
 
   .form-item {
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
   }
 }

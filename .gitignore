@@ -1,6 +1,16 @@
+node_modules
+intermediate
+dist
+.node-gyp
+.npm
+
 docker/taskrunner/node_modules/
 .vscode
 .idea
 .npm-dist/*
 .DS_Store
 dist/*
+**/node_modules
+**/dist/*
+**/.npm
+**/.node-gyp

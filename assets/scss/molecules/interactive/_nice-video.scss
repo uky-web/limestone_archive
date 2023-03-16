@@ -1,9 +1,10 @@
 // Initial styles for .nice-video assume no javascript
+@use 'color-functions';
 
 .nice-video {
   position: relative;
-  background-color: color(wildcat-blue);
-  color: color(wildcat-white);
+  background-color: color-functions.color(wildcat-blue);
+  color: color-functions.color(wildcat-white);
 
   img {
     opacity: .57;
@@ -16,14 +17,14 @@
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   transition: .2s color ease-in-out, .2s background-color ease-in-out;
-  color: color(wildcat-blue);
+  color: color-functions.color(wildcat-blue);
   text-decoration: none;
 
   // Special tuning for this icon position 
   .ic--play-triangle {
     display: block;
     margin-right: 0;
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
     font-size: 2.2rem;
     line-height: 1.2;
   }
@@ -32,12 +33,12 @@
     display: block;
     position: absolute;
     left: -99999em;
-    color: color(wildcat-white);
+    color: color-functions.color(wildcat-white);
   }
 
   &:hover {
     .ic--play-triangle {
-      color: color(light-blue-tint);
+      color: color-functions.color(light-blue-tint);
     }
   }
 }

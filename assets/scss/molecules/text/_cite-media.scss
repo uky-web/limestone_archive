@@ -1,4 +1,7 @@
+@use 'root-rhythm';
+@use 'typography';
+
 .cite-media {
-  @include rr-font-compute(s, tight);
+  @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
   font-style: normal;
 }

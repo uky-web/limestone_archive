@@ -1,3 +1,7 @@
+@use 'typography';
+@use 'root-rhythm';
+@use 'color-functions';
+
 .people-list {
   width: 100%;
   border-collapse: collapse;
@@ -22,17 +26,17 @@
     margin-bottom: 0;
 
     dd {
-      @include rr-font-compute(r, medium);
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
 
       .link--fancy {
-        @include rr-font-compute(r, medium);
+        @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
       }
     }
   }
 
   .people-list--name {
-    @include rr-font-compute(2xl, tight);
-    font-family: $font-surveyor;
+    @include root-rhythm.rr-font-compute(2xl, tight, typography.$fonts, typography.$lineheights);
+    font-family: typography.$font-surveyor;
     font-weight: 600;
   }
 
@@ -43,7 +47,7 @@
 
   tbody {
     tr {
-      border-bottom: 1px dashed color(light-gray);
+      border-bottom: 1px dashed color-functions.color(light-gray);
 
       &:last-child {
         border-width: 0;
@@ -51,12 +55,12 @@
     }
 
     td {
-      @include rr-font-compute(r, medium);
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
       padding: 1rem;
     }
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     width: 100%;
     border-spacing: 0;
 
@@ -65,7 +69,7 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     td:nth-child(1) {
       width: 20%;
       vertical-align: top;
@@ -88,7 +92,7 @@
     }
 
     td {
-      padding: rr-gridbase() rr-gridbase(2);
+      padding: root-rhythm.rr-gridbase() root-rhythm.rr-gridbase(2);
     }
   }
 }

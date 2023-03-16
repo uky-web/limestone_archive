@@ -1,40 +1,44 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .editorial table,
 .content-table {
   border-collapse: collapse;
 
   thead,
   tfoot {
-    background-color: color(wildcat-blue);
-    color: color(wildcat-white);
+    background-color: color-functions.color(wildcat-blue);
+    color: color-functions.color(wildcat-white);
   }
 
   tbody {
-    border: 1px color(wildcat-white) solid;
+    border: 1px color-functions.color(wildcat-white) solid;
     border-width: 8px 0;
 
     tr:nth-child(odd) {
       th {
-        background-color: color(blue-gray);
+        background-color: color-functions.color(blue-gray);
       }
 
       td {
-        background-color: color(subtle-gray);
+        background-color: color-functions.color(subtle-gray);
       }
     }
 
     tr:nth-child(even) {
       th {
-        background-color: color(blue-gray);
+        background-color: color-functions.color(blue-gray);
       }
 
       td {
-        background-color: color(barely-gray);
+        background-color: color-functions.color(barely-gray);
       }
     }
 
     th,
     td {
-      border: 4px color(wildcat-white) solid;
+      border: 4px color-functions.color(wildcat-white) solid;
 
       &:first-child {
         border-left-width: 0;
@@ -48,7 +52,7 @@
 
   th,
   td {
-    padding: rr-gridbase(2);
+    padding: root-rhythm.rr-gridbase(2);
     text-align: left;
 
     &.align-right {
@@ -57,17 +61,17 @@
   }
 
   th {
-    @include rr-font-compute(xl, tight);
+    @include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
     font-weight: 500;
   }
 
   td {
-    @include rr-font-compute(l, tight);
+    @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   }
 
   caption {
-    @include rr-font-compute(r, medium);
-    padding: rr-gridbase(2);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+    padding: root-rhythm.rr-gridbase(2);
     font-style: italic;
   }
 }
@@ -88,7 +92,7 @@
     }
 
     tbody tr {
-      border-bottom: 4px color(wildcat-white) solid;
+      border-bottom: 4px color-functions.color(wildcat-white) solid;
     }
 
     th,
@@ -122,7 +126,7 @@
       }
     }
 
-    @include rr-break-directive(l) {
+    @include root-rhythm.rr-break-directive(l) {
       thead {
         display: table-header-group;
       }
@@ -134,8 +138,8 @@
       th,
       td {
         display: table-cell;
-        padding-top: rr-gridbase(1);
-        padding-bottom: rr-gridbase(1);
+        padding-top: root-rhythm.rr-gridbase(1);
+        padding-bottom: root-rhythm.rr-gridbase(1);
         border-width: 4px;
 
         &.align-right {

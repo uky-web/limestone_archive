@@ -2,27 +2,27 @@
 
 // susy is a grid layout tool. This is used when grid or flexbox choices aren't appropriate
 // http: //oddbird.net/susy/
-@import 'susy';
+// @import 'susy';
 
 // mathsass exposes Javascript's Math class to sass. We are using a NewCity fork so we can provide trivial updates
 // https: //github.com/newcity/eyeglass-math/
-@import 'math';
+// @import 'math';
 
 // mq is a sass/media-query library
 // https://github.com/sass-mq/sass-mq
-@import 'sass-mq';
+// @import 'sass-mq';
 
-@import 'root-rhythm';
+@use 'includes/root-rhythm';
+@use 'tokens/typography';
+
 @import 'includes/rem';
 @import 'includes/math';
-@import 'includes/colors';
+// @import 'includes/colors';
 @import 'includes/variables';
 @import 'includes/mixins';
 
-@import 'includes/design-variables';
-
 :root {
-  @include rr-font-compute(r, tight);
+  @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
   position: relative;
 }
 

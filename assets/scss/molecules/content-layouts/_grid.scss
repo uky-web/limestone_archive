@@ -1,5 +1,9 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'color-schemes';
+
 .grid {
-  @include rr-slab-wrapper($margins: true);
+  @include root-rhythm.rr-slab-wrapper($margins: true);
 
   .grid__column {
     margin-bottom: 2rem;
@@ -13,20 +17,20 @@
   //nested grids
   .grid {
     max-width: none;
-    margin: rr-gridbase(1) 0;
+    margin: root-rhythm.rr-gridbase(1) 0;
 
     &.grid--2-up {
       display: block;
     }
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     .grid__column {
       margin-bottom: 0;
     }
 
     .grid {
-      margin: rr-gridbase(2) 0;  
+      margin: root-rhythm.rr-gridbase(2) 0;  
 
       .grid__column {
         margin-bottom: 2rem;
@@ -34,9 +38,9 @@
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .grid {
-      margin: rr-gridbase(4) 0;
+      margin: root-rhythm.rr-gridbase(4) 0;
 
       .grid__column {
         margin-bottom: 0;
@@ -64,7 +68,7 @@
       bottom: -1px;
       left: 0;
       height: 2px;
-      background-color: color(subtle-gray);
+      background-color: color-functions.color(subtle-gray);
       content: '';
     }
   }
@@ -77,10 +81,10 @@
 
 .grid--two-tone {
   .grid__column {
-    margin: rr-gridbase(1);
-    padding: rr-gridbase(3);
-    background-color: color(wildcat-blue);
-    @include usescheme($scheme-dark);
+    margin: root-rhythm.rr-gridbase(1);
+    padding: root-rhythm.rr-gridbase(3);
+    background-color: color-functions.color(wildcat-blue);
+    @include usescheme(color-schemes.$scheme-dark);
   }
 }
 
@@ -91,24 +95,24 @@
 // And also we need to be aware of grid-gap configuration changes based on the baseline grid 
 // config. 
 
-@each $name, $template in $rr-grids {
+@each $name, $template in root-rhythm.$rr-grids {
   .grid--#{$name} {
 
-    @include rr-break-directive(m) {
-      @include css-grid-columns($template, $class-prefix: '.grid');
+    @include root-rhythm.rr-break-directive(m) {
+      @include root-rhythm.css-grid-columns($template, $class-prefix: '.grid');
     }
 
     &.grid--divided {
-      $breaks: rr-breakpoint-list();
+      $breaks: root-rhythm.rr-breakpoint-list();
       $moved-borders: false;
       $last-columns: null;
       $last-grid-gap: null;
 
       @each $break in $breaks {
-        $num-columns: rr-columns-for-template($template, $break);
-        $grid-gap: rr-strict-prop-for-breakpoint($break, gutter);
+        $num-columns: root-rhythm.rr-columns-for-template($template, $break);
+        $grid-gap: root-rhythm.rr-strict-prop-for-breakpoint($break, gutter);
 
-        @include rr-break-directive($break) {
+        @include root-rhythm.rr-break-directive($break) {
           .grid__column::after {
             // Border position (bottom or right side) depend on the first breakpoint where columns are defined
             // and we are loading those from a config hash where we can't be certain which breakpoint will be used
@@ -152,17 +156,17 @@
 
 .grid--major-left {
   .grid__column--minor {
-    margin-top: rr-gridbase(4);
+    margin-top: root-rhythm.rr-gridbase(4);
   }
 }
 
 .grid--major-right {
   .grid__column--major {
-    margin-top: rr-gridbase(4);
+    margin-top: root-rhythm.rr-gridbase(4);
   }
 }
 
-@include rr-break-directive(m) {
+@include root-rhythm.rr-break-directive(m) {
   .grid--major-left,
   .grid--major-right {
     .grid__column--major,
@@ -192,7 +196,7 @@
   }
 }
 
-@include rr-break-directive(l) {
+@include root-rhythm.rr-break-directive(l) {
   .grid--major-left,
   .grid--major-right {
     .editorial .editorial__aside.align-right,
@@ -204,13 +208,13 @@
 
   .grid--major-left {
     .editorial .editorial__aside.align-left {
-      margin-right: rr-gridbase(4);
+      margin-right: root-rhythm.rr-gridbase(4);
       margin-left: -2vw;
       float: left;
     }
 
     .editorial .editorial__aside.align-right {
-      margin-left: rr-gridbase(4);
+      margin-left: root-rhythm.rr-gridbase(4);
       float: right;
     }
   }
@@ -218,12 +222,12 @@
   .grid--major-right {
     .editorial .editorial__aside.align-right {
       margin-right: -2vw;
-      margin-left: rr-gridbase(4);
+      margin-left: root-rhythm.rr-gridbase(4);
       float: right;
     }
 
     .editorial .editorial__aside.align-left {
-      margin-right: rr-gridbase(4);
+      margin-right: root-rhythm.rr-gridbase(4);
       float: left;
     }
   }
@@ -239,7 +243,7 @@
   grid-area: minor;
 
   >* {
-    margin-bottom: rr-gridbase(4);
+    margin-bottom: root-rhythm.rr-gridbase(4);
   }
 }
 

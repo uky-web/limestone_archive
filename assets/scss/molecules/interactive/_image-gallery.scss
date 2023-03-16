@@ -1,7 +1,11 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .image-gallery {
   // -1 gridblock in all directions to make up for gutter
   // around each of the image grid items
-  margin: rr-gridbase(-1.5);
+  margin: root-rhythm.rr-gridbase(-1.5);
 }
 
 .modal {
@@ -50,7 +54,7 @@
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
       transition: opacity .3s ease-in-out;
-      color: color(wildcat-white);
+      color: color-functions.color(wildcat-white);
       font-family: 'iconfont';
       font-size: 2.2em;
       line-height: 1.2;
@@ -60,7 +64,7 @@
     }
 
     &::before {
-      $overlay-color: rgba(color(wildcat-blue), .7);
+      $overlay-color: rgba(color-functions.color(wildcat-blue), .7);
       position: absolute;
       top: 0;
       right: 0;
@@ -68,7 +72,7 @@
       left: 0;
       transition: opacity .3s ease-in-out;
       background-color: $overlay-color;
-      box-shadow: inset 0 0 0 .5rem color(wildcat-blue);
+      box-shadow: inset 0 0 0 .5rem color-functions.color(wildcat-blue);
       content: '';
       opacity: 0;
       z-index: 10;
@@ -81,14 +85,14 @@
 }
 
 .image-gallery__slide__title {
-  @include rr-font-compute(l, tight);
+  @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   font-weight: 500;
 }
 
 .image-gallery__block-sizer,
 .image-gallery__block {
   width: 33.3333%;
-  padding: rr-gridbase(1.5);
+  padding: root-rhythm.rr-gridbase(1.5);
 }
 
 .image-gallery__block--width2 {
@@ -97,7 +101,7 @@
 
 // magnific popup 
 .mfp-bg {
-  background-color: color(wildcat-blue);
+  background-color: color-functions.color(wildcat-blue);
 }
 
 button.mfp-close {
@@ -117,7 +121,7 @@ button.mfp-close {
 
   .mfp-figure {
     padding: 3rem;
-    background-color: color(wildcat-white);
+    background-color: color-functions.color(wildcat-white);
   }
 
   .mfp-figure::after {
@@ -142,7 +146,7 @@ button.mfp-close {
     height: auto;
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .mfp-landscape figure {
       figcaption {
         margin: 2rem;

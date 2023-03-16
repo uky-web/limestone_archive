@@ -1,10 +1,14 @@
+@use 'color-schemes';
+@use 'root-rhythm';
+@use 'color-functions';
+
 .global-header {
-  @include usescheme($scheme-dark);
-  background-color: color(wildcat-blue);
+  @include usescheme(color-schemes.$scheme-dark);
+  background-color: color-functions.color(wildcat-blue);
 
   .slab.global-header__nav-bar {
     display: none;
-    padding: rr-gridbase(2);
+    padding: root-rhythm.rr-gridbase(2);
   }
 
   .slab.mobile-nav {
@@ -35,9 +39,9 @@
     color: #DCDDDE;
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .slab.global-header__masthead {
-      padding: rr-gridbase(3) rr-gridbase(2) rr-gridbase(1);
+      padding: root-rhythm.rr-gridbase(3) root-rhythm.rr-gridbase(2) root-rhythm.rr-gridbase(1);
     }
 
     .slab.global-header__nav-bar {
@@ -52,8 +56,8 @@
     .slab.global-header__nav-bar {
 
       .slab__wrapper {
-        padding: rr-grid-remainder(1px, 1.5) 0 rr-gridbase(1.5);
-        border-top: 1px color(light-gray) solid;
+        padding: root-rhythm.rr-grid-remainder(1px, 1.5) 0 root-rhythm.rr-gridbase(1.5);
+        border-top: 1px color-functions.color(light-gray) solid;
       }
     }
 
@@ -62,9 +66,9 @@
     }
   }
 
-  @include rr-break-directive(xl) {
+  @include root-rhythm.rr-break-directive(xl) {
     .slab.global-header__masthead {
-      padding: rr-gridbase(3) 0 rr-gridbase(1);
+      padding: root-rhythm.rr-gridbase(3) 0 root-rhythm.rr-gridbase(1);
     }
 
     .slab.global-header__nav-bar {
@@ -82,7 +86,7 @@
 
   .uky-logo-main {
     width: 14.118rem;
-    height: rr-gridbase(7);
+    height: root-rhythm.rr-gridbase(7);
   }
 
 
@@ -90,7 +94,7 @@
     align-self: center;
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .toggle-button {
       display: none;
     }
@@ -101,7 +105,7 @@
 
     .uky-logo-main {
       width: 23.118rem;
-      height: rr-gridbase(12);
+      height: root-rhythm.rr-gridbase(12);
     }
   }
 }

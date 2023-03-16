@@ -1,12 +1,16 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .nc-placeholder {
-  padding-top: rr-gridbase(4);
-  padding-bottom: rr-gridbase(4);
+  padding-top:root-rhythm.rr-gridbase(4);
+  padding-bottom:root-rhythm.rr-gridbase(4);
   font-family: sans-serif;
   font-weight: bold;
   text-align: center;
-  box-shadow: color(wildcat-blue) 0 0 0 6px inset;
+  box-shadow: color-functions.color(wildcat-blue) 0 0 0 6px inset;
 
   p {
-    @include rr-font-compute(l, wide);
+    @include root-rhythm.rr-font-compute(l, wide, typography.$fonts, typography.$lineheights);
   }
 }

@@ -1,5 +1,8 @@
+@use 'color-schemes';
+
+
 .teaser-aside--dark {
-  @include usescheme($scheme-dark);
+  @include usescheme(color-schemes.$scheme-dark);
   padding: 1rem;
-  background-color: $black;
+  background-color: color-schemes.$black;
 }

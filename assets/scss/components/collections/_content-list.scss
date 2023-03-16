@@ -1,6 +1,8 @@
+@use 'root-rhythm';
+
 .item-list {
   .teaser {
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
   }
 
   .contact-info.contact-info--sheet {
@@ -20,17 +22,17 @@
       border-top-width: 0;
     }
   }
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .teaser {
       display: flex;
-      margin-bottom: rr-gridbase(4);
+      margin-bottom: root-rhythm.rr-gridbase(4);
     }
 
     .teaser__media {
       flex: 0 0 37%;
       width: 37%;
       height: auto;
-      margin-right: rr-gridbase(4);
+      margin-right: root-rhythm.rr-gridbase(4);
     }
   }
 }

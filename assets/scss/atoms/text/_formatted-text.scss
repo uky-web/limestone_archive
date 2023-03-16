@@ -1,4 +1,8 @@
+@use 'design-variables';
+@use 'color-schemes';
+@use 'colors';
+
 .formatted-text--dark {
-  @include usescheme($scheme-dark);
-  background-color: $black;
+  @include design-variables.usescheme(color-schemes.$scheme-dark);
+  background-color: color-schemes.$black;
 }

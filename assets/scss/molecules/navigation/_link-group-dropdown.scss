@@ -1,9 +1,12 @@
-
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'layout';
+@use 'typography';
 
 .link-group-dropdown {
   position:relative;
   a {
-    //@include rr-font-compute(l, tight);
+    //@include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
     font-weight: 500;
 
     &:link,
@@ -19,10 +22,10 @@
 }
 
 .link-group-dropdown__button {
-  //@include rr-font-compute(xl, tight);
+  //@include root-rhythm.rr-font-compute(xl, tight, typography.$fonts, typography.$lineheights);
   position: relative;
-  margin-bottom: rr-gridbase(3);
-  padding-bottom: rr-gridbase(2);
+  margin-bottom: root-rhythm.rr-gridbase(3);
+  padding-bottom: root-rhythm.rr-gridbase(2);
   font-weight: 400;
   text-transform: uppercase;
 
@@ -33,7 +36,7 @@
     left: 0;
     width:  3.125rem;
     height: .25rem;
-    background-color: color(light-blue);
+    background-color: color-functions.color(light-blue);
     content: '';
   }
 }
@@ -41,12 +44,12 @@
 .link-group-dropdown__menu {
   display:none;
   position: absolute;
-  padding: rr-gridbase(2);
+  padding: root-rhythm.rr-gridbase(2);
   top: calc( 100% + #{rr-gridbase(1.5)});
   right:0;
   z-index: 1000;
-  background-color: color(midnight);
-  width: $global-width/4;
+  background-color: color-functions.color(midnight);
+  width: layout.$global-width/4;
 }
 
 .link-group-dropdown[aria-expanded="true"] .link-group-dropdown__menu {

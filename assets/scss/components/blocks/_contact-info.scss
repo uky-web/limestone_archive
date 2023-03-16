@@ -1,9 +1,13 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
 .contact-info {
   &__heading {
-    margin-bottom: rr-gridbase(2);
+    margin-bottom: root-rhythm.rr-gridbase(2);
 
     p {
-      @include rr-font-compute(r, medium);
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     }
   }
 
@@ -14,16 +18,16 @@
       word-break: break-all;
     }
 
-    @include rr-break-directive('m') {
-      margin-top: rr-gridbase(4.5);
+    @include root-rhythm.rr-break-directive('m') {
+      margin-top: root-rhythm.rr-gridbase(4.5);
     }
   }
 
   &__identity {
-    @include rr-break-directive('m') {
+    @include root-rhythm.rr-break-directive('m') {
       position: relative;
       top: -1px;
-      margin-top: rr-gridbase(4.5);
+      margin-top: root-rhythm.rr-gridbase(4.5);
       border-top: 1px transparent solid;
 
       &::before {
@@ -32,7 +36,7 @@
         left: 0;
         width: 50px;
         height: 4px;
-        background-color: color(wildcat-blue);
+        background-color: color-functions.color(wildcat-blue);
         content: '';
       }
     }
@@ -41,55 +45,55 @@
   &__photo {
     width: 66vw;
     height: auto;
-    margin: 0 auto #{rr-grid-remainder(3px, 2)};
+    margin: 0 auto #{root-rhythm.rr-grid-remainder(3px, 2)};
 
-    @include rr-break-directive('m') {
+    @include root-rhythm.rr-break-directive('m') {
       position: relative;
       width: 6.25rem;
-      margin-right: calc(#{rr-gridbase(-3)} + 6px);
-      margin-bottom: rr-gridbase(2);
-      margin-left: rr-gridbase(2);
+      margin-right: calc(#{root-rhythm.rr-gridbase(-3)} + 6px);
+      margin-bottom: root-rhythm.rr-gridbase(2);
+      margin-left: root-rhythm.rr-gridbase(2);
       float: right;
     }
 
-    @include rr-break-directive('l') {
-      margin-right: calc(#{rr-gridbase(-6)} + 8px);
-      margin-bottom: rr-gridbase(2);
-      margin-left: rr-gridbase(2);
+    @include root-rhythm.rr-break-directive('l') {
+      margin-right: calc(#{root-rhythm.rr-gridbase(-6)} + 8px);
+      margin-bottom: root-rhythm.rr-gridbase(2);
+      margin-left: root-rhythm.rr-gridbase(2);
     }
   }
 
   &__name {
-    @include rr-font-compute(l, medium);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
     display: block;
     font-weight: 500;
-    @include rr-break-directive('m') {
-      margin-top: rr-gridbase(4.5);
+    @include root-rhythm.rr-break-directive('m') {
+      margin-top: root-rhythm.rr-gridbase(4.5);
     }
   }
 
   &__title {
-    @include rr-font-compute(r, medium);
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
     display: block;
   }
 
   dd {
-    @include rr-font-compute(l, medium);
-    padding-left: rr-gridbase(3);
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
+    padding-left: root-rhythm.rr-gridbase(3);
 
     .link--fancy {
-      @include rr-font-compute(l, medium);
-      margin-left: rr-gridbase(-3);
+      @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
+      margin-left: root-rhythm.rr-gridbase(-3);
     }
   }
 
   $base: #{&};
 
   &#{$base}--sheet {
-    margin-bottom: rr-gridbase(4);
+    margin-bottom: root-rhythm.rr-gridbase(4);
     padding: 0;
     border-width: 0;
-    background-color: color(wildcat-white);
+    background-color: color-functions.color(wildcat-white);
 
     #{$base}__content {
       display: flex;
@@ -102,7 +106,7 @@
       align-self: flex-start;
       width: auto;
       margin: 0;
-      margin-right: rr-gridbase(2);
+      margin-right: root-rhythm.rr-gridbase(2);
       float: none;
     }
 

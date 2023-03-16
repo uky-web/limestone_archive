@@ -1,3 +1,6 @@
+@use 'color-functions';
+@use 'root-rhythm';
+
 .page-header.page-header--hero {
   padding-top: 0;
   padding-right: 0;
@@ -16,59 +19,60 @@
 
   @each $color in $altcolors {
     &.slab--#{$color} {
+      padding-top:0;
       border-width: 0;
       background-color: transparent;
 
       .slab__wrapper {
         border-width: 4px;
-        border-color: color(light-blue);
-        background-color: color($color);
+        border-color: color-functions.color(light-blue);
+        background-color: color-functions.color($color);
       }
     }
   }
 
   .slab__wrapper {
     position: relative;
-    margin-top: rr-gridbase(-2);
-    padding: 0 rr-prop-for-breakpoint(s, offset);
-    border-color: color(light-gray);
-    background-color: color(blue-gray);
+    margin-top: root-rhythm.rr-gridbase(-2);
+    padding: 0 root-rhythm.rr-prop-for-breakpoint(s, offset);
+    border-color: color-functions.color(light-gray);
+    background-color: color-functions.color(blue-gray);
   }
 
   .page-header__content {
     width: 100%;
-    padding-top: rr-gridbase(2);
-    padding-right: rr-gridbase(2);
+    padding-top: root-rhythm.rr-gridbase(2);
+    padding-right: root-rhythm.rr-gridbase(2);
   }
 
   .page-header__secondary-img {
-    margin-right: rr-prop-for-breakpoint(s, offset) * -1;
-    margin-left: rr-prop-for-breakpoint(s, offset) * -1;
+    margin-right: root-rhythm.rr-prop-for-breakpoint(s, offset) * -1;
+    margin-left: root-rhythm.rr-prop-for-breakpoint(s, offset) * -1;
   }
 
-  @include rr-break-directive(m) {
+  @include root-rhythm.rr-break-directive(m) {
     .slab__wrapper {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      padding: 0 rr-prop-for-breakpoint(m, offset);
+      padding: 0 root-rhythm.rr-prop-for-breakpoint(m, offset);
     }
 
     .page-header__secondary-img {
-      margin-right: rr-prop-for-breakpoint(m, offset) * -1;
+      margin-right: root-rhythm.rr-prop-for-breakpoint(m, offset) * -1;
       margin-left: 0;
     }
   }
 
-  @include rr-break-directive(l) {
+  @include root-rhythm.rr-break-directive(l) {
     .slab__wrapper {
       align-items: center;
-      margin-top: rr-gridbase(-15);
+      margin-top: root-rhythm.rr-gridbase(-15);
       padding: 0;
     }
 
     .page-header__content {
-      padding: rr-gridbase(4) rr-gridbase(9);
+      padding: root-rhythm.rr-gridbase(4) root-rhythm.rr-gridbase(9);
     }
 
     .page-header__secondary-img {
@@ -92,27 +96,27 @@
       position: absolute;
       bottom: 0;
       padding: 0;
-      width: calc(100% - (2 * #{rr-prop-for-breakpoint(s, offset)}));
-      margin-bottom: rr-gridbase(2);
-      @include rr-break-directive(l) {
+      width: calc(100% - (2 * #{root-rhythm.rr-prop-for-breakpoint(s, offset)}));
+      margin-bottom: root-rhythm.rr-gridbase(2);
+      @include root-rhythm.rr-break-directive(l) {
         width: 100%;
       }
     }
 
     .headline-group,
     .headline-group .headline-group__super {
-      color:color(wildcat-white);
+      color:color-functions.color(wildcat-white);
       text-shadow: 1px 1px 2px black;
       //font-family: $font-surveyor;
 
       a:link, a:visited {
         text-decoration: none;
-        color:color(wildcat-white);
+        color:color-functions.color(wildcat-white);
       }
 
       a:hover, a:active{
         text-decoration: underline;
-        color:color(wildcat-white);
+        color:color-functions.color(wildcat-white);
       }
     }
 
