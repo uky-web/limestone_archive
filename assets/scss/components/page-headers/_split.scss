@@ -11,6 +11,7 @@
   @each $color in $colors {
     &.slab--#{$color} {
       padding-bottom: 0;
+      padding-top: 0;
       border-width: 0;
       background-color: color-functions.color($color);
     }
