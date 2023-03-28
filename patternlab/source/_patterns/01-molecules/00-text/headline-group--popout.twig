@@ -6,7 +6,7 @@
 
 <{{tag}} id="{{ headline_group_id|default("headline-group"|uniqid) }}" class="headline-group__popout {{ headline_group_variant }}">
 	{% block headline_group %}
-		{% include 'molecules-headline-group-head' with { text: heading_line_1, headline_variant: headline_1_font_family|default('font-mercury') } %}
+		{% include 'molecules-headline-group-head' with { text: heading_line_1, headline_variant: headline_1_font_family|default('font-usual') } %}
     <br>
 		{% include 'molecules-headline-group-head' with { text: heading_line_2, headline_variant: headline_2_font_family|default('font-usual') } %}
 	{% endblock %}

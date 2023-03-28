@@ -9,11 +9,6 @@
                     Avenir, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
                     {% endspaceless %}
                 </p>
-                <p class="font-mercury text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
-                    {% spaceless %}
-                    Mercury, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
-                    {% endspaceless %}
-                </p>
             {% endfor %}
         {% endblock %}
     {% endembed %}
