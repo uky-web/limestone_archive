@@ -1,9 +1,7 @@
 {% if (is_main) %}
     {% set logo = 'atoms-uky-logo-main'%}
-{% elseif (site-identity) %}
-    {% set logo = 'molecules-site-identity'%}
 {% else %}
-    {% set logo = 'molecules-lockup'%}
+    {% set logo = 'molecules-site-identity'%}
 {% endif %}
 
 {% set clamp_variant = (is_main) ? 'clamp--main' %}

@@ -28,21 +28,25 @@
   &__logo {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     color: color-functions.color(wildcat-white);
     vertical-align: middle;
     word-wrap: none;
 
     //fixme: overriding an external component
     .uk-logo-svg {
-      border-right: 1px color-functions.color(light-gray) solid;
+
       margin-right: 1.5vw;
+      display:flex;
+      @include root-rhythm.rr-break-directive(m) {
+        border-right: 1px color-functions.color(light-gray) solid;
+      }
     }
 
     svg {
-      width: 10vw; // (80% of full size)
+      // width: 10vw; // (80% of full size)
       min-width: 50px;
-      height: auto;
+      // height: auto;
       margin-right: 1.5vw;
     }
   }
@@ -61,6 +65,10 @@
   &__wordmark__row--subhead {
     font-size: 3vw;
     font-weight: 300;
+
+    &.no-mobile {
+      display:none
+    }
   }
 
   &__unit {
@@ -92,8 +100,11 @@
 
     &__wordmark__row--subhead {
       font-size: 1rem;
+      line-height: 1.5rem;
+      &.no-mobile {
+        display:inline
+      }
     }
-
 
     &__unit {
       margin-left: 4.50625rem; // logo width + logo right margin
