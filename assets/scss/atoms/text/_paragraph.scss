@@ -1,8 +1,13 @@
 @use 'root-rhythm';
 @use 'typography';
 p {
-  @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+  // @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
   margin-bottom:root-rhythm.rr-gridbase(2);
+  font-family: typography.$font-roboto;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  // color: rgb(51, 51, 51)
+
 }
 
 // Fix this style so it can be set on a wrapping container or the paragraph itself.
