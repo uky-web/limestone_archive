@@ -1,6 +1,6 @@
-@use 'color-schemes';
-@use 'root-rhythm';
-@use 'color-functions';
+@use '../../tokens/color-schemes';
+@use '../../includes/root-rhythm';
+@use '../../includes/color-functions';
 
 .global-header {
   @include usescheme(color-schemes.$scheme-dark);
@@ -63,6 +63,10 @@
 
     .utility-nav {
       display: block;
+
+      .a:hover{
+        color: #ffffff;
+      }
     }
   }
 
