@@ -28,8 +28,9 @@ compile:assets:
     paths:
     - dist
     expire_in: 1 week
-  #only:
-  #- master
+  only:
+  - tags
+  - master
 
 push:artifact:
   stage: deploy
