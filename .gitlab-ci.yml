@@ -30,7 +30,7 @@ compile:assets:
     expire_in: 1 week
   only:
   - tags
-  - master
+  - 1.x
 
 push:artifact:
   stage: deploy
