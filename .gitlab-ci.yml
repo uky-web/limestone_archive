@@ -46,5 +46,6 @@ push:artifact:
   - make clone
   - make replay
   - make push
-
-
+  only:
+  - tags
+  - 1.x
