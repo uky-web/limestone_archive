@@ -5,8 +5,7 @@
 .universal-header {
   @include usescheme(color-schemes.$scheme-dark);
   display: none;
-  padding-top: root-rhythm.rr-gridbase(1.5);
-  padding-bottom: root-rhythm.rr-gridbase(1.5);
+  padding: root-rhythm.rr-gridbase(1.5) root-rhythm.rr-gridbase(2);
   background-color: color-functions.color(midnight);
 
   .universal-header__layout {
