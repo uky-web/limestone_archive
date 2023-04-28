@@ -4,13 +4,14 @@
 // Mercury Display (deprecated)
 $font-mercury: 'usual', sans-serif;
 
-// Surveyor Display (from typography.com)  NB: limited weights and styles provided, see typography.com project dashboard
-$font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
+// Surveyor deprecated in favor of Bodini
+$font-surveyor: "bodoni-pt-variable", serif;
+$font-bodini: "bodoni-pt-variable", serif;
 
 $font-avenirnext: 'usual', sans-serif;
 $font-usual:'usual', sans-serif;
 
-// Trade Gothic styles (from fonts.com)
+// Trade Gothic deprecated in favor of Alternate Gothic ATF
 $font-tradegothic: 'alternate-gothic-atf',sans-serif;
 $font-gothic-atf:  'alternate-gothic-atf',sans-serif;
 
