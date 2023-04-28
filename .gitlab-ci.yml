@@ -29,7 +29,6 @@ compile:assets:
     - dist
     expire_in: 1 week
   only:
-  - tags
   - 1.x
 
 push:artifact:
@@ -47,5 +46,4 @@ push:artifact:
   - make replay
   - make push
   only:
-  - tags
   - 1.x
