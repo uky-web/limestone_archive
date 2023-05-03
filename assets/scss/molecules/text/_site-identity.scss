@@ -37,7 +37,7 @@
     //fixme: overriding an external component
     .uk-logo-svg {
 
-      margin-right: 1.5vw;
+      margin-right: 1vw;
       display:flex;
       @include root-rhythm.rr-break-directive(m) {
         border-right: 1px color-functions.color(light-gray) solid;
