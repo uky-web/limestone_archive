@@ -30,11 +30,6 @@
     background-color: color-functions.color(wildcat-blue);
   }
 
-  &#{&}--neutral-60 {
-    @include usescheme(color-schemes.$scheme-light);
-    background-color: color-functions.color(warm-neutral-60);
-  }
-
   &#{&}--blocks {
     #{$root}__linkset {
       @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts, typography.$lineheights);
@@ -74,6 +69,18 @@
         grid-template-columns: repeat(auto-fit, minmax(1.5em, 1fr));
         grid-gap: .3em;
       }
+    }
+  }
+
+  &#{&}--flex {
+    $cm: root-rhythm.rr-gridbase(2);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    
+
+    #{$root}__linkset {
+      margin: ($cm * 0) ($cm * 1) ($cm * -1);
     }
   }
 }
