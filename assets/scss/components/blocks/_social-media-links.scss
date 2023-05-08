@@ -30,6 +30,11 @@
     background-color: color-functions.color(wildcat-blue);
   }
 
+  &#{&}--neutral-60 {
+    @include usescheme(color-schemes.$scheme-light);
+    background-color: color-functions.color(warm-neutral-60);
+  }
+
   &#{&}--blocks {
     #{$root}__linkset {
       @include root-rhythm.rr-font-compute(5xl, tight, typography.$fonts, typography.$lineheights);
