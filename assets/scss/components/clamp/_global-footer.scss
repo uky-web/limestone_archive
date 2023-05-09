@@ -27,6 +27,20 @@
       }
     }
   }
+  &#{&}--4column {
+    /* Pretty sure these color functions aren't necessary in ukd8-base-theme */
+    @include usescheme(color-schemes.$scheme-light);
+    background-color: color-functions.color(warm-neutral);
+
+    .slab__wrapper {
+      
+      @include root-rhythm.rr-break-directive(l) {
+        @supports(display: grid) {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+      }
+    }
+  }
 
   .global-footer__column {
     margin-bottom: root-rhythm.rr-gridbase(3);

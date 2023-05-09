@@ -1,0 +1,26 @@
+{% set hide_heading = false %}
+{% embed 'molecules-slab' with { slab_variant: 'global-footer global-footer--4column' } %}
+    {% block slab_content %}
+       <div class="global-footer__column">
+            {% block footer_left %}
+                {% include 'atoms-uk-wordmark' %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_mid %}
+                {% include first_col|default('molecules-link-group') %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_third %}
+                {% include first_col|default('molecules-link-group') %}
+            {% endblock %}
+        </div>
+        <div class="global-footer__column">
+            {% block footer_right %}
+                {% include first_col|default('molecules-link-group') %}
+                {% include 'atoms-button' with { button_variant: 'button button--midnight'} %}
+            {% endblock %}
+        </div> 
+    {% endblock %}
+{% endembed %}
