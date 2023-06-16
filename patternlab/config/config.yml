@@ -45,8 +45,5 @@ twigTestExt: test.php
 plugins:
     twigNamespaces:
         enabled: true
-        namespaces:
-            limestone:
-                recursive: true
-                paths:
-                - ../components
+        namespaces: { limestone: { recursive: true, paths: [../components] } }
+        roots: {  }
