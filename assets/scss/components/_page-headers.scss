@@ -2,10 +2,10 @@
 @use 'colors';
 @use 'color-functions';
 @use 'typography';
-@import 'page-headers/text-header';
+@import 'text-page-header';
 @import 'hero-page-header';
 @import 'page-headers/overlay-hero';
-@import 'page-headers/split';
+@import 'split-page-header';
 
 .page-header {
   position: relative;

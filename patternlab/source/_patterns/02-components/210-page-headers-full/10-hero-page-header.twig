@@ -1,52 +1,50 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
 
-{% set headline_group_props = {
-	"level":level|default(1),
-	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
-	"headline_group_variant":headline_group_variant,
-	"head": head|default(default_headline)|titleize,
+{% set headline_group %}
+    {% include '@limestone/headline-group.twig' with {
+        "level":level|default(1),
+        "headline_group_id":headline_group_id|default("headline-group"|uniqid),
+        "headline_group_variant":headline_group_variant,
+        "head": head|default(default_headline)|titleize,
+    } only %}
+{% endset %}
+
+{% set ambient_video %}
+    {% include '@limestone/ambient-video.twig' with {
+        "poster_image_url":"../../images/video/ambient-demo-poster.jpg",
+        "source_large":"https://filesamples.com/samples/video/m4v/sample_1280x720.m4v",
+        "source_small":"https://filesamples.com/samples/video/m4v/sample_960x540.m4v",
+        "video_type":"video/mp4"
+    } only %}
+{% endset %}
+
+{% set cta_group %}
+    {% include '@limestone/cta-group.twig' with {
+        "cta_type":"mixed",
+        "button_style": button_style,
+        "actions":[{
+            "label":"Action 1",
+            "url":"example.com"
+        },
+        {
+            "label":"Action 2",
+            "url":"example.com"
+        }]
+    } only %}
+{% endset %}
+
+{% set hero_image %}
+    {% include 'atoms-image' with {aspect: "16:9", width: 2400} %}
+{% endset %}
+
+{% set props = {
+    "headline_group": headline_group,
+    "ambient_video": ambient_video,
+    "cta_group": cta_group,
+    "hero_image": hero_image,
+    "no_popoout": false,
+    "slab_variant": slab_variant,
+    "hero_variant": hero_variant
 }%}
 
-{% set ambient_video_props = {
-    "poster_image_url":"../../images/video/ambient-demo-poster.jpg",
-    "source_large":"https://filesamples.com/samples/video/m4v/sample_1280x720.m4v",
-    "source_small":"https://filesamples.com/samples/video/m4v/sample_960x540.m4v",
-    "video_type":"video/mp4"
-}%}
-
-{% set cta_group_props = {
-    "cta_type":"mixed",
-    "button_style": button_style,
-    "actions":[{
-        "label":"Action 1",
-        "url":"example.com"
-    },
-    {
-        "label":"Action 2",
-        "url":"example.com"
-    }]
-}%}
-
-{% set popout_class = no_popout ? ' popout' : '' %}
-{% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--hero " ~ hero_variant ~ popout_class } %}
-    {% block slab_outer %}
-        {% if ambient_video %}
-            {% include '@limestone/ambient-video.twig' with ambient_video_props only %}
-        {% else %}
-            {% include 'atoms-image' with {aspect: "16:9", width: 2400} %}
-        {% endif %}
-        <div class="slab__wrapper">
-            <div class="page-header__content">
-                {% include '@limestone/headline-group.twig' with headline_group_props only %}
-                {% if with_cta %}
-                    {% include "@limestone/cta-group.twig" with cta_group_props only %}
-                {% endif %}
-            </div>
-            {% if secondary_image %}
-                <div class="page-header__secondary-img">
-                    {% include 'atoms-image' with {aspect: "1:1", width: 710} %}
-                </div>
-            {% endif %}
-        </div>
-    {% endblock %}
-{% endembed %}
+{% include '@limestone/hero-page-header.twig' with props only %}

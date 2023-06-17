@@ -1,0 +1,7 @@
+
+{% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ ' page-header page-header--text'} %}
+    {% block slab_content %}
+        {{headline_group}}
+        {{cta_group}}
+    {% endblock %}
+{% endembed %}

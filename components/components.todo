@@ -321,29 +321,29 @@ pullquote:
     x Modify component to be reusable @done(23-03-13 02:23)
     x Update all references to component @done(23-03-13 02:23)
   zipper-slab:
-    [] Create component directory
-    [] move scss
-    [] Modify PL story to reference component
-    [] Modify component to be reusable
-    [] Update all references to component
+    ✘ Create component directory @cancelled(23-06-17 01:56)
+    ✘ move scss @cancelled(23-06-17 01:56)
+    ✘ Modify PL story to reference component @cancelled(23-06-17 01:56)
+    ✘ Modify component to be reusable @cancelled(23-06-17 01:56)
+    ✘ Update all references to component @cancelled(23-06-17 01:56)
     text-page-header:
-      [] Create component directory
-      [] move scss
-      [] Modify PL story to reference component
-      [] Modify component to be reusable
-      [] Update all references to component
+      ✔ Create component directory @done(23-06-17 01:40)
+      ✔ move scss @done(23-06-17 01:40)
+      ✔ Modify PL story to reference component @done(23-06-17 01:40)
+      ✔ Modify component to be reusable @done(23-06-17 01:40)
+      ✔ Update all references to component @done(23-06-17 01:40)
     split-page-header:
-      [] Create component directory
-      [] move scss
-      [] Modify PL story to reference component
-      [] Modify component to be reusable
-      [] Update all references to component
+      ✔ Create component directory @done(23-06-17 01:55)
+      ✔ move scss @done(23-06-17 01:55)
+      ✔ Modify PL story to reference component @done(23-06-17 01:55)
+      ✔ Modify component to be reusable @done(23-06-17 01:55)
+      ✔ Update all references to component @done(23-06-17 01:55)
     hero-page-header:
       x Create component directory @done(23-03-12 20:03)
-      x move scss @done(23-03-12 20:03)
-      [] Modify PL story to reference component
-      [] Modify component to be reusable
-      [] Update all references to component
+      ✔ move scss @done(23-06-17 01:18)
+      ✔ Modify PL story to reference component @done(23-06-17 01:17)
+      ✔ Modify component to be reusable @done(23-06-17 01:17)
+      ✔ Update all references to component @done(23-06-17 01:17)
 
 
 

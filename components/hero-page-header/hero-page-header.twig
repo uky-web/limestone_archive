@@ -1,32 +1,11 @@
-{% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
 
-{% set headline_group_props = {
-	"level":level|default(1),
-	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
-	"headline_group_variant":headline_group_variant,
-	"head": head|default(default_headline)|titleize,
-}%}
 
-{% set cta_group_props = {
-    "cta_type":"mixed",
-    "button_style": button_style,
-    "actions":[{
-        "label":"Action 1",
-        "url":"example.com"
-    },
-    {
-        "label":"Action 2",
-        "url":"example.com"
-    }]
-}%}
-
-{% set popout_class = no_popout ? ' popout' : '' %}
 {% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--hero " ~ hero_variant ~ popout_class } %}
     {% block slab_outer %}
         {% if ambient_video %}
-            {% include 'molecules-ambient-video' %}
+            {{ambient_video}}
         {% else %}
-            {% include 'atoms-image' with {aspect: "16:9", width: 2400} %}
+            {{hero_image}}
         {% endif %}
         {% if no_popout %}
             {# TODO: create molecule for the plain text headline #}
@@ -35,14 +14,12 @@
         {% else %}
             <div class="slab__wrapper">
                 <div class="page-header__content">
-                    {% include '@limestone/headline-group.twig' with headline_group_props only %}
-                    {% if with_cta %}
-                        {% include "@limestone/cta-group.twig" with cta_group_props only %}
-                    {% endif %}
+                    {{headline_group}}
+                    {{cta_group}}
                 </div>
                 {% if secondary_image %}
                     <div class="page-header__secondary-img">
-                        {% include 'atoms-image' with {aspect: "1:1", width: 710} %}
+                        {{secondary_image}}
                     </div>
                 {% endif %}
             </div>
