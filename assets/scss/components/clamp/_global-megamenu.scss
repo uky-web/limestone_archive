@@ -7,8 +7,14 @@
   &--dark {
     background-color: color-functions.color(dark-blue);
     @include usescheme(color-schemes.$scheme-dark);
+    a.link-expandable__button {
+      &:active,
+      &:hover {
+        text-decoration: underline;
+        color: #ffffff;
+      }
+    }
   }
-
 
   &__nav-item {
     cursor: pointer;
@@ -28,6 +34,9 @@
 
   .global-megamenu__menu-button[aria-expanded="false"] + .global-megamenu__slab {
     display:none;
+    a:hover{
+      color: #ffffff;
+    }
   }
 
   .global-megamenu .menu__menu-button[aria-expanded="true"] + .global-megamenu__slab {
@@ -49,6 +58,13 @@
     &--dark {
       background-color: color-functions.color(dark-blue);
         @include usescheme(color-schemes.$scheme-dark);
+        a {
+          &:active,
+          &:hover {
+            text-decoration: underline;
+            color: #ffffff;
+          }
+        }
     }
 
     .global-megamenu__description,

@@ -15,7 +15,7 @@
   }
 
   .link--fancy-reverse {
-    @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
+
     margin-left: -1rem;
     padding-left: 1rem;
 
@@ -33,32 +33,46 @@
   }
 
   ul {
-    @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
+    @include root-rhythm.rr-font-compute(xs, tight, typography.$fonts, typography.$lineheights);
     margin-left: 1rem;
     padding: 0;
-    font-family: typography.$font-mercury;
+    font-family: typography.$font-usual;
     font-weight: normal;
     list-style: none;
 
     @include root-rhythm.rr-break-directive(m) {
-      @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
+      @include root-rhythm.rr-font-compute(xs, tight, typography.$fonts, typography.$lineheights);
     }
 
     @include root-rhythm.rr-break-directive(l) {
-      @include root-rhythm.rr-font-compute(l, tight, typography.$fonts, typography.$lineheights);
+      @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
       margin: 0 0 0 1rem;
     }
 
     li {
       display: inline;
       position: relative;
-      margin-right: calc(2rem + 1px);
+      margin-right: calc(2rem);
+
+      & .link--fancy-reverse,
+      & a {
+        font-weight: 300;
+          @include root-rhythm.rr-font-compute(xs, tight, typography.$fonts, typography.$lineheights);
+
+          @include root-rhythm.rr-break-directive(s) {
+            @include root-rhythm.rr-font-compute(xs, tight, typography.$fonts, typography.$lineheights);
+          }
+
+        @include root-rhythm.rr-break-directive(xl) {
+          @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
+        }
+      }
 
       &::after {
         display: block;
         position: absolute;
         top: 50%;
-        right: -1rem;
+        right: -1.2rem;
         width: 1px;
         height: 1rem;
         transform: translateY(-50%);

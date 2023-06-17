@@ -7,9 +7,12 @@
 @use 'includes/root-rhythm';
 @use 'includes/color-functions';
 @use 'typography';
+@use 'tokens/_colors';
+@use 'tokens/_color-schemes';
 @import 'includes/design-variables';
 @import 'includes/mixins/m_typography';
 @import 'includes/fonts';
+@import 'includes/math';
 
 //sass-lint:disable no-ids
 #sg-patterns {
@@ -56,6 +59,34 @@
   margin-bottom: root-rhythm.rr-gridbase();
   padding: root-rhythm.rr-grid-remainder(5px);
   border-radius: 5px;
+}
+
+@mixin show-color($color) {
+  background-color: $color;
+
+  &::before {
+    $swatch-label-background: rgba(color-schemes.$black, .5);
+    $swatch-label-foreground: color-schemes.$white;
+    @if (brightness($color) > 50) {
+      $swatch-label-background: rgba(color-schemes.$white, .5);
+      $swatch-label-foreground: color-schemes.$black;
+    }
+
+    display: inline-block;
+    padding: .5em;
+    border-radius: 0 0 4px;
+    background-color: $swatch-label-background;
+    color: $swatch-label-foreground;
+    font-size: 12px;
+    font-weight: bold;
+    content: '#{$color}';
+  }
+}
+
+@each $name, $color in colors.$colors {
+  .bg-#{""+$name} {
+    @include show-color($color)
+  }
 }
 
 .sg-pattern-example {

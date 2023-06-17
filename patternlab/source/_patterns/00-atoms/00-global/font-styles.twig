@@ -3,7 +3,7 @@
 
 {% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
-    <h2>Avenir Next</h2>
+    <h2>Usual</h2>
     <div class="font-avenirnext">
         <p>Normal text | {{ sentences }}</p>
         <p style="font-style: italic ">Italic text | {{ sentences }}</p>
@@ -17,8 +17,8 @@
 
 {% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
-        <h2 class="font-surveyor">Surveyor</h2>
-        <div class="font-surveyor">
+        <h2 class="font-bodini">Bodini</h2>
+        <div class="font-bodini">
             <p>Normal text {{ sentences }}</p>
             <p style="font-style: italic ">Italic text {{ sentences }}</p>
             <p style="font-weight: bold;">Bold text {{ sentences }}</p>
@@ -29,7 +29,7 @@
 
 {% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
-        <h2 class="font-tradegothic">Trade Gothic</h2>
+        <h2 class="font-tradegothic">ATF Alternate Gothic</h2>
         <div class="font-tradegothic">
             <p>Normal text {{ sentences }}</p>
             <p style="font-style: italic ">Italic text {{ sentences }}</p>
@@ -39,17 +39,7 @@
     {% endblock %}
 {% endembed %}
 
-{% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
-    {% block slab_content %}
-        <h2 class="font-mercury">Mercury</h2>
-        <div class="font-mercury">
-        <p>Normal text {{ sentences }}</p>
-        <p style="font-style: italic ">Italic text {{ sentences }}</p>
-        <p style="font-weight: bold;">Bold text {{ sentences }}</p>
-        <p style="font-style: italic; font-weight: bold;">Bold italic text {{ sentences }}</p>
-        </div>
-    {% endblock %}
-{% endembed %}
+
 
 {% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}

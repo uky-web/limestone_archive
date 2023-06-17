@@ -15,7 +15,9 @@
     }
 
     &:hover,
-    &:active {
+    &:active,
+    .global-header &:hover,
+    .global-header &:active {
       text-decoration: underline;
       color: #ffffff;
     }

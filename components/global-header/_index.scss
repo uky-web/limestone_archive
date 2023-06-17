@@ -63,6 +63,9 @@
 
     .utility-nav {
       display: block;
+      a:hover{
+        color: #ffffff;
+      }
     }
   }
 
@@ -81,7 +84,7 @@
 .global-header__banner {
   display: flex;
   position: relative;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 
   .uky-logo-main {
@@ -95,6 +98,7 @@
   }
 
   @include root-rhythm.rr-break-directive(l) {
+    align-items:flex-end;
     .toggle-button {
       display: none;
     }

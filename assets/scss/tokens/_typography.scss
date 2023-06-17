@@ -1,27 +1,20 @@
 @use 'root-rhythm';
 
 // Font Shortcuts
-// Mercury Display (from typography.com) NB: limited weights and styles provided, see typography.com project dashboard
-$font-mercury: 'Mercury Display A', 'Mercury Display B', serif;
+// Mercury Display (deprecated) NB: limited weights and styles provided, see typography.com project dashboard
+$font-mercury: 'usual', sans-serif;
 
-// Surveyor Display (from typography.com)  NB: limited weights and styles provided, see typography.com project dashboard
-$font-surveyor: "Surveyor Display A", "Surveyor Display B", serif;
+// Surveyor deprecated in favor of Bodini
+$font-surveyor: "bodoni-pt-variable", serif;
+$font-bodini: "bodoni-pt-variable", serif;
 
-
-// Avenir Next styles (from fonts.com)
-// $font-avenirnext: 'AvenirNextLT', sans-serif;
+//Avenir deprecated in favor of Usual
 $font-avenirnext: 'usual', sans-serif;
+$font-usual:'usual', sans-serif;
 
-//TODO: These do not appear to be implemented. If needed as separate fonts
-//they should be correctly named in _fonts.scss
-//$font-avenirnext__italic: 'AvenirNextLTW01-Italic', sans-serif;
-//$font-avenirnext__medium: 'AvenirNextLTW01-Medium', sans-serif;
-//$font-avenirnext__bold: 'Avenir Next LT W01 Bold', sans-serif;
-//$font-avenirnext__boldita: 'AvenirNextLTW01-BoldIta', sans-serif;
-
-// Trade Gothic styles (from fonts.com)
-$font-tradegothic: 'TradeGothicCond', sans-serif;
-//$font-tradegothic__bold: 'TradeGothic Next LT W01 Bd Cn', sans-serif;
+// Trade Gothic deprecated in favor of Alternate Gothic ATF
+$font-tradegothic: 'alternate-gothic-atf',sans-serif;
+$font-gothic-atf:  'alternate-gothic-atf',sans-serif;
 
 // Blackbike styles (generated from fontsquirrel.com)
 $font-blackbikeclean: 'blackbikeclean', serif;

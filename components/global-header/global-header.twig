@@ -55,11 +55,7 @@
     {% if (is_main) %}
         {% include  '@limestone/uky-logo-main.twig'%}
     {% else %}
-        {% if (site_identity) %}
-            {% include '@limestone/site-identity.twig' with lockup_props only %}
-        {% else %}
-            {% include '@limestone/lockup.twig' with lockup_props only %}
-        {% endif %}
+        {% include '@limestone/site-identity.twig' with lockup_props only %}
     {% endif %}
 {% endset %}
 
