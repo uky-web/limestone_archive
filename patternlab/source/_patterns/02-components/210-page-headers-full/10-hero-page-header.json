@@ -2,6 +2,7 @@
     "with_cta" : true,
     "cta_type" : "mixed",
     "secondary_image" : true,
+    "show_ambient_video": false,
     "super" : "Hero and Secondary Image Included",
     "head" : "Page Header, Hero Style"
 }

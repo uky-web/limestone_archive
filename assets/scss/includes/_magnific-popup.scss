@@ -1,3 +1,4 @@
+@use 'includes/color-functions';
 // Magnific Popup CSS
 
 // sass-lint:disable no-important, no-duplicate-properties
@@ -7,7 +8,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: color(wildcat-black);
+  background: color-functions.color(wildcat-black);
   opacity: .8;
   overflow: hidden;
   z-index: 1042;
@@ -140,7 +141,7 @@ button::focus-inner {
   width: 44px;
   height: 44px;
   padding: 0 0 18px 10px;
-  color: color(wildcat-white);
+  color: color-functions.color(wildcat-white);
   font-family: Arial, Baskerville, monospace;
   font-size: 28px;
   font-style: normal;
@@ -220,12 +221,12 @@ button::focus-inner {
 
 .mfp-arrow-left::after {
   margin-left: 31px;
-  border-right: 17px solid color(wildcat-white);
+  border-right: 17px solid color-functions.color(wildcat-white);
 }
 
 .mfp-arrow-left::before {
   margin-left: 25px;
-  border-right: 27px solid color(dark-gray);
+  border-right: 27px solid color-functions.color(dark-gray);
 }
 
 .mfp-arrow-right {
@@ -234,11 +235,11 @@ button::focus-inner {
 
 .mfp-arrow-right::after {
   margin-left: 39px;
-  border-left: 17px solid color(wildcat-white);
+  border-left: 17px solid color-functions.color(wildcat-white);
 }
 
 .mfp-arrow-right::before {
-  border-left: 27px solid color(dark-gray);
+  border-left: 27px solid color-functions.color(dark-gray);
 }
 
 .mfp-iframe-holder {
@@ -270,7 +271,7 @@ button::focus-inner {
   left: 0;
   width: 100%;
   height: 100%;
-  background: color(wildcat-black);
+  background: color-functions.color(wildcat-black);
 }
 
 // Main image in popup
@@ -301,7 +302,7 @@ img.mfp-img {
   left: 0;
   width: auto;
   height: auto;
-  background: color(dark-gray);
+  background: color-functions.color(dark-gray);
   content: '';
   z-index: -1;
 }

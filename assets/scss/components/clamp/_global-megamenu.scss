@@ -82,7 +82,13 @@
       //flex-wrap: wrap;
       a {
         @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
-        padding-bottom: root-rhythm.rr-gridbase(1);
+        padding-bottom: root-rhythm.rr-gridbase(3);
+      }
+
+      &:active,
+      &:hover {
+        text-decoration: underline;
+        color: #ffffff;
       }
     }
 

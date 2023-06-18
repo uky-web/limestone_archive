@@ -63,34 +63,35 @@
   $breaks: rr-breakpoint-list();
   $linegridheight: map-get($lineheight-config, $lineheight);
   @each $break in $breaks {
-    @if map-has-key($font-config, $break) {
+    @if map-has-key($font-config, $break) { //only s and l pass this, bc that's all in rr-fonts
       $font-size-set: map-get($font-config, $break);
       @if map-has-key($font-size-set, $size) {
         @include rr-break-directive($break) {
           $fontsize: map-get($font-size-set, $size);
           @include rr-font-line-height($fontsize, $linegridheight);
         }
-      }
-    }
+      } 
+    } 
   }
 }
 
 // Builds a list of style rules with the specified prefix, size tag, and
 // lineheight tag. Useful for building pattern libraries or if you intend
 // to expose design capabilities through css.
-@mixin rr-font-samples($prefix: 'text', $font-config: $rr-fonts, $lineheight-config: $rr-lineheights) {
+@mixin rr-font-samples($prefix: 'text', $font-config, $lineheight-config) {
   $font-sizes: rr-font-sizes($font-config);
   @each $fs in $font-sizes {
     @each $name, $size in $fs {
       @each $linename, $lineheight in $lineheight-config {
         .#{$prefix}-#{$name}-#{$linename} {
           background-color: rgba(200, 255, 200, .3);
-          @include rr-font-compute($name, $linename);
+          @include rr-font-compute($name, $linename,$font-config, $lineheight-config);
         }
       }
     }
   }
 }
+
 
 // Builds basic heading layout using the heading style configuration, including
 // media queries.

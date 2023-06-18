@@ -1,11 +1,11 @@
 @charset 'UTF-8';
-
+@use 'includes/color-functions';
 // These settings override the defaults found in
 // ../bower_components/slick-carousel/slick/slick-theme.scss
 
 $slick-font-path: '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/fonts/';
 $slick-loader-path: './js/slick/' !default;
-$slick-arrow-color: color('wildcat-black');
+$slick-arrow-color: color-functions.color('wildcat-black');
 $slick-button-distance: -10px;
 $slick-dot-size: .5rem !default;
 //$slick-font-family: "slick" !default;
@@ -19,5 +19,5 @@ $slick-dot-size: .5rem !default;
 //$slick-opacity-not-active: 0.25 !default;
 
 .slick-loading .slick-list {
-  background: color(wildcat-white) url('./js/libs/slick/ajax-loader.gif') center center no-repeat;
+  background: color-functions.color(wildcat-white) url('./js/libs/slick/ajax-loader.gif') center center no-repeat;
 }

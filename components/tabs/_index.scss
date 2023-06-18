@@ -32,7 +32,7 @@
   position: relative;
   flex: 1 1 100%;
   margin-bottom: 0;
-  padding: 20px 20px 0 0;
+
   a {
     @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
     display: block;

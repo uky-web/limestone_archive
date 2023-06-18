@@ -1,7 +1,7 @@
 @use 'color-functions';
 
 $gradients: (
-    dark-wildcat:(color(dark-blue), color(wildcat-blue))
+    dark-wildcat:(color-functions.color(dark-blue), color-functions.color(wildcat-blue))
   );
   // These are color schemes that map the colors above
   // to specific elements. In general we try to keep

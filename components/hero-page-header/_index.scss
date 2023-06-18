@@ -19,6 +19,7 @@
 
   @each $color in $altcolors {
     &.slab--#{$color} {
+      padding-top:0;
       border-width: 0;
       background-color: transparent;
 
