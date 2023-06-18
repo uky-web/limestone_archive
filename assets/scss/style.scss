@@ -26,6 +26,8 @@
   position: relative;
 }
 
+
+
 @import 'includes/fonts';
 @import '../../intermediate/iconfont';
 
@@ -38,9 +40,7 @@
 @import 'atoms/global';
 @import 'atoms/icons';
 @import 'atoms/text';
-@import 'atoms/buttons';
 @import 'atoms/lists';
-@import 'atoms/media';
 
 @import 'molecules/text';
 @import 'molecules/content-layouts';
@@ -55,14 +55,10 @@
 @import 'components/alerts';
 @import 'components/asides';
 @import 'components/blocks';
-@import 'components/teasers';
 @import 'components/collections';
 @import 'components/forms';
 
 @import 'overrides/overrides';
 
-// Grid overlay
-
-// Template, page styles could go below here
-// but if you have any you might want to rethink
-// your approach.
+//individual components
+@import './components';
