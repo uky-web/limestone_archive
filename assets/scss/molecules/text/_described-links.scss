@@ -1,0 +1,14 @@
+@use 'root-rhythm';
+@use 'typography';
+
+.described-links {
+  margin-bottom: root-rhythm.rr-gridbase(3);
+
+  .editorial p {
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+  }
+
+  dd {
+    padding-left: root-rhythm.rr-gridbase(2); // matches padding on fancy links
+  }
+}

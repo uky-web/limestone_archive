@@ -1,0 +1,26 @@
+@use 'color-schemes';
+@use 'root-rhythm';
+@use 'color-functions';
+
+.universal-header {
+  @include usescheme(color-schemes.$scheme-dark);
+  display: none;
+  padding: root-rhythm.rr-gridbase(1.5) root-rhythm.rr-gridbase(2);
+  background-color: color-functions.color(midnight);
+
+  .universal-header__layout {
+    justify-content: space-between;
+    @include root-rhythm.rr-break-directive(m) {
+      display: flex;
+    }
+  }
+
+  &.clamp--wildcat {
+    background-color: color-functions.color(dark-blue);
+  }
+
+  @include root-rhythm.rr-break-directive(l) {
+    display: block;
+  }
+}
+

@@ -2,6 +2,7 @@
 @use 'color-functions';
 @use 'root-rhythm';
 @use 'typography';
+
 .banner-alert {
   padding: root-rhythm.rr-gridbase(2);
   background-color: color-functions.color(info);

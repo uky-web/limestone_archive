@@ -38,7 +38,6 @@
 			"PatternLab\\Installer::postInstallCmd",
 			"sudo echo '{\"patternengines\":[\"\\\\PatternLab\\\\PatternEngine\\\\Twig\\\\PatternEngineRule\"]}' >| config/patternengines.json",
 			"sudo echo '{\"listeners\":[\"\\\\PatternLab\\\\TwigNamespaces\\\\PatternLabListener\"]}' > config/listeners.json"
-
 		],
 		"post-update-cmd": [
 			"PatternLab\\Installer::postUpdateCmd"

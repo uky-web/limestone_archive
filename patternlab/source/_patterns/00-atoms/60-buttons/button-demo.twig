@@ -14,7 +14,7 @@
                 {% endif %}
                 {% include '@limestone/heading.twig' with { headline: sizelabel ~ ' Buttons'} %}
                 <p>
-                    {% include '@limestone/link.twig' with { 'link_variant': 'button ' ~ sizeclass, 'label' : 'Link Button' } %}
+                    {% include '@limestone/link.twig' with { link_variant: 'button ' ~ sizeclass, 'label' : 'Link Button' } %}
                     {% include '@limestone/button.twig' with { button_variant: sizeclass, label : 'Button' } %}
                     {% include '@limestone/button.twig'  with { button_variant: 'button--ghost ' ~ sizeclass, label : 'Ghost' } %}
                     {% include '@limestone/button.twig'  with { button_variant: sizeclass, label : 'Disabled', disabled: true } %}

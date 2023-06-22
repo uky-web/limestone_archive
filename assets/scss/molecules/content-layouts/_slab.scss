@@ -1,0 +1,64 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'colors';
+@use 'color-schemes';
+
+.slab {
+  @include root-rhythm.rr-slab;
+
+  &.slab--thin {
+    padding-top: root-rhythm.rr-gridbase(3);
+    padding-bottom: root-rhythm.rr-gridbase(3);
+  }
+
+  .slab {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.slab__wrapper {
+  @include root-rhythm.rr-slab-wrapper;
+}
+
+$skins: transparent;
+@each $name, $color in colors.$colors {
+  .slab--#{""+$name} {
+    background-color: $color;
+    @if (color-functions.contrast($color, color-functions.color(wildcat-black)) < 4.5) {
+      @include usescheme(color-schemes.$scheme-dark);
+    }
+
+    .heading--display span {
+      background-color: $color;
+    }
+  }
+  $skins: append($skins, slab--#{$name});
+}
+
+
+.slab--dark-wildcat {
+  background: linear-gradient(#{color-functions.color(dark-blue)},#{color-functions.color(wildcat-blue)});
+  @include usescheme(color-schemes.$scheme-dark);
+}
+
+.slab--speckled {
+  background-image: url('../../images/speckled-texture.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  @include usescheme(color-schemes.$scheme-light);
+
+  //FIXME: Should containers be targeting child elements like this? -AA
+  .headline-group__head {
+    color: color-functions.color(wildcat-blue);
+  }
+
+  .grid--divided .grid__column::after {
+    background-color:color-functions.color(bluegrass);
+    width:1px;
+  }
+
+}
+
+@include root-rhythm.rr-slab-adjacency($style-list: $skins);
+

@@ -5,9 +5,9 @@
 .site-identity {
   display: block;
   position: relative;
-  font-family: typography.$font-avenirnext;
+  font-family: typography.$font-usual;
   font-size: 0;
-  margin-right: 1rem;
+  margin-right:1rem;
 
   &:link,
   &:visited {
@@ -36,7 +36,8 @@
 
     //fixme: overriding an external component
     .uk-logo-svg {
-      margin-right: 1.5vw;
+
+      margin-right: 1vw;
       display:flex;
       @include root-rhythm.rr-break-directive(m) {
         border-right: 1px color-functions.color(light-gray) solid;
@@ -44,7 +45,9 @@
     }
 
     svg {
+      // width: 10vw; // (80% of full size)
       min-width: 50px;
+      // height: auto;
       margin-right: 1.5vw;
     }
   }
@@ -102,7 +105,6 @@
         display:inline
       }
     }
-
 
     &__unit {
       margin-left: 4.50625rem; // logo width + logo right margin

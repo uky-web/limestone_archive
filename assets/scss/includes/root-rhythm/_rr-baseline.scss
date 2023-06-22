@@ -53,8 +53,10 @@
   @each $break, $fontmap in $font-config {
     $working-map: map-merge($working-map, $fontmap);
   }
+
   @return map-keys($working-map);
 }
+
 
 // Pass a font tag and a lineheight tag and rr-font-config returns font size and
 // line height properties for each breakpoint.
@@ -74,7 +76,6 @@
     } 
   }
 }
-
 // Builds a list of style rules with the specified prefix, size tag, and
 // lineheight tag. Useful for building pattern libraries or if you intend
 // to expose design capabilities through css.
@@ -106,7 +107,7 @@
     @if map-has-key($config, lineheight) {
       $lineheight: map-get($config, lineheight);
     }
-    @include rr-font-compute($size, $lineheight);
+    @include rr-font-compute($size, $lineheight, $font-config, $lineheight-config);
     $font: sans-serif;
     @if map-has-key($config, font) {
       $font: map-get($config, font);

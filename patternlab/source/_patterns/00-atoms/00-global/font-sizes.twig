@@ -4,14 +4,9 @@
         {% block slab_content %}
             <h2>Font size: {{ size }}</h2>
             {% for spacing in ['tight','medium','wide','huge','redic'] %}
-                <p class="font-avenirnext text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
+                <p class="font-usual text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
                     {% spaceless %}
                     Usual, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
-                    {% endspaceless %}
-                </p>
-                <p class="font-mercury text-{{ size }}{% if spacing is not empty %}-{{ spacing }}{% endif %}">
-                    {% spaceless %}
-                    Mercury, size <b>{{ size }}</b>, {{ spacing }} lineheight. {{ sentences }}
                     {% endspaceless %}
                 </p>
             {% endfor %}

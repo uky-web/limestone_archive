@@ -31,7 +31,6 @@
     }
   }
 
-
   .global-megamenu__menu-button[aria-expanded="false"] + .global-megamenu__slab {
     display:none;
     a:hover{
@@ -66,7 +65,8 @@
           }
         }
     }
-
+    
+    .mega-menu__submenus,
     .global-megamenu__description,
     .global-megamenu__submenus {
       flex: 1 0 100%;
@@ -77,18 +77,19 @@
       display:none;
     }
 
+    .mega-menu__submenus,
     .global-megamenu__submenus {
       //display: flex;
       //flex-wrap: wrap;
       a {
-        @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+        @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
         padding-bottom: root-rhythm.rr-gridbase(3);
-      }
 
-      &:active,
-      &:hover {
-        text-decoration: underline;
-        color: #ffffff;
+        &:active,
+        &:hover {
+          text-decoration: underline;
+          color: #ffffff;
+        }
       }
     }
 
@@ -112,7 +113,7 @@
         @include usescheme(color-schemes.$scheme-dark, 'l');
 
       }
-
+      .mega-menu__submenus,
       .global-megamenu__description,
       .global-megamenu__submenus {
         @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
