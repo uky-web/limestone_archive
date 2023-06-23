@@ -3,7 +3,7 @@
 {% block main_content %}
     {% include 'components-' ~ page_header|default('text-page-header') with { head: "Events", slab_variant : header_slab|default('slab--wildcat-white') } %}
     {% include 'components-breadcrumb-slab' %}
-    {% embed 'molecules-slab-2x1' with { slab_variant : slab_variant|default('slab--wildcat-white') }  %} 
+    {% embed '@limestone/slab-2x1.twig' with { slab_variant : slab_variant|default('slab--wildcat-white') }  %} 
         {% block slab_content %}
             {% include 'components-content-list' %}
         {% endblock %}

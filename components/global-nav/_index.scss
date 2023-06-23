@@ -1,0 +1,56 @@
+@use 'root-rhythm';
+@use 'typography';
+
+.global-nav {
+
+  a {
+    @include root-rhythm.rr-font-compute(r, tight, typography.$fonts, typography.$lineheights);
+    display: block;
+    margin-bottom: root-rhythm.rr-gridbase(2);
+    font-weight: 500;
+
+    &.ic--home {
+      display: none;
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+    }
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    // FIXME: This reference to global-header is a temporary fix for load order issues from 
+    // switching sass implementation. This should be replaced by better use of custom variables 
+    // for color management.
+    &:hover,
+    &:active,
+   .global-header &:hover,
+    .global-header &:active {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+  }
+
+  @include root-rhythm.rr-break-directive(l) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    a {
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+      margin-right: root-rhythm.rr-gridbase(3.5);
+      margin-bottom: 0;
+      transition: margin-right .3s ease-in-out;
+    }
+  }
+
+  @include root-rhythm.rr-break-directive(xl) {
+    a {
+      margin-right: root-rhythm.rr-gridbase(5);
+    }
+  }
+}
+

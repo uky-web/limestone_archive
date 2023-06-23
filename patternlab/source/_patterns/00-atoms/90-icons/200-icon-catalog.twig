@@ -1,7 +1,7 @@
 
-{% embed 'molecules-slab' %}
+{% embed '@limestone/slab.twig' %}
 	{% block slab_content %}
-		{% include 'atoms-heading' with { level: 2, headline: 'Icon Set'} %}
+		{% include '@limestone/heading.twig' with { level: 2, headline: 'Icon Set'} %}
 		<ul class="icon-catalog">
 		{% for icon in [
 				'alert',
@@ -45,7 +45,7 @@
 			]
 		%}
 			
-		<li>{% include 'atoms-icon-label' with { icon: icon, label: icon|capitalize ~ ' | ' ~ 'ic--' ~ icon }  %}</li>
+		<li>{% include '@limestone/icon-label.twig' with { icon: icon, label: icon|capitalize ~ ' | ' ~ 'ic--' ~ icon }  %}</li>
 			
 		{% endfor %}
 		</ul>

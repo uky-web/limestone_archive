@@ -43,7 +43,7 @@
 
       <div class="grid__column grid__column--minor">
         <div class="global-megamenu__description">
-          {% include "atoms-heading" with { headline: title } %}
+          {% include "@limestone/heading.twig" with { headline: title } %}
           {% include "atoms-paragraph" %}
         </div>
       </div>
@@ -53,7 +53,7 @@
         {% for column in items|batch((items|length/3)) %}
           <div class="grid__column mega-menu__submenus">
               {% for item in column %}
-                {% include 'atoms-link' with { label: item.title, url: item.url } %}
+                {% include '@limestone/link.twig' with { 'label': item.title, 'href': item.url } only %}
               {% endfor %}
           </div>
         {% endfor %}
@@ -66,13 +66,13 @@
 
 {% macro mobile_submenu_links(items, menu_level, title) %}
   <div class="global-megamenu__mobile-slab">
-      {% include 'atoms-link' with { url:"#", link_variant: 'link--fancy-reverse', label: 'Back' } %}
+      {% include '@limestone/link.twig' with { 'href':"#", 'link_variant': 'link--fancy-reverse', 'label': 'Back' } only %}
     <h3>{{ title }}</h3>
         <div class="grid grid--2-up">
             {% for column in items|batch((items|length/2)) %}
               <div class="grid__column global-megamenu__submenus">
                   {% for item in items %}
-                      {% include 'atoms-link' with { label: item.title, url: item.url } %}
+                      {% include '@limestone/link.twig' with { 'label': item.title, 'href': item.url } only %}
                   {% endfor %}
               </div>
             {% endfor %}

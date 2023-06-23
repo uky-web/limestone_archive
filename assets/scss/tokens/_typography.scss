@@ -1,13 +1,14 @@
 @use 'root-rhythm';
 
 // Font Shortcuts
-// Mercury Display (deprecated)
+// Mercury Display (deprecated) NB: limited weights and styles provided, see typography.com project dashboard
 $font-mercury: 'usual', sans-serif;
 
 // Surveyor deprecated in favor of Bodini
 $font-surveyor: "bodoni-pt-variable", serif;
 $font-bodini: "bodoni-pt-variable", serif;
 
+//Avenir deprecated in favor of Usual
 $font-avenirnext: 'usual', sans-serif;
 $font-usual:'usual', sans-serif;
 
@@ -18,7 +19,6 @@ $font-gothic-atf:  'alternate-gothic-atf',sans-serif;
 // Blackbike styles (generated from fontsquirrel.com)
 $font-blackbikeclean: 'blackbikeclean', serif;
 $font-blackbikerough: 'blackbikerough', serif;
-
 
 // Line heights in grid units. These are all
 // relative to the font size, so "tight" has a line

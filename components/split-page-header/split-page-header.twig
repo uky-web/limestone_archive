@@ -1,0 +1,16 @@
+{% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
+
+
+
+{% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--split " ~ hero_variant} %}
+    {% block slab_outer %}
+        <div class="page-header--split__hero">
+            {{hero_image}}
+        </div>
+        <div class="slab__wrapper">
+            <div class="page-header__content">
+                {{headline_group}}
+                {{cta_group}}
+        </div>
+    {% endblock %}
+{% endembed %}

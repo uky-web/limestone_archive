@@ -1,0 +1,29 @@
+{% set headline_group_props = {
+	"level":headline_level|default(1),
+	"headline_group_id":headline_group_id,
+	"headline_group_variant":headline_group_variant,
+	"head": headline_head,
+}%}
+
+{% set formatted_text_props = {
+	"content": content
+}%}
+
+{% set cta_group_props = {
+    "cta_type":cta_type,
+    "actions":cta_actions
+}%}
+
+
+<div class="micro-teaser">
+    {% include 'molecules-headline-group' with headline_group_props %}
+    <div class="micro-teaser__wrapper">
+    <div class="micro-teaser__media">
+        <a href="#">{% include '@limestone/image.twig' with {src: image_url} %}</a>
+    </div>
+    <div class="micro-teaser__content">
+       	{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+        {% include '@limestone/cta-group.twig' with cta_group_props only %}
+    </div>
+    </div>
+</div>

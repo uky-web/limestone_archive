@@ -4,7 +4,7 @@
 {% set primarycolors = [ 'wildcat-blue', 'wildcat-white' ] %}
 {% set secondarycolors = [ 'bluegrass', 'sky', 'midnight', 'goldenrod', 'sunset', 'river-green' ] %}
 {% set neutralpalette = [ 'cool-neutral', 'warm-neutral-20', 'warm-neutral-60', 'warm-neutral', 'wildcat-black' ] %}
-{% embed 'molecules-slab' %}
+{% embed '@limestone/slab.twig' %}
 	{% block slab_content %}
 		<h2>Primary Colors</h2>
 		<div class="sg-colors">
@@ -18,7 +18,7 @@
 	{% endblock %}
 {% endembed %}
 
-{% embed 'molecules-slab' %}
+{% embed '@limestone/slab.twig' %}
 	{% block slab_content %}
 		<h2>Secondary Colors</h2>
 		<div class="sg-colors">
@@ -33,7 +33,7 @@
 {% endembed %}
 
 
-{% embed 'molecules-slab' %}
+{% embed '@limestone/slab.twig' %}
 	{% block slab_content %}
 		<h2>Neutral Palette</h2>
 		<div class="sg-colors">

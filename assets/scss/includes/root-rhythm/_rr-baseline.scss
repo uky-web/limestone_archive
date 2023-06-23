@@ -2,7 +2,6 @@
 @use "rr-grid" as *;
 @use "rr-util" as *;
 
-
 // Render the columns as a repeating linear gradient.
 @function rr-columns($break: s) {
   $gutter: rr-prop-for-breakpoint($break, gutter);
@@ -55,7 +54,6 @@
     $working-map: map-merge($working-map, $fontmap);
   }
 
-  
   @return map-keys($working-map);
 }
 
@@ -65,7 +63,6 @@
 @mixin rr-font-compute($size: m, $lineheight: medium, $font-config: $rr-fonts, $lineheight-config: $rr-lineheights) {
 
   $breaks: rr-breakpoint-list();
-
   $linegridheight: map-get($lineheight-config, $lineheight);
   @each $break in $breaks {
     @if map-has-key($font-config, $break) { //only s and l pass this, bc that's all in rr-fonts
@@ -96,9 +93,10 @@
   }
 }
 
+
 // Builds basic heading layout using the heading style configuration, including
 // media queries.
-@mixin rr-heading($config-map-tag, $heading-config, $font-config, $lineheight-config) {
+@mixin rr-heading($config-map-tag, $heading-config: $rr-headings) {
   @if map-has-key($heading-config, $config-map-tag) {
     $config: map-get($map: $heading-config, $key: $config-map-tag);
     $size: m;
@@ -109,7 +107,7 @@
     @if map-has-key($config, lineheight) {
       $lineheight: map-get($config, lineheight);
     }
-    @include rr-font-compute($size, $lineheight, $font-config, $lineheight-config);
+    @include rr-font-compute($size, $lineheight);
     $font: sans-serif;
     @if map-has-key($config, font) {
       $font: map-get($config, font);

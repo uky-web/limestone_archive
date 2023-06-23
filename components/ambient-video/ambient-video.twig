@@ -1,0 +1,9 @@
+<div class="ambient-video">
+    <video loop muted playsinline poster="{{poster_image_url}}" preload="none">
+        <source data-src="{{source_large}}" src="{{source_small}}" type="{{video_type}}">
+    </video>
+    <button class="video-button button--large" aria-label="Stop Video" data-pressed-label="Start Video" data-unpressed-label="Stop Video" data-pressed-icon="design--play-circle-filled" data-unpressed-icon="design--pause-circle-filled" aria-pressed="false">
+        {% include '@limestone/icon-label.twig' with {icon: 'play-triangle', label: 'play video', icon_label_variant: 'video-button__play', hide_label: true } only %}
+        {% include '@limestone/icon-label.twig' with {icon: 'pause', label: 'pause video', icon_label_variant: 'video-button__pause', hide_label: true } only %}
+    </button>
+</div>

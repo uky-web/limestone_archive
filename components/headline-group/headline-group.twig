@@ -1,0 +1,22 @@
+{% if level > 0 and level <= 6 %}
+	{% set tag = 'h' ~ level %}
+{% else %}
+	{% set tag = 'div' %}
+{% endif %}
+
+<{{tag}} id="{{ headline_group_id|default("headline-group"|uniqid) }}" class="headline-group {{ headline_group_variant }}">
+	{% block headline_group %}
+		{% if super is not empty %}<span class="headline-group__super">{{ super }}</span>{% endif %}
+		{% apply spaceless %}
+			<span class="headline-group__head {{ headline_variant }}">
+				{% if headline_group_link %}
+					{% include '@limestone/link.twig' with {'label': head, 'href':headline_group_link,'link_variant': "underline-link"} %}
+				{% else %}
+					{{ head }}
+				{% endif %}
+			</span>
+		{% endapply %}	
+		{% if sub is not empty %}<span class="headline-group__sub">{{ sub }}</span>{% endif %}
+	{% endblock %}
+</{{tag}}>
+

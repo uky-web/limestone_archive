@@ -1,0 +1,43 @@
+{% if media is empty %}
+    {% set media = 'image' %}
+{% endif %}
+
+{% set citation = media|capitalize ~ ' by ' ~ citation_name %}
+
+{# FIXME: This let's any calling component break render by passing an invalid component name #}
+{% set media_component_path = "@limestone/" ~ media_component|default('image') ~ ".twig" %}
+
+{% set media_component_props = {
+    "src":media_component_src,
+}%}
+
+{% set heading_props = {
+    "level":level|default(2),
+    "linked":linked,
+    "url": url,
+    "heading_variant":"",
+    "headline":headline|default(fake('bs')|titleize)
+}%}
+
+{% set formatted_text_props = {
+    "content":caption
+}%}
+
+{% set cite_media_props = {
+    "icon":icon|default('camera'), 
+    "label": citation
+}%}
+
+<div class="image-with-caption">
+    {% embed 'molecules-figure' %}
+        {% block figure_media %}
+            <div class="image-with-caption__media">{% include media_component_path with  media_component_props %}</div>
+        {% endblock %}
+        {% block figure_caption %}
+            {% include '@limestone/heading.twig' with heading_props %}
+            {% include '@limestone/formatted-text.twig' with formatted_text_props %}
+            
+            {% include '@limestone/cite-media.twig' with cite_media_props only %}
+        {% endblock %}
+    {% endembed %}
+</div>

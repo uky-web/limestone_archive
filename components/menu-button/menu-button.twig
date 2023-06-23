@@ -1,0 +1,12 @@
+{% set props = {
+    'icon': 'menu', 
+    'icon_label_variant':'icon-label--stacked', 
+    'label': 'Menu', 
+    'toggle_button_variant': "menu-button", 
+    'toggle': toggle|default('#MobileNav'),
+    'toggle_viz': true,
+    'toggle_toggled_label' : 'Close',
+    'toggle_toggled_icon' : 'close'
+} %}
+
+{% include '@limestone/toggle-button.twig' with props only %}

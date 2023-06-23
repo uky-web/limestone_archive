@@ -1,0 +1,28 @@
+
+
+{% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--wildcat-white') ~ " page-header page-header--hero " ~ hero_variant ~ popout_class } %}
+    {% block slab_outer %}
+        {% if ambient_video %}
+            {{ambient_video}}
+        {% else %}
+            {{hero_image}}
+        {% endif %}
+        {% if no_popout %}
+            {# TODO: create molecule for the plain text headline #}
+            {% include 'molecules-headline-group--popout' with { level : 1, head:head|default(default_headline)|titleize } %}
+            {# <h1>Perserverance<br>pays off</h1> #}
+        {% else %}
+            <div class="slab__wrapper">
+                <div class="page-header__content">
+                    {{headline_group}}
+                    {{cta_group}}
+                </div>
+                {% if secondary_image %}
+                    <div class="page-header__secondary-img">
+                        {{secondary_image}}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endembed %}

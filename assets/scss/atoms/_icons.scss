@@ -1,8 +1,6 @@
 @use 'root-rhythm';
-@use 'tokens/typography';
+@use 'typography';
 @import 'icons/main';
-@import 'icons/icon-label';
-
 
 .icon-catalog {
   @include no-decoration;

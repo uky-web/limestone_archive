@@ -1,0 +1,25 @@
+{% set js_tabs_classes = [ 'js-tabs', tabs_variant ] %}
+{% set js_tabs_id = "TabGroup-"|uniqid %}
+<div class="{{ js_tabs_classes|join(' ') }}" id="{{ js_tabs_id }}">
+    <ul class="js-tablist">
+        {% block tabs_tabs %}
+            {% for tab in tabs %}
+                {% include '@limestone/tab-tab.twig' with { 
+                    tab_target : "tab_" ~ loop.index, 
+                    tab_label :  tab.label,
+                    tab_tab_variant: ""
+                }%}
+            {% endfor %}
+        {% endblock %}
+    </ul>
+    {% block tabs_panels %}
+        {% for tab in tabs %}
+            {% embed '@limestone/tab-panel.twig' with { tab_panel_id : "tab_" ~ loop.index } %}
+                {% block tab_panel_content %}
+                    {{tab.content}}
+                {% endblock %}
+            {% endembed %}
+        {% endfor %}
+    {% endblock %}
+    <a class="back-to-top ic ic--angle-up" href="#{{ js_tabs_id }}"><span class="show-for-sr">Back to Tabs</span></a>
+</div>

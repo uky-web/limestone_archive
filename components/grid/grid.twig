@@ -1,0 +1,16 @@
+{% embed '@limestone/slab.twig' %}
+    {% block slab_content %}
+        {% if include_headline %}
+        <div class="editorial">
+            {% include 'molecules-headline-group' with { level: headline_level, head: headline } only %}        
+        </div>
+        {% endif %}
+        <div class="grid {{ grid_type|default('grid--' ~ grid_column_count ~ '-up') }} {{ grid_style }}">           
+                {% for column_content in grid_columns %}
+                <div class="grid__column">
+                    {{column_content}}
+                </div>
+                {% endfor %}
+        </div>
+    {% endblock %}
+{% endembed %}

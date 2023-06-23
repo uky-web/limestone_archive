@@ -1,0 +1,16 @@
+{% set button_props = {
+    'button_variant':'button--icon ' ~ button_variant, 
+    'data_attributes':data_attributes,
+    'html_attributes':html_attributes,
+    'icon_label_props':{
+        'icon_label_variant':icon_label_variant,
+        'icon':icon|default('home'),
+        'label': icon_label|default('Home')
+    }
+}%}
+
+{% embed '@limestone/button.twig' with button_props only %}
+    {% block button_content %}
+        {% include '@limestone/icon-label.twig' with icon_label_props only %}
+    {% endblock %}
+{% endembed %}

@@ -1,15 +1,14 @@
-<div class="editorial">
-	{% block editorial_aside %}
-		{% if aside is not empty %}
-		<aside class="editorial__aside {{ aside_position|default('align-right') }}">
-			{% include aside %}
-		</aside>
-		{% endif %}
-	{% endblock %}
-	{% block editorial_content %}
-	<div class="editorial__content">
-		{% include 'atoms-heading' with { level: level|default(2) } %}
-		{% include 'atoms-formatted-text' with { formatted_text_paragraphs : paragraphs|default(10) } %}
-	</div>
-	{% endblock %}
-</div>
+{% set aside_content %}
+	{% include aside %}
+{% endset %}
+
+{% set props = {
+	"aside":aside_content,
+	"aside_position":aside_position|default('align-right'),
+	"heading":headline|default(fake('bs')|titleize),
+	"heading_level":level|default(2),
+	"body": text.editorial_paragraphs(10, 5)
+}%}
+
+{% embed "@limestone/editorial.twig" with props only %}
+{% endembed %}

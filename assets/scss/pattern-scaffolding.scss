@@ -6,7 +6,7 @@
 
 @use 'includes/root-rhythm';
 @use 'includes/color-functions';
-@use 'tokens/typography';
+@use 'typography';
 @use 'tokens/_colors';
 @use 'tokens/_color-schemes';
 @import 'includes/design-variables';
@@ -88,7 +88,6 @@
     @include show-color($color)
   }
 }
-
 
 .sg-pattern-example {
   overflow: hidden;

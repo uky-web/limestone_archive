@@ -1,5 +1,18 @@
-{% embed 'molecules-slab' %}
+{% set content_meta_props = {
+    "byline":fake('name'),
+    "date":"now"|date(content_date_format|default("M d, Y - g:i a")),
+}%}
+
+{% embed '@limestone/slab.twig' %}
     {% block slab_content %}
-        {% include 'molecules-content-meta' %}
+        {% embed "@limestone/content-meta.twig" with content_meta_props only %}
+            {% block meta_taxonomy %}
+                        {% set taxo = fake('words',{nb: 2 + random(3)}) %}
+                    {% for w in taxo %}
+                        {{ w|capitalize }}
+                    {% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                {% endblock %}
+        {% endembed %}
     {% endblock %}
 {% endembed %}

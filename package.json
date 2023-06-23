@@ -73,10 +73,11 @@
     "gulp-rename": "^1.2.2",
     "rollup-plugin-bower-resolve": "^0.4.0"
   },
-  "scripts": {
+
+  "scripts":{
     "install": "echo 'Y' | composer install --working-dir ./patternlab",
     "start": "gulp start",
-    "dev": "",
-    "build-patternlab": ""
+    "dev": "", 
+    "build-patternlab":"" 
   }
 }

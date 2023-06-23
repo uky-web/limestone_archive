@@ -1,13 +1,34 @@
 {% set default_headline = fake('words',{ nb: 3 + random(5), asText: true }) %}
 
-{% embed 'molecules-slab' with {slab_variant : slab_variant|default('slab--dark') ~ " page-header page-header--overlay-hero " ~ hero_variant, attrs : {id:id} }%}
+{% set headline_group_props = {
+	"level":level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"head": head|default(default_headline)|titleize,
+}%}
+
+{% set cta_group_props = {
+    "cta_type":"mixed",
+    "button_style": "button--small",
+    "actions":[{
+        "label":"Action 1",
+        "url":"example.com"
+    },
+    {
+        "label":"Action 2",
+        "url":"example.com"
+    }]
+}%}
+
+
+{% embed '@limestone/slab.twig' with {slab_variant : slab_variant|default('slab--dark') ~ " page-header page-header--overlay-hero " ~ hero_variant, attrs : {id:id} }%}
     {% block slab_outer %}
         <div class="page-header--overlay__hero">
             {% include 'molecules-picture' %}
         </div>
         <div class="slab__wrapper">
             <div class="page-header__content">
-                {% include 'molecules-headline-group' with { level : 1, head:head|default(default_headline)|titleize } %}
+                {% include '@limestone/headline-group.twig' with headline_group_props only  %}
                 {% if with_editorial %}
                 <div class="editorial">
                     {% for i in 1..formatted_text_paragraphs|default(1) %}
@@ -16,7 +37,7 @@
                     </div>
                 {% endif %}
                 {% if with_cta %}
-                    {% include 'molecules-cta-group' with {button_style:'button--small'}%}
+                    {% include "@limestone/cta-group.twig" with cta_group_props only %}
                 {% endif %}
             </div>
 
@@ -24,7 +45,7 @@
         {% if with_next %}
          <div class="slab-series__next">
          <span class="slab-series__next-super">Next</span><br/>
-            {% include 'atoms-link' with { link_variant: link_variant|default('link--fancy'), label : fake('words',{ nb: 3 + random(5), asText: true })|capitalize, url : "#" ~ next_id } %}
+            {% include '@limestone/link.twig' with { link_variant: link_variant|default('link--fancy'), label : fake('words',{ nb: 3 + random(5), asText: true })|capitalize, url : "#" ~ next_id } only %}
         </div>
         {% endif %}
 

@@ -1,5 +1,12 @@
+{% set headline_group_props = {
+	"level":level|default(2),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"head": "Filter " ~ contentType|default('content'),
+}%}
+
 <div class="content-filter">
-    {% include 'molecules-headline-group' with { level: 2, head: "Filter " ~ contentType|default('content') } %}
+    {% include '@limestone/headline-group.twig' with headline_group_props %}
     <form action="/news" method="get" id="views-exposed-form-news-page-1" accept-charset="UTF-8">
         <div class="form-item">
             <label for="edit-category">Category</label>

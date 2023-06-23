@@ -1,0 +1,16 @@
+{% set props = {
+ 'content_type': "inline", 
+ 'modal_variant': "search-control",
+ 'modal_trigger_text': modal_trigger_text | default("Search"), 
+ 'search_form_props': search_form_props | default({
+  'search_label': search_label,
+ })
+
+}%}
+
+
+{% embed '@limestone/modal.twig' with props only %}
+  {% block modal_content %}
+    {% include '@limestone/search-form.twig'  with search_form_props only %}
+  {% endblock %}
+{% endembed %}

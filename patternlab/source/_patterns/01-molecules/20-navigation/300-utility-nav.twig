@@ -1,7 +1,9 @@
-{% set utility_label_id = "UtilityNavLabel"|uniqid %}
-<nav id="{{ "UtilityNav"|uniqid }}" class="utility-nav" aria-labelledby="{{ utility_label_id }}">
-    <div class="show-for-sr" id="{{ utility_label_id }}">Utility Navigation</div>    
-    {% for i in 0..2 %}
-        {% include 'atoms-link' with { label: fake('word')|titleize} %}
-    {% endfor %}
-</nav>
+{% set props = {
+    'links': [
+        {'label': fake('word')|titleize,'url':'#' },
+        {'label': fake('word')|titleize,'url':'#' },
+        {'label': fake('word')|titleize,'url':'#' }
+    ]
+}%}
+
+{% include '@limestone/utility-nav.twig' with props only %}

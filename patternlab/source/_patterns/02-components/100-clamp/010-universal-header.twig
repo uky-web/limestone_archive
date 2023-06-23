@@ -1,10 +1,6 @@
-{% embed 'molecules-slab' with { slab_variant: 'universal-header ' ~ universal_header_variant } %}
-    {% block slab_content %}
-        <div class="universal-header__layout">
-            {% if not hide_breadcrumb %}
-            {% include 'molecules-universal-breadcrumb' %}
-            {% endif %}
-            {% include 'molecules-universal-nav' %}
-        </div>
-    {% endblock %}
-{% endembed %}
+{% set props = {
+  'parent_site_url': '#',
+  'parent_site_name': 'College of '~( fake('bs')|titleize )
+}%}
+
+{% include "@limestone/universal-header.twig" with props only %}

@@ -1,0 +1,56 @@
+{# If there's no section, we can spit out the same panel component but with only one tab #}
+{% set show_section_tab = not is_home %}
+
+{% set tabs_variant = [
+        'mobile-tab-nav',
+        (is_main) ? 'mobile-tab-nav--wildcat' : ''
+    ] %}
+
+{% set tab_1_content%}
+    <div class="mobile-tab-nav__menus">
+        {{primary_nav}}
+        <hr>
+        {{utility_nav}}
+    </div>
+    <div class="mobile-tab-nav__universal">
+        {% if not is_main %}
+            {{universal_breadcrumb}}
+        {% else %}
+           <hr>
+        {% endif %}
+        {{universal_nav}}
+    </div>
+{% endset %}
+
+{% set section_tab_content %}
+   {{section_nav }}
+{% endset %}
+
+{% if show_section_tab %}
+    {% set tabs = [
+        {
+            "label":"Main Menu",
+            "content": tab_1_content
+        },
+        {
+            "label":"This Section",
+            "content": section_tab_content
+        }
+    ] %}
+
+{% else %}
+    {% set tabs = [{
+        "label":"Main Menu",
+        "content": tab_1_content
+    }] %}
+{% endif %} 
+
+    {% set tabs_props = {
+        "tabs_variant":tabs_variant,
+        "tabs":tabs
+    }%}
+
+
+
+{% embed '@limestone/tabs.twig' with { tabs_variant: tabs_variant|join(' ') } %}
+{% endembed %}

@@ -51,7 +51,7 @@ module.exports = {
 const {buildPatternlabFiles, buildPatternlabPages, buildPatternlab} = require('./buildPatternlab');
 const {servePatternlab} = require('./servePatternlab');
 const patternlabPaths = {
-    twig: "./patternlab/source/_patterns/**/*.twig",
+    twig: ["./patternlab/source/_patterns/**/*.twig","./components/**/*.twig"],
     markdown: "./patternlab/source/_patterns/**/*.md",
     json: "./patternlab/source/_patterns/**/*.json",
     css:"./patternlab/public/css",
@@ -88,7 +88,7 @@ const watchPatternlab = function(cb){
           .pipe(browserSync.stream()); 
       })
 
-    watch([patternlabPaths.twig,patternlabPaths.markdown,patternlabPaths.json], function moveFiles(cb){
+    watch(patternlabPaths.twig.concat(patternlabPaths.markdown,patternlabPaths.json), function moveFiles(cb){
         const browserSync = require('browser-sync').get('patternlab');
         buildPatternlabPages(function(){
             browserSync.reload();

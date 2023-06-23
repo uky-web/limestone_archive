@@ -2,7 +2,7 @@
     {% set taxonomy = fake('words',{nb:3}) %}
     <p>
         {% for term in taxonomy %}
-            {% include 'atoms-link' with { label: term} %}{% if not loop.last %}, {% endif %}
+            {% include '@limestone/link.twig' with { 'label': term} %}{% if not loop.last %}, {% endif %}
         {% endfor %}
     </p>
 </span>

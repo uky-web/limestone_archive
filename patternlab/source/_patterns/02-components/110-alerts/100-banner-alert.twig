@@ -1,9 +1,21 @@
+{% set link_props = {
+    'link_variant':'underline-link',
+    'label':label|default(fake('bs')),
+    'href':url|default('http://www.example.com/'),
+}%}
+
+{% set icon_label_props = {
+    'icon_label_variant': "icon-label--big", 
+    'icon': icon, 
+    'label': alert_headline
+}%}
+
 <div class="banner-alert {{ banner_alert_variant }}">
     {% if alert_headline %}
-        {% include 'atoms-icon-label' with { icon_label_variant: "icon-label--big", icon: icon, label: alert_headline } %}
+        {% include '@limestone/icon-label.twig' with icon_label_props only %}
     {% endif %}
     {% include 'atoms-paragraph' %}
-    {% include 'atoms-link' with { link_variant : 'underline-link' } %}
+    {% include '@limestone/link.twig' with link_props only %}
     {%  if alert_mid %}
         <div class="banner-alert__mid">
             {% include 'atoms-paragraph' with {content: alert_mid} %}

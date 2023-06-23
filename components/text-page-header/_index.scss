@@ -1,0 +1,5 @@
+@use 'color-functions';
+
+.page-header--text.slab--wildcat-white {
+  border-top: 2px color-functions.color(light-gray) solid;
+}

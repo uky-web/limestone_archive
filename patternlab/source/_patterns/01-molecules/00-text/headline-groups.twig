@@ -1,4 +1,4 @@
-{% embed 'molecules-slab' with {slab_variant : 'slab--wildcat-white'} %}
+{% embed '@limestone/slab.twig' with {slab_variant : 'slab--wildcat-white'} %}
     {% block slab_content %}
         <h2>Headline Groups</h2>
 
@@ -15,13 +15,13 @@
             {% else %}
                 {% set head = "Headline level " ~ i %}
             {% endif %}
-            {% include 'molecules-headline-group' with { level : i, head: head } only %}
+            {% include '@limestone/headline-group.twig' with { level : i, head: head } only %}
             <hr />
-            {% include 'molecules-headline-group' with { level : i, super: super, head: head } only %}
+            {% include '@limestone/headline-group.twig' with { level : i, super: super, head: head } only %}
             <hr />
-            {% include 'molecules-headline-group' with { level : i, sub: sub, head: head } only %}
+            {% include '@limestone/headline-group.twig' with { level : i, sub: sub, head: head } only %}
             <hr />
-            {% include 'molecules-headline-group' with { level : i, super: super, sub: sub, head: head } only %}
+            {% include '@limestone/headline-group.twig' with { level : i, super: super, sub: sub, head: head } only %}
             <hr />
         {% endfor %}
     {% endblock %}

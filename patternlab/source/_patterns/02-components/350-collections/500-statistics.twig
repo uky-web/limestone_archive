@@ -1,2 +1,19 @@
-{% set grid_columns = ['components-statistic','components-statistic','components-statistic'] %}
-{% include 'molecules-grid' with { head : head|default('Statistics blocks'), grid_style: grid_style, grid_type: "grid--" ~ columns|default(3) ~ "-up" } %}
+{% set grid_column_content %}
+    {% include 'components-statistic'%}
+{% endset %}
+
+{% set grid_props = {
+    "include_headline":true,
+    "headline_level":2,
+    "headline":head|default('Statistics blocks'),
+    "grid_type":"grid--"~column_count|default(3)~"-up",
+    "grid_style":grid_style,
+    "grid_column_count":column_count|default(3),
+    "grid_columns":[
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+    ]
+}%}
+
+{% include '@limestone/grid.twig' with grid_props only %}

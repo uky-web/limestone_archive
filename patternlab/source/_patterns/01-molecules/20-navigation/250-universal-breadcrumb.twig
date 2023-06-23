@@ -1,7 +1,6 @@
-<div class="universal-breadcrumb">
-  {# Breadcrumb should be university, parent of current site only #}
-  <ul>
-    <li><a class="link--fancy-reverse" href="https://www.uky.edu" title="Back to University of Kentucky home page">University of Kentucky</a></li>
-    <li><a href="#">College of {{ fake('bs')|titleize }}</a></li>
-  </ul>
-</div>
+{% set props = {
+  'parent_site_url': '#',
+  'parent_site_name': 'College of '~( fake('bs')|titleize )
+}%}
+
+{% include '@limestone/universal-breadcrumb.twig' with {props} only %}

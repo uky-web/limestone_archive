@@ -1,4 +1,4 @@
-{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white editorial' } %}
+{% embed '@limestone/slab.twig' with { slab_variant : 'slab--wildcat-white editorial' } %}
 	{% block slab_content %}
 		<p>
 			These are editorial headings, which are made available from <code>h2</code>
@@ -8,8 +8,8 @@
 		</p>
 		{% for i in 2..6 %}
 			{% set headline = 'Editorial heading level ' ~ i %}
-			{% include 'atoms-heading' with { headline: headline, level : i } %}
-			{% include 'atoms-heading' with { headline: headline, level : i, linked : true } %}
+			{% include '@limestone/heading.twig' with { headline: headline, level : i } %}
+			{% include '@limestone/heading.twig' with { headline: headline, level : i, linked : true } %}
 			{% if loop.last is not sameas(true) %}<hr />{% endif %}
 		{% endfor %}
 	{% endblock %}

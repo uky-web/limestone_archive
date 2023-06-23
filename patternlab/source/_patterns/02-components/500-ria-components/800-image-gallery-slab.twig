@@ -1,7 +1,49 @@
-{% embed 'molecules-slab' with { slab_variant : slab_variant|default('slab--wildcat-white')} %}
+{% set images = [
+    {
+        "thumbnail_src":fake('imageUrl',{aspectRatio: aspectRatio|default("4:3"), width: 200}),
+        "full_src":fake('imageUrl',{aspectRatio: aspectRatio|default("4:3"), width: 800}),
+        "class_modifier":class_modifier,
+        "title": fake('words',{nb: 3, asText: true})|titleize,
+        "caption":text.editorial_paragraphs(1, 5),
+        "citation":fake('name')
+    },
+    {
+        "thumbnail_src":fake('imageUrl',{aspectRatio: aspectRatio|default("4:3"), width: 200}),
+        "full_src":fake('imageUrl',{aspectRatio: aspectRatio|default("4:3"), width: 810}),
+        "class_modifier":class_modifier,
+        "title": fake('words',{nb: 3, asText: true})|titleize,
+        "caption":text.editorial_paragraphs(1, 5),
+        "citation":fake('name')
+    },
+     {
+        "thumbnail_src":fake('imageUrl',{aspectRatio: aspectRatio|default("4:3"), width: 200}),
+        "full_src":fake('imageUrl',{aspectRatio: aspectRatio|default("4:3"), width: 800}),
+        "class_modifier":class_modifier,
+        "title": fake('words',{nb: 3, asText: true})|titleize,
+        "caption":text.editorial_paragraphs(1, 5),
+        "citation":fake('name')
+    },
+]%}
+
+{% set headline_group_props = {
+	"level":level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"super": super|default(fake('bs')),
+	"head": head|default(fake('bs')),
+	"sub": sub|default(fake('bs')),
+}%}
+
+
+{% set image_gallery_props = {
+    "images":images
+}%}
+
+
+{% embed '@limestone/slab.twig' with { slab_variant : slab_variant|default('slab--wildcat-white')} %}
     {% block slab_content %}
-        {% include 'molecules-headline-group' %}
+        {% include '@limestone/headline-group.twig' with headline_group_props %}
         {% include 'atoms-paragraph' %}
-        {% include 'molecules-image-gallery' %}
+        {% include "@limestone/image-gallery.twig" with image_gallery_props only %}
     {% endblock %}
 {% endembed %}

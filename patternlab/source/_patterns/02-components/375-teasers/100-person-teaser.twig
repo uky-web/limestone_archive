@@ -1,11 +1,23 @@
+{% set headline_group_props = {
+	"level":level|default(3),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"headline_group_link": "example.com",
+	"head": fake('name'),
+}%}
+
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(3, 5)
+}%}
+
 {% embed 'components-teaser' with {teaser_variant : "teaser--person" } %}
 	{% block teaser_content %}
-		{% include 'molecules-headline-group' with { level:level|default(3), headline_group_linked: true, head:fake('name') } %}
+		{% include '@limestone/headline-group.twig' with headline_group_props only %}
 		<p>
 			<span class="title">{{ fake('jobTitle') }}</span><br />
-			{% include 'atoms-link-fancy' with { label:'College or Department' } %}
+			{% include '@limestone/link.twig'  with { label:'College or Department', 'link_variant':'link--fancy' } %}
 		</p>
-		{% include 'atoms-formatted-text' %}
+		{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
 	{% endblock %}
 {% endembed %}
 

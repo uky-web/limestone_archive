@@ -1,7 +1,7 @@
 {% set sizes = ["xs","s","m","l","xl","2xl","3xl","4xl","5xl"] %}
 {% set sentences = fake('sentences',{nb: 10, asText: true} ) %}
 
-{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+{% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
     <h2>Usual</h2>
     <div class="font-usual">
@@ -15,7 +15,7 @@
     {% endblock %}
 {% endembed %}
 
-{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+{% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
         <h2 class="font-bodini">Bodini</h2>
         <div class="font-bodini">
@@ -27,7 +27,7 @@
     {% endblock %}
 {% endembed %}
 
-{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+{% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
         <h2 class="font-gothic-atf">ATF Alternate Gothic</h2>
         <div class="font-gothic-atf">
@@ -39,19 +39,7 @@
     {% endblock %}
 {% endembed %}
 
-{# {% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
-    {% block slab_content %}
-        <h2 class="font-mercury">Mercury</h2>
-        <div class="font-mercury">
-        <p>Normal text {{ sentences }}</p>
-        <p style="font-style: italic ">Italic text {{ sentences }}</p>
-        <p style="font-weight: bold;">Bold text {{ sentences }}</p>
-        <p style="font-style: italic; font-weight: bold;">Bold italic text {{ sentences }}</p>
-        </div>
-    {% endblock %}
-{% endembed %} #}
-
-{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+{% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
         <h2 class="font-blackbikerough">Blackbike Rough</h2>
         <div class="font-blackbikerough">
@@ -61,7 +49,7 @@
     {% endblock %}
 {% endembed %}
 
-{% embed 'molecules-slab' with { slab_variant : "slab--transparent" } %}
+{% embed '@limestone/slab.twig' with { slab_variant : "slab--transparent" } %}
     {% block slab_content %}
         <h2 class="font-blackbikeclean">Blackbike Clean</h2>
         <div class="font-blackbikeclean">

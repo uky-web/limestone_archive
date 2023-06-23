@@ -1,0 +1,98 @@
+{% set lockup_props = {
+    'url':lockup_url,
+    'lockup_wordmark_1':lockup_wordmark_1,
+    'lockup_wordmark_2':lockup_wordmark_2,
+    'lockup_unit':lockup_unit
+}%}
+
+{% set universal_header_props = {
+    'universal_header_variant' : clamp_variant, 
+    'hide_breadcrumb': is_main,
+    'parent_site_title': parent_site_title,
+    'parent_site_name': parent_site_name 
+} %}
+
+{% set utility_nav_props = {
+    'links': utility_nav_links
+}%}
+
+{% set global_nav_props = {
+    'home_link': global_nav_home,
+    'links': global_nav_links
+}%}
+
+{% set menu_button_props = {
+    'toggle': '#MobileNav',
+    'toggle_viz':true,
+    'toggle_toggled_label' : 'Close',
+    'toggle_toggled_icon' : 'close'
+}%}
+
+{% set global_nav %}
+    {% include "@limestone/global-nav.twig" with global_nav_props only %}
+{% endset %}
+
+{% set section_nav %}
+    {% include '@limestone/section-nav.twig' with section_nav_props only %}
+{% endset %}
+
+{% set utility_nav %}
+    {% include '@limestone/utility-nav.twig' with utility_nav_props only %}
+{% endset %}
+
+{% set universal_nav %}
+    {% include '@limestone/universal-nav.twig' %}
+{% endset %}
+
+{% set universal_breadcrumb %}
+    {% include '@limestone/universal-breadcrumb.twig' with {
+        'parent_site_url': parent_site_url,
+        'parent_site_name': parent_site_name
+    } only %}
+{% endset %}
+
+{% set logo %}
+    {% if (is_main) %}
+        {% include  '@limestone/uky-logo-main.twig'%}
+    {% else %}
+        {% include '@limestone/site-identity.twig' with lockup_props only %}
+    {% endif %}
+{% endset %}
+
+{% set mobile_tab_nav_props = {
+    "is_main": is_main|default(true),
+    "is_home": is_home|default(false),
+    "primary_nav": global_nav,
+    "section_nav": section_nav,
+    "utility_nav": utility_nav,
+    "universal_nav": univeral_nav,
+    "universal_breadcrumb": universal_breadcrumb
+}%}
+
+{% set clamp_variant = (is_main) ? 'clamp--main' %}
+
+{% include '@limestone/universal-header.twig' with universal_header_props only %}
+<header id="MainHeader" class="global-header {{ clamp_variant }}">
+
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-header__masthead'} %}
+    {% block slab_content %}
+        <div class="global-header__banner">
+            {{logo}}
+            {{utility_nav}}
+            {% include '@limestone/menu-button.twig' with menu_button_props only %}
+        </div>
+    {% endblock %}
+{% endembed %}
+{% embed '@limestone/slab.twig' with { slab_variant: 'global-header__nav-bar' } %}
+    {% block slab_content %}
+        {{global_nav}}
+    {% endblock %}
+{% endembed %}
+
+{% embed '@limestone/slab.twig' with { slab_variant: 'mobile-nav', props: ['hidden'], attrs: { id : 'MobileNav' } } %}
+    {% block slab_content %}
+        {% include '@limestone/mobile-tab-nav.twig' with mobile_tab_nav_props only %}
+    {% endblock %}
+{% endembed %}
+
+</header>

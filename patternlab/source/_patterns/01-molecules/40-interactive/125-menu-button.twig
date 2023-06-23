@@ -1,7 +1,8 @@
-{% set toggle_config = {
+{% set props = {
     toggle: '#MobileNav',
     toggle_viz: true,
     toggle_toggled_label : 'Close',
     toggle_toggled_icon : 'close'
 } %}
-{% include 'molecules-toggle-button' with { icon_label_variant:'icon-label--stacked', toggle_button_variant: "menu-button", label: 'Menu', icon: 'menu', data_obj : toggle_config } %}
+
+{% include '@limestone/menu-button.twig' with props only %}

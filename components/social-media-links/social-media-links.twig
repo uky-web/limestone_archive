@@ -1,0 +1,24 @@
+{% set headline_group_props = {
+	"level":headline_level,
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":(hide_heading) ? "show-for-sr" : "" ,
+	"head": headline_head|default('Connect With Us') ,
+}%}
+
+<div class="social-media-links {{ social_media_links_variant }}">
+    {% include '@limestone/headline-group.twig' with headline_group_props only %}
+    <div class="social-media-links__linkset">
+        {% apply spaceless %}    
+            {% for link in links %}
+                {% if icons_block %}{% set icon = link.block_icon %}{% else %}{% set icon = link.icon %}{% endif %}
+                <a href="{{linik.url}}">
+                {% include '@limestone/icon-label.twig' with { 
+                    hide_label: true, 
+                    icon: icon, 
+                    label:link.name 
+                } only %}
+                </a>
+            {% endfor %}
+        {% endapply %}
+    </div>
+</div>

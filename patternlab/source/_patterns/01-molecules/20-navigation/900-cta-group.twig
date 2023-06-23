@@ -1,10 +1,15 @@
-<div class="cta-group">
-{% for i in 1..num_actions|default(2) %}
-    {% set label = fake('words',{nb: 3, asText: true}) %}
-    {% if cta_type is sameas('buttons') or (cta_type is sameas('mixed') and loop.first) %}
-        {% include 'atoms-link' with { link_variant : 'button ' ~ button_style } %}
-    {% else %}
-        {% include 'atoms-link-fancy' %}
-    {% endif %}
-{% endfor %}
-</div>
+{% set props = {
+    "cta_type":"mixed",
+    "button_style": button_style,
+    "actions":[{
+        "label":"Action 1",
+        "url":"example.com"
+    },
+    {
+        "label":"Action 2",
+        "url":"example.com"
+    }]
+}%}
+
+{% include "@limestone/cta-group.twig" with props only %}
+

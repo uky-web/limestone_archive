@@ -1,3 +1,15 @@
+
+{% set button_props = {
+    'label':button_label|default("Button label"),
+    'button_variant':button_variant
+}%}
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(2, 5)
+}%}
+{% if cta_variant is sameas('cta--dark') %}
+    {% set button_props = button_props|merge({'button_variant':'button--ghost'}) %}
+{% endif %}
+
 {% if media is empty %}
     {% set media = 'image' %}
 {% endif %}
@@ -7,13 +19,9 @@
             <div class="image-with-caption__media">{% include media_pattern|default('atoms-image') %}</div>
         {% endblock %}
         {% block figure_caption %}
-            {% include 'atoms-heading' with { level:level|default(2), heading_variant: heading_variant|default('font-usual') } %}
-            {% include 'atoms-formatted-text' %}
-            {% if cta_variant is sameas('cta--dark') %}
-                <p>{% include 'atoms-button' with { button_variant: 'button--ghost', label: button_label } %}</p>
-            {% else %}
-                <p>{% include 'atoms-button' with { label: button_label, button_variant: button_variant } %}</p>
-            {% endif %}
+            {% include '@limestone/heading.twig' with { headline:headline|default(fake('bs')|titleize),  level:level|default(2), heading_variant: heading_variant|default('font-avenirnext') } %}
+	        {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+            <p>{% include '@limestone/button.twig' with button_props only %}</p>
         {% endblock %}
     {% endembed %}
 </div>

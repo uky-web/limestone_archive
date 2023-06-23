@@ -1,5 +1,12 @@
-<div class="pulltext {{ pulltext_variant }}">
-  <div class="pulltext__content">
-    {% include 'atoms-paragraph' %}
-  </div>
-</div>
+{% set text %}
+  <p>
+    {{ fake('paragraph',{nb: 1}) }}
+  </p>
+{% endset %}
+
+{% set props = {
+  "pulltext_variant":pulltext_variant,
+  "text":text
+}%}
+
+{% include "@limestone/pulltext.twig" with props only %}

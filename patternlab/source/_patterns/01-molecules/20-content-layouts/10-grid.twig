@@ -1,24 +1,21 @@
-{% embed 'molecules-slab' %}
-    {% block slab_content %}
-        {% if include_headline %}
-        <div class="editorial">
-            {% include 'molecules-headline-group' with { level: 2, head: head|default('Grid Headline') } only %}        
-        </div>
-        {% endif %}
-        <div class="grid {{ grid_type|default('grid--2-up') }} {{ grid_style }}">
-            {% if grid_columns %}                
-                {% for col in grid_columns %}
-                <div class="grid__column">
-                    {% include col  %}
-                </div>
-                {% endfor %}
-            {% else %}
-                {% for i in 1..grid_cols|default(2) %}
-                <div class="grid__column">
-                    {% include 'atoms-placeholder' %}
-                </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    {% endblock %}
-{% endembed %}
+{% set grid_column_content %}
+    {% include 'atoms-placeholder' %}
+{% endset %}
+
+{% set props = {
+    "include_headline":true,
+    "headline_level":2,
+    "headline":"Grid Headline",
+    "grid_type":grid_type|default('grid--2-up'),
+    "grid_style":"",
+    "grid_column_count":column_count|default(2),
+    "grid_columns":[
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+        grid_column_content,
+        grid_column_content
+    ]
+}%}
+{% include "@limestone/grid.twig" with props only %}

@@ -1,9 +1,8 @@
-<div class="ambient-video">
-    <video loop muted playsinline poster="../../images/video/ambient-demo-poster.jpg" preload="none">
-        <source data-src="../../images/video/ambient-demo-small.m4v" src="../../images/video/ambient-demo-tiny.m4v" type="video/mp4">
-    </video>
-    <button class="video-button button--large" aria-label="Stop Video" data-pressed-label="Start Video" data-unpressed-label="Stop Video" data-pressed-icon="design--play-circle-filled" data-unpressed-icon="design--pause-circle-filled" aria-pressed="false">
-        {% include 'atoms-icon-label' with {icon: 'play-triangle', label: 'play video', icon_label_variant: 'video-button__play', hide_label: true } %}
-        {% include 'atoms-icon-label' with {icon: 'pause', label: 'pause video', icon_label_variant: 'video-button__pause', hide_label: true } %}
-    </button>
-</div>
+{% set props = {
+    "poster_image_url":"../../images/video/ambient-demo-poster.jpg",
+    "source_large":"https://filesamples.com/samples/video/m4v/sample_1280x720.m4v",
+    "source_small":"https://filesamples.com/samples/video/m4v/sample_960x540.m4v",
+    "video_type":"video/mp4"
+}%}
+
+{% include "@limestone/ambient-video.twig" with props only %}

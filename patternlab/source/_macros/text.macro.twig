@@ -12,3 +12,12 @@
 		{% endif %}
 	{% endfor %}
 {% endmacro %}
+
+
+{% macro editorial_paragraphs(paragraphs, sentences) %}
+		{% for i in 1..paragraphs|default(2) %}
+		<p>
+			{{text.editorial(sentences)}}
+		</p>
+		{% endfor %}
+{% endmacro %}

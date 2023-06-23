@@ -1,8 +1,8 @@
-{% spaceless %}
-<span class="icon-label {{ icon_label_variant }}">
-	{% if icon is not null %}
-	<span class="ic ic--{{ icon }}" aria-hidden="true"></span>
-	{% endif %}
-	<span class="label {% if hide_label %}show-for-sr{% endif %}">{{ label|default("Default Icon Label")|raw }}</span>
-</span>
-{% endspaceless %}
+{% set props = {
+  'icon_label_variant': '',
+  'icon':'',
+  'hide_label': '',
+  'label':'',
+}%}
+
+{% include "@limestone/icon-label.twig" with props only %}

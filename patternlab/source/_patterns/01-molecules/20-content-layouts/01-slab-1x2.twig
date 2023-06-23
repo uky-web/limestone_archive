@@ -1,16 +1,3 @@
-<div class="slab {{ slab_variant }}">
-    {% block slab_outer %}
-        <div class="grid grid--major-right">
-            <div class="grid__column grid__column--minor">
-                {% block slab_sidebar %}
-                    {% include 'atoms-placeholder' %}
-                {% endblock %}
-            </div>
-            <div class="grid__column grid__column--major">
-                {% block slab_content %}
-                    {% include 'atoms-placeholder' %}
-                {% endblock %}
-            </div>                                    
-        </div>
-    {% endblock %}
-</div>
+{% include "@limestone/slab-1x2.twig" with {
+    slab_variant
+} %}

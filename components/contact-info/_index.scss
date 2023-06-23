@@ -1,0 +1,117 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'typography';
+
+.contact-info {
+  &__heading {
+    margin-bottom: root-rhythm.rr-gridbase(2);
+
+    p {
+      @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    a {
+      word-break: break-all;
+    }
+
+    @include root-rhythm.rr-break-directive('m') {
+      margin-top: root-rhythm.rr-gridbase(4.5);
+    }
+  }
+
+  &__identity {
+    @include root-rhythm.rr-break-directive('m') {
+      position: relative;
+      top: -1px;
+      margin-top: root-rhythm.rr-gridbase(4.5);
+      border-top: 1px transparent solid;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background-color: color-functions.color(wildcat-blue);
+        content: '';
+      }
+    }
+  }
+
+  &__photo {
+    width: 66vw;
+    height: auto;
+    margin: 0 auto #{root-rhythm.rr-grid-remainder(3px, 2)};
+
+    @include root-rhythm.rr-break-directive('m') {
+      position: relative;
+      width: 6.25rem;
+      margin-right: calc(#{root-rhythm.rr-gridbase(-3)} + 6px);
+      margin-bottom: root-rhythm.rr-gridbase(2);
+      margin-left: root-rhythm.rr-gridbase(2);
+      float: right;
+    }
+
+    @include root-rhythm.rr-break-directive('l') {
+      margin-right: calc(#{root-rhythm.rr-gridbase(-6)} + 8px);
+      margin-bottom: root-rhythm.rr-gridbase(2);
+      margin-left: root-rhythm.rr-gridbase(2);
+    }
+  }
+
+  &__name {
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
+    display: block;
+    font-weight: 500;
+    @include root-rhythm.rr-break-directive('m') {
+      margin-top: root-rhythm.rr-gridbase(4.5);
+    }
+  }
+
+  &__title {
+    @include root-rhythm.rr-font-compute(r, medium, typography.$fonts, typography.$lineheights);
+    display: block;
+  }
+
+  dd {
+    @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
+    padding-left: root-rhythm.rr-gridbase(3);
+
+    .link--fancy {
+      @include root-rhythm.rr-font-compute(l, medium, typography.$fonts, typography.$lineheights);
+      margin-left: root-rhythm.rr-gridbase(-3);
+    }
+  }
+
+  $base: #{&};
+
+  &#{$base}--sheet {
+    margin-bottom: root-rhythm.rr-gridbase(4);
+    padding: 0;
+    border-width: 0;
+    background-color: color-functions.color(wildcat-white);
+
+    #{$base}__content {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    #{$base}__photo {
+      flex: 0 1 37%;
+      align-self: flex-start;
+      width: auto;
+      margin: 0;
+      margin-right: root-rhythm.rr-gridbase(2);
+      float: none;
+    }
+
+    .invisible-labels {
+      flex: 1 1 63%;
+    }
+  }
+}

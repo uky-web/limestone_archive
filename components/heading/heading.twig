@@ -1,0 +1,9 @@
+{% apply spaceless %}
+<h{{ level|default(1) }}{% if heading_variant is not empty %} class="{{ heading_variant }}"{% endif %}>
+  {% if linked is sameas(true) %}
+    {% include '@limestone/link.twig' with { label: headline, href:url } %}
+  {% else %}
+    <span class="heading__text">{{ headline }}</span>
+  {% endif %}
+</h{{ level|default(1) }}>
+{% endapply %}

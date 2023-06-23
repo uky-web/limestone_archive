@@ -1,0 +1,7 @@
+{% set navid = "UniversalNavLabel"|uniqid %}
+<nav class="universal-nav" aria-labelledby="{{ navid }}">
+    <div class="show-for-sr" id="{{ navid }}">University-wide Navigation</div>
+
+    {% include '@limestone/my-uk-logo.twig' %}
+    {% include '@limestone/search-control.twig' %}
+</nav>

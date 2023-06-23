@@ -1,0 +1,26 @@
+{% set headline_group_props = {
+	"level":headline_level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+   "super": headline_super, 
+   "head": headline_head
+}%}
+
+{% set formatted_text_props = {
+	"content": description
+}%}
+
+{% set described_link_props = {
+  "brief":described_links_brief,
+  "links":links
+}%}
+
+<div class="link-collection {{ link_collection_variant }}">
+    <div class="link-collection__header">
+        {% include '@limestone/headline-group.twig' with headline_group_props only %}
+	{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+    </div>
+    <div class="link-collection__content">
+        {% include '@limestone/described-links.twig' with described_link_props only %}
+    </div>
+</div>

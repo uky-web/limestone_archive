@@ -1,0 +1,371 @@
+D8 ATOMS:
+  Button:
+    x Create component directory @done(23-02-13 23:32)
+    x move scss @done(23-02-13 23:32)
+    x Modify PL story to reference component @done(23-02-13 23:32)
+    x Modify component to be reusable @done(23-02-13 23:32)
+    x Update all references to component @done(23-02-14 00:00)
+  heading:
+    x Create component directory @done(23-02-14 00:01)
+    x move scss @done(23-02-14 01:38)
+    x Modify PL story to reference component @done(23-02-14 02:43)
+    x Modify component to be reusable @done(23-02-14 02:43)
+    x Update all references to component @done(23-02-23 16:23)
+  link:
+    x Create component directory @done(23-02-14 01:49)
+    x move scss @done(23-02-14 01:49)
+    x Modify PL story to reference component @done(23-02-14 01:49)
+    x Modify component to be reusable @done(23-02-14 01:49)
+    x Update all references to component @started(23-02-14 01:49) @done(23-02-14 02:42) @lasted(53m38s)
+  icon button:
+    x Create component directory @done(23-02-14 02:46)
+    x move scss @done(23-02-14 02:46)
+    x Modify PL story to reference component @done(23-02-14 02:47)
+    x Modify component to be reusable @done(23-02-14 02:52)
+    x Update all references to component @done(23-02-14 02:57)
+  icon label:
+    x Create component directory @done(23-02-14 03:06)
+    x move scss @done(23-02-14 03:06)
+    x Modify PL story to reference component @done(23-02-14 03:09)
+    x Modify component to be reusable @done(23-02-14 03:09)
+    x Update all references to component @done(23-02-14 03:25)
+  link fancy:
+    x Update all references to component @done(23-02-14 21:49)
+
+  my-uk-logo:
+    x Create component directory @done(23-02-14 21:49)
+    x move scss @done(23-02-14 23:13)
+    x Modify PL story to reference component @done(23-02-14 23:14)
+    x Modify component to be reusable @done(23-02-14 23:14)
+    x Update all references to component @done(23-02-14 23:15)
+  uk-wordmark:
+    x Create component directory @done(23-02-14 23:17)
+    x move scss @done(23-02-14 23:18)
+    x Modify PL story to reference component @done(23-02-14 23:19)
+    x Modify component to be reusable @done(23-02-14 23:19)
+    x Update all references to component @done(23-02-14 23:22)
+  uk-logo-main:
+    x Create component directory @done(23-02-14 23:22)
+    x move scss @done(23-02-14 23:22)
+    x Modify PL story to reference component @done(23-02-14 23:26)
+    x Modify component to be reusable @done(23-02-14 23:22)
+    x Update all references to component @done(23-02-14 23:27)
+    image:
+      x Create component directory @done(23-02-20 19:44)
+      x move scss @done(23-02-20 19:44)
+      x Modify PL story to reference component @done(23-02-20 19:56)
+      x Modify component to be reusable @done(23-02-20 19:56)
+      [] Update all references to component NOTE: not sure we actually need this, since it's not themed in D8-base
+  
+    formatted-text:
+    x Create component directory @done(23-02-20 20:57)
+    x move scss @done(23-02-20 20:57)
+    x Modify PL story to reference component @done(23-02-20 20:57)
+    x Modify component to be reusable @done(23-02-20 20:57)
+    x Update all references to component @done(23-02-21 20:12)
+
+
+D8 Molecules:
+  accordion-panel:
+    x Create component directory @done(23-02-14 23:41)
+    x move scss @done(23-02-14 23:41)
+    x Modify PL story to reference component @done(23-02-14 23:41)
+    x Modify component to be reusable @done(23-02-14 23:41)
+    x Update all references to component @done(23-02-14 23:41)
+    cite-media:
+      x Create component directory @done(23-02-21 20:51)
+      x move scss @done(23-02-21 20:53)
+      x Modify PL story to reference component @done(23-02-21 20:53)
+      x Modify component to be reusable @done(23-02-21 20:53)
+      x Update all references to component @done(23-02-21 20:54)
+    carousel:
+    x Create component directory @done(23-02-15 00:25)
+    x move scss @done(23-02-15 00:29)
+    x Modify PL story to reference component @done(23-02-22 20:31)
+    x Modify component to be reusable @done(23-02-22 20:31)
+    x Update all references to component @done(23-02-22 22:00)
+  content-meta:
+    x Create component directory @done(23-02-23 16:26)
+    x move scss @done(23-02-23 16:26)
+    x Modify PL story to reference component @done(23-02-23 16:42)
+    x Modify component to be reusable @done(23-02-23 16:42)
+    x Update all references to component @done(23-02-23 16:42)
+  cta-group:
+    x Create component directory @done(23-02-23 17:31)
+    x move scss @done(23-02-23 17:31)
+    x Modify PL story to reference component @done(23-02-24 16:57)
+    x Modify component to be reusable @done(23-02-24 16:57)
+    x Update all references to component @done(23-02-24 17:25)
+  described-links:
+    x Create component directory @done(23-02-24 17:32)
+    x move scss @done(23-02-24 17:32)
+    x Modify PL story to reference component @done(23-02-24 17:44)
+    x Modify component to be reusable @done(23-02-24 17:44)
+    x Update all references to component @done(23-02-24 17:44)
+  grid:
+    x Create component directory @done(23-02-24 17:48)
+    x move scss @done(23-02-24 17:48)
+    x Modify PL story to reference component @done(23-02-24 20:18)
+    x Modify component to be reusable @done(23-02-24 20:18)
+    x Update all references to component @done(23-02-24 20:18)
+  image-gallery:
+    x Create component directory @done(23-02-24 20:21)
+    x move scss @done(23-02-24 20:21)
+    x Modify PL story to reference component @done(23-02-24 21:18)
+    x Modify component to be reusable @done(23-02-24 21:18)
+    x Update all references to component @done(23-02-24 22:59)
+  lockup:
+    x Create component directory @done(23-02-24 23:09)
+    x move scss @done(23-02-24 23:09)
+    x Modify PL story to reference component @done(23-02-24 23:09)
+    x Modify component to be reusable @done(23-02-24 23:10)
+    x Update all references to component @done(23-02-24 23:10)
+  headline group:
+    x Create component directory @done(23-02-25 20:52)
+    x move scss @done(23-02-25 20:52)
+    x Modify PL story to reference component @done(23-02-25 20:52)
+    x Modify component to be reusable @done(23-02-25 20:53)
+    x Update all references to component @done(23-02-25 22:10)
+  modal:
+    x Create component directory @done(23-02-25 22:17)
+    x move scss @done(23-02-25 22:17)
+    x Modify PL story to reference component @done(23-02-25 22:17)
+    x Modify component to be reusable @done(23-02-25 22:17)
+    x Update all references to component @done(23-02-25 22:17)
+  slab-1x2:
+    x Create component directory @done(23-02-25 22:27)
+    x move scss @done(23-02-25 22:27)
+    x Modify PL story to reference component @done(23-02-25 22:27)
+    x Modify component to be reusable @done(23-02-25 22:27)
+    x Update all references to component @done(23-02-25 22:27)
+  slab-2x1:
+    x Create component directory @done(23-02-25 22:27)
+    x move scss @done(23-02-25 22:27)
+    x Modify PL story to reference component @done(23-02-25 22:27)
+    x Modify component to be reusable @done(23-02-25 22:27)
+    x Update all references to component @done(23-02-25 22:27)
+  slab:
+    x Create component directory @done(23-02-25 22:27)
+    x move scss @done(23-02-25 22:27)
+    x Modify PL story to reference component @done(23-02-25 22:27)
+    x Modify component to be reusable @done(23-02-25 22:27)
+    x Update all references to component @done(23-02-25 22:27)
+  tab-panel:
+    x Create component directory @done(23-02-25 23:40)
+    x move scss @done(23-02-25 23:40)
+    x Modify PL story to reference component @done(23-02-25 23:40)
+    x Modify component to be reusable @done(23-02-25 23:40)
+    x Update all references to component @done(23-02-25 23:40)
+  tab-tab: 
+    x Create component directory @done(23-02-25 23:40)
+    x move scss @done(23-02-25 23:40)
+    x Modify PL story to reference component @done(23-02-25 23:40)
+    x Modify component to be reusable @done(23-02-25 23:40)
+    x Update all references to component @done(23-02-25 23:40)
+   tabs: 
+    x Create component directory @done(23-02-25 23:40)
+    x move scss @done(23-02-25 23:40)
+    x Modify PL story to reference component @done(23-02-25 23:40)
+    x Modify component to be reusable @done(23-02-25 23:40)
+    x Update all references to component @done(23-02-25 23:40)
+  toggle-button:
+    x Create component directory @done(23-02-26 00:02)
+    x move scss @done(23-02-26 00:02)
+    x Modify PL story to reference component @done(23-02-26 00:02)
+    x Modify component to be reusable @done(23-02-26 00:02)
+    x Update all references to component @done(23-02-26 00:02)
+  universal-nav:
+    x Create component directory @done(23-02-26 00:20)
+    x move scss @done(23-02-26 00:20)
+    x Modify PL story to reference component @done(23-02-26 00:20)
+    x Modify component to be reusable @done(23-02-26 00:20)
+    x Update all references to component @done(23-02-26 00:20)
+  zipper:
+    x Create component directory @done(23-02-26 01:05)
+    x move scss @done(23-02-26 01:05)
+    x Modify PL story to reference component @done(23-02-26 01:05)
+    x Modify component to be reusable @done(23-02-26 01:05)
+    x Update all references to component @done(23-02-26 01:05)
+  
+D8 Components:
+  media-with-caption:
+    x Create component directory @done(23-02-18 02:29)
+    x move scss @done(23-02-18 02:30)
+    x Modify PL story to reference component @done(23-02-22 20:17)
+    x Modify component to be reusable @done(23-02-22 20:17)
+    x Update all references to component @done(23-02-22 20:23)
+  call-to-action:
+    x Create component directory @done(23-02-26 01:23)
+    x move scss @done(23-02-26 01:23)
+    x Modify PL story to reference component @done(23-02-26 01:23)
+    x Modify component to be reusable @done(23-02-26 01:23)
+    x Update all references to component @done(23-02-26 01:24)
+  carousel-slab:
+    x Create component directory @done(23-02-26 20:20)
+    x move scss @done(23-02-26 20:20)
+    x Modify PL story to reference component @done(23-02-26 21:12)
+    x Modify component to be reusable @done(23-02-26 21:12)
+    x Update all references to component @done(23-02-26 21:13)
+  contact-info:
+    x Create component directory @done(23-02-26 21:27)
+    x move scss @done(23-02-26 21:27)
+    x Modify PL story to reference component @done(23-02-26 22:58)
+    x Modify component to be reusable @done(23-02-26 22:58)
+    x Update all references to component @done(23-02-26 22:58)
+  editorial:
+    x Create component directory @done(23-02-27 01:09)
+    x move scss @done(23-02-27 01:09)
+    x Modify PL story to reference component @done(23-02-27 01:09)
+    x Modify component to be reusable @done(23-02-27 01:09)
+    x Update all references to component @done(23-02-27 01:09)
+  global-footer:
+    x Create component directory @done(23-02-27 01:26)
+    x move scss @done(23-02-27 01:26)
+    x Modify PL story to reference component @done(23-02-27 01:29)
+    x Modify component to be reusable @done(23-02-27 01:29)
+    x Update all references to component @done(23-02-27 01:31)
+  global-header:
+    x Create component directory @done(23-02-27 01:54)
+    x move scss @done(23-02-27 01:54)
+    x Modify PL story to reference component @done(23-02-27 01:54)
+    x Modify component to be reusable @done(23-02-28 20:30)
+    x Update all references to component @done(23-02-28 20:30)
+  global-nav:
+    x Create component directory @done(23-02-27 02:12)
+    x move scss @done(23-02-27 02:12)
+    x Modify PL story to reference component @done(23-02-27 15:46)
+    x Modify component to be reusable @done(23-02-27 15:46)
+    x Update all references to component @done(23-02-27 15:46)
+  mobile-tab-nav:
+    x Create component directory @done(23-02-27 15:55)
+    x move scss @done(23-02-27 15:56)
+    x Modify PL story to reference component @done(23-02-27 21:54)
+    x Modify component to be reusable @done(23-02-27 21:55)
+    x Update all references to component @done(23-02-27 21:54)
+  section-nav:
+    x Create component directory @done(23-02-28 18:44)
+    X move scss
+    x Modify PL story to reference component @done(23-02-28 19:22)
+    x Modify component to be reusable @done(23-02-28 19:22)
+    x Update all references to component @done(23-02-28 19:33)
+  ambient-video:
+    x Create component directory @done(23-02-28 21:17)
+    x move scss @done(23-02-28 21:17)
+    x Modify PL story to reference component @done(23-02-28 21:17)
+    x Modify component to be reusable @done(23-02-28 21:17)
+    x Update all references to component @done(23-02-28 21:17)
+  image-gallery (also molecule???):
+    [] Create component directory
+    [] move scss
+    [] Modify PL story to reference component
+    [] Modify component to be reusable
+    [] Update all references to component
+  link-collection:
+    x Create component directory @done(23-03-12 20:20)
+    x move scss @done(23-03-12 20:40)
+    x Modify PL story to reference component @done(23-03-12 20:52)
+    x Modify component to be reusable @done(23-03-12 20:58)
+    x Update all references to component @done(23-03-12 21:03)
+  micro-teaser:
+    x Create component directory @done(23-03-12 21:07)
+    x move scss @done(23-03-12 21:07)
+    x Modify PL story to reference component @done(23-03-12 21:15)
+    x Modify component to be reusable @done(23-03-12 21:15)
+    x Update all references to component @done(23-03-12 21:25)
+pullquote:
+    x Create component directory @done(23-03-12 21:36)
+    x move scss @done(23-03-12 21:36)
+    x Modify PL story to reference component @done(23-03-12 22:04)
+    x Modify component to be reusable @done(23-03-12 22:04)
+    x Update all references to component @done(23-03-12 22:05)
+  pulltext:
+    x Create component directory @done(23-03-12 22:17)
+    x move scss @done(23-03-12 22:17)
+    x Modify PL story to reference component @done(23-03-12 22:17)
+    x Modify component to be reusable @done(23-03-12 22:17)
+    x Update all references to component @done(23-03-12 22:17)
+  search-form:
+    x Create component directory @done(23-03-12 22:42)
+    x move scss @done(23-03-12 22:42)
+    x Modify PL story to reference component @done(23-03-12 22:42)
+    x Modify component to be reusable @done(23-03-12 22:42)
+    x Update all references to component @done(23-03-12 22:42)
+  social-media-links:
+    x Create component directory @done(23-03-12 22:55)
+    x move scss @done(23-03-12 22:55)
+    x Modify PL story to reference component @done(23-03-12 23:47)
+    x Modify component to be reusable @done(23-03-12 23:47)
+    x Update all references to component @done(23-03-12 23:48)
+  statistic:
+    x Create component directory @done(23-03-13 00:35)
+    x move scss @done(23-03-13 00:35)
+    x Modify PL story to reference component @done(23-03-13 00:45)
+    x Modify component to be reusable @done(23-03-13 00:45)
+    x Update all references to component @done(23-03-13 00:45)
+  teaser:
+    x Create component directory @done(23-03-13 01:32)
+    x move scss @done(23-03-13 01:32)
+    x Modify PL story to reference component @done(23-03-13 01:32)
+    x Modify component to be reusable @done(23-03-13 01:32)
+    [] Update all references to component
+  universal-footer:
+    x Create component directory @done(23-03-13 01:35)
+    x move scss @done(23-03-13 01:35)
+    x Modify PL story to reference component @done(23-03-13 01:49)
+    x Modify component to be reusable @done(23-03-13 01:49)
+    x Update all references to component @done(23-03-13 01:49)
+  universal-header:
+    x Create component directory @done(23-03-13 02:23)
+    x move scss @done(23-03-13 02:23)
+    x Modify PL story to reference component @done(23-03-13 02:23)
+    x Modify component to be reusable @done(23-03-13 02:23)
+    x Update all references to component @done(23-03-13 02:23)
+  zipper-slab:
+    ✘ Create component directory @cancelled(23-06-17 01:56)
+    ✘ move scss @cancelled(23-06-17 01:56)
+    ✘ Modify PL story to reference component @cancelled(23-06-17 01:56)
+    ✘ Modify component to be reusable @cancelled(23-06-17 01:56)
+    ✘ Update all references to component @cancelled(23-06-17 01:56)
+    text-page-header:
+      ✔ Create component directory @done(23-06-17 01:40)
+      ✔ move scss @done(23-06-17 01:40)
+      ✔ Modify PL story to reference component @done(23-06-17 01:40)
+      ✔ Modify component to be reusable @done(23-06-17 01:40)
+      ✔ Update all references to component @done(23-06-17 01:40)
+    split-page-header:
+      ✔ Create component directory @done(23-06-17 01:55)
+      ✔ move scss @done(23-06-17 01:55)
+      ✔ Modify PL story to reference component @done(23-06-17 01:55)
+      ✔ Modify component to be reusable @done(23-06-17 01:55)
+      ✔ Update all references to component @done(23-06-17 01:55)
+    hero-page-header:
+      x Create component directory @done(23-03-12 20:03)
+      ✔ move scss @done(23-06-17 01:18)
+      ✔ Modify PL story to reference component @done(23-06-17 01:17)
+      ✔ Modify component to be reusable @done(23-06-17 01:17)
+      ✔ Update all references to component @done(23-06-17 01:17)
+
+
+
+Unresolved Components/Issues:
+  [] Image needs to be replaceable with a drupal-generated elment
+  [] Skipped sidebar-editorial updates (this seems like it should have been a template/demo)
+  [] Skipped page updates
+  [] Skipped headline-group-popout
+  [] Assess using explicit switch logic for media types provided for slides (instead of taking a string)
+  [] atoms-paragraph just adds a class to a p tag
+  [] atoms-cite is only used once or twice
+  [] Skipped skip-nav
+  [] Review tabs: should it have blocks or take structured tabs?
+  [] mobile-tab-nav is referencing 'nav_molecule' which isn't always set.
+  [] Skipped adding direct component calls to page/demo templates
+  [] Need a general direction for when to use blocks and when to default populate using props
+  [] global-unit-footer looks redundant with global-footer
+  [] Did not implement megamenu in global-header (hardcoded global-nav)
+  [] Mobile tab nav main menu doesn't work (not in current PL either)
+  [] Section-nav seems broken, display logic is different for PL vs Drupal
+  [] Skipping headline-group--popout
+  [] ambient-video needs better sample media (missing poster)
+  [] skipping atoms-paragraph, since it just makes paragraphs.
+  [] Skipping 500-statistics, since it just composes statistic and grid
+  [] Skipping content-specific 'teasers' since they're just composed

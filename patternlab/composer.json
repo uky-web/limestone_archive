@@ -30,12 +30,14 @@
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"fzaninotto/faker": "dev-master",
 		"koenpunt/php-inflector": "dev-master",
-		"ahebrank/yeti_twig": "dev-master"
+		"ahebrank/yeti_twig": "dev-master",
+		"evanlovely/plugin-twig-namespaces": "^1.1"
 	},
 	"scripts": {
 		"post-install-cmd": [
 			"PatternLab\\Installer::postInstallCmd",
-			"sudo echo '{\"patternengines\":[\"\\\\PatternLab\\\\PatternEngine\\\\Twig\\\\PatternEngineRule\"]}' >| config/patternengines.json"
+			"sudo echo '{\"patternengines\":[\"\\\\PatternLab\\\\PatternEngine\\\\Twig\\\\PatternEngineRule\"]}' >| config/patternengines.json",
+			"sudo echo '{\"listeners\":[\"\\\\PatternLab\\\\TwigNamespaces\\\\PatternLabListener\"]}' > config/listeners.json"
 		],
 		"post-update-cmd": [
 			"PatternLab\\Installer::postUpdateCmd"

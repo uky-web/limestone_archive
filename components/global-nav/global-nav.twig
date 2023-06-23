@@ -1,0 +1,11 @@
+{% set uniqid = "MainNavLabel"|uniqid %}
+
+<nav id="MainNav" class="global-nav" aria-labelledby="{{ uniqid }}">
+    <div class="show-for-sr" id="{{ uniqid }}">Main Navigation</div>
+    <a href="{{home_link}}" class="ic ic--home"><span class="show-for-sr">Return to Home Page</span></a>
+
+    {% for link in links %}
+        {% include '@limestone/link.twig' with { label: link.label, href:link.url } %}
+    {% endfor %}
+
+</nav>

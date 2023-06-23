@@ -11,7 +11,7 @@
 	{% for i in 0 .. num_items %}
 		<li>
 			{% if sample_as_links is sameas(true) %}
-				{% include 'atoms-link' %}
+				{% include '@limestone/link.twig' %}
 			{% else %}
 				{{ fake('bs')|titleize }}
 			{% endif %}
@@ -23,7 +23,7 @@
 	{% for item in items %}
 		<li>
 			{% if item.linked is sameas(true) %}
-				{% include 'atoms-link' with { 
+				{% include '@limestone/link' with { 
 					label: item.content|default(fake('bs')|titleize) 
 				} %}
 			{% else %}

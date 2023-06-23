@@ -1,5 +1,6 @@
-<p>
-    <cite class="cite-media">
-        {% include 'atoms-icon-label' %}
-    </cite>
-</p>
+{% set props = {
+    "icon": icon|default("camera"),
+    "label":label|default("Media citation")
+}%}
+
+{% include "@limestone/cite-media.twig" with props %}

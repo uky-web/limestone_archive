@@ -13,8 +13,7 @@
 // @import 'sass-mq';
 
 @use 'includes/root-rhythm';
-@use 'tokens/typography';
-
+@use 'typography';
 @import 'includes/rem';
 @import 'includes/math';
 // @import 'includes/colors';
@@ -33,10 +32,9 @@
 @import 'atoms/global';
 @import 'atoms/icons';
 @import 'atoms/text';
-@import 'atoms/buttons';
+@import 'button';
 @import 'atoms/lists';
-@import 'atoms/media';
 
 @import 'molecules/text';
 
-@import 'components/blocks/editorial';
+@import 'editorial';

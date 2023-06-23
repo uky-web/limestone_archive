@@ -1,0 +1,29 @@
+{% set formatted_text_props = {
+	"content": body
+}%}
+
+{% set heading_props = {
+	"headline":heading,
+	"level":heading_level
+}%}
+
+{# This really doesn't make sense. Client code could blow away 
+the content of this component, and leave only the wrapper. At a minimum, 
+The two internal elements, aside and @class=editorial_content, should be 
+outside the block default. #}
+
+<div class="editorial">
+	{% block editorial_aside %}
+		{% if aside is not empty %}
+		<aside class="editorial__aside {{ aside_position|default('align-right') }}">
+			{{aside}}
+		</aside>
+		{% endif %}
+	{% endblock %}
+	{% block editorial_content %}
+	<div class="editorial__content">
+		{% include '@limestone/heading.twig' with heading_props only %}
+		{% include "@limestone/formatted-text.twig" with formatted_text_props only %}
+	</div>
+	{% endblock %}
+</div>

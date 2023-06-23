@@ -1,15 +1,20 @@
 {% extends 'base.twig' %}
+
+{% set formatted_text_props = {
+	content: text.editorial_paragraphs(5, 10)
+}%}
+
 {% block main_content %}
 
-{% embed 'molecules-slab' with { slab_variant : 'slab--wildcat-white' } %}
+{% embed '@limestone/slab.twig' with { slab_variant : 'slab--wildcat-white' } %}
     {% block slab_content %}
         {% for i in 2..6 %}
-            {% include 'atoms-heading' with { level: i, headline: 'H' ~ i ~ '. ' ~ fake('bs')|titleize } %}
-            {% include 'atoms-formatted-text' with { formatted_text_paragraphs:random(5), formatted_text_sentences : 10 + random(10) } %}
+            {% include '@limestone/heading.twig' with { level: i, headline: 'H' ~ i ~ '. ' ~ fake('bs')|titleize } %}
+	        {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
         {% endfor %}
         {% for i in 2..6 %}
             {% include 'molecules-headline-group' with { level: i, super: 'H' ~ i ~ ' headline group', head: fake('bs')|titleize, sub: fake('catchPhrase') } %}
-            {% include 'atoms-formatted-text' with { formatted_text_paragraphs:random(5), formatted_text_sentences : 10 + random(10) } %}
+	        {% include "@limestone/formatted-text.twig" with formatted_text_props only %}
         {% endfor %}        
     {% endblock %}
 {% endembed %}

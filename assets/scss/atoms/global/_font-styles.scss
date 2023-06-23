@@ -2,4 +2,3 @@
 @use 'typography';
 
 @include root-rhythm.rr-font-samples('text', typography.$fonts, typography.$lineheights);
-

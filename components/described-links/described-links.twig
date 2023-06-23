@@ -1,0 +1,10 @@
+<dl class="described-links">
+  {% for link in links %}
+    <dt>{% include '@limestone/link.twig' with { "label":link.label, 'link_variant':'link--fancy' } only %} </dt> 
+    {% if not brief %}
+    <dd>	{% include "@limestone/formatted-text.twig" with {"content":link.description} only %}
+</dd>
+    {% endif %}
+  {% endfor %}
+</dl>
+

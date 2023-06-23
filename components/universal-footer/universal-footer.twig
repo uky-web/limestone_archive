@@ -1,0 +1,21 @@
+{% set icon_label_props = {
+    icon: 'pin', 
+    'label': 'Lexington, Kentucky 40506' 
+}%}
+
+{% embed '@limestone/slab.twig' with { slab_variant: 'slab--wildcat-blue universal-footer' } %}
+    {% block slab_content %}
+        {% if include_wordmark %}
+            <a href="https://www.uky.edu">{% include '@limestone/uk-wordmark.twig' %}<span class="show-for-sr">University of Kentucky</span></a>
+        {% endif %}
+        <div class="universal-footer__ribbon">
+            {% for link in links %}
+                    <div><a class="underline-link" href="{{link.url}}">{{link.label}}</a> </div>
+            {% endfor %}
+        </div>
+        <div class="universal-footer__ribbon">
+            <div>© University of Kentucky</div>
+            <div><a href="#"><a href="#">{% include '@limestone/icon-label.twig' with icon_label_props only %}</a></div>
+        </div>
+    {% endblock %}
+{% endembed %}

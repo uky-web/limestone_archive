@@ -1,12 +1,22 @@
-<div class="micro-teaser">
-    {% include 'molecules-headline-group' with { head: fake('sentence')|titleize } %}
-    <div class="micro-teaser__wrapper">
-    <div class="micro-teaser__media">
-        <a href="#">{% include 'atoms-image' with {aspect: "1:1", width: 300} %}</a>
-    </div>
-    <div class="micro-teaser__content">
-        {% include 'atoms-formatted-text' %}
-        {% include 'molecules-cta-group' with { cta_type: "mixed" } %}
-    </div>
-    </div>
-</div>
+
+{% set props = {
+	"headline_level":level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+	"headline_head": fake('sentence')|titleize,
+    "content": text.editorial_paragraphs(1, 5),
+    "image_url": fake('imageUrl',{width: 300, height: 300}),
+    "cta_type":"mixed",
+    "cta_actions":[{
+        "label":"Action 1",
+        "url":"example.com"
+    },
+    {
+        "label":"Action 2",
+        "url":"example.com"
+    }]
+}%}
+
+
+{% include "@limestone/micro-teaser.twig" with props only %}
+

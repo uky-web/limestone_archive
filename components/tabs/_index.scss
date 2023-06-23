@@ -1,0 +1,105 @@
+@use 'root-rhythm';
+@use 'color-functions';
+@use 'color-schemes';
+@use 'typography';
+.js-tabs {
+  position: relative;
+
+  .back-to-top {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    padding: 0 root-rhythm.rr-gridbase(1);
+    background-color: color-functions.color(light-blue);
+    color: color-functions.color(wildcat-white);
+    font-size: 1rem;
+    line-height: root-rhythm.rr-gridbase(4);
+  }
+}
+
+.js-tablist {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.js-tablist__item:nth-child(2) {
+  padding: 0 20px 0 20px;
+}
+
+.js-tablist__item {
+  position: relative;
+  flex: 1 1 100%;
+  margin-bottom: 0;
+
+  a {
+    @include root-rhythm.rr-font-compute(s, tight, typography.$fonts, typography.$lineheights);
+    display: block;
+    margin: 0 auto;
+    padding: root-rhythm.rr-gridbase(2) 0;
+    outline: 0;
+    background-color: color-functions.color(blue-gray);
+    color: color-functions.color(dark-blue);
+
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover,
+    &:active {
+      color: color-functions.color(dark-blue);
+    }
+
+    &[aria-selected='true'],
+    &:focus {
+      &::after {
+        position: absolute;
+        right: root-rhythm.rr-gridbase(3);
+        bottom: 0;
+        left: root-rhythm.rr-gridbase(3);
+        height: 4px;
+        background-color: color-functions.color(light-blue-tint);
+        content: '';
+      }
+    }
+
+    &[aria-selected='true'] {
+      background-color: color-functions.color(dark-blue);
+      color: color-functions.color(wildcat-white);
+      font-weight: 600;
+      pointer-events: none;
+
+      &::after {
+        background-color: color-functions.color(light-blue);
+      }
+
+      &:hover,
+      &:active {
+        color: color-functions.color(light-blue-tint);
+      }
+    }
+  }
+}
+
+.js-tabcontent {
+  @include usescheme(color-schemes.$scheme-dark);
+  margin-bottom: root-rhythm.rr-grid-remainder(4px);
+  padding-bottom: root-rhythm.rr-gridbase(5);
+  border-bottom: 4px color-functions.color(light-blue) solid;
+  background-color: color-functions.color(dark-blue);
+
+  &[aria-hidden='true'] {
+    display: none;
+  }
+
+  .section-nav {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    background-color: transparent;
+  }
+
+  .universal-header {
+    display: block;
+  }
+}

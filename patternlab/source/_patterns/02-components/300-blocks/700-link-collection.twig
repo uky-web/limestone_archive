@@ -1,9 +1,26 @@
-<div class="link-collection {{ link_collection_variant }}">
-    <div class="link-collection__header">
-        {% include 'molecules-headline-group' with { super: super|default('Described Links Block'), head: head|default('Link Collection') } %}
-        {% include 'atoms-formatted-text' with { formatted_text_sentences : 2 } %}
-    </div>
-    <div class="link-collection__content">
-        {% include 'molecules-described-links' with { brief: brief|default(false) } %}
-    </div>
-</div>
+{% set props = {
+	"headline_level":level|default(1),
+	"headline_group_id":headline_group_id|default("headline-group"|uniqid),
+	"headline_group_variant":headline_group_variant,
+   "headline_super": super|default('Described Links Block'), 
+   "headline_head": head|default('Link Collection'),
+   "description": text.editorial_paragraphs(1, 2),
+   "described_links_brief": false,
+  "links":[
+      {
+        "label":fake('words',{nb:4, asText: true}),
+        "description": text.editorial_paragraphs(1,2)
+      },
+      {
+        "label":fake('words',{nb:4, asText: true}),
+        "description": text.editorial_paragraphs(1,2)
+      },
+      {
+        "label":fake('words',{nb:4, asText: true}),
+        "description": text.editorial_paragraphs(1,2)
+      },
+    ] 
+}%}
+
+{% include "@limestone/link-collection.twig" with props only %}
+

@@ -1,0 +1,12 @@
+<div class="js-accordion__panel">
+  {% include 'atoms-heading' with { 
+	level: level|default(3), 
+	headline: title, 
+	'heading_variant': heading_variant
+	}%}
+
+	{% block accordion_panel_content %}
+  		{{ body }}
+	{% endblock %}
+
+</div>

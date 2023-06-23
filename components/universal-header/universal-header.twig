@@ -1,0 +1,19 @@
+{% set props = {
+    'slab_variant': ('universal-header ' ~ slab_variant ),
+    'universal_breadcrumb_props':{
+        'parent_site_url': parent_site_url,
+        'parent_site_name': parent_site_name
+    }
+} %}
+
+{% embed '@limestone/slab.twig' with props only %}
+    {% block slab_content %}
+        <div class="universal-header__layout">
+            {% if not hide_breadcrumb %}
+            {% include '@limestone/universal-breadcrumb.twig' with {props:universal_breadcrumb_props} only %}
+            {% endif %}
+            {% include '@limestone/universal-nav.twig' %}
+        </div>
+    {% endblock %}
+{% endembed %}
+
