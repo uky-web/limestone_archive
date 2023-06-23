@@ -35,12 +35,9 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
-			"PatternLab\\Installer::postInstallCmd",
-			"sudo echo '{\"patternengines\":[\"\\\\PatternLab\\\\PatternEngine\\\\Twig\\\\PatternEngineRule\"]}' >| config/patternengines.json",
-			"sudo echo '{\"listeners\":[\"\\\\PatternLab\\\\TwigNamespaces\\\\PatternLabListener\"]}' > config/listeners.json"
+			"PatternLab\\Installer::postInstallCmd"
 		],
 		"post-update-cmd": [
-			"PatternLab\\Installer::postUpdateCmd"
 		],
 		"post-root-package-install": [
 			"PatternLab\\Installer::setProjectInstall",
